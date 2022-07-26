@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { editReviewThunk } from '../../store/review';
 
 function EditReviewForm({toggleShow, reviewProp}) {
-console.log("review prop ==> ", reviewProp)
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
   const taskId = 1;
   // const task = useSelector(state => state.tasks[taskId])
-
   // const [validationErrors, setValidationErrors]
   const [rating, setRating] = useState(reviewProp.rating);
   const [comment, setComment] = useState(reviewProp.comment);
@@ -21,7 +18,7 @@ console.log("review prop ==> ", reviewProp)
     e.preventDefault();
     setRating(1);
     setComment('');
-    toggleShow()
+    toggleShow();
   };
 
   const handleSubmit = async (e) => {
@@ -35,12 +32,18 @@ console.log("review prop ==> ", reviewProp)
       task_id: taskId
     }
 
-    const newReview = await dispatch(editReviewThunk(data));
+      let newReview;
+    try {
+      newReview = await dispatch(editReviewThunk(data));
+    }
+    catch (error) {
+      throw error;
+    }
 
     if (newReview) {
       setRating(1);
       setComment('');
-      toggleShow()
+      toggleShow();
       window.alert('WOOO!')
     }
   }
@@ -62,6 +65,7 @@ console.log("review prop ==> ", reviewProp)
           <input
             value={comment}
             type='text'
+            required
             onChange={(e) => setComment(e.target.value)}
           />
         </div>

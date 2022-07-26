@@ -8,15 +8,11 @@ function ReviewForm() {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  console.log(sessionUser, 'this is sesh user')
   const taskId = 1;
   // const task = useSelector(state => state.tasks[taskId])
-
   // const [validationErrors, setValidationErrors]
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
-  console.log(rating, 'this is the rating');
-  console.log(comment, 'this is the comment');
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -60,6 +56,7 @@ function ReviewForm() {
           <label>Comment</label>
           <input
             value={comment}
+            required
             type='text'
             onChange={(e) => setComment(e.target.value)}
           />

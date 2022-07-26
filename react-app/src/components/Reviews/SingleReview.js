@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getReviewsThunk } from '../../store/review';
-import EditReviewForm from './EditReviewForm'
+import React, { useState } from 'react';
+import EditReviewForm from './EditReviewForm';
+import { useDispatch } from 'react-redux';
+import { deleteReviewThunk } from '../../store/review'
 
 function SingleReview({review}) {
   const dispatch = useDispatch();
-  const [showEditForm, setShowEditForm] = useState("false");
 
-  const editHandler =  async(e) => {
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  const editHandler =  async () => {
     showEditForm ? setShowEditForm(false) : setShowEditForm(true)
   }
 
-//   useEffect(() => {
-//     dispatch(getReviewsThunk())
-//   }, [dispatch])
+  const deleteHandler = async () => {
+    dispatch(deleteReviewThunk(review))
+    
+  }
 
   return (
     <div>
-        <div>{review.rating}</div>
-        <div>{review.comment}</div>
-        <button
-        onClick={editHandler}
-        >Edit</button>
+        {!showEditForm &&  (
+          <div>
+            <div>Rating: {review.rating}</div>
+            <div>Comment: {review.comment}</div>
+            <button onClick={editHandler}>Edit</button>
+            <button onClick={deleteHandler}>Delete</button>
+          </div>
+        )}
+
         {showEditForm && <EditReviewForm toggleShow={setShowEditForm} reviewProp={review}/>}
     </div>
   );
