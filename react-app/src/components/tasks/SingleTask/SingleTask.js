@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { getTasksThunk } from '../../../store/tasks'
+import EditTaskForm from '../editTaskForm/editTaskForm'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -21,27 +22,28 @@ function SingleTask() {
 
     useEffect(() => {
         async function fetchData() {
-          const res = await fetch('/api/users/')
-          const resData = await res.json()
-          setUsers(resData.users)
+            const res = await fetch('/api/users/')
+            const resData = await res.json()
+            setUsers(resData.users)
         }
         fetchData()
-      }, [])
+    }, [])
 
     console.log(task)
 
-    return(
+    return (
         task && user ?
-        <div>
-            <h1>{task.title}</h1>
-            <p>User: {user.first_name} {user.last_name}</p>
-            <p>Location: {task.city}, {task.state}, {task.country}</p>
-            <p>Description: {task.description}</p>
-            <p>Reward: {task.price}</p>
-            <p>Danger Level: {task.danger_level}</p>
-        </div>
-        :
-        <p>...loading</p>
+            <div>
+                <h1>{task.title}</h1>
+                <p>User: {user.first_name} {user.last_name}</p>
+                <p>Location: {task.city}, {task.state}, {task.country}</p>
+                <p>Description: {task.description}</p>
+                <p>Reward: {task.price}</p>
+                <p>Danger Level: {task.danger_level}</p>
+                <EditTaskForm task={task} />
+            </div>
+            :
+            <p>...loading</p>
     )
 }
 
