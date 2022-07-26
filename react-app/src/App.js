@@ -51,7 +51,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-          <Reviews/>
           <ReviewForm/>
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
@@ -60,6 +59,9 @@ function App() {
         <Route path='/tasks/:id'>
           <SingleTask/>
         </Route>
+        <ProtectedRoute path='/reviews'>
+          <Reviews/>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

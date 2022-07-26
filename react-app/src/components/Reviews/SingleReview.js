@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
-import ReviewForm from './ReviewForm'
+import EditReviewForm from './EditReviewForm'
 
 function SingleReview({review}) {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function SingleReview({review}) {
         <button
         onClick={editHandler}
         >Edit</button>
-        {showEditForm && <ReviewForm toggleShow={setShowEditForm}/>}
+        {showEditForm && <EditReviewForm toggleShow={setShowEditForm} reviewProp={review}/>}
     </div>
   );
 }
