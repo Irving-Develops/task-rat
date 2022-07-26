@@ -50,12 +50,14 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-          <Reviews/>
           <ReviewForm/>
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
           <TaskView />
         </Route>
+        <ProtectedRoute path='/reviews'>
+          <Reviews/>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
