@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
-import { getTasksThunk } from '../../../store/tasks'
+import { deleteTaskThunk, getTasksThunk } from '../../../store/tasks'
 import EditTaskForm from '../editTaskForm/editTaskForm'
 
 function SingleTask() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { id } = useParams()
     const [users, setUsers] = useState([])
     const task = useSelector(state => state.tasks[id])
@@ -29,7 +30,10 @@ function SingleTask() {
         fetchData()
     }, [])
 
-    console.log(task)
+    const handleDelete = async() => {
+        await dispatch(deleteTaskThunk(task))
+        history.push('/tasks')
+    }
 
     return (
         task && user ?
@@ -41,6 +45,7 @@ function SingleTask() {
                 <p>Reward: {task.price}</p>
                 <p>Danger Level: {task.danger_level}</p>
                 <EditTaskForm task={task} />
+                <button onClick={handleDelete}>Delete</button>
             </div>
             :
             <p>...loading</p>
