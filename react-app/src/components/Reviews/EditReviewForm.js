@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addReviewThunk } from '../store/review';
+import { addReviewThunk } from '../../store/review';
 
-function NewReviewForm() {
+function EditReviewForm() {
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -15,8 +15,7 @@ function NewReviewForm() {
   // const [validationErrors, setValidationErrors]
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
-  console.log(rating, 'this is the rating');
-  console.log(comment, 'this is the comment');
+
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -73,4 +72,4 @@ function NewReviewForm() {
   );
 }
 
-export default NewReviewForm;
+export default EditReviewForm;
