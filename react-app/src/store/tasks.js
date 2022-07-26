@@ -73,7 +73,7 @@ export const editTaskThunk = (data) => async (dispatch) => {
 
 export const deleteTaskThunk = (data) => async (dispatch) => {
   console.log(data.id)
-  const response = await fetch(`/api/tasks/${data.id}}`, {
+  const response = await fetch(`/api/tasks/${data.id}`, {
     method: 'DELETE'
   })
   if (response.ok) {

@@ -31,7 +31,8 @@ function SingleTask() {
     }, [])
 
     const handleDelete = async() => {
-        await dispatch(deleteTaskThunk(task)).then(history.push('/tasks'))
+        await dispatch(deleteTaskThunk(task))
+        history.push('/tasks')
     }
 
     return (
