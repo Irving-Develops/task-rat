@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import reviews from './review';
 import tasks from './tasks';
+import bookings from './booking'
 
 const rootReducer = combineReducers({
   session,
   reviews,
-  tasks
+  tasks,
+  bookings
 });
 
 

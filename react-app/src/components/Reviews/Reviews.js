@@ -12,7 +12,7 @@ function Reviews() {
   if (reviews) {
     reviewArr = Object.values(reviews);
   }
-  console.log(reviews, 'this is reviews')
+
   useEffect(() => {
     dispatch(getReviewsThunk())
   }, [dispatch])
