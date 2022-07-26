@@ -59,6 +59,7 @@ function App() {
         </Route>
         <ProtectedRoute path="/tasks/new">
           <TaskForm />
+        </ProtectedRoute>
         <Route path='/tasks/:id'>
           <SingleTask/>
         </Route>

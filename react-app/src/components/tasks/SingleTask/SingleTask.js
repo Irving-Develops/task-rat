@@ -8,7 +8,10 @@ function SingleTask() {
     const { id } = useParams()
     const [users, setUsers] = useState([])
     const task = useSelector(state => state.tasks[id])
-    const user = users.filter(user => user.id === task.poster_id)[0]
+    let user;
+    if(task) {
+        user = users.filter(user => user.id === task.poster_id)[0]
+    }
 
     console.log(user)
 
