@@ -9,8 +9,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+
 import Reviews from './components/Reviews/Reviews';
 import ReviewForm from './components/Reviews/ReviewForm';
+import TaskView from './components/tasks/tasksView/taskView';
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
   useEffect(() => {
     // not returning a promise, it's an IIFE
     //this runs to see if there is a currently logged in user
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -41,7 +43,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -51,6 +53,9 @@ function App() {
           <Reviews/>
           <ReviewForm/>
         </ProtectedRoute>
+        <Route path="/tasks" exact={true}>
+          <TaskView />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
