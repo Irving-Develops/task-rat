@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+// import Link from 'react-router'
 import { getTasksThunk } from "../../../store/tasks"
 import TaskCard from "../taskCard/taskCard";
 
@@ -23,7 +24,7 @@ function TaskView() {
       <div>
         {Object.values(tasks).map((task) => (
           <div key={task.id}>
-            <TaskCard task={task} />
+              <TaskCard task={task} />
           </div>
         ))}
         {/* <h3>

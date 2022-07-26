@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import Reviews from './components/Reviews/Reviews';
 import ReviewForm from './components/Reviews/ReviewForm';
 import TaskView from './components/tasks/tasksView/taskView';
+import SingleTask from './components/tasks/SingleTask/SingleTask';
 
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
           <TaskView />
+        </Route>
+        <Route path='/tasks/:id'>
+          <SingleTask/>
         </Route>
       </Switch>
     </BrowserRouter>
