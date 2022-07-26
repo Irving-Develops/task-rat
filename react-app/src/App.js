@@ -9,10 +9,12 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import Reviews from './components/Reviews';
-import NewReviewForm from './components/NewReviewForm';
+
+import Reviews from './components/Reviews/Reviews';
+import ReviewForm from './components/Reviews/ReviewForm';
 import TaskView from './components/tasks/tasksView/taskView';
 import TaskForm from './components/tasks/taskForm/taskForm';
+import SingleTask from './components/tasks/SingleTask/SingleTask';
 
 
 function App() {
@@ -50,14 +52,18 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-          <Reviews />
-          <NewReviewForm />
+          <ReviewForm/>
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
           <TaskView />
         </Route>
         <ProtectedRoute path="/tasks/new">
           <TaskForm />
+        <Route path='/tasks/:id'>
+          <SingleTask/>
+        </Route>
+        <ProtectedRoute path='/reviews'>
+          <Reviews/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
