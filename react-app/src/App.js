@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import Reviews from './components/Reviews/Reviews';
 import ReviewForm from './components/Reviews/ReviewForm';
 import TaskView from './components/tasks/tasksView/taskView';
+import TaskForm from './components/tasks/taskForm/taskForm';
 import SingleTask from './components/tasks/SingleTask/SingleTask';
 
 
@@ -56,6 +57,8 @@ function App() {
         <Route path="/tasks" exact={true}>
           <TaskView />
         </Route>
+        <ProtectedRoute path="/tasks/new">
+          <TaskForm />
         <Route path='/tasks/:id'>
           <SingleTask/>
         </Route>
