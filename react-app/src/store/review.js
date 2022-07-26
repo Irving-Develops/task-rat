@@ -1,5 +1,6 @@
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const ADD_REVIEW = 'reviews/ADD_REVIEW';
+const EDIT_REVIEW = 'reviews/EDIT_REVIEW'
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -11,8 +12,13 @@ const addReview = (review) => ({
   review
 })
 
+const editReview = (review) => ({
+  type: EDIT_REVIEW,
+  review
+})
+
 export const getReviewsThunk = () => async (dispatch) => {
-  const response = await fetch('/api/reviews');
+  const response = await fetch('/api/reviews/');
   if (response.ok) {
     const data = await response.json()
     if (data.errors) {
@@ -39,6 +45,24 @@ export const addReviewThunk = (data) => async (dispatch) => {
   }
 }
 
+export const editReviewThunk = (data) => async(dispatch) => {
+  console.log("data in edit thunk => ", data)
+  const response = await fetch(`/api/reviews/${data.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (response.ok) {
+    const data = await response.json();
+    if (data.errors) {
+      return;
+    }
+  dispatch(editReview(data));
+  }
+}
+
 const initialState = {}
 
 export default function review_reducer(state = initialState, action) {
@@ -49,6 +73,10 @@ export default function review_reducer(state = initialState, action) {
       action.reviews.forEach((review) => newState[review.id] = review)
       return newState;
     case ADD_REVIEW:
+      newState = {...state}
+      newState[action.review.id] = action.review
+      return newState;
+    case EDIT_REVIEW:
       newState = {...state}
       newState[action.review.id] = action.review
       return newState;
