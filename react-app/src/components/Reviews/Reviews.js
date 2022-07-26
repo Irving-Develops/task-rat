@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
-import SingleReview from '../SingleReview'
+import SingleReview from './SingleReview'
 
 function Reviews() {
 
