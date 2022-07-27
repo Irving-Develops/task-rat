@@ -9,7 +9,9 @@ function SingleTask() {
     const history = useHistory()
     const { id } = useParams()
     const [users, setUsers] = useState([])
+    const [showEditForm, setShowEditForm] = useState(false)
     const task = useSelector(state => state.tasks[id])
+    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(getTasksThunk())
@@ -64,7 +66,11 @@ function SingleTask() {
                     </div>
                 ))}
                 <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
-                <EditTaskForm task={task} />
+                {/* {console.log(sessionUser)} */}
+                {sessionUser && sessionUser.id === task.poster_id &&
+                    <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                }
+                {showEditForm && <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>}
                 <button onClick={handleDelete}>Delete</button>
             </div>
             :

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { editTaskThunk, getTasksThunk } from "../../../store/tasks"
 
-const EditTaskForm = ({ task }) => {
+const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const userId = useSelector((state) => state.session.user.id)
@@ -108,6 +108,7 @@ const EditTaskForm = ({ task }) => {
           <option value="5"> 5 </option>
         </select>
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
+        <button onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
       </form>
     </section>
   )
