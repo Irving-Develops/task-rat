@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
 
@@ -9,9 +8,7 @@ function BookingForm({task}) {
   const sessionUser = useSelector(state => state.session.user);
 
   const [validationErrors, setValidationErrors] = useState([]);
-  // const [completed, setCompleted] = useState(false);
-  // const [tasker, setTasker] = useState(sessionUser.id);
-  // const [task, setTask] = useState(s)
+
 
   const handleBooking = async (e) => {
     try {
@@ -22,13 +19,17 @@ function BookingForm({task}) {
         tasker_id: sessionUser.id,
         task_id: task.id
       }
+      const payload = {
+        ...task,
+        available: false
+      }
 
       const newBooking = await dispatch(addBookingThunk(booking));
-
+      const editedTask = await dispatch(editTaskThunk(payload))
       // task update goes here
 
-      if (newBooking) {
-        
+      if (newBooking && editedTask) {
+        window.alert('You have picked up this task. To view it visit your profile.')
       }
     }
     catch (error) {
@@ -37,7 +38,9 @@ function BookingForm({task}) {
   }
   return (
     <>
-    <button onClick={handleBooking}></button>
+    {task && task.available === true && (
+      <button onClick={handleBooking}>Claim Task</button>
+    )}
     </>
   );
 }

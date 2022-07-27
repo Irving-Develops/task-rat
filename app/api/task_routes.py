@@ -11,15 +11,15 @@ task_routes = Blueprint("tasks", __name__ )
 @task_routes.route('')
 def all_tasks():
   """ This route returns all available tasks sorted by most recent"""
-  tasks = Task.query.filter(Task.available == True).all()
-  print(tasks)
+  tasks = Task.query.all()
+
   return {"tasks" : [task.to_dict() for task in tasks]}
 
-@task_routes.route('/<int:id>')
-def single_task(id):
-  """Gets single tasks by their id"""
-  task = Task.query.get(id)
-  return task.to_dict()
+# @task_routes.route('/<int:id>')
+# def single_task(id):
+#   """Gets single tasks by their id"""
+#   task = Task.query.get(id)
+#   return task.to_dict()
 
 @task_routes.route('/new', methods=["GET", "POST"])
 def create_task():

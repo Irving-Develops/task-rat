@@ -14,12 +14,10 @@ def bookings():
 @booking_routes.route('', methods=['POST'])
 def new_booking():
     form = BookingForm()
-
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         booking = Booking(
-            completed=form.data['completed'],
             tasker_id=form.data['tasker_id'],
             task_id=form.data['task_id']
         )
