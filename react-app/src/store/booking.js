@@ -1,3 +1,5 @@
+import review_reducer from "./review";
+
 const GET_BOOKINGS = 'bookings/GET_BOOKINGS';
 const ADD_BOOKING = 'bookings/ADD_BOOKING';
 const EDIT_BOOKING = 'bookings/EDIT_BOOKING';
@@ -9,7 +11,22 @@ const getBookings = (bookings) => ({
   bookings
 });
 
-export const getBookingsThunk = () => async(dispatch) => {
+const addBooking = (booking) => ({
+  type: ADD_BOOKING,
+  booking
+})
+
+const editBooking = (booking) => ({
+  type: EDIT_BOOKING,
+  booking
+})
+
+const deleteBooking = (booking) => ({
+  type: DELETE_BOOKING,
+  booking
+})
+
+export const getBookingsThunk = () => async (dispatch) => {
     const res = await fetch('/api/bookings');
 
     if(res.ok) {
@@ -21,13 +38,74 @@ export const getBookingsThunk = () => async(dispatch) => {
     }
 }
 
+export const addBookingThunk = (data) => async (dispatch) => {
+  const response = await fetch('/api/bookings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addBooking(data));
+  }
+  else {
+    const err = await response.json();
+    throw err;
+  }
+}
+
+export const editBookingThunk = (data) => async (dispatch) => {
+  const response = await fetch(`/api/bookings/${data.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(editBooking(data));
+    return booking;
+  }
+  else {
+    const err = await response.json();
+    throw err;
+  }
+}
+
+export const deleteReviewThunk = (data) => async (dispatch) => {
+  const response = await fetch(`/api/bookings/${data.id}`, {
+    method: 'DELETE',
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(deleteBooking(data));
+    return data;
+  }
+  else {
+    const err = await response.json();
+    throw err;
+  }
+}
+
 export default function booking_reducer(state = {}, action) {
     let newState = {...state}
     switch (action.type) {
         case GET_BOOKINGS:
-            action.bookings.forEach(booking => newState[booking.id] = booking)
+            action.bookings.forEach(booking => newState[booking.id] = booking);
             return newState;
-        default: 
-        return state
+        case ADD_BOOKING:
+          newState[action.booking.id] = action.booking;
+          return newState;
+        case EDIT_BOOKING:
+          newState[action.booking.id] = action.booking;
+          return newState;
+        case DELETE_BOOKING:
+          delete newState[action.booking.id];
+          return newState;
+        default:
+        return state;
     }
 }

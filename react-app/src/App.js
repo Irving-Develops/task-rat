@@ -9,11 +9,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import Reviews from './components/Reviews/Reviews';
 import ReviewForm from './components/Reviews/ReviewForm';
-import TaskView from './components/tasks/tasksView/taskView';
-import TaskForm from './components/tasks/taskForm/taskForm';
-import SingleTask from './components/tasks/SingleTask/SingleTask';
+import TaskView from './components/Tasks/tasksView/taskView';
+import TaskForm from './components/Tasks/taskForm/taskForm';
+import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
 
 

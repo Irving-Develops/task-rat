@@ -80,6 +80,10 @@ export const deleteReviewThunk = (data) => async(dispatch) => {
     dispatch(deleteReview(review));
     return review;
   }
+  else {
+    const err = await response.json();
+    throw err;
+  }
 }
 
 const initialState = {}
@@ -88,18 +92,18 @@ export default function review_reducer(state = initialState, action) {
   let newState = {...state}
   switch (action.type) {
     case GET_REVIEWS:
-      action.reviews.forEach((review) => newState[review.id] = review)
+      action.reviews.forEach((review) => newState[review.id] = review);
       return newState;
     case ADD_REVIEW:
-      newState[action.review.id] = action.review
+      newState[action.review.id] = action.review;
       return newState;
     case EDIT_REVIEW:
-      newState[action.review.id] = action.review
+      newState[action.review.id] = action.review;
       return newState;
     case DELETE_REVIEW:
-      delete newState[action.review.id]
-      return newState
+      delete newState[action.review.id];
+      return newState;
     default:
-      return state
+      return state;
   }
 }
