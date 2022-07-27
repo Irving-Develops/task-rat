@@ -7,8 +7,6 @@ import BookingForm from '../../Bookings/BookingForm'
 function TaskCard({ task }) {
   const dispatch = useDispatch()
   const [users, setUsers] = useState([])
-  const [available, setAvailable] = useState(task.available)
-  console.log(task.available)
 
   let user
   if (users) {
@@ -24,9 +22,6 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
-  const updateAvailability = () => setAvailable(!task.available)
-
-
   return (
     <>
       {user && task ?
@@ -34,14 +29,15 @@ function TaskCard({ task }) {
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
             <p>User: {user.first_name} {user.last_name}</p>
+            <p>Posted: {task.created_at} </p>
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
             {task.tags.map(tag => (
-                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
-                        {tag.type}
-                    </div>
-                ))}
+              <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
+                {tag.type}
+              </div>
+            ))}
           </NavLink>
           <BookingForm task={task}/>
         </div>

@@ -1,6 +1,8 @@
 from flask import Blueprint, request
 from app.models import Task, db
 from sqlalchemy import desc
+
+from app.models.models import Tag
 from ..forms import TaskForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -10,7 +12,7 @@ task_routes = Blueprint("tasks", __name__ )
 def all_tasks():
   """ This route returns all available tasks sorted by most recent"""
   tasks = Task.query.all()
-  print(tasks)
+
   return {"tasks" : [task.to_dict() for task in tasks]}
 
 # @task_routes.route('/<int:id>')
@@ -80,3 +82,9 @@ def delete_task(id):
   db.session.delete(task)
   db.session.commit()
   return task.to_dict()
+
+@task_routes.route('/tags')
+def get_tags():
+  tags = Tag.query.all()
+  print(tags)
+  return {"tags": [tag.to_dict() for tag in tags]}

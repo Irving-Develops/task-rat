@@ -15,6 +15,7 @@ function TaskForm() {
   const [country, setCountry] = useState('')
   const [price, setPrice] = useState('')
   const [danger_level, setDangerLevel] = useState(1)
+  const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
 
   const updateTitle = (e) => setTitle(e.target.value)
@@ -37,7 +38,8 @@ function TaskForm() {
       price,
       poster_id: userId,
       danger_level,
-      available: true
+      available: true,
+      tags
     }
 
     setErrors([])
@@ -102,6 +104,77 @@ function TaskForm() {
           <option value="4"> 4 </option>
           <option value="5"> 5 </option>
         </select>
+        {/* <label>Tags</label> */}
+        <label>Guns</label>
+        <input
+        type='radio'
+        name='guns'
+        value='1'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Explosives</label>
+        <input
+        type='radio'
+        name='explosives'
+        value='2'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Stealth</label>
+        <input
+        type='radio'
+        name='stealth'
+        value='3'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Survival</label>
+        <input
+        type='radio'
+        name='survival'
+        value='4'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Medicine</label>
+        <input
+        type='radio'
+        name='medicine'
+        value='5'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Repairse</label>
+        <input
+        type='radio'
+        name='repairs'
+        value='6'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Pilot</label>
+        <input
+        type='radio'
+        name='pilot'
+        value='7'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Hacking</label>
+        <input
+        type='radio'
+        name='hacking'
+        value='8'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Hand-to-Hand</label>
+        <input
+        type='radio'
+        name='hand-to-hand'
+        value='9'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
+        <label>Charisma</label>
+        <input
+        type='radio'
+        name='charisma'
+        value='10'
+        onChange={(e) => setTags([...tags, e.target.value])}
+        ></input>
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
       </form>
     </section>
