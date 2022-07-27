@@ -6,8 +6,6 @@ import { editTaskThunk } from '../../../store/tasks'
 function TaskCard({ task }) {
   const dispatch = useDispatch()
   const [users, setUsers] = useState([])
-  const [available, setAvailable] = useState(task.available)
-  // console.log(task.available)
 
   let user
   if (users) {
@@ -23,7 +21,6 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
-  const updateAvailability = () => setAvailable(!task.available)
 
   const handleClaimTask = async (e) => {
     e.preventDefault()
@@ -32,11 +29,10 @@ function TaskCard({ task }) {
       ...task,
       available: false
     }
-    console.log(payload)
     try {
       await dispatch(editTaskThunk(payload))
     } catch (e) {
-      return 'not updating'
+      return 'not updating availibility'
     }
   }
 
@@ -51,10 +47,10 @@ function TaskCard({ task }) {
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
             {task.tags.map(tag => (
-                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
-                        {tag.type}
-                    </div>
-                ))}
+              <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
+                {tag.type}
+              </div>
+            ))}
           </NavLink>
           <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
         </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
-import { deleteTaskThunk, getTasksThunk } from '../../../store/tasks'
+import { deleteTaskThunk, getTasksThunk, editTaskThunk } from '../../../store/tasks'
 import EditTaskForm from '../editTaskForm/editTaskForm'
 
 function SingleTask() {
@@ -25,13 +25,27 @@ function SingleTask() {
     }, [])
 
     let user;
-    if(task) {
+    if (task) {
         user = users.filter(user => user.id === task.poster_id)[0]
     }
-    
-    const handleDelete = async() => {
+
+    const handleDelete = async () => {
         await dispatch(deleteTaskThunk(task))
         history.push('/tasks')
+    }
+
+    const handleClaimTask = async (e) => {
+        e.preventDefault()
+
+        const payload = {
+            ...task,
+            available: false
+        }
+        try {
+            await dispatch(editTaskThunk(payload))
+        } catch (e) {
+            return 'not updating availability'
+        }
     }
 
     return (
@@ -44,10 +58,11 @@ function SingleTask() {
                 <p>Reward: {task.price}</p>
                 <p>Danger Level: {task.danger_level}</p>
                 {task.tags.map(tag => (
-                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
+                    <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
                         {tag.type}
                     </div>
                 ))}
+                <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
                 <EditTaskForm task={task} />
                 <button onClick={handleDelete}>Delete</button>
             </div>
