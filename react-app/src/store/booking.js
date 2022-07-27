@@ -67,7 +67,7 @@ export const editBookingThunk = (data) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(editBooking(data));
-    return booking;
+    // return booking;
   }
   else {
     const err = await response.json();
