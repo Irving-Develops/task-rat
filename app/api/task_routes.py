@@ -40,8 +40,9 @@ def create_task():
       danger_level = form.data["danger_level"],
       # tags = form.data["tags"]
     )
-    selected_tags = form.data["tags"]
-    print(selected_tags, "SELECTED TAGS!")
+    # selected_tags = form.data["tags"]
+    print(request)
+    # print(selected_tags, "SELECTED TAGS!")
     all_tags = Tag.query.all()
     # # print(all_tags)
     # # selected_tags = [tag.id for tag in all_tags]
