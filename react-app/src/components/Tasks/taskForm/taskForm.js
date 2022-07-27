@@ -36,7 +36,8 @@ function TaskForm() {
       country,
       price,
       poster_id: userId,
-      danger_level
+      danger_level,
+      available: true
     }
 
     setErrors([])

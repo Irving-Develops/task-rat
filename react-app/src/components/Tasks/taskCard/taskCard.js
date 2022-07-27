@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { editTaskThunk } from '../../../store/tasks'
 
 function TaskCard({ task }) {
+  const dispatch = useDispatch()
   const [users, setUsers] = useState([])
+  const [available, setAvailable] = useState(task.available)
+  // console.log(task.available)
 
   let user
   if (users) {
@@ -18,7 +23,22 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
-  // console.log(user)
+  const updateAvailability = () => setAvailable(!task.available)
+
+  const handleClaimTask = async (e) => {
+    e.preventDefault()
+
+    const payload = {
+      ...task,
+      available: false
+    }
+    console.log(payload)
+    try {
+      await dispatch(editTaskThunk(payload))
+    } catch (e) {
+      return 'not updating'
+    }
+  }
 
   return (
     <>
@@ -36,6 +56,7 @@ function TaskCard({ task }) {
                     </div>
                 ))}
           </NavLink>
+          <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
         </div>
         :
         null
