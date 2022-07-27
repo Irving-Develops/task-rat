@@ -1,39 +1,26 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { editTaskThunk } from '../../../store/tasks'
-import BookingForm from '../../Bookings/BookingForm'
+import BookingForm from './BookingForm'
+import { useSelector, useDispatch } from 'react-redux'
+import {getTasksThunk} from '../../store/tasks'
 
-function TaskCard({ task }) {
+function BookedTasks({ task_id }) {
+console.log(task_id, "id")
+  const task = useSelector(state => state.tasks[2])
+  
   const dispatch = useDispatch()
-  const [users, setUsers] = useState([])
-  const [available, setAvailable] = useState(task.available)
-  console.log(task.available)
-
-  let user
-  if (users) {
-    user = users.filter(user => user.id === task.poster_id)[0]
-  }
+  console.log(task, "task")
 
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('/api/users/')
-      const resData = await res.json()
-      setUsers(resData.users)
-    }
-    fetchData()
-  }, [])
-
-  const updateAvailability = () => setAvailable(!task.available)
-
+    dispatch(getTasksThunk())
+  }, [dispatch])
 
   return (
     <>
-      {user && task ?
+      {task ?
         <div>
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
-            <p>User: {user.first_name} {user.last_name}</p>
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
@@ -52,4 +39,4 @@ function TaskCard({ task }) {
   )
 }
 
-export default TaskCard
+export default BookedTasks

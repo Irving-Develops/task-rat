@@ -27,7 +27,7 @@ const MyProfile = () => {
           <h2>Task's I created:</h2>
           {myTasks.length > 0 && myTasks.map(task => {
             return (
-              <div>
+              <div key={task.id}>
                 <div>{task.title}</div>
                 <div>{task.danger_level}</div>
               </div>

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookingsThunk } from '../../store/booking';
+import BookedTasks from './BookedTasks'
 
 function Bookings() {
     const dispatch = useDispatch();
     const bookings = useSelector(state => state.bookings);
     const sessionUser = useSelector(state => state.session.user)
-
     let bookingsArr ;
     if(bookings && sessionUser) {
         bookingsArr = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id);
     }
+
 
     useEffect(() => {
         dispatch(getBookingsThunk())
@@ -18,10 +19,11 @@ function Bookings() {
 
     return (
         <>
-        {bookingsArr && bookingsArr.map(booking => {
+        <h1>Current Missions</h1>
+        {bookingsArr && bookingsArr.length > 0 && bookingsArr.map(booking => {
           return (
             <div key={booking.id}>
-              {booking}
+              <BookedTasks task_id={booking.task_id}/>
             </div>
           );
         })}

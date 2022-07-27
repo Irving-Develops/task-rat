@@ -24,7 +24,6 @@ function Reviews({myTasks}) {
       }
     }
   }
-  console.log(reviewsAboutMeArr, 'reviews about me');
 
   useEffect(() => {
     dispatch(getReviewsThunk())

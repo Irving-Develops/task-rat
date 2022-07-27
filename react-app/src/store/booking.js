@@ -28,9 +28,8 @@ export const getBookingsThunk = () => async (dispatch) => {
     const res = await fetch('/api/bookings');
     if(res.ok) {
         const data = await res.json()
-        console.log(data, 'data inside getbthunk')
         dispatch(getBookings(data.bookings))
-    }
+      }
     else {
       const err = await res.json();
       throw err;
@@ -38,7 +37,6 @@ export const getBookingsThunk = () => async (dispatch) => {
 }
 
 export const addBookingThunk = (data) => async (dispatch) => {
-  console.log(data, 'data line 40')
   const response = await fetch('/api/bookings', {
     method: 'POST',
     headers: {
@@ -48,7 +46,6 @@ export const addBookingThunk = (data) => async (dispatch) => {
   })
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'data line 50')
     dispatch(addBooking(data));
     return data;
   }
@@ -97,8 +94,7 @@ export default function booking_reducer(state = initialState, action) {
     let newState = {...state}
     switch (action.type) {
         case GET_BOOKINGS:
-            console.log(action.bookings, 'action bookings')
-            action.bookings.forEach(booking => newState[booking.id] = booking);
+            action.bookings.forEach((booking) => newState[booking.id] = booking);
             return newState;
         case ADD_BOOKING:
           newState[action.booking.id] = action.booking;

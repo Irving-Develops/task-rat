@@ -8,9 +8,6 @@ function BookingForm({task}) {
   const sessionUser = useSelector(state => state.session.user);
 
   const [validationErrors, setValidationErrors] = useState([]);
-  // const [completed, setCompleted] = useState(false);
-  // const [tasker, setTasker] = useState(sessionUser.id);
-  // const [task, setTask] = useState(s)
 
 
   const handleBooking = async (e) => {
@@ -26,13 +23,11 @@ function BookingForm({task}) {
         ...task,
         available: false
       }
-      console.log(booking, 'this is booking')
-      console.log(payload, 'this is the payload')
+
       const newBooking = await dispatch(addBookingThunk(booking));
       const editedTask = await dispatch(editTaskThunk(payload))
       // task update goes here
-      console.log(newBooking, 'new booking')
-      console.log(editedTask, 'newtask')
+
       if (newBooking && editedTask) {
         window.alert('You have picked up this task. To view it visit your profile.')
       }
