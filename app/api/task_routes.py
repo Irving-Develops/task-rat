@@ -80,3 +80,4 @@ def delete_task(id):
   db.session.delete(task)
   db.session.commit()
   return task.to_dict()
+
