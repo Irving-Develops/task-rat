@@ -75,7 +75,7 @@ export const editBookingThunk = (data) => async (dispatch) => {
   }
 }
 
-export const deleteReviewThunk = (data) => async (dispatch) => {
+export const deleteBookingThunk = (data) => async (dispatch) => {
   const response = await fetch(`/api/bookings/${data.id}`, {
     method: 'DELETE',
   });

@@ -7,9 +7,12 @@ function Bookings() {
     const dispatch = useDispatch();
     const bookings = useSelector(state => state.bookings);
     const sessionUser = useSelector(state => state.session.user)
-    let bookingsArr ;
+    let completedBookings;
+    let currentBookings;
+
     if(bookings && sessionUser) {
-        bookingsArr = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id);
+        completedBookings = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id && booking.completed);
+        currentBookings = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id && !booking.completed);
     }
 
 
@@ -19,8 +22,16 @@ function Bookings() {
 
     return (
         <>
+        <h1>Completed Missions</h1>
+        {completedBookings && completedBookings.length > 0 && completedBookings.map(booking => {
+          return (
+            <div key={booking.id}>
+              <BookedTasks task_id={booking.task_id} booking={booking}/>
+            </div>
+          );
+        })}
         <h1>Current Missions</h1>
-        {bookingsArr && bookingsArr.length > 0 && bookingsArr.map(booking => {
+        {currentBookings && currentBookings.length > 0 && currentBookings.map(booking => {
           return (
             <div key={booking.id}>
               <BookedTasks task_id={booking.task_id} booking={booking}/>
