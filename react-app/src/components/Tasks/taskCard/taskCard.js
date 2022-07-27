@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { editTaskThunk } from '../../../store/tasks'
+import BookingForm from '../../Bookings/BookingForm'
 
 function TaskCard({ task }) {
   const dispatch = useDispatch()
@@ -21,21 +22,6 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
-
-  const handleClaimTask = async (e) => {
-    e.preventDefault()
-
-    const payload = {
-      ...task,
-      available: false
-    }
-    try {
-      await dispatch(editTaskThunk(payload))
-    } catch (e) {
-      return 'not updating availibility'
-    }
-  }
-
   return (
     <>
       {user && task ?
@@ -53,7 +39,7 @@ function TaskCard({ task }) {
               </div>
             ))}
           </NavLink>
-          <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
+          <BookingForm task={task}/>
         </div>
         :
         null

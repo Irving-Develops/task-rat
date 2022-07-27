@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { deleteTaskThunk, getTasksThunk, editTaskThunk } from '../../../store/tasks'
 import EditTaskForm from '../editTaskForm/editTaskForm'
+import BookingForm from '../../Bookings/BookingForm'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -31,23 +32,10 @@ function SingleTask() {
         user = users.filter(user => user.id === task.poster_id)[0]
     }
 
-    const handleDelete = async () => {
+
+    const handleDelete = async() => {
         await dispatch(deleteTaskThunk(task))
         history.push('/tasks')
-    }
-
-    const handleClaimTask = async (e) => {
-        e.preventDefault()
-
-        const payload = {
-            ...task,
-            available: false
-        }
-        try {
-            await dispatch(editTaskThunk(payload))
-        } catch (e) {
-            return 'not updating availability'
-        }
     }
 
     return (
@@ -72,6 +60,7 @@ function SingleTask() {
                 }
                 {showEditForm && <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>}
                 <button onClick={handleDelete}>Delete</button>
+                <BookingForm task={task}/>
             </div>
             :
             <p>...loading</p>

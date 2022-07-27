@@ -27,10 +27,11 @@ export const getReviewsThunk = () => async (dispatch) => {
   const response = await fetch('/api/reviews');
   if (response.ok) {
     const data = await response.json()
-    if (data.errors) {
-      return data.errors;
-    }
     dispatch(getReviews(data.reviews));
+  }
+  else {
+    const err = await response.json();
+    throw err;
   }
 }
 
