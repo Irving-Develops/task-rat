@@ -26,7 +26,6 @@ def new_review():
     db.session.commit()
     return review.to_dict()
 
-  print(validation_errors_to_error_messages(form.errors))
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @review_routes.route('/<int:reviewId>', methods=['PUT'])

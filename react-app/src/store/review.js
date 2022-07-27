@@ -27,10 +27,12 @@ export const getReviewsThunk = () => async (dispatch) => {
   const response = await fetch('/api/reviews');
   if (response.ok) {
     const data = await response.json()
-    if (data.errors) {
-      return data.errors;
-    }
+    console.log(data, 'inside thunk')
     dispatch(getReviews(data.reviews));
+  }
+  else {
+    const err = await response.json();
+    throw err;
   }
 }
 
@@ -92,6 +94,7 @@ export default function review_reducer(state = initialState, action) {
   let newState = {...state}
   switch (action.type) {
     case GET_REVIEWS:
+      console.log(action.reviews, 'inside reducer')
       action.reviews.forEach((review) => newState[review.id] = review);
       return newState;
     case ADD_REVIEW:

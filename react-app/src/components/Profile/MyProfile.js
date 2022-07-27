@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
+import Bookings from '../Bookings/Bookings';
 
 const MyProfile = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const MyProfile = () => {
             );
           })}
         </div>
+        <Bookings/>
       </div>
 
     )}

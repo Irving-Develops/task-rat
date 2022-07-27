@@ -68,6 +68,7 @@ export const editTaskThunk = (data) => async (dispatch) => {
       return;
     }
     dispatch(editTask(data));
+    return data;
   }
 }
 

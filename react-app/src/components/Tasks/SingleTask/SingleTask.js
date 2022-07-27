@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { deleteTaskThunk, getTasksThunk } from '../../../store/tasks'
 import EditTaskForm from '../editTaskForm/editTaskForm'
+import BookingForm from '../../Bookings/BookingForm'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -28,7 +29,7 @@ function SingleTask() {
     if(task) {
         user = users.filter(user => user.id === task.poster_id)[0]
     }
-    
+
     const handleDelete = async() => {
         await dispatch(deleteTaskThunk(task))
         history.push('/tasks')
@@ -50,6 +51,7 @@ function SingleTask() {
                 ))}
                 <EditTaskForm task={task} />
                 <button onClick={handleDelete}>Delete</button>
+                <BookingForm task={task}/>
             </div>
             :
             <p>...loading</p>
