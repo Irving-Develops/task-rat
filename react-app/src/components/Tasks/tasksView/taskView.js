@@ -27,9 +27,6 @@ function TaskView() {
               <TaskCard task={task} />
           </div>
         ))}
-        {/* <h3>
-          {tasks.title}
-        </h3> */}
       </div>
     </div>
   )

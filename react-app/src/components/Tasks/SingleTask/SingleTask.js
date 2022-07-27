@@ -9,12 +9,15 @@ function SingleTask() {
     const { id } = useParams()
     const [users, setUsers] = useState([])
     const task = useSelector(state => state.tasks[id])
+
     let user;
     if(task) {
         user = users.filter(user => user.id === task.poster_id)[0]
+        // task.tags.map(tag => console.log(tag.type))
+        // console.log()
     }
 
-    console.log(user)
+    // console.log(user)
 
     useEffect(() => {
         dispatch(getTasksThunk())
@@ -29,7 +32,7 @@ function SingleTask() {
         fetchData()
     }, [])
 
-    console.log(task)
+
 
     return (
         task && user ?
@@ -40,6 +43,11 @@ function SingleTask() {
                 <p>Description: {task.description}</p>
                 <p>Reward: {task.price}</p>
                 <p>Danger Level: {task.danger_level}</p>
+                {task.tags.map(tag => (
+                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
+                        {tag.type}
+                    </div>
+                ))}
                 <EditTaskForm task={task} />
             </div>
             :

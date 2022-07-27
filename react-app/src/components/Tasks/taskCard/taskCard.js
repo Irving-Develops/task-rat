@@ -19,7 +19,7 @@ function TaskCard({ task }) {
 
   return (
     <>
-      {user ?
+      {user && task ?
         <div>
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
@@ -27,6 +27,11 @@ function TaskCard({ task }) {
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
+            {task.tags.map(tag => (
+                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
+                        {tag.type}
+                    </div>
+                ))}
           </NavLink>
         </div>
         :

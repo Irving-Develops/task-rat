@@ -89,6 +89,22 @@ class Task(db.Model):
       'poster_id': self.poster_id,
       'danger_level': self.danger_level,
       'available': self.available,
+      'created_at': self.created_at,
+      'tags': [tag.to_dict() for tag in self.tags]
+    }
+
+  def to_dict_no_tags(self):
+    return {
+      'id': self.id,
+      'title': self.title,
+      'description': self.description,
+      'city': self.city,
+      'state': self.state,
+      'country': self.country,
+      'price': self.price,
+      'poster_id': self.poster_id,
+      'danger_level': self.danger_level,
+      'available': self.available,
       'created_at': self.created_at
     }
 
