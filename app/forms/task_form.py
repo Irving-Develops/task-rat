@@ -16,5 +16,5 @@ class TaskForm(FlaskForm):
   poster_id = IntegerField("poster_id", validators=[DataRequired()])
   danger_level = SelectField("Danger Level", validators=[DataRequired()], choices=[("1"), ("2"), ("3"), ("4"), ("5")])
   available = BooleanField('Available', default=True)
-  # tags = FieldList(RadioField("Tags", choices=[("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")]))
+  tags = SelectMultipleField("Tags", choices=[("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")])
   # ("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")

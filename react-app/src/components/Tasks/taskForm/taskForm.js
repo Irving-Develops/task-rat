@@ -26,7 +26,7 @@ function TaskForm() {
   const updatePrice = (e) => setPrice(e.target.value)
   const updateDangerLevel = (e) => setDangerLevel(e.target.value)
 
-  // console.log(tags)
+  console.log(tags)
 
   const handleSubmit = async (e) => {
     e.preventDefault()

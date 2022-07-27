@@ -40,14 +40,16 @@ def create_task():
       danger_level = form.data["danger_level"],
       # tags = form.data["tags"]
     )
-    # selected_tags = form.data["tags"]
-    print(request)
+    selected_tags = form.data["tags"]
+    # print(form.data)
     # print(selected_tags, "SELECTED TAGS!")
     all_tags = Tag.query.all()
     # # print(all_tags)
-    # # selected_tags = [tag.id for tag in all_tags]
-    # # print(selected_tags)
-    task.tags = all_tags
+    # print(isinstance(all_tags[0].id, int))
+    # print(isinstance(selected_tags[0], int))
+    added_tags = [tag for tag in all_tags for selected_tag in selected_tags if tag.id == int(selected_tag)]
+    # print(added_tags, 'this is the added tags')
+    task.tags = added_tags
 
     db.session.add(task)
     db.session.commit()

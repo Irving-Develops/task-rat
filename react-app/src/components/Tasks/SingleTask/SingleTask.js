@@ -53,7 +53,7 @@ function SingleTask() {
                         {tag.type}
                     </div>
                 ))}
-                <button onClick={(e) => handleClaimTask(e)}>Claim Task</button>
+                {/* <button onClick={(e) => handleClaimTask(e)}>Claim Task</button> */}
                 {/* {console.log(sessionUser)} */}
                 {sessionUser && sessionUser.id === task.poster_id &&
                     <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
