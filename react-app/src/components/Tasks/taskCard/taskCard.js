@@ -43,6 +43,7 @@ function TaskCard({ task }) {
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
             <p>User: {user.first_name} {user.last_name}</p>
+            <p>Posted: {task.created_at} </p>
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>

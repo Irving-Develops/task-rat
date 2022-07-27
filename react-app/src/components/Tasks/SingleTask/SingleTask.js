@@ -53,6 +53,7 @@ function SingleTask() {
             <div>
                 <h1>{task.title}</h1>
                 <p>User: {user.first_name} {user.last_name}</p>
+                <p>Posted: {task.created_at} </p>
                 <p>Location: {task.city}, {task.state}, {task.country}</p>
                 <p>Description: {task.description}</p>
                 <p>Reward: {task.price}</p>
