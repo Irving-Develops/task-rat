@@ -1,6 +1,6 @@
 from wsgiref.validate import validator
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, TextAreaField, SelectField
+from wtforms import StringField, IntegerField, TextAreaField, SelectField, BooleanField
 from wtforms.validators import DataRequired
 
 class TaskForm(FlaskForm):
@@ -12,3 +12,4 @@ class TaskForm(FlaskForm):
   price = IntegerField('Price', validators=[DataRequired()])
   poster_id = IntegerField("poster_id", validators=[DataRequired()])
   danger_level = SelectField("Danger Level", validators=[DataRequired()], choices=[("1"), ("2"), ("3"), ("4"), ("5")])
+  available = BooleanField('Available', default=True)

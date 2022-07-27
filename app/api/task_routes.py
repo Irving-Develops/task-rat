@@ -57,6 +57,7 @@ def edit_task(id):
     price = form.data["price"],
     poster_id = form.data["poster_id"],
     danger_level = form.data["danger_level"]
+    available = form.data["available"]
 
     task.title = title
     task.description = description
@@ -66,6 +67,7 @@ def edit_task(id):
     task.price = price
     task.poster_id = poster_id
     task.danger_level = danger_level
+    task.available = available
 
     db.session.commit()
     return task.to_dict()

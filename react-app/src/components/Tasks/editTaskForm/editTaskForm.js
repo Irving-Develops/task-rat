@@ -41,7 +41,8 @@ const EditTaskForm = ({ task }) => {
       country,
       price,
       poster_id: userId,
-      danger_level
+      danger_level,
+      available: true
     }
 
     setErrors([])
