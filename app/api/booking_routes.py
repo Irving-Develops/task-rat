@@ -11,7 +11,6 @@ def bookings():
     bookings = Booking.query.all()
     return {'bookings': [booking.to_dict() for booking in bookings]}
 
-
 @booking_routes.route('', methods=['POST'])
 def new_booking():
     form = BookingForm()
@@ -39,11 +38,10 @@ def edit_booking(id):
         booking.completed = form.data['completed']
         booking.tasker_id = form.data['tasker_id']
         booking.task_id = form.data['task_id']
-    
+
         db.session.commit()
         return booking.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 
 @booking_routes.route('/<int:id>', methods=['DELETE'])
 def delete_booking(id):
