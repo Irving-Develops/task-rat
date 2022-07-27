@@ -52,7 +52,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-          <ReviewForm/>
+          <ReviewForm />
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
           <TaskView />
@@ -61,13 +61,9 @@ function App() {
           <TaskForm />
         </ProtectedRoute>
         <Route path='/tasks/:id'>
-          <SingleTask/>
+          <SingleTask />
         </Route>
-        {/* <ProtectedRoute path='/reviews' exact={true}>
-          <Reviews/>
-        </ProtectedRoute> */}
         <ProtectedRoute path='/profile' exact={true}>
-          {/* <Reviews/> */}
           <MyProfile/>
         </ProtectedRoute>
       </Switch>

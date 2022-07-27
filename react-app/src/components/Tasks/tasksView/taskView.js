@@ -19,6 +19,7 @@ function TaskView() {
   // console.log(tasks)
 
   return (
+    tasks ?
     <div>
       <h1> Welcome to tasks </h1>
       <div>
@@ -27,11 +28,10 @@ function TaskView() {
               <TaskCard task={task} />
           </div>
         ))}
-        {/* <h3>
-          {tasks.title}
-        </h3> */}
       </div>
     </div>
+    :
+    <p>...loading</p>
   )
 }
 
