@@ -23,7 +23,7 @@ function Bookings() {
         {bookingsArr && bookingsArr.length > 0 && bookingsArr.map(booking => {
           return (
             <div key={booking.id}>
-              <BookedTasks task_id={booking.task_id}/>
+              <BookedTasks task_id={booking.task_id} booking={booking}/>
             </div>
           );
         })}

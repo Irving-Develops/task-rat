@@ -56,6 +56,7 @@ export const addBookingThunk = (data) => async (dispatch) => {
 }
 
 export const editBookingThunk = (data) => async (dispatch) => {
+  console.log(data, "in edit")
   const response = await fetch(`/api/bookings/${data.id}`, {
     method: 'PUT',
     headers: {
