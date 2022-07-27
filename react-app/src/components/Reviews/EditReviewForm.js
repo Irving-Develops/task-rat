@@ -9,10 +9,9 @@ function EditReviewForm({toggleShow, reviewProp}) {
 
   const taskId = 1;
   // const task = useSelector(state => state.tasks[taskId])
-  // const [validationErrors, setValidationErrors]
+  const [validationErrors, setValidationErrors] = useState([]);
   const [rating, setRating] = useState(reviewProp.rating);
   const [comment, setComment] = useState(reviewProp.comment);
-
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -22,35 +21,36 @@ function EditReviewForm({toggleShow, reviewProp}) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = {
-      id: reviewProp.id,
-      rating,
-      comment,
-      tasker_id: sessionUser.id,
-      task_id: taskId
-    }
-
-      let newReview;
     try {
-      newReview = await dispatch(editReviewThunk(data));
+      e.preventDefault();
+
+      const data = {
+        id: reviewProp.id,
+        rating,
+        comment,
+        tasker_id: sessionUser.id,
+        task_id: taskId
+      }
+
+      const newReview = await dispatch(editReviewThunk(data));
+
+      if (newReview) {
+        setRating(1);
+        setComment('');
+        toggleShow();
+      }
     }
     catch (error) {
-      throw error;
-    }
-
-    if (newReview) {
-      setRating(1);
-      setComment('');
-      toggleShow();
-      window.alert('WOOO!')
+      setValidationErrors(error.errors);
     }
   }
 
   return (
     <>
       <h1>Edit Review</h1>
+      {validationErrors.length > 0 && validationErrors.map(error => {
+        return <div>{error}</div>
+      })}
       <form onSubmit={handleSubmit}>
         <label>Rating</label>
         <select value={rating} onChange={(e) => setRating(e.target.value)}>

@@ -9,12 +9,12 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-
 import Reviews from './components/Reviews/Reviews';
 import ReviewForm from './components/Reviews/ReviewForm';
 import TaskView from './components/tasks/tasksView/taskView';
 import TaskForm from './components/tasks/taskForm/taskForm';
 import SingleTask from './components/tasks/SingleTask/SingleTask';
+import MyProfile from './components/Profile/MyProfile';
 
 
 function App() {
@@ -63,8 +63,12 @@ function App() {
         <Route path='/tasks/:id'>
           <SingleTask/>
         </Route>
-        <ProtectedRoute path='/reviews'>
+        {/* <ProtectedRoute path='/reviews' exact={true}>
           <Reviews/>
+        </ProtectedRoute> */}
+        <ProtectedRoute path='/profile' exact={true}>
+          {/* <Reviews/> */}
+          <MyProfile/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
