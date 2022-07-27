@@ -14,7 +14,7 @@ function TaskForm() {
   const [state, setState] = useState('')
   const [country, setCountry] = useState('')
   const [price, setPrice] = useState('')
-  const [danger_level, setDangerLevel] = useState(0)
+  const [danger_level, setDangerLevel] = useState(1)
   const [errors, setErrors] = useState([])
 
   const updateTitle = (e) => setTitle(e.target.value)
