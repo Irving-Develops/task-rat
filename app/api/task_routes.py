@@ -38,14 +38,15 @@ def create_task():
       price = form.data["price"],
       poster_id = form.data["poster_id"],
       danger_level = form.data["danger_level"],
-      tags = form.data["tags"]
+      # tags = form.data["tags"]
     )
-    print(task, "No, THIS is me!")
+    selected_tags = form.data["tags"]
+    print(selected_tags, "SELECTED TAGS!")
     all_tags = Tag.query.all()
-    # print(all_tags)
-    # selected_tags = [tag.id for tag in all_tags]
-    # print(selected_tags)
-    task.tags = []
+    # # print(all_tags)
+    # # selected_tags = [tag.id for tag in all_tags]
+    # # print(selected_tags)
+    task.tags = all_tags
 
     db.session.add(task)
     db.session.commit()
