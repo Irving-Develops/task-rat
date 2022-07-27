@@ -4,8 +4,11 @@ import { NavLink } from 'react-router-dom'
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
 
-  const user = users.filter(user => user.id === task.poster_id)[0]
-  // let users
+  let user
+  if (users) {
+    user = users.filter(user => user.id === task.poster_id)[0]
+  }
+
   useEffect(() => {
     async function fetchData() {
       const res = await fetch('/api/users/')

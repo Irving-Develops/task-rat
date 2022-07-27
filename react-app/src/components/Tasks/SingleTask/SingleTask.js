@@ -10,15 +10,6 @@ function SingleTask() {
     const [users, setUsers] = useState([])
     const task = useSelector(state => state.tasks[id])
 
-    let user;
-    if(task) {
-        user = users.filter(user => user.id === task.poster_id)[0]
-        // task.tags.map(tag => console.log(tag.type))
-        // console.log()
-    }
-
-    // console.log(user)
-
     useEffect(() => {
         dispatch(getTasksThunk())
     }, [dispatch])
@@ -32,7 +23,10 @@ function SingleTask() {
         fetchData()
     }, [])
 
-
+    let user;
+    if(task) {
+        user = users.filter(user => user.id === task.poster_id)[0]
+    }
 
     return (
         task && user ?
