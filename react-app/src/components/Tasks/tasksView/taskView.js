@@ -19,6 +19,7 @@ function TaskView() {
   // console.log(tasks)
 
   return (
+    tasks ?
     <div>
       <h1> Welcome to tasks </h1>
       <div>
@@ -29,6 +30,8 @@ function TaskView() {
         ))}
       </div>
     </div>
+    :
+    <p>...loading</p>
   )
 }
 
