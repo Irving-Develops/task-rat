@@ -44,10 +44,11 @@ export const addReviewThunk = (data) => async (dispatch) => {
   })
   if (response.ok) {
     const data = await response.json();
-    if (data.errors) {
-      return;
-    }
     dispatch(addReview(data));
+  }
+  else {
+    const err = await response.json();
+    throw err;
   }
 }
 
@@ -61,11 +62,12 @@ export const editReviewThunk = (data) => async(dispatch) => {
   })
   if (response.ok) {
     const review = await response.json();
-    if (review.errors) {
-      return;
-    }
-  dispatch(editReview(data));
-  return review;
+    dispatch(editReview(data));
+    return review;
+  }
+  else {
+    const err = await response.json();
+    throw err;
   }
 }
 

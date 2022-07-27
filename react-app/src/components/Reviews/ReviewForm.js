@@ -10,7 +10,7 @@ function ReviewForm() {
   const sessionUser = useSelector(state => state.session.user);
   const taskId = 1;
   // const task = useSelector(state => state.tasks[taskId])
-  // const [validationErrors, setValidationErrors]
+  const [validationErrors, setValidationErrors] = useState([]);
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
 
@@ -22,27 +22,33 @@ function ReviewForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    const data = {
-      rating,
-      comment,
-      tasker_id: sessionUser.id,
-      task_id: taskId
+      const data = {
+        rating,
+        comment,
+        tasker_id: sessionUser.id,
+        task_id: taskId
+      }
+
+      const newReview = await dispatch(addReviewThunk(data));
+      if (newReview) {
+        setRating(1);
+        setComment('');
+      }
     }
-
-    const newReview = await dispatch(addReviewThunk(data));
-
-    if (newReview) {
-      setRating(1);
-      setComment('');
-      window.alert('WOOO!')
+    catch (error) {
+      setValidationErrors(error.errors);
     }
   }
 
   return (
     <>
       <h1>Form</h1>
+      {validationErrors.length > 0 && validationErrors.map(error => {
+        return <div>{error}</div>
+      })}
       <form onSubmit={handleSubmit}>
         <label>Rating</label>
         <select value={rating} onChange={(e) => setRating(e.target.value)}>
