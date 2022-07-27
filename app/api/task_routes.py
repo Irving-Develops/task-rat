@@ -25,8 +25,10 @@ def single_task(id):
 def create_task():
   """This route returns a form for a new task and posts a new task"""
   form = TaskForm()
+  print("Hello, its me")
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
+    print(form.data, "This is the form")
     task = Task(
       title = form.data["title"],
       description = form.data["description"],
@@ -35,8 +37,16 @@ def create_task():
       country = form.data["country"],
       price = form.data["price"],
       poster_id = form.data["poster_id"],
-      danger_level = form.data["danger_level"]
+      danger_level = form.data["danger_level"],
+      tags = form.data["tags"]
     )
+    print(task, "No, THIS is me!")
+    all_tags = Tag.query.all()
+    # print(all_tags)
+    # selected_tags = [tag.id for tag in all_tags]
+    # print(selected_tags)
+    task.tags = []
+
     db.session.add(task)
     db.session.commit()
     return task.to_dict()
