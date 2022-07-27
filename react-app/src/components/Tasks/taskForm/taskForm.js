@@ -26,6 +26,8 @@ function TaskForm() {
   const updatePrice = (e) => setPrice(e.target.value)
   const updateDangerLevel = (e) => setDangerLevel(e.target.value)
 
+  console.log(tags)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -41,6 +43,7 @@ function TaskForm() {
       available: true,
       tags
     }
+    console.log(payload)
 
     setErrors([])
 
@@ -140,7 +143,7 @@ function TaskForm() {
         value='5'
         onChange={(e) => setTags([...tags, e.target.value])}
         ></input>
-        <label>Repairse</label>
+        <label>Repairs</label>
         <input
         type='radio'
         name='repairs'

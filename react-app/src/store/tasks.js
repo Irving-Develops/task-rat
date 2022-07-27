@@ -56,6 +56,7 @@ export const getTasksThunk = () => async (dispatch) => {
 }
 
 export const addTaskThunk = (data) => async (dispatch) => {
+  // console.log(data + ' : THIS IS THE PAYLOAD')
   const response = await fetch('/api/tasks/new', {
     method: 'POST',
     headers: {
@@ -63,8 +64,12 @@ export const addTaskThunk = (data) => async (dispatch) => {
     },
     body: JSON.stringify(data)
   })
+
+  // console.log(JSON.stringify(response) + ' :this is the res')
+
   if (response.ok) {
     const data = await response.json();
+    // console.log(data + ' : THIS IS THE RES DATA')
     if (data.errors) {
       return;
     }
