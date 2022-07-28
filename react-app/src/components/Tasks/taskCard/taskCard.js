@@ -25,7 +25,7 @@ function TaskCard({ task }) {
   return (
     <>
       {user && task ?
-        <div>
+        <div className='task-card'>
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
             <p>User: {user.first_name} {user.last_name}</p>

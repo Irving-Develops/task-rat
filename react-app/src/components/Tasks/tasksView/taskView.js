@@ -23,9 +23,9 @@ function TaskView() {
     tasks ?
     <div>
       <h1> Welcome to tasks </h1>
-      <div>
+      <div className="task-card-container">
         {Object.values(availableTasks).map((task) => (
-          <div key={task.id}>
+          <div key={task.id} className="task-card-wrapper">
               <TaskCard task={task} />
           </div>
         ))}

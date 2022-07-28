@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
@@ -13,11 +12,16 @@ function UsersList() {
     fetchData();
   }, []);
 
+
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </li>
+      <div className='user-card-wrapper'> 
+        <img src={user.pic_url} alt="cool guy" />
+        <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
+        <p>Located in {user.city}, {user.state}, {user.country}</p>
+        <p>I'm the right person for the task:</p>
+        <p>{user.bio}</p>
+      </div>
     );
   });
 
