@@ -48,7 +48,6 @@ function TagView() {
 
     const availableTasks = taggedTasks.filter(task => task.available === true)
 
-
     return (
         pageTag ?
         <>
