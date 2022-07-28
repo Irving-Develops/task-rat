@@ -70,7 +70,7 @@ const EditProfileForm = ({ user }) => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="put">
         <ul>
           {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
         </ul>
