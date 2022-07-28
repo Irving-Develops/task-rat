@@ -13,7 +13,7 @@ function TagView() {
         pageTag = Object.values(tags).filter(tag => tag.id === Number(id))
     }
 
-    console.log(pageTag)
+    // console.log(pageTag)
 
 
     useEffect(() => {
