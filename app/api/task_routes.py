@@ -101,5 +101,5 @@ def delete_task(id):
 @task_routes.route('/tags')
 def get_tags():
   tags = Tag.query.all()
-  print(tags)
+  # print(tags)
   return {"tags": [tag.to_dict() for tag in tags]}
