@@ -15,12 +15,14 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      <div className='user-card-wrapper'> 
-        <img src={user.pic_url} alt="cool guy" />
+      <div className='user-card-wrapper' id={user.id}> 
+        <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
         <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
         <p>Located in {user.city}, {user.state}, {user.country}</p>
+        {user.bio ? 
         <p>I'm the right person for the task:</p>
-        <p>{user.bio}</p>
+        : null}
+      <p>{user.bio}</p>
       </div>
     );
   });
@@ -28,7 +30,9 @@ function UsersList() {
   return (
     <>
       <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <div className="user-card-container">
+        {userComponents}
+      </div>
     </>
   );
 }

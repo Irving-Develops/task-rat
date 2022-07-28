@@ -1,4 +1,29 @@
 .task-card-container {
     display: flex;
-    flex-direction: row;
+}
+
+.user-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #0067B1;
+    height: 30%;
+    color: white;
+}
+
+.user-card-wrapper {
+    background-color: rgb(180, 180, 180);
+    margin: 20px;
+    width: 250px;
+    height: 300px;
+}
+
+.user-card-img {
+    width: 100px;
+    height: 80px;
+    border-radius: 5px;
+}
+.user-card-wrapper  a {
+    color: white;
+    text-decoration: none;
 }
