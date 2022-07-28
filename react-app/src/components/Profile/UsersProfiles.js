@@ -33,16 +33,19 @@ const UsersProfiles = ({user, setShowModal}) => {
       <div>
         <h1>Mercenary: {user.first_name}</h1>
         <div>
-          <h2>Task's I created:</h2>
+          <h2>Their Tasks:</h2>
           {myTasks.length > 0 && myTasks.map(task => {
             return (
-              <Link key={task.id} to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}>
+              <div>
                 <div>
                   <div>{task.title}</div>
-                  <div>{task.danger_level}</div>
-                  <BookingForm task={task}/>
+                  <div>Danger Level: {task.danger_level}</div>
+                  <div>Reward: {task.price}</div>
                 </div>
-              </Link>
+                <Link key={task.id} to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button>Details</button>
+                </Link>
+                <BookingForm task={task}/>
+              </div>
             );
           })}
         </div>
