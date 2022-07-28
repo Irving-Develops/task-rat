@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { addTaskThunk } from "../../../store/tasks"
-import LoginFormModal from "../../auth/LoginFormModal"
+// import LoginFormModal from "../../auth/LoginFormModal"
 
 function TaskForm() {
   const dispatch = useDispatch()
@@ -97,42 +97,49 @@ function TaskForm() {
             </ul>
         </div>
       )}
+        <label>Title</label>
         <input
           type="text"
           placeholder="Title"
           required
           value={title}
           onChange={updateTitle} />
+        <label>Description</label>
         <input
           type="text"
           placeholder="Description"
           required
           value={description}
           onChange={updateDescription} />
+        <label>City</label>
         <input
           type="text"
           placeholder="City"
           required
           value={city}
           onChange={updateCity} />
+        <label>State</label>
         <input
           type="text"
           placeholder="State"
           required
           value={state}
           onChange={updateState} />
+        <label>Country</label>
         <input
           type="text"
           placeholder="Country"
           required
           value={country}
           onChange={updateCountry} />
+        <label>Price</label>
         <input
           type="text"
           placeholder="Price"
           required
           value={price}
           onChange={updatePrice} />
+        <label>Danger Level</label>
         <select onChange={updateDangerLevel}>
           <option value="1"> 1 </option>
           <option value="2"> 2 </option>
@@ -140,6 +147,7 @@ function TaskForm() {
           <option value="4"> 4 </option>
           <option value="5"> 5 </option>
         </select>
+        <h4>Skills Needed:</h4>
         <label>Guns</label>
         <input
         type='checkbox'

@@ -148,6 +148,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
           required
           value={price}
           onChange={updatePrice}/>
+        <label>Danger Level</label>
         <select onChange={updateDangerLevel}>
           <option value="1"> 1 </option>
           <option value="2"> 2 </option>
