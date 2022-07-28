@@ -4,8 +4,6 @@ from wtforms import StringField, IntegerField, TextAreaField, SelectField, Boole
 from wtforms.validators import DataRequired
 from ..models import Tag
 
-# tags = Tag.query.all()
-
 class TaskForm(FlaskForm):
   title = StringField('Title', validators=[DataRequired()])
   description = TextAreaField('Description', validators=[DataRequired()])
@@ -17,4 +15,3 @@ class TaskForm(FlaskForm):
   danger_level = SelectField("Danger Level", validators=[DataRequired()], choices=[("1"), ("2"), ("3"), ("4"), ("5")])
   available = BooleanField('Available', default=True)
   tags = SelectMultipleField("Tags", choices=[("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")])
-  # ("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")

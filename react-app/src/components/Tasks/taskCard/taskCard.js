@@ -5,7 +5,7 @@ import { editTaskThunk } from '../../../store/tasks'
 import BookingForm from '../../Bookings/BookingForm'
 
 function TaskCard({ task }) {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const [users, setUsers] = useState([])
 
   let user

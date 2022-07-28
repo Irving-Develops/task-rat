@@ -40,7 +40,9 @@ def create_task():
       danger_level = form.data["danger_level"],
     )
     selected_tags = form.data["tags"]
+    print(selected_tags, 'HERE ARE THE SELECTED TAGS')
     all_tags = Tag.query.all()
+
     added_tags = [tag for tag in all_tags for selected_tag in selected_tags if tag.id == int(selected_tag)]
     task.tags = added_tags
 
@@ -77,6 +79,12 @@ def edit_task(id):
     task.poster_id = poster_id
     task.danger_level = danger_level
     task.available = available
+
+    selected_tags = form.data["tags"]
+    all_tags = Tag.query.all()
+
+    added_tags = [tag for tag in all_tags for selected_tag in selected_tags if tag.id == int(selected_tag)]
+    task.tags = added_tags
 
     db.session.commit()
     return task.to_dict()
