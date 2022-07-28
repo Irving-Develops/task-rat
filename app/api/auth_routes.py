@@ -87,6 +87,45 @@ def sign_up():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@auth_routes.route('/<int:id>/edit', methods=['PUT'])
+def editProfile(id):
+    print(id)
+    print("ID ^^^^^")
+    profile = User.query.get(id)
+    form = SignUpForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print("+++++++++")
+    print(form.data)
+    if form.validate_on_submit():
+        print("HELLLO PLZ WORK")
+        first_name=form.data['first_name'],
+        last_name=form.data['last_name'],
+        username=form.data['username'],
+        email=form.data['email'],
+        password=form.data['password'],
+        pic_url=form.data['pic_url'],
+        city=form.data['city'],
+        state=form.data['state'],
+        country=form.data['country'],
+        bio=form.data['bio']
+
+        profile.first_name = first_name
+        profile.last_name = last_name
+        profile.username = username
+        profile.email = email
+        profile.password = password
+        profile.pic_url = pic_url
+        profile.city = city
+        profile.state = state
+        profile.country = country
+        profile.bio = bio
+
+        db.session.commit()
+        print("IT WAS A SUCCESS!")
+        return profile.to_dict()
+    print("IT DIDN'T WORK!")
+    return { 'errors' : validation_errors_to_error_messages(form.errors) }, 400
+
 
 @auth_routes.route('/unauthorized')
 def unauthorized():

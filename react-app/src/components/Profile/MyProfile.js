@@ -4,6 +4,7 @@ import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
 import { getReviewsThunk } from '../../store/review';
 import Bookings from '../Bookings/Bookings';
+import EditProfileFormModal from './EditProfileModal';
 
 const MyProfile = () => {
   const dispatch = useDispatch();
@@ -28,25 +29,26 @@ const MyProfile = () => {
 
   return (
     <>
-    {sessionUser && (
-      <div>
-        <h1>Mercenary: {sessionUser.first_name}</h1>
+      {sessionUser && (
         <div>
-          <h2>Task's I created:</h2>
-          {myTasks.length > 0 && myTasks.map(task => {
-            return (
-              <div key={task.id}>
-                <div>{task.title}</div>
-                <div>{task.danger_level}</div>
-              </div>
-            );
-          })}
+          <h1>Mercenary: {sessionUser.first_name}</h1>
+          <EditProfileFormModal user={sessionUser} />
+          <div>
+            <h2>Task's I created:</h2>
+            {myTasks.length > 0 && myTasks.map(task => {
+              return (
+                <div key={task.id}>
+                  <div>{task.title}</div>
+                  <div>{task.danger_level}</div>
+                </div>
+              );
+            })}
+          </div>
+          <Bookings reviewArr={reviewArr} />
         </div>
-        <Bookings reviewArr={reviewArr}/>
-      </div>
 
-    )}
-    <Reviews myTasks={myTasks} reviewArr={reviewArr}/>
+      )}
+      <Reviews myTasks={myTasks} reviewArr={reviewArr} />
     </>
   );
 }
