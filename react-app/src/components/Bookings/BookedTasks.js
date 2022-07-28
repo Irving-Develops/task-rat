@@ -82,8 +82,8 @@ function BookedTasks({ taskId, booking, reviewArr }) {
                 <button onClick={deleteHandler}>Drop task</button>
             </div>
           : (leftReview && leftReview.length === 1) ?
-            <EditReviewFormModal taskId={taskId} review={leftReview[0]}/> :
-          <ReviewFormModal taskId={taskId}/>}
+            (<EditReviewFormModal taskId={taskId} review={leftReview[0]}/>) :
+          (<ReviewFormModal taskId={taskId}/>)}
       </div>
       )}
     </>);
