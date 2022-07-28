@@ -3,11 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editProfile } from "../../store/session";
 
-const EditProfileForm = ({ user }) => {
+const EditProfileForm = ({ user, toggleShow }) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
-  console.log(user)
 
   const [first_name, setFirstName] = useState(user.first_name)
   const [last_name, setLastName] = useState(user.last_name)
@@ -43,9 +42,7 @@ const EditProfileForm = ({ user }) => {
       id: sessionUser.id,
       first_name,
       last_name,
-      username,
       email,
-      password,
       pic_url,
       city,
       state,
@@ -57,23 +54,37 @@ const EditProfileForm = ({ user }) => {
 
     console.log(payload, "This is the profile")
     try {
-      await dispatch(editProfile(payload))
-      history.push('/profile')
-    } catch {
-      return dispatch(editProfile(payload)).
-        catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors)
-        })
+      const response = await dispatch(editProfile(payload))
+      if (response) {
+        setFirstName(response.first_name)
+        setLastName(response.last_name)
+        setBio(response.bio)
+        setCity(response.city)
+        setCountry(response.country)
+        setEmail(response.email)
+        setPicUrl(response.pic_url)
+        setState(response.state)
+        toggleShow()
+      }
+    } catch (error) {
+      console.log(error)
+      setErrors(error)
+      // return dispatch(editProfile(payload)).catch(async (res) => {
+      //   const data = await res.json();
+      //   if (data && data.errors) setErrors(data.errors)
+      // })
+
     }
   }
+
+  console.log(first_name)
 
   return (
     <section>
       <form onSubmit={handleSubmit} method="put">
-        <ul>
+        {/* <ul>
           {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
-        </ul>
+        </ul> */}
         <input
           type="text"
           placeholder="First Name"

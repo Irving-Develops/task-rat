@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
+from app.forms import UserForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -88,21 +89,25 @@ def sign_up():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @auth_routes.route('/<int:id>/edit', methods=['PUT'])
-def editProfile(id):
-    print(id)
-    print("ID ^^^^^")
+def edit_profile(id):
     profile = User.query.get(id)
-    form = SignUpForm()
+    print(profile.bio)
+    form = UserForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("+++++++++")
     print(form.data)
+    print(form.first_name)
+    print(form.last_name)
+    print(form.email)
+    print(form.pic_url)
+    print(form.city)
+    print(form.state)
+    print(form.country)
+    print(form.data['first_name'])
     if form.validate_on_submit():
         print("HELLLO PLZ WORK")
         first_name=form.data['first_name'],
         last_name=form.data['last_name'],
-        username=form.data['username'],
         email=form.data['email'],
-        password=form.data['password'],
         pic_url=form.data['pic_url'],
         city=form.data['city'],
         state=form.data['state'],
@@ -111,9 +116,7 @@ def editProfile(id):
 
         profile.first_name = first_name
         profile.last_name = last_name
-        profile.username = username
         profile.email = email
-        profile.password = password
         profile.pic_url = pic_url
         profile.city = city
         profile.state = state

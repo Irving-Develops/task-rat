@@ -106,19 +106,23 @@ export const editProfile = (data) => async (dispatch) => {
   console.log(data.id, "This is the id")
   const response = await fetch(`/api/auth/${data.id}/edit`, {
     method: "PUT",
-    header: {
+    headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   })
-  console.log(response, "Hopefully this is the response")
   if (response.ok) {
     const data = await response.json();
+    console.log(data, "This is the data from the response")
     if (data.errors) {
       return;
     }
     dispatch(editUser(data));
     return data;
+  }
+  else {
+    const error = await response.json()
+    throw error
   }
 }
 
