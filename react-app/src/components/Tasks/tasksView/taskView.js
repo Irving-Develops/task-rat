@@ -8,6 +8,8 @@ import TaskCard from "../taskCard/taskCard";
 function TaskView() {
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks)
+  const availableTasks = Object.values(tasks).filter(task => task.available === true)
+  // console.log(availableTasks)
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -16,14 +18,13 @@ function TaskView() {
     fetchTasks().catch(console.error)
   }, [dispatch])
 
-  // console.log(tasks)
 
   return (
     tasks ?
     <div>
       <h1> Welcome to tasks </h1>
       <div>
-        {Object.values(tasks).map((task) => (
+        {Object.values(availableTasks).map((task) => (
           <div key={task.id}>
               <TaskCard task={task} />
           </div>

@@ -11,6 +11,8 @@ function BookedTasks({ taskId, booking, reviewArr }) {
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch()
+  const tags = Object.values(task.tags).map(tag => tag.id.toString())
+
 
   let leftReview;
   if (reviewArr && taskId) {
@@ -47,7 +49,8 @@ function BookedTasks({ taskId, booking, reviewArr }) {
 
         const payload = {
         ...task,
-        available: true
+        available: true,
+        tags
         }
         const editedTask = await dispatch(editTaskThunk(payload))
         await dispatch(deleteBookingThunk(booking))
@@ -76,7 +79,7 @@ function BookedTasks({ taskId, booking, reviewArr }) {
                     </div>
                 ))}
           </NavLink>
-          {!booking.completed ?
+          {!booking.completed ? (
             <div>
                 <button onClick={submitHandler}>Complete</button>
                 <button onClick={deleteHandler}>Drop task</button>
