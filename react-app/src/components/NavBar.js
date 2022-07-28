@@ -5,7 +5,6 @@ import LogoutButton from './auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import LoginFormModal from './auth/LoginFormModal';
 import DemoUser from './auth/DemoUser';
-import AboutMe from './AboutMe';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
