@@ -36,6 +36,7 @@ function TaskForm() {
     }
   }
 
+  //validations
   useEffect(() => {
     let errors = []
     if (title.length < 5) errors.push('Title must be more than 5 characters')
@@ -50,6 +51,7 @@ function TaskForm() {
     if (tags.length <= 0) errors.push('Task must have at least one tag')
 
     setErrors(errors)
+
   }, [title, description, city, state, country, price, tags] )
 
   const handleSubmit = async (e) => {
@@ -70,9 +72,6 @@ function TaskForm() {
       available: true,
       tags
     }
-    // setErrors([])
-
-
 
     try {
       await dispatch(addTaskThunk(payload))
