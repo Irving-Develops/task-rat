@@ -17,4 +17,3 @@ class TaskForm(FlaskForm):
   danger_level = SelectField("Danger Level", validators=[DataRequired()], choices=[("1"), ("2"), ("3"), ("4"), ("5")])
   available = BooleanField('Available', default=True)
   tags = SelectMultipleField("Tags", choices=[("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")])
-  # ("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")

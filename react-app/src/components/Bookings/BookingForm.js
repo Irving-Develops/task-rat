@@ -6,7 +6,7 @@ import { editTaskThunk } from '../../store/tasks';
 function BookingForm({task}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  console.log(task.tags)
+  // console.log(task.tags)
   const tags = Object.values(task.tags).map(tag => tag.id.toString())
 
   const [validationErrors, setValidationErrors] = useState([]);
