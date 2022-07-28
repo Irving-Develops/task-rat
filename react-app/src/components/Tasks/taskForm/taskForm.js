@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { addTaskThunk } from "../../../store/tasks"
+import LoginFormModal from "../../auth/LoginFormModal"
 
 function TaskForm() {
   const dispatch = useDispatch()
