@@ -20,6 +20,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
 
   const tagIds = Object.values(task.tags).map(tag => tag.id.toString())
   const [tags, setTags] = useState([...tagIds])
+  console.log(tags)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -49,7 +50,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
     if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name')
     if (isNaN(price)) errors.push('Price must be a number')
     if (price <= 0) errors.push('Task must pay at least 1 bottle cap')
-    if (tags.length === 0) errors.push('Task must have at least one tag')
+    if (!tags.length) errors.push('Task must have at least one tag')
 
     setErrors(errors)
 
@@ -228,7 +229,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
         value='10'
         onChange={(e) => updateTags(e)}
         defaultChecked={tags.includes('10')}/>
-        <button type="submit" id="taskFormSubmitButton"> Submit Edit</button>
+        <button type="submit" id="taskFormSubmitButton" disabled={errors.length}> Submit Edit</button>
         <button onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
       </form>
     </div>
