@@ -12,6 +12,7 @@ import TaskView from './components/Tasks/tasksView/taskView';
 import TaskForm from './components/Tasks/taskForm/taskForm';
 import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
+import TagView from './components/TagView/TagView';
 
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route path='/tasks/:id'>
           <SingleTask />
+        </Route>
+        <Route path='/tags/:id'>
+          <TagView />
         </Route>
         <ProtectedRoute path='/profile' exact={true}>
           <MyProfile/>

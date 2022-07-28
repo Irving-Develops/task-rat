@@ -19,8 +19,6 @@ function TaskForm() {
   const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
 
-  console.log(tags)
-
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
   const updateCity = (e) => setCity(e.target.value)
@@ -34,7 +32,6 @@ function TaskForm() {
     } else {
         const srch = tags.indexOf(e.target.value)
         tags.splice(srch, 1)
-        // return tags
     }
   }
 
@@ -117,7 +114,6 @@ function TaskForm() {
           <option value="4"> 4 </option>
           <option value="5"> 5 </option>
         </select>
-        {/* <label>Tags</label> */}
         <label>Guns</label>
         <input
         type='checkbox'

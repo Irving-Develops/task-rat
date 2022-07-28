@@ -3,8 +3,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useSelector } from 'react-redux';
+import TagsDropDown from './TagsDropDown/TagsDropDown';
 import LoginFormModal from './auth/LoginFormModal';
 import DemoUser from './auth/DemoUser';
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -17,9 +19,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/tasks' exact={true} activeClassName='active'>
-            Tasks
-          </NavLink>
+          <TagsDropDown/>
         </li>
         {!sessionUser ?
           <li>
