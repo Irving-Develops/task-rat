@@ -18,6 +18,8 @@ function TaskForm() {
   const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
 
+  console.log(tags)
+
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
   const updateCity = (e) => setCity(e.target.value)
@@ -25,6 +27,15 @@ function TaskForm() {
   const updateCountry = (e) => setCountry(e.target.value)
   const updatePrice = (e) => setPrice(e.target.value)
   const updateDangerLevel = (e) => setDangerLevel(e.target.value)
+  const updateTags = (e) => {
+    if(!tags.includes(e.target.value)) {
+      setTags([...tags, e.target.value])
+    } else {
+        const srch = tags.indexOf(e.target.value)
+        tags.splice(srch, 1)
+        // return tags
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -108,73 +119,73 @@ function TaskForm() {
         {/* <label>Tags</label> */}
         <label>Guns</label>
         <input
-        type='radio'
+        type='checkbox'
         name='guns'
         value='1'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Explosives</label>
         <input
-        type='radio'
+        type='checkbox'
         name='explosives'
         value='2'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Stealth</label>
         <input
-        type='radio'
+        type='checkbox'
         name='stealth'
         value='3'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Survival</label>
         <input
-        type='radio'
+        type='checkbox'
         name='survival'
         value='4'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Medicine</label>
         <input
-        type='radio'
+        type='checkbox'
         name='medicine'
         value='5'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Repairs</label>
         <input
-        type='radio'
+        type='checkbox'
         name='repairs'
         value='6'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Pilot</label>
         <input
-        type='radio'
+        type='checkbox'
         name='pilot'
         value='7'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Hacking</label>
         <input
-        type='radio'
+        type='checkbox'
         name='hacking'
         value='8'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Hand-to-Hand</label>
         <input
-        type='radio'
+        type='checkbox'
         name='hand-to-hand'
         value='9'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Charisma</label>
         <input
-        type='radio'
+        type='checkbox'
         name='charisma'
         value='10'
-        onChange={(e) => setTags([...tags, e.target.value])}
+        onChange={(e) => updateTags(e)}
         ></input>
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
       </form>

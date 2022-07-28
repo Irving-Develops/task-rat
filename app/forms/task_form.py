@@ -4,8 +4,6 @@ from wtforms import StringField, IntegerField, TextAreaField, SelectField, Boole
 from wtforms.validators import DataRequired
 from ..models import Tag
 
-# tags = Tag.query.all()
-
 class TaskForm(FlaskForm):
   title = StringField('Title', validators=[DataRequired()])
   description = TextAreaField('Description', validators=[DataRequired()])

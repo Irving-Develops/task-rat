@@ -19,7 +19,6 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
 
   const tagIds = Object.values(task.tags).map(tag => tag.id.toString())
   const [tags, setTags] = useState([...tagIds])
-  // console.log(tags.includes("1"))
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -28,10 +27,19 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
   const updateCountry = (e) => setCountry(e.target.value)
   const updatePrice = (e) => setPrice(e.target.value)
   const updateDangerLevel = (e) => setDangerLevel(e.target.value)
+  const updateTags = (e) => {
+    if(!tags.includes(e.target.value)) {
+      setTags([...tags, e.target.value])
+    } else {
+        const srch = tags.indexOf(e.target.value)
+        tags.splice(srch, 1)
+    }
+  }
 
   // useEffect(() => {
   //   dispatch(getTasksThunk())
   // }, [dispatch])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -115,83 +123,83 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
         </select>
         <label>Guns</label>
         <input
-        type='radio'
+        type='checkbox'
         name='guns'
         value='1'
-        checked={tags.includes("1")}
-        onChange={(e) => setTags([...tags, e.target.value])}
+        // checked={tags.includes("1")}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Explosives</label>
         <input
-        type='radio'
+        type='checkbox'
         name='explosives'
         value='2'
-        checked={tags.includes("2")}
-        onChange={(e) => setTags([...tags, e.target.value])}
+        // checked={tags.includes("2")}
+        onChange={(e) => updateTags(e)}
         ></input>
         <label>Stealth</label>
         <input
-        type='radio'
+        type='checkbox'
         name='stealth'
         value='3'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("3")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("3")}
         ></input>
         <label>Survival</label>
         <input
-        type='radio'
+        type='checkbox'
         name='survival'
         value='4'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("4")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("4")}
         ></input>
         <label>Medicine</label>
         <input
-        type='radio'
+        type='checkbox'
         name='medicine'
         value='5'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("5")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("5")}
         ></input>
         <label>Repairs</label>
         <input
-        type='radio'
+        type='checkbox'
         name='repairs'
         value='6'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("6")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("6")}
         ></input>
         <label>Pilot</label>
         <input
-        type='radio'
+        type='checkbox'
         name='pilot'
         value='7'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("7")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("7")}
         ></input>
         <label>Hacking</label>
         <input
-        type='radio'
+        type='checkbox'
         name='hacking'
         value='8'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("8")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("8")}
         ></input>
         <label>Hand-to-Hand</label>
         <input
-        type='radio'
+        type='checkbox'
         name='hand-to-hand'
         value='9'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("9")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("9")}
         ></input>
         <label>Charisma</label>
         <input
-        type='radio'
+        type='checkbox'
         name='charisma'
         value='10'
-        onChange={(e) => setTags([...tags, e.target.value])}
-        checked={tags.includes("10")}
+        onChange={(e) => updateTags(e)}
+        // checked={tags.includes("10")}
         ></input>
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
         <button onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
