@@ -1,5 +1,50 @@
-.task-card-container {
+.home-banner {
+    box-sizing: border-box;
     display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 100px;
+    background: rgb(0,103,177);
+    background: linear-gradient(270deg, rgba(0,103,177,1) 0%, rgba(6,63,103,1) 100%);
+    color: white;
+}
+.banner-img {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: #fff773;
+}
+.banner-img img {
+    width: 80%;
+    height: 80%;
+}
+.partnered-banner {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(224, 224, 224);
+    font-size: 24px;
+}
+.task-card-container {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.task-card-wrapper {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+    border-radius: 5px;
+}
+
+.task-card-wrapper a {
+    text-decoration: none;
+    color: #14f217;
 }
 
 .user-card-container {
@@ -12,7 +57,7 @@
 }
 
 .user-card-wrapper {
-    background-color: rgb(180, 180, 180);
+    background-color: rgb(224, 224, 224);
     margin: 20px;
     width: 250px;
     height: 300px;
@@ -26,4 +71,28 @@
 .user-card-wrapper  a {
     color: white;
     text-decoration: none;
+}
+
+.partnered-banner p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #063f67 ; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .10em; /* Adjust as needed */
+  color: #063f67;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  25% { border-color: #063f67 ; }
 }
