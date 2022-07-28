@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBookingsThunk } from '../../store/booking';
 import BookedTasks from './BookedTasks'
 
-function Bookings() {
+function Bookings({reviewArr}) {
     const dispatch = useDispatch();
     const bookings = useSelector(state => state.bookings);
     const sessionUser = useSelector(state => state.session.user)
@@ -26,7 +26,7 @@ function Bookings() {
         {completedBookings && completedBookings.length > 0 && completedBookings.map(booking => {
           return (
             <div key={booking.id}>
-              <BookedTasks task_id={booking.task_id} booking={booking}/>
+              <BookedTasks taskId={booking.task_id} booking={booking} reviewArr={reviewArr}/>
             </div>
           );
         })}
@@ -34,7 +34,7 @@ function Bookings() {
         {currentBookings && currentBookings.length > 0 && currentBookings.map(booking => {
           return (
             <div key={booking.id}>
-              <BookedTasks task_id={booking.task_id} booking={booking}/>
+              <BookedTasks taskId={booking.task_id} booking={booking}/>
             </div>
           );
         })}

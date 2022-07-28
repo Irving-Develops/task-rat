@@ -3,23 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
 import SingleReview from './SingleReview'
 
-function Reviews({myTasks}) {
+function Reviews({myTasks, reviewArr}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const reviews = useSelector((state) => state.reviews);
-
-  let reviewArr;
-  if (reviews && sessionUser) {
-    reviewArr = Object.values(reviews).filter(review => review.tasker_id === sessionUser.id);
-  }
 
   const reviewsAboutMeArr = [];
-  if (reviews && sessionUser) {
-    const allReviews = Object.values(reviews);
+  if (reviewArr && sessionUser) {
     for (let i = 0; i < myTasks.length; i++)  {
-      for (let j = 0; j < allReviews.length; j++) {
-        if (myTasks[i].id === allReviews[j].task_id && allReviews[j].tasker_id !== sessionUser.id) {
-          reviewsAboutMeArr.push(allReviews[j]);
+      for (let j = 0; j < reviewArr.length; j++) {
+        if (myTasks[i].id === reviewArr[j].task_id && reviewArr[j].tasker_id !== sessionUser.id) {
+          reviewsAboutMeArr.push(reviewArr[j]);
         }
       }
     }

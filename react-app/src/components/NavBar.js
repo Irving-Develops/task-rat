@@ -14,13 +14,17 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
-        {sessionUser ?
-          <li>
-            <NavLink to={`/profile`} exact={true} activeClassName='active'>
-              Profile
-            </NavLink>
-          </li>
-          :
+        <li>
+          <NavLink to='/users' exact={true} activeClassName='active'>
+            Users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/tasks' exact={true} activeClassName='active'>
+            Tasks
+          </NavLink>
+        </li>
+        {!sessionUser ?
           <li>
             <li>
               <NavLink to='/login' exact={true} activeClassName='active'>
@@ -33,20 +37,16 @@ const NavBar = () => {
               </NavLink>
             </li>
           </li>
+          :
+          <li>
+            <NavLink to={`/profile`} exact={true} activeClassName='active'>
+              Profile
+            </NavLink>
+            <div>
+              <LogoutButton />
+            </div>
+          </li>
         }
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/tasks' exact={true} activeClassName='active'>
-            Tasks
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
       </ul>
     </nav>
   );

@@ -2,20 +2,28 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
+import { getReviewsThunk } from '../../store/review';
 import Bookings from '../Bookings/Bookings';
 
 const MyProfile = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const tasks = useSelector(state => state.tasks)
+  const reviews = useSelector((state) => state.reviews);
 
   let myTasks;
   if (sessionUser && tasks) {
     myTasks = Object.values(tasks).filter(task => task.poster_id === sessionUser.id);
   }
 
+  let reviewArr;
+  if (reviews && sessionUser) {
+    reviewArr = Object.values(reviews).filter(review => review.tasker_id === sessionUser.id);
+  }
+
   useEffect(() => {
     dispatch(getTasksThunk())
+    dispatch(getReviewsThunk())
   }, [dispatch])
 
   return (
@@ -34,11 +42,11 @@ const MyProfile = () => {
             );
           })}
         </div>
-        <Bookings/>
+        <Bookings reviewArr={reviewArr}/>
       </div>
 
     )}
-    <Reviews myTasks={myTasks}/>
+    <Reviews myTasks={myTasks} reviewArr={reviewArr}/>
     </>
   );
 }

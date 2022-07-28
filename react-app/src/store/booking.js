@@ -26,7 +26,7 @@ const deleteBooking = (booking) => ({
 
 export const getBookingsThunk = () => async (dispatch) => {
     const res = await fetch('/api/bookings');
-    if(res.ok) {
+    if (res.ok) {
         const data = await res.json()
         dispatch(getBookings(data.bookings))
       }
@@ -45,9 +45,9 @@ export const addBookingThunk = (data) => async (dispatch) => {
     body: JSON.stringify(data)
   })
   if (response.ok) {
-    const data = await response.json();
-    dispatch(addBooking(data));
-    return data;
+    const booking = await response.json();
+    dispatch(addBooking(booking));
+    return booking;
   }
   else {
     const err = await response.json();
@@ -65,9 +65,9 @@ export const editBookingThunk = (data) => async (dispatch) => {
     body: JSON.stringify(data)
   })
   if (response.ok) {
-    const data = await response.json();
-    dispatch(editBooking(data));
-    return data;
+    const booking = await response.json();
+    dispatch(editBooking(booking));
+    return booking;
   }
   else {
     const err = await response.json();
@@ -80,9 +80,9 @@ export const deleteBookingThunk = (data) => async (dispatch) => {
     method: 'DELETE',
   });
   if (response.ok) {
-    const data = await response.json();
-    dispatch(deleteBooking(data));
-    return data;
+    const booking = await response.json();
+    dispatch(deleteBooking(booking));
+    return booking;
   }
   else {
     const err = await response.json();

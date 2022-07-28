@@ -56,10 +56,12 @@ function SingleTask() {
                 {/* <button onClick={(e) => handleClaimTask(e)}>Claim Task</button> */}
                 {/* {console.log(sessionUser)} */}
                 {sessionUser && sessionUser.id === task.poster_id &&
-                    <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                    <div>
+                      <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                      <button onClick={handleDelete}>Delete</button>
+                    </div>
                 }
                 {showEditForm && <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>}
-                <button onClick={handleDelete}>Delete</button>
                 <BookingForm task={task}/>
             </div>
             :

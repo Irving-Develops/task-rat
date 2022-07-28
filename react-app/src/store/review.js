@@ -44,8 +44,9 @@ export const addReviewThunk = (data) => async (dispatch) => {
     body: JSON.stringify(data)
   })
   if (response.ok) {
-    const data = await response.json();
-    dispatch(addReview(data));
+    const review = await response.json();
+    dispatch(addReview(review));
+    return review;
   }
   else {
     const err = await response.json();
@@ -63,7 +64,7 @@ export const editReviewThunk = (data) => async(dispatch) => {
   })
   if (response.ok) {
     const review = await response.json();
-    dispatch(editReview(data));
+    dispatch(editReview(review));
     return review;
   }
   else {
