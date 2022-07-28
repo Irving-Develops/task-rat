@@ -60,7 +60,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if(errors.length) return alert('Cannot Submit')
+    if(errors.length) return alert('Cannot Submit, Please Fix Errors')
 
     const payload = {
       ...task,

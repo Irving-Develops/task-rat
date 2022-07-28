@@ -58,7 +58,7 @@ function TaskForm() {
     e.preventDefault()
 
     setHasSubmitted(true)
-    if(errors.length) return alert('Cannot Submit')
+    if(errors.length) return alert('Cannot Submit, Please Fix Errors')
 
     const payload = {
       title,
