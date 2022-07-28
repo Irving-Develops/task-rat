@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 // protected route = custom component that will return a user to hompage if they are not logged in
@@ -14,6 +13,8 @@ import TaskForm from './components/Tasks/taskForm/taskForm';
 import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
 import HomePage from './components/HomePage/HomePage';
+import TagView from './components/TagView/TagView';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,9 +37,6 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
@@ -54,11 +52,14 @@ function App() {
         <Route path="/tasks" exact={true}>
           <TaskView />
         </Route>
-        <ProtectedRoute path="/tasks/new">
+        <Route path="/tasks/new">
           <TaskForm />
-        </ProtectedRoute>
+        </Route>
         <Route path='/tasks/:id'>
           <SingleTask />
+        </Route>
+        <Route path='/tags/:id'>
+          <TagView />
         </Route>
         <ProtectedRoute path='/profile' exact={true}>
           <MyProfile/>

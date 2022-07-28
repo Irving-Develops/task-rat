@@ -11,7 +11,12 @@ function BookedTasks({ taskId, booking, reviewArr }) {
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch()
-  const tags = Object.values(task.tags).map(tag => tag.id.toString())
+  
+  let tags
+  if (task) {
+    tags = Object.values(task.tags).map(tag => tag.id.toString())
+  }
+
 
 
   let leftReview;

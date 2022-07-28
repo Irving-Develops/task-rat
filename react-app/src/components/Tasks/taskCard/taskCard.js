@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { editTaskThunk } from '../../../store/tasks'
 import BookingForm from '../../Bookings/BookingForm'
+import UsersProfileModal from '../../Profile/UsersProfileModal'
 
 function TaskCard({ task }) {
-  // const dispatch = useDispatch()
   const [users, setUsers] = useState([])
 
   let user
@@ -28,7 +26,6 @@ function TaskCard({ task }) {
         <div className='task-card'>
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
-            <p>User: {user.first_name} {user.last_name}</p>
             <p>Posted: {task.created_at} </p>
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
@@ -39,6 +36,7 @@ function TaskCard({ task }) {
               </div>
             ))}
           </NavLink>
+            <p><UsersProfileModal user={user}/></p>
           <BookingForm task={task}/>
         </div>
         :
