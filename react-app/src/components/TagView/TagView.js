@@ -9,25 +9,26 @@ function TagView() {
 
     let pageTag
     if (tags) {
-        // console.log(Object.values(tags))
-        pageTag = Object.values(tags).filter(tag => tag.id === Number(id))
+        pageTag = Object.values(tags).filter(tag => tag.id === Number(id))[0]
+        // console.log(pageTag)
     }
-
-    // console.log(pageTag)
-
-
     useEffect(() => {
         const fetchTags = async () => {
             const res = await fetch('/api/tasks/tags')
             const data = await res.json()
-            // console.log(data)
             setTags(data.tags)
         }
         fetchTags()
     }, [])
 
     return (
-        <h1>Greetings from Tags!</h1>
+        pageTag ?
+        <>
+            <h1>Greetings from {pageTag.type}!</h1>
+            <h4>{pageTag.description}</h4>
+        </>
+        :
+        <div>...loading</div>
     )
 }
 
