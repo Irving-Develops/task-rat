@@ -25,7 +25,7 @@ def all_tasks():
 def create_task():
   """This route returns a form for a new task and posts a new task"""
   form = TaskForm()
-  print("Hello, its me")
+  # print(form.data)
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     print(form.data, "This is the form")
@@ -40,7 +40,7 @@ def create_task():
       danger_level = form.data["danger_level"],
     )
     selected_tags = form.data["tags"]
-    print(selected_tags, 'HERE ARE THE SELECTED TAGS')
+    # print(selected_tags, 'HERE ARE THE SELECTED TAGS')
     all_tags = Tag.query.all()
 
     added_tags = [tag for tag in all_tags for selected_tag in selected_tags if tag.id == int(selected_tag)]

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { addTaskThunk } from "../../../store/tasks"
@@ -18,6 +18,7 @@ function TaskForm() {
   const [danger_level, setDangerLevel] = useState(1)
   const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -35,8 +36,27 @@ function TaskForm() {
     }
   }
 
+  useEffect(() => {
+    let errors = []
+    if (title.length < 5) errors.push('Title must be more than 5 characters')
+    if (title.length > 150) errors.push('Title must be less than 150 characters')
+    if (description.length < 5) errors.push('Description must be more than 5 characters')
+    if (description.length > 2000) errors.push('Description must be less than 2000 characters')
+    if (city.length < 0 || city.length > 50) errors.push('Please provide a valid city name')
+    if (state.length < 0 || state.length > 50) errors.push('Please provide a valid state name')
+    if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name')
+    if (isNaN(price)) errors.push('Price must be a number')
+    if (price <= 0) errors.push('Task must pay at least 1 bottle cap')
+    if (tags.length <= 0) errors.push('Task must have at least one tag')
+
+    setErrors(errors)
+  }, [title, description, city, state, country, price, tags] )
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    setHasSubmitted(true)
+    if(errors.length) return alert('Cannot Submit')
 
     const payload = {
       title,
@@ -50,9 +70,9 @@ function TaskForm() {
       available: true,
       tags
     }
-    console.log(payload)
+    // setErrors([])
 
-    setErrors([])
+
 
     try {
       await dispatch(addTaskThunk(payload))
@@ -68,9 +88,16 @@ function TaskForm() {
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
-        </ul>
+      {hasSubmitted && errors.length > 0 && (
+        <div className='errors-container'>
+            The following errors were found:
+            <ul className='errors'>
+                {errors.map(error => (
+                    <li className='error' key={error}>{error}</li>
+                ))}
+            </ul>
+        </div>
+      )}
         <input
           type="text"
           placeholder="Title"
