@@ -11,7 +11,12 @@ function BookedTasks({ taskId, booking, reviewArr }) {
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch()
-  const tags = Object.values(task.tags).map(tag => tag.id.toString())
+  
+  let tags
+  if (task) {
+    tags = Object.values(task.tags).map(tag => tag.id.toString())
+  }
+
 
 
   let leftReview;
@@ -83,7 +88,7 @@ function BookedTasks({ taskId, booking, reviewArr }) {
             <div>
                 <button onClick={submitHandler}>Complete</button>
                 <button onClick={deleteHandler}>Drop task</button>
-            </div>
+            </div>)
           : (leftReview && leftReview.length === 1) ?
             <EditReviewFormModal taskId={taskId} review={leftReview[0]}/> :
           <ReviewFormModal taskId={taskId}/>}
