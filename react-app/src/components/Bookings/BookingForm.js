@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
+import LoginFormModal from '../auth/LoginFormModal';
 
 function BookingForm({task}) {
   const dispatch = useDispatch();
@@ -44,6 +46,10 @@ function BookingForm({task}) {
     {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
       <button onClick={handleBooking}>Claim Task</button>
     )}
+    {task && task.available === true && !sessionUser && (
+        <LoginFormModal task={task}/>
+    )}
+
     </>
   );
 }
