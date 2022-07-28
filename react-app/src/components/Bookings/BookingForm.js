@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
+import LoginFormModal from '../auth/LoginFormModal';
 
 function BookingForm({task}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   // console.log(task.tags)
-  const tags = Object.values(task.tags).map(tag => tag.id.toString())
+  let tags;
+  if (task) {
+    tags = Object.values(task.tags).map(tag => tag.id.toString())
+  }
 
   const [validationErrors, setValidationErrors] = useState([]);
 
@@ -44,6 +49,10 @@ function BookingForm({task}) {
     {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
       <button onClick={handleBooking}>Claim Task</button>
     )}
+    {task && task.available === true && !sessionUser && (
+        <LoginFormModal task={task}/>
+    )}
+
     </>
   );
 }

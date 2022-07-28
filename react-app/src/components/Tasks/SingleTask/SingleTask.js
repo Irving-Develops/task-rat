@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { deleteTaskThunk, getTasksThunk, editTaskThunk } from '../../../store/tasks'
 import EditTaskForm from '../editTaskForm/editTaskForm'
 import BookingForm from '../../Bookings/BookingForm'
+import UsersProfileModal from '../../Profile/UsersProfileModal'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -42,7 +43,7 @@ function SingleTask() {
         task && user ?
             <div>
                 <h1>{task.title}</h1>
-                <p>User: {user.first_name} {user.last_name}</p>
+                <p><UsersProfileModal user={user}/></p>
                 <p>Posted: {task.created_at} </p>
                 <p>Location: {task.city}, {task.state}, {task.country}</p>
                 <p>Description: {task.description}</p>
