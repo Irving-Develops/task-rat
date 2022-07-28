@@ -12,7 +12,7 @@ import TaskView from './components/Tasks/tasksView/taskView';
 import TaskForm from './components/Tasks/taskForm/taskForm';
 import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
-
+import AboutMe from './components/AboutMe';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +46,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+        </Route>
+        <Route path='/about' exact={true} >
+          <AboutMe/>
         </Route>
         <Route path="/tasks" exact={true}>
           <TaskView />

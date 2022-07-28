@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import LoginFormModal from './auth/LoginFormModal';
 import DemoUser from './auth/DemoUser';
+import AboutMe from './AboutMe';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -19,6 +20,11 @@ const NavBar = () => {
         <li>
           <NavLink to='/tasks' exact={true} activeClassName='active'>
             Tasks
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/about' exact={true} activeClassName='active'>
+            About
           </NavLink>
         </li>
         {!sessionUser ?
