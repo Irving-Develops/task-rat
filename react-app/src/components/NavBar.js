@@ -16,11 +16,6 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/tasks' exact={true} activeClassName='active'>
-            Tasks
-          </NavLink>
-        </li>
-        <li>
           <TagsDropDown/>
         </li>
         <li>
