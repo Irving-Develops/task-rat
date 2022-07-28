@@ -12,13 +12,14 @@ console.log(task_id, "id")
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch()
   console.log(task, "task")
+  const tags = Object.values(task.tags).map(tag => tag.id.toString())
 
 
   useEffect(() => {
     dispatch(getTasksThunk(task_id))
   }, [dispatch])
 
-  
+
   const submitHandler = async(e) => {
     try {
         e.preventDefault();
@@ -44,7 +45,8 @@ console.log(task_id, "id")
 
         const payload = {
         ...task,
-        available: true
+        available: true,
+        tags
         }
         const editedTask = await dispatch(editTaskThunk(payload))
         await dispatch(deleteBookingThunk(booking))
@@ -58,7 +60,7 @@ console.log(task_id, "id")
   return (
     <>
       {task &&(
-      <div> 
+      <div>
           <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
             <p>Location: {task.city}, {task.state}, {task.country}</p>
@@ -72,7 +74,7 @@ console.log(task_id, "id")
           </NavLink>
           <BookingForm task={task}/>
           {!booking.completed ? (
-            <div> 
+            <div>
                 <button onClick={submitHandler}>Complete</button>
                 <button onClick={deleteHandler}>Drop task</button>
             </div>
