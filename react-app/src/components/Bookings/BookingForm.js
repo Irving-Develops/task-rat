@@ -26,7 +26,7 @@ function BookingForm({task}) {
         available: false,
         tags
       }
-
+      console.log(payload, 'this is the payload')
       const newBooking = await dispatch(addBookingThunk(booking));
       const editedTask = await dispatch(editTaskThunk(payload))
       // task update goes here
@@ -41,7 +41,7 @@ function BookingForm({task}) {
   }
   return (
     <>
-    {task && task.available === true && (
+    {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
       <button onClick={handleBooking}>Claim Task</button>
     )}
     </>

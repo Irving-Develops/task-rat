@@ -9,7 +9,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import ReviewForm from './components/Reviews/ReviewForm';
 import TaskView from './components/Tasks/tasksView/taskView';
 import TaskForm from './components/Tasks/taskForm/taskForm';
 import SingleTask from './components/Tasks/SingleTask/SingleTask';
@@ -51,7 +50,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-          <ReviewForm />
         </ProtectedRoute>
         <Route path="/tasks" exact={true}>
           <TaskView />

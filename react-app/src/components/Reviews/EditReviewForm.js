@@ -3,12 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { editReviewThunk } from '../../store/review';
 
 function EditReviewForm({toggleShow, reviewProp}) {
-
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-
-  const taskId = 1;
-  // const task = useSelector(state => state.tasks[taskId])
+  const task = useSelector(state => state.tasks[reviewProp.task_id])
   const [validationErrors, setValidationErrors] = useState([]);
   const [rating, setRating] = useState(reviewProp.rating);
   const [comment, setComment] = useState(reviewProp.comment);
@@ -25,11 +22,11 @@ function EditReviewForm({toggleShow, reviewProp}) {
       e.preventDefault();
 
       const data = {
-        id: reviewProp.id,
+        id: (reviewProp.id),
         rating,
         comment,
         tasker_id: sessionUser.id,
-        task_id: taskId
+        task_id: (task.id)
       }
 
       const newReview = await dispatch(editReviewThunk(data));
@@ -38,6 +35,7 @@ function EditReviewForm({toggleShow, reviewProp}) {
         setRating(1);
         setComment('');
         toggleShow();
+
       }
     }
     catch (error) {
@@ -48,8 +46,8 @@ function EditReviewForm({toggleShow, reviewProp}) {
   return (
     <>
       <h1>Edit Review</h1>
-      {validationErrors.length > 0 && validationErrors.map(error => {
-        return <div>{error}</div>
+      {validationErrors && validationErrors.length > 0 && validationErrors.map((error, index) => {
+        return <div key={index}>{error}</div>
       })}
       <form onSubmit={handleSubmit}>
         <label>Rating</label>

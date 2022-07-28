@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { addReviewThunk } from '../../store/review';
 
-function ReviewForm() {
-
-  const history = useHistory();
+function ReviewForm({setShowModal, taskId}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const taskId = 1;
-  // const task = useSelector(state => state.tasks[taskId])
   const [validationErrors, setValidationErrors] = useState([]);
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
@@ -18,7 +13,7 @@ function ReviewForm() {
     e.preventDefault();
     setRating(1);
     setComment('');
-    history.push("/")
+    setShowModal(false);
   };
 
   const handleSubmit = async (e) => {
@@ -36,6 +31,7 @@ function ReviewForm() {
       if (newReview) {
         setRating(1);
         setComment('');
+        setShowModal(false);
       }
     }
     catch (error) {
@@ -46,8 +42,8 @@ function ReviewForm() {
   return (
     <>
       <h1>Form</h1>
-      {validationErrors.length > 0 && validationErrors.map(error => {
-        return <div>{error}</div>
+      {validationErrors && validationErrors.length > 0 && validationErrors.map((error, index) => {
+        return <div key={index}>{error}</div>
       })}
       <form onSubmit={handleSubmit}>
         <label>Rating</label>
