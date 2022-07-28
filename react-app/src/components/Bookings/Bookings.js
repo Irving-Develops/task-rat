@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookingsThunk } from '../../store/booking';
 import BookedTasks from './BookedTasks'

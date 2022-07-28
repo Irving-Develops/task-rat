@@ -19,20 +19,20 @@ function BookedTasks({ taskId, booking, reviewArr }) {
 
   useEffect(() => {
     dispatch(getTasksThunk(taskId))
-  }, [dispatch])
+  }, [taskId, dispatch])
 
 
   const submitHandler = async(e) => {
     try {
         e.preventDefault();
 
-        const booking = {
+        const editBooking = {
             id: booking.id,
             completed: true,
             tasker_id: sessionUser.id,
             task_id: task.id
         }
-        const editedBooking = await dispatch(editBookingThunk(booking))
+        const editedBooking = await dispatch(editBookingThunk(editBooking))
 
         if(editedBooking) window.alert("Working")
     } catch(err) {
