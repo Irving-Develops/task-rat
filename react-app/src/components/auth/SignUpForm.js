@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
+  const [bio, setBio] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(first_name, last_name, username, email, password, pic_url, city, state, country));
+      const data = await dispatch(signUp(first_name, last_name, username, email, password, pic_url, city, state, country, bio));
       if (data) {
         setErrors(data)
       }
@@ -43,6 +44,10 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
+  const updateBio = (e) => {
+    setBio(e.target.value)
+  }
 
   if (user) {
     return <Redirect to='/' />;
@@ -168,6 +173,15 @@ const SignUpForm = () => {
           name='country'
           onChange={(e) => setCountry(e.target.value)}
           value={country}
+        ></input>
+      </div>
+      <div>
+        <label>Bio</label>
+        <input
+          type='text'
+          name='bio'
+          onChange={(e) => setBio(e.target.value)}
+          value={bio}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

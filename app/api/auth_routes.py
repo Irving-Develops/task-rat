@@ -78,6 +78,7 @@ def sign_up():
             city=form.data['city'],
             state=form.data['state'],
             country=form.data['country'],
+            bio=form.data['bio']
         )
         db.session.add(user)
         db.session.commit()
