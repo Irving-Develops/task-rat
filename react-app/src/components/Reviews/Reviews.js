@@ -3,20 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
 import SingleReview from './SingleReview'
 
-function Reviews({myTasks, reviewArr, user}) {
+function Reviews({reviewArr, user, reviewsAboutMeArr}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
-  const reviewsAboutMeArr = [];
-  if (reviewArr && sessionUser) {
-    for (let i = 0; i < myTasks.length; i++)  {
-      for (let j = 0; j < reviewArr.length; j++) {
-        if (myTasks[i].id === reviewArr[j].task_id && reviewArr[j].tasker_id !== sessionUser.id) {
-          reviewsAboutMeArr.push(reviewArr[j]);
-        }
-      }
-    }
-  }
   console.log(user, 'this is the user')
   useEffect(() => {
     dispatch(getReviewsThunk())
@@ -33,7 +23,7 @@ function Reviews({myTasks, reviewArr, user}) {
       })}
 
       <h2>Reputation</h2>
-      {reviewsAboutMeArr.length > 0 && reviewsAboutMeArr.map(review => {
+      {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 && reviewsAboutMeArr.map(review => {
         return (
           <SingleReview key={review.id} review={review}/>
         )

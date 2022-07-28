@@ -23,25 +23,25 @@ const NavBar = () => {
         </li>
         {!sessionUser ?
           <li>
-            <li>
+            <div>
               <DemoUser/>
-            </li>
-            <li>
+            </div>
+            <div>
               <LoginFormModal/>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink to='/sign-up' exact={true} activeClassName='active'>
                 Sign Up
               </NavLink>
-            </li>
+            </div>
           </li>
           :
           <li>
-            <li>
+            <div>
               <NavLink to='/tasks/new' exact={true} activeClassName='active'>
                 Create a Task
               </NavLink>
-            </li>
+            </div>
             <NavLink to={`/profile`} exact={true} activeClassName='active'>
               Profile
             </NavLink>
