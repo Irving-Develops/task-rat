@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { addTaskThunk } from "../../../store/tasks"
-import LoginFormModal from "../../auth/LoginFormModal"
+// import LoginFormModal from "../../auth/LoginFormModal"
 
 function TaskForm() {
   const dispatch = useDispatch()
@@ -18,8 +18,7 @@ function TaskForm() {
   const [danger_level, setDangerLevel] = useState(1)
   const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
-
-  console.log(tags)
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -34,12 +33,32 @@ function TaskForm() {
     } else {
         const srch = tags.indexOf(e.target.value)
         tags.splice(srch, 1)
-        // return tags
     }
   }
 
+  //validations
+  useEffect(() => {
+    let errors = []
+    if (title.length < 5) errors.push('Title must be more than 5 characters')
+    if (title.length > 150) errors.push('Title must be less than 150 characters')
+    if (description.length < 5) errors.push('Description must be more than 5 characters')
+    if (description.length > 2000) errors.push('Description must be less than 2000 characters')
+    if (city.length < 0 || city.length > 50) errors.push('Please provide a valid city name')
+    if (state.length < 0 || state.length > 50) errors.push('Please provide a valid state name')
+    if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name')
+    if (isNaN(price)) errors.push('Price must be a number')
+    if (price <= 0) errors.push('Task must pay at least 1 bottle cap')
+    if (tags.length <= 0) errors.push('Task must have at least one tag')
+
+    setErrors(errors)
+
+  }, [title, description, city, state, country, price, tags] )
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    setHasSubmitted(true)
+    if(errors.length) return alert('Cannot Submit')
 
     const payload = {
       title,
@@ -53,9 +72,6 @@ function TaskForm() {
       available: true,
       tags
     }
-    console.log(payload)
-
-    setErrors([])
 
     try {
       await dispatch(addTaskThunk(payload))
@@ -71,45 +87,59 @@ function TaskForm() {
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
-        </ul>
+      {hasSubmitted && errors.length > 0 && (
+        <div className='errors-container'>
+            The following errors were found:
+            <ul className='errors'>
+                {errors.map(error => (
+                    <li className='error' key={error}>{error}</li>
+                ))}
+            </ul>
+        </div>
+      )}
+        <label>Title</label>
         <input
           type="text"
           placeholder="Title"
           required
           value={title}
           onChange={updateTitle} />
+        <label>Description</label>
         <input
           type="text"
           placeholder="Description"
           required
           value={description}
           onChange={updateDescription} />
+        <label>City</label>
         <input
           type="text"
           placeholder="City"
           required
           value={city}
           onChange={updateCity} />
+        <label>State</label>
         <input
           type="text"
           placeholder="State"
           required
           value={state}
           onChange={updateState} />
+        <label>Country</label>
         <input
           type="text"
           placeholder="Country"
           required
           value={country}
           onChange={updateCountry} />
+        <label>Price</label>
         <input
           type="text"
           placeholder="Price"
           required
           value={price}
           onChange={updatePrice} />
+        <label>Danger Level</label>
         <select onChange={updateDangerLevel}>
           <option value="1"> 1 </option>
           <option value="2"> 2 </option>
@@ -117,7 +147,7 @@ function TaskForm() {
           <option value="4"> 4 </option>
           <option value="5"> 5 </option>
         </select>
-        {/* <label>Tags</label> */}
+        <h4>Skills Needed:</h4>
         <label>Guns</label>
         <input
         type='checkbox'

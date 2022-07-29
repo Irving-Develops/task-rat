@@ -5,7 +5,9 @@ import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
 import { getReviewsThunk } from '../../store/review';
 import Bookings from '../Bookings/Bookings';
+import EditProfileFormModal from './EditProfileModal';
 import AverageRating from './AverageRating';
+
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -47,30 +49,30 @@ function MyProfile() {
 
   return (
     <>
-    {sessionUser && (
-      <div>
-        <h1>Mercenary: {sessionUser.first_name}</h1>
-        <img src={sessionUser.pic_url} alt="User's Icon"/>
-        <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
+      {sessionUser && (
         <div>
-          <h2>Task's I created:</h2>
-          {myTasks.length > 0 && myTasks.map(task => {
-            return (
-              <Link key={task.id} to={`/tasks/${task.id}`}>
-                <div>{task.title}</div>
-                <div>Danger Level: {task.danger_level}</div>
-                <div>Reward: {task.price}</div>
-                <div>Description: {task.description}</div>
-                <button>View Task</button>
-              </Link>
-            );
-          })}
+          <h1>Mercenary: {sessionUser.first_name}</h1>
+          <EditProfileFormModal user={sessionUser} />
+          <img src={sessionUser.pic_url} alt="User's Icon"/>
+          <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
+          <div>
+            <h2>Task's I created:</h2>
+            {myTasks.length > 0 && myTasks.map(task => {
+              return (
+                <Link key={task.id} to={`/tasks/${task.id}`}>
+                  <div>{task.title}</div>
+                  <div>Danger Level: {task.danger_level}</div>
+                  <div>Reward: {task.price}</div>
+                  <div>Description: {task.description}</div>
+                  <button>View Task</button>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-        <Bookings reviewArr={reviewArr}/>
-      </div>
-
-    )}
-    <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
+      )}
+      <Bookings reviewArr={reviewArr} />
+      <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
     </>
   );
 }
