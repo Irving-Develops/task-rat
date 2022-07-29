@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from 'react-router-dom'
 // import Link from 'react-router'
-import { getTasksThunk } from "../../../store/tasks"
-import TaskCard from "../taskCard/taskCard";
+import { getTasksThunk } from "../../store/tasks"
+import TaskCardHomePage from "./TaskCardHomePage"
 
-function TaskView() {
+function TaskViewHomePage() {
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks)
   const availableTasks = Object.values(tasks).filter(task => task.available === true)
@@ -23,10 +22,10 @@ function TaskView() {
     tasks ?
     <div>
       <h1> Welcome to tasks </h1>
-      <div>
+      <div className="task-card-container">
         {Object.values(availableTasks).map((task) => (
-          <div key={task.id}>
-              <TaskCard task={task} />
+          <div key={task.id} className="task-card-wrapper">
+              <TaskCardHomePage task={task} />
           </div>
         ))}
       </div>
@@ -36,4 +35,4 @@ function TaskView() {
   )
 }
 
-export default TaskView
+export default TaskViewHomePage

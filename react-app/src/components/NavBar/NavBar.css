@@ -2,6 +2,8 @@
     box-sizing: border-box;
     display: flex;
     justify-content:  space-between;
+    position: sticky;
+    top: 0;
     background-color: #ffee43 ;
 }
 .navbar-container a, .navbar-container button {

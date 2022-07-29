@@ -35,14 +35,26 @@
     background-color: rgb(224, 224, 224);
     font-size: 24px;
 }
+
+/* TASKS CSS */
+.task-card h3 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #14f217;
+    text-decoration-color: #14f217;
+}
 .task-card-container {
     display: grid;
-    width: 90%;
-    grid-template-columns: repeat(4, 1fr);
+    width: 75%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .task-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
     border-radius: 5px;
@@ -52,7 +64,43 @@
     text-decoration: none;
     color: #14f217;
 }
+.task-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c381b;
+    border: 2px solid #14f217;
+    width: 300px;
+    height: 300px;
+}
 
+.content-container {
+    display: flex;
+}
+.danger-1 {
+    color: #0067B1;
+}
+.danger-2 {
+    color: yellow;
+}
+.danger-3 {
+    color: orange;
+}
+.danger-4 {
+    color: orangered;
+}   
+.danger-5 {
+    color: red;
+}
+.task-bullet {
+    color: #14f217
+}
+
+/* Tags */
+.tags-container {
+    display: flex;
+}
+
+/* USER CSS */
 .user-card-container {
     display: flex;
     justify-content: center;
@@ -102,3 +150,4 @@
   from, to { border-color: transparent }
   25% { border-color: #063f67 ; }
 }
+
