@@ -122,27 +122,6 @@ function TaskCard({ task }) {
                 </div>
             </div>
         </div>
-        // <div className='task-container'>
-        //   <div className='single-task-top'>
-        //     <h4 style={{ 'color': 'white'}}>Danger Level:</h4>
-        //     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-        //       {dangerIcons}
-        //     </div>
-        //   </div>
-        //     <h3 className='single-task-title'> {task.title} </h3>
-        //     <p>Location: {task.city}, {task.state}, {task.country}</p>
-        //     <p>Reward: {task.price} BOTTLE CAPS</p>
-        //     {task.tags.map(tag => (
-        //       <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
-        //         {tag.type}
-        //       </div>
-        //     ))}
-        //   <button>
-        //     <Link to={`/tasks/${task.id}`}>Details</Link>
-        //   </button>
-        //   <p><UsersProfileModal user={user}/></p>
-        //   <BookingForm task={task}/>
-        // </div>
         :
         null
       }

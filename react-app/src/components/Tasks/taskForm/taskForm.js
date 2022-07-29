@@ -19,6 +19,7 @@ function TaskForm() {
   const [tags, setTags] = useState([])
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [count, setCount] = useState(1)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -87,6 +88,8 @@ function TaskForm() {
 
   return (
     <section>
+      <h1>You got a job? We got a body*!</h1>
+      <h4>*Breathing not guaranteed</h4>
       <form onSubmit={handleSubmit}>
       {hasSubmitted && errors.length > 0 && (
         <div className='errors-container'>
@@ -98,6 +101,9 @@ function TaskForm() {
             </ul>
         </div>
       )}
+      {count === 1 &&
+      <div>
+        <h2>So, tell us about your task.</h2>
         <label>Title</label>
         <input
           type="text"
@@ -113,114 +119,140 @@ function TaskForm() {
           value={description}
           onChange={updateDescription} />
         <label>City</label>
-        <input
-          type="text"
-          placeholder="City"
-          required
-          value={city}
-          onChange={updateCity} />
-        <label>State</label>
-        <input
-          type="text"
-          placeholder="State"
-          required
-          value={state}
-          onChange={updateState} />
-        <label>Country</label>
-        <input
-          type="text"
-          placeholder="Country"
-          required
-          value={country}
-          onChange={updateCountry} />
-        <label>Reward</label>
-        <input
-          type="text"
-          placeholder="Reward"
-          required
-          value={price}
-          onChange={updatePrice} />
-        <label>Danger Level</label>
-        <select onChange={updateDangerLevel}>
-          <option value="1"> 1 </option>
-          <option value="2"> 2 </option>
-          <option value="3"> 3 </option>
-          <option value="4"> 4 </option>
-          <option value="5"> 5 </option>
-        </select>
-        <h4>Skills Needed:</h4>
-        <label>Guns</label>
-        <input
-          type='checkbox'
-          name='guns'
-          value='1'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Explosives</label>
-        <input
-          type='checkbox'
-          name='explosives'
-          value='2'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Stealth</label>
-        <input
-          type='checkbox'
-          name='stealth'
-          value='3'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Survival</label>
-        <input
-          type='checkbox'
-          name='survival'
-          value='4'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Medicine</label>
-        <input
-          type='checkbox'
-          name='medicine'
-          value='5'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Repairs</label>
-        <input
-          type='checkbox'
-          name='repairs'
-          value='6'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Pilot</label>
-        <input
-          type='checkbox'
-          name='pilot'
-          value='7'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Hacking</label>
-        <input
-          type='checkbox'
-          name='hacking'
-          value='8'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Hand-to-Hand</label>
-        <input
-          type='checkbox'
-          name='hand-to-hand'
-          value='9'
-          onChange={(e) => updateTags(e)}
-        ></input>
-        <label>Charisma</label>
-        <input
-          type='checkbox'
-          name='charisma'
-          value='10'
-          onChange={(e) => updateTags(e)}
-        ></input>
+      </div>
+      }
+      {count === 2 &&
+        <div>
+          <h2>Whereabouts might you need help?</h2>
+          <input
+            type="text"
+            placeholder="City"
+            required
+            value={city}
+            onChange={updateCity} />
+          <label>State</label>
+          <input
+            type="text"
+            placeholder="State"
+            required
+            value={state}
+            onChange={updateState} />
+          <label>Country</label>
+          <input
+            type="text"
+            placeholder="Country"
+            required
+            value={country}
+            onChange={updateCountry} />
+        </div>
+      }
+      {count === 3 &&
+        <div>
+          <h2>Gotta risk it for the biscuit.</h2>
+          <label>Reward</label>
+          <input
+            type="text"
+            placeholder="Reward"
+            required
+            value={price}
+            onChange={updatePrice} />
+          <label>Danger Level</label>
+          <select onChange={updateDangerLevel}>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+          </select>
+        </div>
+      }
+      {count === 4 &&
+        <div>
+          <h4>Skills Needed:</h4>
+          <label>Guns</label>
+          <input
+            type='checkbox'
+            name='guns'
+            value='1'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Explosives</label>
+          <input
+            type='checkbox'
+            name='explosives'
+            value='2'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Stealth</label>
+          <input
+            type='checkbox'
+            name='stealth'
+            value='3'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Survival</label>
+          <input
+            type='checkbox'
+            name='survival'
+            value='4'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Medicine</label>
+          <input
+            type='checkbox'
+            name='medicine'
+            value='5'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Repairs</label>
+          <input
+            type='checkbox'
+            name='repairs'
+            value='6'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Pilot</label>
+          <input
+            type='checkbox'
+            name='pilot'
+            value='7'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Hacking</label>
+          <input
+            type='checkbox'
+            name='hacking'
+            value='8'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Hand-to-Hand</label>
+          <input
+            type='checkbox'
+            name='hand-to-hand'
+            value='9'
+            onChange={(e) => updateTags(e)}
+          ></input>
+          <label>Charisma</label>
+          <input
+            type='checkbox'
+            name='charisma'
+            value='10'
+            onChange={(e) => updateTags(e)}
+          ></input>
+        </div>
+      }
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
       </form>
+      <button
+          type='button'
+          onClick={() => setCount(count - 1)}
+          disabled={count < 2}
+      >Back</button>
+      <button
+          type='button'
+          onClick={() => setCount(count + 1)}
+          disabled={count > 3}
+      >Next</button>
     </section>
   )
 }
