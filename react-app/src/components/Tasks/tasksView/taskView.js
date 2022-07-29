@@ -26,20 +26,22 @@ function TaskView() {
           <img src='./images/task-view-page.jpg' />
         </div>
         <div className="header-info-card">
-          <div id='all-tasks-text'>
+          <div className="header-text-container">
             <h1>All Tasks</h1>
             <div className="line-break"></div>
           </div>
           <p>{allTaskDesc}</p>
         </div>
       </div>
-      <p className='available-tasks-header'>Available Tasks</p>
-      <div className='tasks-container'>
-        {Object.values(availableTasks).map((task) => (
-          <div key={task.id}>
-              <TaskCard task={task} />
-          </div>
-        ))}
+      <div className='tasks-wrapper'>
+        <p className='sub-text'>Get out there and be somebody.</p>
+        <div className='tasks-container'>
+          {Object.values(availableTasks).map((task) => (
+            <div key={task.id}>
+                <TaskCard task={task} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
     :
