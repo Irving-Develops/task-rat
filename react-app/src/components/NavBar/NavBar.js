@@ -24,6 +24,11 @@ const NavBar = () => {
           <ul>
             <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
             <li><TagsDropDown/></li>
+            <li>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                About
+              </NavLink>
+            </li>
             </ul>
         </div>
           {!sessionUser ?
