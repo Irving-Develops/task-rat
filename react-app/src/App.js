@@ -14,7 +14,7 @@ import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
 import HomePage from './components/HomePage/HomePage';
 import TagView from './components/TagView/TagView';
-
+import AboutMe from './components/AboutMe/AboutMe';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +64,10 @@ function App() {
         <ProtectedRoute path='/profile' exact={true}>
           <MyProfile/>
         </ProtectedRoute>
+        <Route path='/about' exact={true} >
+          <AboutMe/>
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );
