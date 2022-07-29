@@ -8,6 +8,12 @@
     background: linear-gradient(270deg, rgba(0,103,177,1) 0%, rgba(6,63,103,1) 100%);
     color: white;
 }
+.text {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 .banner-img {
     width: 400px;
     height: 400px;

@@ -14,38 +14,22 @@ const NavBar = () => {
   return (
     <nav className='navbar-container'>
       <div className='logo'>
-        <p>TaskRat</p>
+        {/* <NavLink to='/'>TaskRat</NavLink> */}
+        <span>TaskRat</span>
       </div>
       <div className='navlinks'>
         <div className='permanent-links'>
           <ul>
-            <li>
-              <NavLink to='/' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <TagsDropDown/>
-            </li>
+            <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
+            <li><TagsDropDown/></li>
             </ul>
         </div>
           {!sessionUser ?
             <div className='logged-out-links'>
               <ul>
-                <li>
-                  <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                    Sign Up
-                  </NavLink>
-                  
-                </li>
-                <li>
-                  <DemoUser/>
-
-                </li>
-                <li>
-                <LoginFormModal/>
-
-                </li>
+                <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
+                <li><DemoUser/></li>
+                <li><LoginFormModal/></li>
               </ul>
             </div>
 

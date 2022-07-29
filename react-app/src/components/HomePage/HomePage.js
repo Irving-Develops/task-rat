@@ -11,9 +11,11 @@ function HomePage() {
     return (
         <>
             <div className="home-banner" >
-                <div>
-                    <h1>Get Paid For Your Skills!</h1>
-                    <p>Pick up tasks and get paid after completing them!</p>
+                <div className="text">
+                    <div>
+                        <h1>Get Paid For Your Skills!</h1>
+                        <p>Pick up tasks and get paid after completing them!</p>
+                    </div>
                 </div>
                 <p></p>
                 <div className="banner-img">
