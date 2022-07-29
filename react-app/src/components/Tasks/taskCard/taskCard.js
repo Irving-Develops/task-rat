@@ -21,15 +21,14 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
-
-  let dangerIcons,dangerIconColor, extremelyDangerous
+  let dangerIcons, dangerIconColor, extremelyDangerous
 
   function dangerLevelParser() {
     if (task) {
       switch (task.danger_level) {
         case 1:
           dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
-          dangerIconColor = 'green'
+          dangerIconColor = '#14f217'
           break
         case 2:
           dangerIcons = (
