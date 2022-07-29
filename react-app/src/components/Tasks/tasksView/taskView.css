@@ -8,18 +8,18 @@
     width: 100vw;
     height: 420px;
     overflow: hidden;
-    background-color: #0067b1;
+    /* background-color: #0067b1; */
     position: relative;
     width: 100%;
     min-height: 420px;
 }
 
-/* .header-img img {
+.header-img img {
     position: relative;
-    top: -75px;
+    /* top: -75px; */
     width: 100%;
     min-height: 420px;
-} */
+}
 
 .header-info-card {
     position: relative;
