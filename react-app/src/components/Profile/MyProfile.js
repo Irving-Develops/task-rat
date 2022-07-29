@@ -36,7 +36,7 @@ function MyProfile() {
 
   const reviewsAboutMeArr = [];
   if (notSessionUsersReviews && sessionUser) {
-    for (let i = 0; i < myTasks.length; i++)  {
+    for (let i = 0; i < myTasks.length; i++) {
       for (let j = 0; j < notSessionUsersReviews.length; j++) {
         if (myTasks[i].id === notSessionUsersReviews[j].task_id) {
           reviewsAboutMeArr.push(notSessionUsersReviews[j]);

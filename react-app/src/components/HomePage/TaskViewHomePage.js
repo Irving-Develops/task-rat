@@ -6,9 +6,16 @@ import TaskCardHomePage from "./TaskCardHomePage"
 
 function TaskViewHomePage() {
   const dispatch = useDispatch()
-  const sessionUser = useSelector(state => state.session.user.id)
+  const sessionUser = useSelector(state => state.session)
+
   const tasks = useSelector((state) => state.tasks)
-  const availableTasks = Object.values(tasks).filter(task => task.available === true && task.poster_id !== sessionUser)
+  let availableTasks = Object.values(tasks).filter(task => task.available === true)
+  if(sessionUser.user) {
+    availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
+  }
+  // }else {
+  //   availableTasks = Object.values(tasks).filter(task => task.available === true)
+  // }
 
   useEffect(() => {
     const fetchTasks = async () => {

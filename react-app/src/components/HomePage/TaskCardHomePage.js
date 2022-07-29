@@ -58,7 +58,7 @@ function TaskCardHomePage({ task }) {
                     </div>
             </div>
         :
-        null
+            <div className="loading">loading</div>
       }
     </>
   )
