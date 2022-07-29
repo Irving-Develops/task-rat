@@ -9,3 +9,20 @@
   width: 90%;
   height: 90%;
 }
+
+#details-button {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#details-button button {
+  background-color: #14f217;
+  color: #1c381b;
+}
+
+#details-button button:hover {
+  background-color: #14f217;
+  color: #1c381b;
+}

@@ -58,7 +58,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
                     <div>Danger Level: {task.danger_level}</div>
                     <div>Reward: {task.price}</div>
                   </div>
-                  <Link to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button>Details</button>
+                  <Link to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button id="details-button">Details</button>
                   </Link>
                   <BookingForm task={task} />
                 </div>
