@@ -88,6 +88,6 @@ body {
     display: grid;
     /* margin-top: 20px; */
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 25px;
+    column-gap: 35px;
     row-gap: 50px;
 }

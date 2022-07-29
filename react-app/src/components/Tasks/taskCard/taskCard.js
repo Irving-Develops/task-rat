@@ -22,61 +22,116 @@ function TaskCard({ task }) {
   }, [])
 
 
-  let dangerIcons
-  let dangerIconColor
-  let extremelyDangerous
-  function dangerLevelParser(task) {
+  let dangerIcons,dangerIconColor, extremelyDangerous
+
+  function dangerLevelParser() {
     if (task) {
-      if (task.danger_level === 1) {
-        dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
-        dangerIconColor = 'green'
-      }
-      if (task.danger_level === 2) {
-        dangerIcons = (
-          <>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-          </>
-        )
-        dangerIconColor = 'yellow'
-      }
-      if (task.danger_level === 3) {
-        dangerIcons = (
-          <>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-          </>
-        )
-        dangerIconColor = 'orange'
-      }
-      if (task.danger_level === 4) {
-        dangerIcons = (
-          <>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-          </>
-        )
-        dangerIconColor = 'red'
-      }
-      if (task.danger_level === 5) {
-        dangerIcons = (
-          <>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-            <i className="fa-solid fa-circle-radiation"></i>
-          </>
-        )
-        dangerIconColor = 'red'
-        extremelyDangerous = 'extremely-dangerous-task'
+      switch (task.danger_level) {
+        case 1:
+          dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
+          dangerIconColor = 'green'
+          break
+        case 2:
+          dangerIcons = (
+            <>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+            </>
+          )
+          dangerIconColor = 'yellow'
+          break
+        case 3:
+          dangerIcons = (
+            <>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+            </>
+          )
+          dangerIconColor = 'orange'
+          break
+        case 4:
+          dangerIcons = (
+            <>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+            </>
+          )
+          dangerIconColor = 'red'
+          break
+        case 5:
+          dangerIcons = (
+            <>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+              <i className="fa-solid fa-circle-radiation"></i>
+            </>
+          )
+          dangerIconColor = 'red'
+          extremelyDangerous = 'extremely-dangerous-task'
+          break
+        default:
+          break
       }
     }
-    return
   }
+
+  // function dangerLevelParser(task) {
+  //   if (task) {
+  //     if (task.danger_level === 1) {
+  //       dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
+  //       dangerIconColor = 'green'
+  //     }
+  //     if (task.danger_level === 2) {
+  //       dangerIcons = (
+  //         <>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //         </>
+  //       )
+  //       dangerIconColor = 'yellow'
+  //     }
+  //     if (task.danger_level === 3) {
+  //       dangerIcons = (
+  //         <>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //         </>
+  //       )
+  //       dangerIconColor = 'orange'
+  //     }
+  //     if (task.danger_level === 4) {
+  //       dangerIcons = (
+  //         <>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //         </>
+  //       )
+  //       dangerIconColor = 'red'
+  //     }
+  //     if (task.danger_level === 5) {
+  //       dangerIcons = (
+  //         <>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //           <i className="fa-solid fa-circle-radiation"></i>
+  //         </>
+  //       )
+  //       dangerIconColor = 'red'
+  //       extremelyDangerous = 'extremely-dangerous-task'
+  //     }
+  //   }
+  //   return
+  // }
 
   dangerLevelParser(task)
   console.log(dangerIconColor)
