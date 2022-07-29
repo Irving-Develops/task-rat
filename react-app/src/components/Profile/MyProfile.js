@@ -5,7 +5,9 @@ import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
 import { getReviewsThunk } from '../../store/review';
 import Bookings from '../Bookings/Bookings';
+import EditProfileFormModal from './EditProfileModal';
 import AverageRating from './AverageRating';
+
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -50,6 +52,7 @@ function MyProfile() {
     {sessionUser && (
       <div>
         <h1>Mercenary: {sessionUser.first_name}</h1>
+        <EditProfileFormModal user={sessionUser} />
         <img src={sessionUser.pic_url} alt="User's Icon"/>
         <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
         <div>
@@ -66,9 +69,7 @@ function MyProfile() {
             );
           })}
         </div>
-        <Bookings reviewArr={reviewArr}/>
-      </div>
-
+        <Bookings reviewArr={reviewArr} />
     )}
     <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
     </>
