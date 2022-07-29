@@ -1,0 +1,35 @@
+.navbar-container {
+    display: flex;
+    justify-content:  space-between;
+    background-color: #ffee43 ;
+}
+
+.navlinks {
+    display: flex;
+    width: 400px;
+}
+
+.navlinks li, a, button {
+    display: inline-block;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 32px;
+}
+
+.permanent-links {
+    display: flex;
+    align-items: center;
+}
+
+.logged-in-links {
+    display: flex;
+    align-items: center;
+}
+
+.logged-in-links ul {
+    margin: 0px;
+    padding: 0px;
+}
