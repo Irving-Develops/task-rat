@@ -127,34 +127,38 @@ function TaskForm() {
       }
       {count === 2 &&
         <div className='input-container'>
-          <h2>Whereabouts might you need help?</h2>
-          <label>City</label>
-          <input
-            type="text"
-            placeholder="City"
-            required
-            value={city}
-            onChange={updateCity} />
-          <label>State</label>
-          <input
-            type="text"
-            placeholder="State"
-            required
-            value={state}
-            onChange={updateState} />
-          <label>Country</label>
-          <input
-            type="text"
-            placeholder="Country"
-            required
-            value={country}
-            onChange={updateCountry} />
+          <div className='input-headers'>
+            <h2>Whereabouts might you need help?</h2>
+            <h4>Be specific, it's a big ol' wasteland out there.</h4>
+          </div>
+          <div className='input-wrapper'>
+            <input
+              type="text"
+              placeholder="City"
+              required
+              value={city}
+              onChange={updateCity} />
+            <input
+              type="text"
+              placeholder="State"
+              required
+              value={state}
+              onChange={updateState} />
+            <input
+              type="text"
+              placeholder="Country"
+              required
+              value={country}
+              onChange={updateCountry} />
+          </div>
         </div>
       }
       {count === 3 &&
         <div className='input-container'>
-          <h2>There are plenty of skills I’ve learned from playing video games.</h2>
-          <h4>Skill Requirements:</h4>
+          <div className='input-headers'>
+            <h2>There are plenty of skills I’ve learned from playing video games.</h2>
+            <h4>Tell us what skills you need to get the job done.</h4>
+          </div>
           <label>Guns</label>
           <input
             type='checkbox'
@@ -222,23 +226,60 @@ function TaskForm() {
       }
       {count === 4 &&
         <div className='input-container'>
-          <h2>With great risk comes great cash.</h2>
-          <label>Reward</label>
-          <input
-            type="text"
-            placeholder="Reward"
-            required
-            value={price}
-            onChange={updatePrice} />
-          <label>Danger Level</label>
-          <select onChange={updateDangerLevel}>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"> 5 </option>
-          </select>
-          <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
+          <div className='input-headers'>
+            <h2>With great risk comes great cash.</h2>
+            <h4>How much is this task worth to you? Think hard.</h4>
+          </div>
+          <div className='input-wrapper'>
+            <input
+              type="text"
+              placeholder="Reward"
+              required
+              value={price}
+              onChange={updatePrice} />
+            <label>Danger Level</label>
+            <select onChange={updateDangerLevel}>
+              <option value="1"> 1 </option>
+              <option value="2"> 2 </option>
+              <option value="3"> 3 </option>
+              <option value="4"> 4 </option>
+              <option value="5"> 5 </option>
+            </select>
+          </div>
+        </div>
+      }
+      {count === 5 &&
+        <div className='input-container final-screen'>
+          <div className='final-screen-wrapper'>
+            <div className="input-headers">
+              <h2>Everything look correct?</h2>
+            </div>
+            <div onClick={() => setCount(1)} className='new-title-content final-screen-content'>
+              <h5>Title:</h5>
+              <p>{title}</p>
+            </div>
+            <div onClick={() => setCount(1)} className='new-description-content final-screen-content'>
+              <h5>Description:</h5>
+              <p>{description}</p>
+            </div>
+            <div onClick={() => setCount(2)} className='new-location-content final-screen-content'>
+              <h5>Location:</h5>
+              <p>{city}, {state}, {country}</p>
+            </div>
+            <div onClick={() => setCount(3)} className='new-skills-content final-screen-content'>
+              <h5>Skills Required:</h5>
+              <p>render tags here</p>
+            </div>
+            <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
+            <h5>Price:</h5>
+              <p>{price}</p>
+            </div>
+            <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
+              <h5>Reward:</h5>
+              <p>{price} BOTTLE CAPS</p>
+            </div>
+            <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
+          </div>
         </div>
       }
       </form>
@@ -250,7 +291,7 @@ function TaskForm() {
       <button
           type='button'
           onClick={() => setCount(count + 1)}
-          disabled={count > 3}
+          disabled={count > 4}
       >Next</button>
     </section>
   )

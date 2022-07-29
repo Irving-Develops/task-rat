@@ -45,7 +45,7 @@
     padding: 16px;
 }
 
-.input-wrapper * {
+.input-wrapper *{
     margin: 16px;
 }
 
@@ -64,4 +64,13 @@
 #quality {
     font-style: italic;
     text-align: right;
+}
+
+.final-screen-content {
+    display: flex;
+    align-items: center;
+}
+
+.final-screen-wrapper *{
+    margin: 16px;
 }
