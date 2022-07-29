@@ -1,6 +1,22 @@
 .task-container {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     border: 1px solid black;
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 350px;
+}
+
+.single-task-top {
+    background-color: #063f67;
+    border-bottom: 1px solid black;
+}
+
+.single-task-danger-level {
+    color: white;
+}
+
+.single-task-title {
+    /* color: #0067b1; */
+    font-family: Arial, Helvetica, sans-serif;
 }

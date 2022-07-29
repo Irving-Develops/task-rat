@@ -25,10 +25,13 @@ function TaskCard({ task }) {
     <>
       {user && task ?
         <div className='task-container'>
-            <h3> {task.title} </h3>
+          <div className='single-task-top'>
+            <p className='single-task-danger-level'>Danger Level: {task.danger_level}</p>
+            <i class="fa-solid fa-circle-radiation"></i>
+          </div>
+            <h3 className='single-task-title'> {task.title} </h3>
             {/* <p>Posted: {task.created_at} </p> */}
             <p>Location: {task.city}, {task.state}, {task.country}</p>
-            <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
             {task.tags.map(tag => (
               <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
