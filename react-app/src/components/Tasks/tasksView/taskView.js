@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from 'react-router-dom'
-// import Link from 'react-router'
 import { getTasksThunk } from "../../../store/tasks"
 import TaskCard from "../taskCard/taskCard";
+import './taskView.css'
 
 function TaskView() {
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks)
   const availableTasks = Object.values(tasks).filter(task => task.available === true)
-  // console.log(availableTasks)
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -18,17 +16,32 @@ function TaskView() {
     fetchTasks().catch(console.error)
   }, [dispatch])
 
+  const allTaskDesc = 'Coffers looking a little light? Undaunted by loss of life and limb? You\'re in the right place, friend.'
 
   return (
     tasks ?
     <div>
-      <h1> Welcome to tasks </h1>
-      <div>
-        {Object.values(availableTasks).map((task) => (
-          <div key={task.id}>
-              <TaskCard task={task} />
+      <div className="header-wrapper">
+        <div className='header-img'>
+          <img src='./images/task-view-page.jpg' />
+        </div>
+        <div className="header-info-card">
+          <div className="header-text-container">
+            <h1>All Tasks</h1>
+            <div className="line-break"></div>
           </div>
-        ))}
+          <p>{allTaskDesc}</p>
+        </div>
+      </div>
+      <div className='tasks-wrapper'>
+        <p className='sub-text'>Get out there and be somebody.</p>
+        <div className='tasks-container'>
+          {Object.values(availableTasks).map((task) => (
+            <div key={task.id} className='single-task-wrapper'>
+                <TaskCard task={task} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
     :

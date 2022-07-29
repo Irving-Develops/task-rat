@@ -20,7 +20,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
 
   const tagIds = Object.values(task.tags).map(tag => tag.id.toString())
   const [tags, setTags] = useState([...tagIds])
-  console.log(tags)
+  // console.log(tags.length)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -35,6 +35,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
     } else {
         const srch = tags.indexOf(e.target.value)
         tags.splice(srch, 1)
+        setTags([...tags])
     }
   }
 
@@ -60,7 +61,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if(errors.length) return alert('Cannot Submit')
+    if(errors.length) return alert('Cannot Submit, Please Fix Errors')
 
     const payload = {
       ...task,

@@ -70,6 +70,7 @@ function MyProfile() {
           })}
         </div>
         <Bookings reviewArr={reviewArr} />
+      </div>
     )}
     <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
     </>
