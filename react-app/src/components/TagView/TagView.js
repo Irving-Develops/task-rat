@@ -50,15 +50,31 @@ function TagView() {
 
     return (
         pageTag ?
-        <>
-            <h1>Greetings from {pageTag.type}!</h1>
-            <h4>{pageTag.description}</h4>
-            {availableTasks.map(task => (
-                <div key={task.id}>
-                        <TaskCard task={task} />
+        <div>
+            <div className="header-wrapper">
+                <div className='header-img'>
+                    {/* <img src='../../images/task_page_headers/task-view-page.jpg' alt='tag-view-1'/> */}
                 </div>
-            ))}
-        </>
+                <div className="header-info-card">
+                    <div className="header-text-container">
+                        <h1>{pageTag.type}!</h1>
+                        <div className="line-break"></div>
+                    </div>
+                        <p>{pageTag.description}</p>
+                </div>
+            </div>
+            <div className='tasks-wrapper'>
+                <p className='sub-text'>Get out there and be somebody.</p>
+                <div className='tasks-container'>
+                    {availableTasks.map(task => (
+                        <div key={task.id}>
+                                <TaskCard task={task} />
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </div>
         :
         <div>...loading</div>
     )
