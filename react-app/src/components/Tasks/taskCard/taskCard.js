@@ -80,61 +80,7 @@ function TaskCard({ task }) {
     }
   }
 
-  // function dangerLevelParser(task) {
-  //   if (task) {
-  //     if (task.danger_level === 1) {
-  //       dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
-  //       dangerIconColor = 'green'
-  //     }
-  //     if (task.danger_level === 2) {
-  //       dangerIcons = (
-  //         <>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //         </>
-  //       )
-  //       dangerIconColor = 'yellow'
-  //     }
-  //     if (task.danger_level === 3) {
-  //       dangerIcons = (
-  //         <>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //         </>
-  //       )
-  //       dangerIconColor = 'orange'
-  //     }
-  //     if (task.danger_level === 4) {
-  //       dangerIcons = (
-  //         <>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //         </>
-  //       )
-  //       dangerIconColor = 'red'
-  //     }
-  //     if (task.danger_level === 5) {
-  //       dangerIcons = (
-  //         <>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //           <i className="fa-solid fa-circle-radiation"></i>
-  //         </>
-  //       )
-  //       dangerIconColor = 'red'
-  //       extremelyDangerous = 'extremely-dangerous-task'
-  //     }
-  //   }
-  //   return
-  // }
-
   dangerLevelParser(task)
-  console.log(dangerIconColor)
 
   return (
     <>
@@ -142,6 +88,7 @@ function TaskCard({ task }) {
         <div className='task-container'>
           <div className='single-task-top'>
             <h4 style={{ 'color': 'white'}}>Danger Level:</h4>
+            {/* <h3 className='single-task-title' style={{ 'color': 'white'}}>Task</h3> */}
             <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
               {dangerIcons}
             </div>
