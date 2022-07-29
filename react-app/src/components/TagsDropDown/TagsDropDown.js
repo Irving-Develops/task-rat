@@ -6,9 +6,9 @@ function TagsDropDown() {
 
     return (
         <div
-        onMouseEnter={() => setShowDropDown(true)}
-        onMouseLeave={() => setShowDropDown(false)}
-        style={{ 'maxWidth': '50px' }}
+            onMouseEnter={() => setShowDropDown(true)}
+            onMouseLeave={() => setShowDropDown(false)}
+            style={{ 'maxWidth': '50px' }}
         >
             <NavLink to='/tasks'>Tasks</NavLink>
             {showDropDown &&
@@ -42,9 +42,6 @@ function TagsDropDown() {
                     </div>
                     <div>
                         <NavLink to='/tags/9'>Hand-to-Hand</NavLink>
-                    </div>
-                    <div>
-                        <NavLink to='/tags/10'>Charisma</NavLink>
                     </div>
                 </div>
             }

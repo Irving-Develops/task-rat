@@ -6,9 +6,16 @@ import TaskCardHomePage from "./TaskCardHomePage"
 
 function TaskViewHomePage() {
   const dispatch = useDispatch()
-  const sessionUser = useSelector(state => state.session.user.id)
+  const sessionUser = useSelector(state => state.session)
+
   const tasks = useSelector((state) => state.tasks)
-  const availableTasks = Object.values(tasks).filter(task => task.available === true && task.poster_id !== sessionUser)
+  let availableTasks = Object.values(tasks).filter(task => task.available === true)
+  if(sessionUser.user) {
+    availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
+  }
+  while (availableTasks.length > 3) {
+    availableTasks.pop()
+  }
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -22,11 +29,9 @@ function TaskViewHomePage() {
     tasks ?
     <div>
       <h2> Featured Tasks</h2>
-      <div className="task-card-container">
+      <div className="card-container">
         {Object.values(availableTasks).map((task) => (
-          <div key={task.id} className="task-card-wrapper">
               <TaskCardHomePage task={task} />
-          </div>
         ))}
       </div>
     </div>

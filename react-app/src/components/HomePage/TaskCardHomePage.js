@@ -24,41 +24,33 @@ function TaskCardHomePage({ task }) {
   return (
     <>
         {user && task ?
-            <div className='task-card'>
-                    <div className='task-title'>
+            <div className={`danger-${task.danger_level} card`}>
+                    <div className='title'>
                         <h3> {task.title} </h3>
                     </div>
                     <div className='content-container'>
                         <div className='task-content'>
-                        <NavLink to={`/tasks/${task.id}`} task={task} id="test">
-                            <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
-                            <p className={`danger-${task.danger_level}`}><span className='task-bullet'> Danger Level : </span>{task.danger_level}</p>
-                            <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                            <span className='date'>Posted : {task.created_at} </span>
-                            {/* <p>
-                              <span className="task-bullet">Location : </span>{task.city}, {task.state}, {task.country}<br/>
-                              <span className="task-bullet">Danger Level : </span> <span className={`danger-${task.danger_level}`}>{task.danger_level}</span><br/>
-                              <span className='task-bullet'>Reward : </span> {task.price} bottle caps <br />
-                              <span className='task-bullet'>Posted : {task.created_at}</span>
-                            </p> */}
-                        </NavLink>
+                            <p><span className='bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
+                            <p className='bullet'> Danger Level :<span className={`dan-${task.danger_level}`}>{task.danger_level}</span></p>
+                            <p><span className='bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
                         </div>
                         <div className='task-misc'>
-                          <div className='task-buttons'>
+                          <div className='home-page-buttons'>
                               <BookingForm task={task}/>
+                              <NavLink to={`/tasks/${task.id}`}>View Task Details</NavLink>
                           </div>
-                          <div className='tags-container'>
+                          {/* <div className='tags-container'>
                                   {task.tags.map(tag => (
                                       <div key={tag.type} className="tags">
                                       {tag.type}
                                   </div>
                                   ))}
-                          </div>
+                          </div> */}
                         </div>
                     </div>
             </div>
         :
-        null
+            <div className="loading">loading</div>
       }
     </>
   )

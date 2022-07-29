@@ -4,7 +4,8 @@
     justify-content:  space-between;
     position: sticky;
     top: 0;
-    background-color: #ffee43 ;
+    background-color: #ffee43;
+    z-index: 10000;
 }
 .navbar-container a, .navbar-container button {
     margin: 5px;
