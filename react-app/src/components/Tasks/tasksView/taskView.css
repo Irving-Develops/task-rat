@@ -1,5 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap'); */
-
 body {
     background-color: #f9fafb;
 }
@@ -31,7 +29,7 @@ body {
     transform: translate(-50%, 0);
     top: -350px;
     left: 50%;
-    padding-left: 40px;
+    /* padding-left: 40px; */
     /* width: 500px; */
     height: 420px;
     color: white;
@@ -58,7 +56,6 @@ body {
 .header-info-card h1 {
     font-size: 50px;
     font-weight: 800;
-    padding-right: 10px;
 }
 
 .header-info-card p {
@@ -86,3 +83,7 @@ body {
 .sub-text {
     margin-top: -10px;
 }
+
+/* .tasks-container {
+    width: 100 vw;
+} */
