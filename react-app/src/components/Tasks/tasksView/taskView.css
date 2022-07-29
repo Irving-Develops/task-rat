@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap'); */
 
-/* .tasks-container {
-    border: 2px solid black;
-} */
+body {
+    background-color: #f9fafb;
+}
 
 .header-img {
     width: 100vw;
@@ -12,6 +12,7 @@
     position: relative;
     width: 100%;
     min-height: 420px;
+    filter: brightness(.9)
 }
 
 .header-img img {
@@ -26,36 +27,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     transform: translate(-50%, 0);
-    top: -150px;
+    top: -350px;
     left: 50%;
-    width: 500px;
-    height: 300px;
-    background-color: white;
-    border: 1px solid black;
+    padding-left: 40px;
+    /* width: 500px; */
+    height: 420px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 8px rgb(4 46 41 / 14%), 0px 0px 4px rgb(7 7 7 / 10%);;
+    font-weight: 800;
+    /* background-color: white;
+    border: 1px solid black; */
 }
 
 .line-break {
-    background-color: black;
-    height: 1px;
-    width: 350px;
+    background-color: white;
+    height: 5px;
+    width: 100%;
+    margin-top: -35px;
+}
+
+#all-tasks-text {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
 }
 
 .header-info-card h1 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 40px;
+    font-size: 50px;
+    font-weight: 800;
+    padding-right: 10px;
 }
 
 .header-info-card p {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 30px;
-    padding-top: 10px;
+    font-size: 32px;
     text-align: center;
-    text-indent: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: gray;
 }
 
 .header-wrapper {
@@ -64,5 +72,5 @@
 
 .available-tasks-header {
     font-family: 'Source Sans Pro', sans-serif;;
-    font-size: 25px;
+    font-size: px;
 }

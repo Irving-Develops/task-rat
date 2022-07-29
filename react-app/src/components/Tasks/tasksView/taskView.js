@@ -26,8 +26,10 @@ function TaskView() {
           <img src='./images/task-view-page.jpg' />
         </div>
         <div className="header-info-card">
-          <h1>All Tasks</h1>
-          <div className="line-break"></div>
+          <div id='all-tasks-text'>
+            <h1>All Tasks</h1>
+            <div className="line-break"></div>
+          </div>
           <p>{allTaskDesc}</p>
         </div>
       </div>
