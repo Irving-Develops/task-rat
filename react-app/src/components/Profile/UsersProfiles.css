@@ -1,0 +1,11 @@
+.user-profile-tasks {
+  display: flex;
+  flex-direction: column;
+  background-color: #1c381b;
+  color: #14f217;
+  border: 2px solid #14f217;
+  border-radius: 15px;
+  margin: 15px 0;
+  width: 90%;
+  height: 90%;
+}

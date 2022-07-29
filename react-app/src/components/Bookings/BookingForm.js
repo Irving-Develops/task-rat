@@ -5,7 +5,7 @@ import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
 import LoginFormModal from '../auth/LoginFormModal';
 
-function BookingForm({task}) {
+function BookingForm({ task }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   // console.log(task.tags)
@@ -46,12 +46,12 @@ function BookingForm({task}) {
   }
   return (
     <>
-    {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
-      <button onClick={handleBooking}>Claim Task</button>
-    )}
-    {task && task.available === true && !sessionUser && (
-        <LoginFormModal task={task}/>
-    )}
+      {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
+        <button onClick={handleBooking}>Claim Task</button>
+      )}
+      {task && task.available === true && !sessionUser && (
+        <LoginFormModal task={task} />
+      )}
 
     </>
   );

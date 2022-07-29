@@ -81,48 +81,56 @@ const EditProfileForm = ({ user, toggleShow }) => {
         {/* <ul>
           {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
         </ul> */}
+        <label>First Name</label>
         <input
           type="text"
           placeholder="First Name"
           required
           value={first_name}
           onChange={updateFirstName} />
+        <label>Last Name</label>
         <input
           type="text"
           placeholder="Last Name"
           required
           value={last_name}
           onChange={updateLastName} />
+        <label>Email</label>
         <input
           type="text"
           placeholder="Email"
           required
           value={email}
           onChange={updateEmail} />
+        <label>Profile Pic</label>
         <input
           type="text"
           placeholder="Profile Pic"
           required
           value={pic_url}
           onChange={updatePicUrl} />
+        <label>City</label>
         <input
           type="text"
           placeholder="City"
           required
           value={city}
           onChange={updateCity} />
+        <label>State</label>
         <input
           type="text"
           placeholder="State"
           required
           value={state}
           onChange={updateState} />
+        <label>Country</label>
         <input
           type="text"
           placeholder="Country"
           required
           value={country}
           onChange={updateCountry} />
+        <label>Bio</label>
         <input
           type="text"
           placeholder="Bio"
