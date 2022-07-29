@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 // protected route = custom component that will return a user to hompage if they are not logged in
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -12,6 +12,7 @@ import TaskView from './components/Tasks/tasksView/taskView';
 import TaskForm from './components/Tasks/taskForm/taskForm';
 import SingleTask from './components/Tasks/SingleTask/SingleTask';
 import MyProfile from './components/Profile/MyProfile';
+import HomePage from './components/HomePage/HomePage';
 import TagView from './components/TagView/TagView';
 
 
@@ -46,7 +47,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </Route>
         <Route path="/tasks" exact={true}>
           <TaskView />
