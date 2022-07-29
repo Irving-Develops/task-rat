@@ -20,7 +20,6 @@ function SingleReview({ review }) {
   return (
     <div>
       {sessionUser && review.tasker_id === sessionUser.id ?
-
         (<div>
           {!showEditForm && (
             <div>
