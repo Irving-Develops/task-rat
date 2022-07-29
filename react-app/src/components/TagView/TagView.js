@@ -53,7 +53,7 @@ function TagView() {
         <div>
             <div className="header-wrapper">
                 <div className='header-img'>
-                    <img src='./images/task-view-page.jpg' />
+                    {/* <img src='../../images/task_page_headers/task-view-page.jpg' alt='tag-view-1'/> */}
                 </div>
                 <div className="header-info-card">
                     <div className="header-text-container">
