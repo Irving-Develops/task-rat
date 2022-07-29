@@ -81,9 +81,13 @@ body {
 }
 
 .sub-text {
-    margin-top: -10px;
+    /* margin-top: -10px; */
 }
 
-/* .tasks-container {
-    width: 100 vw;
-} */
+.tasks-container {
+    display: grid;
+    /* margin-top: 20px; */
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 50px;
+}

@@ -24,7 +24,7 @@ function TaskCard({ task }) {
   return (
     <>
       {user && task ?
-        <div>
+        <div className='task-container'>
             <h3> {task.title} </h3>
             {/* <p>Posted: {task.created_at} </p> */}
             <p>Location: {task.city}, {task.state}, {task.country}</p>
