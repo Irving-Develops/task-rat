@@ -33,6 +33,7 @@ function TaskForm() {
     } else {
         const srch = tags.indexOf(e.target.value)
         tags.splice(srch, 1)
+        setTags([...tags])
     }
   }
 
@@ -46,7 +47,7 @@ function TaskForm() {
     if (city.length < 0 || city.length > 50) errors.push('Please provide a valid city name')
     if (state.length < 0 || state.length > 50) errors.push('Please provide a valid state name')
     if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name')
-    if (isNaN(price)) errors.push('Price must be a number')
+    if (isNaN(price)) errors.push('Reward must be a number')
     if (price <= 0) errors.push('Task must pay at least 1 bottle cap')
     if (tags.length <= 0) errors.push('Task must have at least one tag')
 
@@ -58,7 +59,7 @@ function TaskForm() {
     e.preventDefault()
 
     setHasSubmitted(true)
-    if(errors.length) return alert('Cannot Submit')
+    if(errors.length) return alert('Cannot Submit, Please Fix Errors')
 
     const payload = {
       title,
@@ -132,10 +133,10 @@ function TaskForm() {
           required
           value={country}
           onChange={updateCountry} />
-        <label>Price</label>
+        <label>Reward</label>
         <input
           type="text"
-          placeholder="Price"
+          placeholder="Reward"
           required
           value={price}
           onChange={updatePrice} />
