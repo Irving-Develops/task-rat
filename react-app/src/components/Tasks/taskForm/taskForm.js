@@ -148,26 +148,7 @@ function TaskForm() {
       }
       {count === 3 &&
         <div>
-          <h2>Gotta risk it for the biscuit.</h2>
-          <label>Reward</label>
-          <input
-            type="text"
-            placeholder="Reward"
-            required
-            value={price}
-            onChange={updatePrice} />
-          <label>Danger Level</label>
-          <select onChange={updateDangerLevel}>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"> 5 </option>
-          </select>
-        </div>
-      }
-      {count === 4 &&
-        <div>
+          <h2>What kind of skills do you need?</h2>
           <h4>Skills Needed:</h4>
           <label>Guns</label>
           <input
@@ -239,6 +220,26 @@ function TaskForm() {
             value='10'
             onChange={(e) => updateTags(e)}
           ></input>
+        </div>
+      }
+      {count === 4 &&
+        <div>
+          <h2>Gotta risk it for the biscuit.</h2>
+          <label>Reward</label>
+          <input
+            type="text"
+            placeholder="Reward"
+            required
+            value={price}
+            onChange={updatePrice} />
+          <label>Danger Level</label>
+          <select onChange={updateDangerLevel}>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+          </select>
         </div>
       }
         <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
