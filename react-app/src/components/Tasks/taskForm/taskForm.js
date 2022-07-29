@@ -88,8 +88,7 @@ function TaskForm() {
 
   return (
     <section>
-      <h1>You got a job? We got a body*!</h1>
-      <h4>*Breathing not guaranteed</h4>
+      <h1>You got a job? We got a body!</h1>
       <form onSubmit={handleSubmit}>
       {hasSubmitted && errors.length > 0 && (
         <div className='errors-container'>
@@ -104,6 +103,8 @@ function TaskForm() {
       {count === 1 &&
       <div>
         <h2>So, tell us about your task.</h2>
+        <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
+        <p>*quality not guaranteed.</p>
         <label>Title</label>
         <input
           type="text"
@@ -112,18 +113,18 @@ function TaskForm() {
           value={title}
           onChange={updateTitle} />
         <label>Description</label>
-        <input
+        <textarea
           type="text"
           placeholder="Description"
           required
           value={description}
           onChange={updateDescription} />
-        <label>City</label>
       </div>
       }
       {count === 2 &&
         <div>
           <h2>Whereabouts might you need help?</h2>
+          <label>City</label>
           <input
             type="text"
             placeholder="City"
@@ -148,8 +149,8 @@ function TaskForm() {
       }
       {count === 3 &&
         <div>
-          <h2>What kind of skills do you need?</h2>
-          <h4>Skills Needed:</h4>
+          <h2>There are plenty of skills I’ve learned from playing video games.</h2>
+          <h4>Skill Requirements:</h4>
           <label>Guns</label>
           <input
             type='checkbox'
@@ -213,18 +214,11 @@ function TaskForm() {
             value='9'
             onChange={(e) => updateTags(e)}
           ></input>
-          <label>Charisma</label>
-          <input
-            type='checkbox'
-            name='charisma'
-            value='10'
-            onChange={(e) => updateTags(e)}
-          ></input>
         </div>
       }
       {count === 4 &&
         <div>
-          <h2>Gotta risk it for the biscuit.</h2>
+          <h2>With great risk comes great cash.</h2>
           <label>Reward</label>
           <input
             type="text"
@@ -240,9 +234,9 @@ function TaskForm() {
             <option value="4"> 4 </option>
             <option value="5"> 5 </option>
           </select>
+          <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
         </div>
       }
-        <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
       </form>
       <button
           type='button'
@@ -252,7 +246,7 @@ function TaskForm() {
       <button
           type='button'
           onClick={() => setCount(count + 1)}
-          disabled={count > 3}
+          disabled={count > 4}
       >Next</button>
     </section>
   )
