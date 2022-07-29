@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { addTaskThunk } from "../../../store/tasks"
 // import LoginFormModal from "../../auth/LoginFormModal"
+import './taskForm.css'
 
 function TaskForm() {
   const dispatch = useDispatch()
@@ -87,9 +88,9 @@ function TaskForm() {
   }
 
   return (
-    <section>
+    <section className='form-section'>
       <h1>You got a job? We got a body!</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='step-form'>
       {hasSubmitted && errors.length > 0 && (
         <div className='errors-container'>
             The following errors were found:
@@ -101,28 +102,31 @@ function TaskForm() {
         </div>
       )}
       {count === 1 &&
-      <div>
-        <h2>So, tell us about your task.</h2>
-        <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
-        <p>*quality not guaranteed.</p>
-        <label>Title</label>
-        <input
-          type="text"
-          placeholder="Title"
-          required
-          value={title}
-          onChange={updateTitle} />
-        <label>Description</label>
-        <textarea
-          type="text"
-          placeholder="Description"
-          required
-          value={description}
-          onChange={updateDescription} />
+      <div className='input-container'>
+        <div className='input-headers'>
+          <h2>So, tell us about your task.</h2>
+          <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
+        </div>
+        <div className='input-wrapper'>
+          <input
+            type="text"
+            placeholder="Enter a title for your task."
+            required
+            value={title}
+            onChange={updateTitle} />
+          <textarea
+            className="new-task-description"
+            type="text"
+            placeholder="Please provide a description of the task at hand."
+            required
+            value={description}
+            onChange={updateDescription} />
+        <p id='quality'>*quality not guaranteed.</p>
+        </div>
       </div>
       }
       {count === 2 &&
-        <div>
+        <div className='input-container'>
           <h2>Whereabouts might you need help?</h2>
           <label>City</label>
           <input
@@ -148,7 +152,7 @@ function TaskForm() {
         </div>
       }
       {count === 3 &&
-        <div>
+        <div className='input-container'>
           <h2>There are plenty of skills I’ve learned from playing video games.</h2>
           <h4>Skill Requirements:</h4>
           <label>Guns</label>
@@ -217,7 +221,7 @@ function TaskForm() {
         </div>
       }
       {count === 4 &&
-        <div>
+        <div className='input-container'>
           <h2>With great risk comes great cash.</h2>
           <label>Reward</label>
           <input
@@ -246,7 +250,7 @@ function TaskForm() {
       <button
           type='button'
           onClick={() => setCount(count + 1)}
-          disabled={count > 4}
+          disabled={count > 3}
       >Next</button>
     </section>
   )
