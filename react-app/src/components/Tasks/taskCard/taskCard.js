@@ -21,13 +21,75 @@ function TaskCard({ task }) {
     fetchData()
   }, [])
 
+
+  let dangerIcons
+  let dangerIconColor
+  let extremelyDangerous
+  function dangerLevelParser(task) {
+    if (task) {
+      if (task.danger_level === 1) {
+        dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
+        dangerIconColor = 'green'
+      }
+      if (task.danger_level === 2) {
+        dangerIcons = (
+          <>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+          </>
+        )
+        dangerIconColor = 'yellow'
+      }
+      if (task.danger_level === 3) {
+        dangerIcons = (
+          <>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+          </>
+        )
+        dangerIconColor = 'orange'
+      }
+      if (task.danger_level === 4) {
+        dangerIcons = (
+          <>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+          </>
+        )
+        dangerIconColor = 'red'
+      }
+      if (task.danger_level === 5) {
+        dangerIcons = (
+          <>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+            <i className="fa-solid fa-circle-radiation"></i>
+          </>
+        )
+        dangerIconColor = 'red'
+        extremelyDangerous = 'extremely-dangerous-task'
+      }
+    }
+    return
+  }
+
+  dangerLevelParser(task)
+  console.log(dangerIconColor)
+
   return (
     <>
       {user && task ?
         <div className='task-container'>
           <div className='single-task-top'>
-            <p className='single-task-danger-level'>Danger Level: {task.danger_level}</p>
-            <i class="fa-solid fa-circle-radiation"></i>
+            <h4 style={{ 'color': 'white'}}>Danger Level:</h4>
+            <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
+              {dangerIcons}
+            </div>
           </div>
             <h3 className='single-task-title'> {task.title} </h3>
             {/* <p>Posted: {task.created_at} </p> */}
