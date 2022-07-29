@@ -253,6 +253,7 @@ function TaskForm() {
           <div className='final-screen-wrapper'>
             <div className="input-headers">
               <h2>Everything look correct?</h2>
+              <h4>Click on a section to edit.</h4>
             </div>
             <div onClick={() => setCount(1)} className='new-title-content final-screen-content'>
               <h5>Title:</h5>
@@ -278,7 +279,7 @@ function TaskForm() {
               <h5>Reward:</h5>
               <p>{price} BOTTLE CAPS</p>
             </div>
-            <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
+            <button type="submit" id="taskFormSubmitButton" className='task-buttons'> Submit your task </button>
           </div>
         </div>
       }
@@ -287,11 +288,13 @@ function TaskForm() {
           type='button'
           onClick={() => setCount(count - 1)}
           disabled={count < 2}
+          className='task-buttons'
       >Back</button>
       <button
           type='button'
           onClick={() => setCount(count + 1)}
           disabled={count > 4}
+          className='task-buttons'
       >Next</button>
     </section>
   )
