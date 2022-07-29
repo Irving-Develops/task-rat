@@ -245,6 +245,32 @@
     display: flex;
     justify-content: center;
 }
+.body-banner-button{
+    margin: 20px 5px 5px;
+    transition: all .5s ease;
+    color: #0067B1;
+    border:1px solid #0067B1;
+    font-family:'Montserrat', sans-serif;
+    /* text-transform: uppercase; */
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+    background-color : transparent;
+    padding: 4px;
+    outline: none;
+    border-radius: 15px;
+}
+.body-banner-button p {
+    padding:0;
+    margin:0;
+}
+.body-banner-button:hover {
+    color: #f9fbfb;
+    background-color: #0067B1;
+}
+.body-banner-button a:visited{
+color: #0067B1;
+}
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }

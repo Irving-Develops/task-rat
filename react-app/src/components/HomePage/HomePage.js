@@ -41,13 +41,15 @@ function HomePage() {
                     <div className="why-list">
                         <ul>
                             <li>&#10003; Stay in the comfort of your home</li>
-                            <li>&#10003; Avoid dangerous tasks you would rather avoid</li>
-                            <li>&#10003; Pay someone else to do something you can't</li>
+                            <li>&#10003; Avoid doing dangerous tasks yourself</li>
+                            <li>&#10003; Pay someone else for their expertise</li>
                         </ul>
                     </div>
+                    <NavLink to='/tasks/new'>
                     <div className="body-banner-button">
-                        <NavLink to='/tasks'>Create Task</NavLink>
+                        <p>Create Task</p>
                     </div>
+                    </NavLink>
                 </div>
             </div>
 
@@ -64,9 +66,11 @@ function HomePage() {
                             <li>&#10003; Work with trusting folk</li>
                         </ul>
                     </div>
+                    <NavLink to='/tasks'>
                     <div className="body-banner-button">
-                        <NavLink to='/tasks'>Checkout Tasks</NavLink>
+                        <p>Checkout Tasks</p>
                     </div>
+                    </NavLink>
                 </div>
                 <div className='img-container'>
                     <div className="body-banner-img">
