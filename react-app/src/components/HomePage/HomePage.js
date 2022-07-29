@@ -27,6 +27,26 @@ function HomePage() {
                 <UsersList />
                 <NavLink to={'/users'}>View All Users</NavLink>
             </div> */}
+            <div className="body-banner">
+                <div className="body-banner-img">
+                    <img src='https://i.pinimg.com/736x/79/09/91/790991524d44472ff596132c4b1d7df7--fallout-vault-boy-fallout-art.jpg' alt="bottle cap" />
+                </div>
+                <div className="text">
+                    <h3>Running low on bottle caps?</h3>
+                    <p>Pick up a tasks around the wasteland to </p>
+                </div>
+            </div>
+            <div className="body-banner">
+                <div className="body-banner-img">
+                </div>
+                <div className="text">
+                    <h3>Need someone to do a task?</h3>
+                    <p>Create a task and have someone else do it for you! </p>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
 
         </>
     )

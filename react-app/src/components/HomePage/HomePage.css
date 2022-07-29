@@ -196,6 +196,26 @@
     blink-caret .75s step-end infinite;
 }
 
+/* Body Banner */
+.body-banner {
+    display: flex;
+    margin: 100px 0;
+    padding: 0;
+    width: 100%;
+    height: 300px;
+    background: rgba(6,63,103,1);
+    background: linear-gradient(270deg, rgba(6,63,103,1) 0%, rgba(0,103,177,1)100%);
+    color: white;
+}
+.body-banner img {
+    height: 300px;
+    width: 300px;
+}
+
+.body-banner .text {
+    display: flex;
+    
+}
 
 /* The typing effect */
 @keyframes typing {
