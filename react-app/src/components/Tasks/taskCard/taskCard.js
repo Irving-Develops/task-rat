@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
+import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
@@ -24,9 +25,8 @@ function TaskCard({ task }) {
     <>
       {user && task ?
         <div>
-          <NavLink to={`/tasks/${task.id}`} task={task}>
             <h3> {task.title} </h3>
-            <p>Posted: {task.created_at} </p>
+            {/* <p>Posted: {task.created_at} </p> */}
             <p>Location: {task.city}, {task.state}, {task.country}</p>
             <p>Danger Level: {task.danger_level}</p>
             <p>Reward: {task.price} BOTTLE CAPS</p>
@@ -35,8 +35,10 @@ function TaskCard({ task }) {
                 {tag.type}
               </div>
             ))}
-          </NavLink>
-            <p><UsersProfileModal user={user}/></p>
+          <button>
+            <Link to={`/tasks/${task.id}`}>Details</Link>
+          </button>
+          <p><UsersProfileModal user={user}/></p>
           <BookingForm task={task}/>
         </div>
         :
