@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
 import './taskCard.css'
@@ -85,29 +85,65 @@ function TaskCard({ task }) {
   return (
     <>
       {user && task ?
-        <div className='task-container'>
-          <div className='single-task-top'>
-            <h4 style={{ 'color': 'white'}}>Danger Level:</h4>
-            {/* <h3 className='single-task-title' style={{ 'color': 'white'}}>Task</h3> */}
-            <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-              {dangerIcons}
-            </div>
-          </div>
-            <h3 className='single-task-title'> {task.title} </h3>
-            {/* <p>Posted: {task.created_at} </p> */}
-            <p>Location: {task.city}, {task.state}, {task.country}</p>
-            <p>Reward: {task.price} BOTTLE CAPS</p>
-            {task.tags.map(tag => (
-              <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
-                {tag.type}
+          <div className='task-card'>
+            <div className='title-danger-level-wrapper'>
+              <div className='task-title'>
+                  <h3> {task.title} </h3>
               </div>
-            ))}
-          <button>
-            <Link to={`/tasks/${task.id}`}>Details</Link>
-          </button>
-          <p><UsersProfileModal user={user}/></p>
-          <BookingForm task={task}/>
+              <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
+                {dangerIcons}
+              </div>
+            </div>
+            <div className='content-container'>
+                <div className='task-content'>
+                <NavLink to={`/tasks/${task.id}`} task={task} id="test">
+                    <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
+
+                    <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
+                    <span className='date'>Posted : {task.created_at} </span>
+                    {/* <p>
+                      <span className="task-bullet">Location : </span>{task.city}, {task.state}, {task.country}<br/>
+                      <span className="task-bullet">Danger Level : </span> <span className={`danger-${task.danger_level}`}>{task.danger_level}</span><br/>
+                      <span className='task-bullet'>Reward : </span> {task.price} bottle caps <br />
+                      <span className='task-bullet'>Posted : {task.created_at}</span>
+                    </p> */}
+                </NavLink>
+                </div>
+                <div className='task-misc'>
+                  <div className='task-buttons'>
+                      <BookingForm task={task}/>
+                  </div>
+                  <div className='tags-container'>
+                          {task.tags.map(tag => (
+                              <div key={tag.type} className="tags">
+                              {tag.type}
+                          </div>
+                          ))}
+                  </div>
+                </div>
+            </div>
         </div>
+        // <div className='task-container'>
+        //   <div className='single-task-top'>
+        //     <h4 style={{ 'color': 'white'}}>Danger Level:</h4>
+        //     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
+        //       {dangerIcons}
+        //     </div>
+        //   </div>
+        //     <h3 className='single-task-title'> {task.title} </h3>
+        //     <p>Location: {task.city}, {task.state}, {task.country}</p>
+        //     <p>Reward: {task.price} BOTTLE CAPS</p>
+        //     {task.tags.map(tag => (
+        //       <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
+        //         {tag.type}
+        //       </div>
+        //     ))}
+        //   <button>
+        //     <Link to={`/tasks/${task.id}`}>Details</Link>
+        //   </button>
+        //   <p><UsersProfileModal user={user}/></p>
+        //   <BookingForm task={task}/>
+        // </div>
         :
         null
       }
