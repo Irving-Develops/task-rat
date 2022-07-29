@@ -5,6 +5,7 @@ import { deleteTaskThunk, getTasksThunk, editTaskThunk } from '../../../store/ta
 import EditTaskForm from '../editTaskForm/editTaskForm'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
+import EditTaskFormModal from '../editTaskModal/editTaskModal'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ function SingleTask() {
     }
 
 
-    const handleDelete = async() => {
+    const handleDelete = async () => {
         await dispatch(deleteTaskThunk(task))
         history.push('/tasks')
     }
@@ -43,7 +44,7 @@ function SingleTask() {
         task && user ?
             <div>
                 <h1>{task.title}</h1>
-                <p><UsersProfileModal user={user}/></p>
+                <p><UsersProfileModal user={user} /></p>
                 <p>Posted: {task.created_at} </p>
                 <p>Location: {task.city}, {task.state}, {task.country}</p>
                 <p>Description: {task.description}</p>
@@ -56,12 +57,12 @@ function SingleTask() {
                 ))}
                 {sessionUser && sessionUser.id === task.poster_id &&
                     <div>
-                      <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
-                      <button onClick={handleDelete}>Delete</button>
+                        <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                        <button onClick={handleDelete}>Delete</button>
                     </div>
                 }
-                {showEditForm && <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>}
-                <BookingForm task={task}/>
+                {showEditForm && <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />}
+                <BookingForm task={task} />
             </div>
             :
             <p>...loading</p>
