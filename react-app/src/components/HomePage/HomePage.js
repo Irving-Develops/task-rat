@@ -23,10 +23,6 @@ function HomePage() {
                 <p>Partnered with RobCo Industries and NukaCola</p>
             </div>
             <TaskViewHomePage />
-            {/* <div>
-                <UsersList />
-                <NavLink to={'/users'}>View All Users</NavLink>
-            </div> */}
              <div className="body-banner">
                 {/* <div className='img-container'> */}
                     <div className="body-banner-img">
@@ -51,6 +47,10 @@ function HomePage() {
                     </div>
                     </NavLink>
                 </div>
+            </div>
+            
+            <div>
+                <UsersList />
             </div>
 
             <div className="body-banner">

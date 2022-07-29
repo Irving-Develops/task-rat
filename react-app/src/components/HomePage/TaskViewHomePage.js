@@ -13,9 +13,9 @@ function TaskViewHomePage() {
   if(sessionUser.user) {
     availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
   }
-  // }else {
-  //   availableTasks = Object.values(tasks).filter(task => task.available === true)
-  // }
+  while (availableTasks.length > 3) {
+    availableTasks.pop()
+  }
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -29,11 +29,9 @@ function TaskViewHomePage() {
     tasks ?
     <div>
       <h2> Featured Tasks</h2>
-      <div className="task-card-container">
+      <div className="card-container">
         {Object.values(availableTasks).map((task) => (
-          <div key={task.id} className="task-card-wrapper">
               <TaskCardHomePage task={task} />
-          </div>
         ))}
       </div>
     </div>
