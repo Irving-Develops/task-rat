@@ -30,7 +30,7 @@ function AverageRating({reviewsAboutMeArr}) {
   let responseTotal = one + two + three + four + five;
   let average = scoreTotal / responseTotal;
   return (
-    <h2>Rating: {average ? average.toFixed(1) : null}</h2>
+    <h2 id="profile-avg-rating-h2">Rating: {average ? average.toFixed(1) : null}</h2>
   );
 }
 

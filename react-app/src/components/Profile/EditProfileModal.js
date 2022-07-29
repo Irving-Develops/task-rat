@@ -9,7 +9,7 @@ function EditProfileFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Profile</button>
+      <button id="profile-edit-btn" onClick={() => setShowModal(true)}>Edit Profile</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditProfileForm user={sessionUser} toggleShow={setShowModal} />
