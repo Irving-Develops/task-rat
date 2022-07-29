@@ -27,27 +27,53 @@ function HomePage() {
                 <UsersList />
                 <NavLink to={'/users'}>View All Users</NavLink>
             </div> */}
-            <div className="body-banner">
-                <div className="body-banner-img">
-                    <img src='https://i.pinimg.com/736x/79/09/91/790991524d44472ff596132c4b1d7df7--fallout-vault-boy-fallout-art.jpg' alt="bottle cap" />
-                </div>
-                <div className="text">
-                    <h3>Running low on bottle caps?</h3>
-                    <p>Pick up a tasks around the wasteland to </p>
-                </div>
-            </div>
-            <div className="body-banner">
-                <div className="body-banner-img">
-                </div>
-                <div className="text">
-                    <h3>Need someone to do a task?</h3>
-                    <p>Create a task and have someone else do it for you! </p>
-                    <ul>
-                        <li></li>
-                    </ul>
+             <div className="body-banner">
+                {/* <div className='img-container'> */}
+                    <div className="body-banner-img">
+                        <img src="https://pbs.twimg.com/media/EVrzoltUwAI7pGU.png" alt='gun surgeon' />
+                    </div>
+                {/* </div> */}
+                <div className="body-banner-text">
+                    <div className="body-banner-title">
+                        <h3>Need someone to do a task?</h3>
+                        <p>Create a task and have someone else do it for you! </p>
+                    </div>
+                    <div className="why-list">
+                        <ul>
+                            <li>&#10003; Stay in the comfort of your home</li>
+                            <li>&#10003; Avoid dangerous tasks you would rather avoid</li>
+                            <li>&#10003; Pay someone else to do something you can't</li>
+                        </ul>
+                    </div>
+                    <div className="body-banner-button">
+                        <NavLink to='/tasks'>Create Task</NavLink>
+                    </div>
                 </div>
             </div>
 
+            <div className="body-banner">
+                <div className="body-banner-text">
+                    <div className="body-banner-title">
+                        <h3>Running low on bottle caps?</h3>
+                        <p>Pick up tasks around the wasteland and get paid fast!</p>
+                    </div>
+                    <div className="why-list">
+                        <ul>
+                            <li>&#10003; Choose tasks you specialize in</li>
+                            <li>&#10003; Get paid immediately</li>
+                            <li>&#10003; Work with trusting folk</li>
+                        </ul>
+                    </div>
+                    <div className="body-banner-button">
+                        <NavLink to='/tasks'>Checkout Tasks</NavLink>
+                    </div>
+                </div>
+                <div className='img-container'>
+                    <div className="body-banner-img">
+                        <img src='https://i.pinimg.com/736x/79/09/91/790991524d44472ff596132c4b1d7df7--fallout-vault-boy-fallout-art.jpg' alt="bottle cap" />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
