@@ -1,3 +1,14 @@
+:root {
+    --grayishBlue: hsl(229, 6%, 66%);
+    --5: #da0000;
+    --4: orangered;
+    --3: #ff9100;
+    --2: #ffee43 ;
+    --1: rgba(0,103,177,1);
+    --dark-blue: rgba(6,63,103,1);
+    --main-blue: rgba(0,103,177,1);
+}
+
 .home-banner {
     box-sizing: border-box;
     display: flex;
@@ -5,7 +16,7 @@
     padding: 20px;
     gap: 100px;
     background: rgb(0,103,177);
-    background: linear-gradient(270deg, rgba(0,103,177,1) 0%, rgba(6,63,103,1) 100%);
+    background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
     color: white;
 }
 .text {
@@ -32,7 +43,7 @@
     align-items: center;
     height: 50px;
     text-align: center;
-    background-color: #f9fbfb;
+    background-color: #eeeeee;
     font-size: 24px;
 }
 
@@ -42,85 +53,70 @@
     list-style:none;
 }
 
-/* TASKS CSS */
-.task-card h3 {
-    text-transform: uppercase;
-    text-decoration: underline;
-    color: #14f217;
-    text-decoration-color: #14f217;
-}
-.task-title {
+.title {
     padding: 10px;
+    text-transform: capitalize;
+    color: var(--dark-blue);
 }
-.task-card-container {
+.card-container {
     display: grid;
     width: 75%;
+    height: 75%;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
+}
+.box {
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;  
 }
 
-.task-card-wrapper {
+.card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 350px;
-    align-items: center;
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+    color: var(--dark-blue);
+    height: 275px;
+    align-items: start;
     border-radius: 5px;
-    overflow: hidden;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;  
 }
 
 .task-card-wrapper a {
     text-decoration: none;
-    color: #14f217;
-}
-.task-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #1c381b;
-    border: 2px solid #14f217;
-    border-radius:  15px;
-    margin: 15px 0;
-    width: 90%;
-    height: 90%;
-}
-.task-content {
-    width: 75%;
-}
-.task-misc {
-    width: 25%;
+    /* color: #14f217; */
 }
 
-.task-buttons {
+.home-page-buttons {
     display: flex;
-    flex-direction: column;
-    justify-items: center;
+    flex-direction: row;
 }
 
-.task-buttons button{
-    margin: 5px;
+.home-page-buttons button, 
+.home-page-buttons a{
+    margin: 20px 5px 5px;
     transition: all .5s ease;
-    color: red;
-    border:4px solid red;
-    font-family:'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 900;
-    /* text-transform: uppercase; */
+    color: var(--main-blue);
+    border:1px solid var(--main-blue);
     text-align: center;
     line-height: 1;
-    font-size: 17px;
+    font-size: 14px;
     background-color : transparent;
     padding: 4px;
     outline: none;
-    border-radius: 3px;
+    border-radius: 15px;
 }
 
-.task-buttons button:hover {
-    border-radius: 4px;
-    padding: 4px;
-    background-color: red;
-    color: #1c381b ;
+
+.home-page-buttons button:hover,
+.home-page-buttons a:hover{
+    color: #f9fbfb;
+    background-color: var(--main-blue);
 }
 
 .date {
@@ -129,30 +125,53 @@
 
 .content-container {
     display: flex;
+    width: 100%;
+    flex-direction: column;
     padding: 10px;
 }
-.task-bullet {
-    text-transform: uppercase;
+.bullet {
+    text-transform: capitalize;
 }
-.danger-1 {
-    color: #0067B1;
+/* .task-bullet {
+    color: #14f217
+} */
+
+.danger-1, .users {
+    border-top: 3px solid var(--1);
 }
 .danger-2 {
-    color: yellow;
+    border-top: 3px solid var(--2);
 }
 .danger-3 {
-    color: orange;
+    border-top: 3px solid var(--3);
 }
 .danger-4 {
-    color: orangered;
-}   
-.danger-5 {
-    color: red;
+    border-top: 3px solid var(--4);
 }
-.task-bullet {
-    color: #14f217
+.danger-5 {
+    border-top: 3px solid var(--5);
 }
 
+.dan-1{
+    border: none;
+    color: var(--1)
+}
+.dan-2{
+    border: none;
+    color: var(--2)
+}
+.dan-3{
+    border: none;
+    color: var(--3)
+}
+.dan-4{
+    border: none;
+    color: var(--4)
+}
+.dan-5{
+    border: none;
+    color: var(--5)
+}
 
 
 /* Tags */
@@ -168,7 +187,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    background-color: #0067B1;
+    background-color: var(--main-blue);
     height: 30%;
     color: white;
 }
@@ -210,10 +229,10 @@
     padding: 0;
     width: 100%;
     height: 300px;
-    /* background: rgba(6,63,103,1);
-    background: linear-gradient(270deg, rgba(6,63,103,1) 0%, rgba(0,103,177,1)100%); */
-    background-color: #f9fbfb;
-    color: rgba(0,103,177,1);
+    /* background: var(--dark-blue);
+    background: linear-gradient(270deg, var(--dark-blue) 0%, var(--main-blue)100%); */
+    background-color: #eeeeee;
+    color: var(--main-blue);
 }
 .body-banner-text {
     display: flex;
@@ -248,10 +267,8 @@
 .body-banner-button{
     margin: 20px 5px 5px;
     transition: all .5s ease;
-    color: #0067B1;
-    border:1px solid #0067B1;
-    font-family:'Montserrat', sans-serif;
-    /* text-transform: uppercase; */
+    color: var(--main-blue);
+    border:1px solid var(--main-blue);
     text-align: center;
     line-height: 1;
     font-size: 17px;
@@ -266,10 +283,10 @@
 }
 .body-banner-button:hover {
     color: #f9fbfb;
-    background-color: #0067B1;
+    background-color: var(--main-blue);
 }
 .body-banner-button a:visited{
-color: #0067B1;
+color: var(--main-blue);
 }
 /* The typing effect */
 @keyframes typing {

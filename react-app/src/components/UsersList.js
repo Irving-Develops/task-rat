@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
+  const sessionUser = useSelector(state => state.session)
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
@@ -15,7 +18,7 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      <div className='user-card-wrapper' id={user.id}> 
+      <div className='card users' id={user.id}> 
         <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
         <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
         <p>Located in {user.city}, {user.state}, {user.country}</p>
@@ -30,7 +33,7 @@ function UsersList() {
   return (
     <>
       <h1>User List: </h1>
-      <div className="user-card-container">
+      <div className="card-container">
         {userComponents}
       </div>
     </>
