@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/px-sans-nouveaux');
+
 #modal {
   position: fixed;
   top: 0;
@@ -7,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'px sans nouveaux', sans-serif;
 }
 
 #modal-background {
@@ -20,8 +23,15 @@
 
 #modal-content {
   position: absolute;
-  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #1c381b;
+  border: 2px solid #14f217;
+  border-radius: 15px;
+  margin: 15px 0;
   width: 40%;
-  height: 400px;
-  border-radius: 20px;
+  height: 40%;
+  overflow: auto;
 }
