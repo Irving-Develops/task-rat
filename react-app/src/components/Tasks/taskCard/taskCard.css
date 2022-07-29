@@ -1,0 +1,41 @@
+.task-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    height: 400px;
+    width: 380px;
+}
+
+.single-task-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #063f67;
+    border-bottom: 1px solid black;
+    height: 60px;
+}
+
+.single-task-top *{
+    margin-right: 10px;
+}
+
+.single-task-danger-level {
+    color: white;
+}
+
+.fa-circle-radiation {
+    font-size: 35px;
+}
+
+.single-task-title {
+    /* color: #0067b1; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.extremely-dangerous-task {
+    text-shadow:
+        0 0 7px #fff,
+        0 0 15px red,
+        0 0 151px red;
+}
