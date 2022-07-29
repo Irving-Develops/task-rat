@@ -16,14 +16,14 @@ function TaskView() {
     fetchTasks().catch(console.error)
   }, [dispatch])
 
-  const allTaskDesc = 'Coffers looking a little light? Undaunted by loss of limbs? You\'re in the right place, friend.'
+  const allTaskDesc = 'Coffers looking a little light? Undaunted by loss of life and limb? You\'re in the right place, friend.'
 
   return (
     tasks ?
     <div>
       <div className="header-wrapper">
         <div className='header-img'>
-          <img src='./images/task-view-page.jpg' />
+          {/* <img src='./images/task-view-page.jpg' /> */}
         </div>
         <div className="header-info-card">
           <h1>All Tasks</h1>
@@ -31,6 +31,7 @@ function TaskView() {
           <p>{allTaskDesc}</p>
         </div>
       </div>
+      <p className='available-tasks-header'>Available Tasks</p>
       <div className='tasks-container'>
         {Object.values(availableTasks).map((task) => (
           <div key={task.id}>

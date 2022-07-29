@@ -1,19 +1,25 @@
-.tasks-container {
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap');
+
+/* .tasks-container {
     border: 2px solid black;
-}
+} */
 
 .header-img {
     width: 100vw;
     height: 420px;
     overflow: hidden;
-}
-
-.header-img img {
+    background-color: #0067b1;
     position: relative;
-    /* top: -75px; */
     width: 100%;
     min-height: 420px;
 }
+
+/* .header-img img {
+    position: relative;
+    top: -75px;
+    width: 100%;
+    min-height: 420px;
+} */
 
 .header-info-card {
     position: relative;
@@ -21,7 +27,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    /* justify-content: center; */
     transform: translate(-50%, 0);
     top: -150px;
     left: 50%;
@@ -37,10 +42,27 @@
     width: 350px;
 }
 
+.header-info-card h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+}
+
 .header-info-card p {
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 30px;
+    padding-top: 10px;
     text-align: center;
     text-indent: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+
+.header-wrapper {
+    height: 600px;
+}
+
+.available-tasks-header {
+    font-family: 'Source Sans Pro', sans-serif;;
+    font-size: 25px;
 }
