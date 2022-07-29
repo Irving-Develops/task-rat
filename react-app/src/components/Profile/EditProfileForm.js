@@ -52,7 +52,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
 
     setErrors([])
 
-    console.log(payload, "This is the profile")
     try {
       const response = await dispatch(editProfile(payload))
       if (response) {
@@ -67,7 +66,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
         toggleShow()
       }
     } catch (error) {
-      console.log(error)
       setErrors(error)
       // return dispatch(editProfile(payload)).catch(async (res) => {
       //   const data = await res.json();
@@ -76,8 +74,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
 
     }
   }
-
-  console.log(first_name)
 
   return (
     <section>

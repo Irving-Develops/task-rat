@@ -30,7 +30,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
   const updatePrice = (e) => setPrice(e.target.value)
   const updateDangerLevel = (e) => setDangerLevel(e.target.value)
   const updateTags = (e) => {
-    if(!tags.includes(e.target.value)) {
+    if (!tags.includes(e.target.value)) {
       setTags([...tags, e.target.value])
     } else {
         const srch = tags.indexOf(e.target.value)
@@ -160,78 +160,77 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
         <h4>Skills Needed:</h4>
         <label>Guns</label>
         <input
-        type='checkbox'
-        name='guns'
-        value='1'
-        defaultChecked={tags.includes('1')}
-        onChange={(e) => updateTags(e)}
-        />
+          type='checkbox'
+          name='guns'
+          value='1'
+          // checked={tags.includes("1")}
+          onChange={(e) => updateTags(e)}
+        ></input>
         <label>Explosives</label>
         <input
-        type='checkbox'
-        name='explosives'
-        value='2'
-        defaultChecked={tags.includes('2')}
-        onChange={(e) => updateTags(e)}
-        />
+          type='checkbox'
+          name='explosives'
+          value='2'
+          // checked={tags.includes("2")}
+          onChange={(e) => updateTags(e)}
+        ></input>
         <label>Stealth</label>
         <input
-        type='checkbox'
-        name='stealth'
-        value='3'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('3')}
-        />
+          type='checkbox'
+          name='stealth'
+          value='3'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("3")}
+        ></input>
         <label>Survival</label>
         <input
-        type='checkbox'
-        name='survival'
-        value='4'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('4')}/>
+          type='checkbox'
+          name='survival'
+          value='4'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("4")}
+        ></input>
         <label>Medicine</label>
         <input
-        type='checkbox'
-        name='medicine'
-        value='5'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('5')}/>
+          type='checkbox'
+          name='medicine'
+          value='5'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("5")}
+        ></input>
         <label>Repairs</label>
         <input
-        type='checkbox'
-        name='repairs'
-        value='6'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('6')}/>
+          type='checkbox'
+          name='repairs'
+          value='6'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("6")}
+        ></input>
         <label>Pilot</label>
         <input
-        type='checkbox'
-        name='pilot'
-        value='7'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('7')}/>
+          type='checkbox'
+          name='pilot'
+          value='7'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("7")}
+        ></input>
         <label>Hacking</label>
         <input
-        type='checkbox'
-        name='hacking'
-        value='8'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('8')}/>
+          type='checkbox'
+          name='hacking'
+          value='8'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("8")}
+        ></input>
         <label>Hand-to-Hand</label>
         <input
-        type='checkbox'
-        name='hand-to-hand'
-        value='9'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('9')}/>
-        <label>Charisma</label>
-        <input
-        type='checkbox'
-        name='charisma'
-        value='10'
-        onChange={(e) => updateTags(e)}
-        defaultChecked={tags.includes('10')}/>
-        <button type="submit" id="taskFormSubmitButton" disabled={errors.length}> Submit Edit</button>
+          type='checkbox'
+          name='hand-to-hand'
+          value='9'
+          onChange={(e) => updateTags(e)}
+        // checked={tags.includes("9")}
+        ></input>
+        <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
         <button onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
       </form>
     </div>

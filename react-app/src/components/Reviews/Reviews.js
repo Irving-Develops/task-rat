@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
 import SingleReview from './SingleReview'
 
-function Reviews({reviewArr, user, reviewsAboutMeArr}) {
+function Reviews({ reviewArr, user, reviewsAboutMeArr }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log(user, 'this is the user')
   useEffect(() => {
     dispatch(getReviewsThunk())
   }, [dispatch])
@@ -18,14 +17,14 @@ function Reviews({reviewArr, user, reviewsAboutMeArr}) {
 
       {sessionUser && !user && reviewArr.length > 0 && reviewArr.map(review => {
         return (
-          <SingleReview key={review.id} review={review}/>
+          <SingleReview key={review.id} review={review} />
         )
       })}
 
       <h2>Reputation</h2>
       {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 && reviewsAboutMeArr.map(review => {
         return (
-          <SingleReview key={review.id} review={review}/>
+          <SingleReview key={review.id} review={review} />
         )
       })}
     </>
