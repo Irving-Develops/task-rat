@@ -42,16 +42,16 @@ function TaskForm() {
   //validations
   useEffect(() => {
     let errors = []
-    if (title.length < 5) errors.push('Title must be more than 5 characters')
-    if (title.length > 150) errors.push('Title must be less than 150 characters')
-    if (description.length < 5) errors.push('Description must be more than 5 characters')
-    if (description.length > 2000) errors.push('Description must be less than 2000 characters')
-    if (city.length < 0 || city.length > 50) errors.push('Please provide a valid city name')
-    if (state.length < 0 || state.length > 50) errors.push('Please provide a valid state name')
-    if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name')
-    if (isNaN(price)) errors.push('Reward must be a number')
-    if (price <= 0) errors.push('Task must pay at least 1 bottle cap')
-    if (tags.length <= 0) errors.push('Task must have at least one tag')
+    if (title.length < 5) errors.push('Title is too short! Make it more than 5 characters.')
+    if (title.length > 150) errors.push('Title is too long! Make it less than 150 characters.')
+    if (description.length < 5) errors.push('Description is too short! Make it more than 5 characters.')
+    if (description.length > 2000) errors.push('Description is too long! Make it less than 2000 characters.')
+    if (city.length < 0 || city.length > 50) errors.push('Please provide a valid city name.')
+    if (state.length < 0 || state.length > 50) errors.push('Please provide a valid state name.')
+    if (country.length < 0 || country.length > 50) errors.push('Please provide a valid country name.')
+    if (isNaN(price)) errors.push('Reward must be a number.')
+    if (price <= 0) errors.push('Task must pay at least 1 bottle cap.')
+    if (tags.length <= 0) errors.push('Task must list at least one required skill.')
 
     setErrors(errors)
 
@@ -129,7 +129,7 @@ function TaskForm() {
                 required
                 value={description}
                 onChange={updateDescription} />
-            <p id='quality'>*quality not guaranteed.</p>
+              <p id='quality'>*quality not guaranteed.</p>
             </div>
           </div>
           <div className='task-button-container'>
@@ -150,29 +150,31 @@ function TaskForm() {
         }
         {count === 2 &&
           <div className='input-container'>
-            <div className='input-headers'>
-              <h2>Whereabouts might you need help?</h2>
-              <h4>Be specific, it's a big ol' wasteland out there.</h4>
-            </div>
-            <div className='input-wrapper'>
-              <input
-                type="text"
-                placeholder="City"
-                required
-                value={city}
-                onChange={updateCity} />
-              <input
-                type="text"
-                placeholder="State"
-                required
-                value={state}
-                onChange={updateState} />
-              <input
-                type="text"
-                placeholder="Country"
-                required
-                value={country}
-                onChange={updateCountry} />
+            <div>
+              <div className='input-headers'>
+                <h2>Whereabouts might you need help?</h2>
+                <h4>Be specific, it's a big ol' wasteland out there.</h4>
+              </div>
+              <div className='input-wrapper'>
+                <input
+                  type="text"
+                  placeholder="City"
+                  required
+                  value={city}
+                  onChange={updateCity} />
+                <input
+                  type="text"
+                  placeholder="State"
+                  required
+                  value={state}
+                  onChange={updateState} />
+                <input
+                  type="text"
+                  placeholder="Country"
+                  required
+                  value={country}
+                  onChange={updateCountry} />
+              </div>
             </div>
             <div className='task-button-container'>
             <button
@@ -192,91 +194,93 @@ function TaskForm() {
         }
         {count === 3 &&
           <div className='input-container'>
-            <div className='input-headers'>
-              <h2>There are plenty of skills I’ve learned from playing video games.</h2>
-              <h4>Tell us what skills you need to get the job done.</h4>
-            </div>
-            <div className='new-tags-container'>
-              <div>
-                <label>Guns</label>
-                <input
-                  type='checkbox'
-                  name='guns'
-                  value='1'
-                  onChange={(e) => updateTags(e)}
-                ></input>
+            <div>
+              <div className='input-headers'>
+                <h2>There are plenty of skills I’ve learned from playing video games.</h2>
+                <h4>Tell us what skills you need to get the job done.</h4>
               </div>
-              <div>
-                <label>Explosives</label>
-                <input
-                  type='checkbox'
-                  name='explosives'
-                  value='2'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Stealth</label>
-                <input
-                  type='checkbox'
-                  name='stealth'
-                  value='3'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Survival</label>
-                <input
-                  type='checkbox'
-                  name='survival'
-                  value='4'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Medicine</label>
-                <input
-                  type='checkbox'
-                  name='medicine'
-                  value='5'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Repairs</label>
-                <input
-                  type='checkbox'
-                  name='repairs'
-                  value='6'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Pilot</label>
-                <input
-                  type='checkbox'
-                  name='pilot'
-                  value='7'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Hacking</label>
-                <input
-                  type='checkbox'
-                  name='hacking'
-                  value='8'
-                  onChange={(e) => updateTags(e)}
-                ></input>
-              </div>
-              <div>
-                <label>Hand-to-Hand</label>
-                <input
-                  type='checkbox'
-                  name='hand-to-hand'
-                  value='9'
-                  onChange={(e) => updateTags(e)}
-                ></input>
+              <div className='new-tags-container'>
+                <div>
+                  <label>Guns</label>
+                  <input
+                    type='checkbox'
+                    name='guns'
+                    value='1'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Explosives</label>
+                  <input
+                    type='checkbox'
+                    name='explosives'
+                    value='2'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Stealth</label>
+                  <input
+                    type='checkbox'
+                    name='stealth'
+                    value='3'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Survival</label>
+                  <input
+                    type='checkbox'
+                    name='survival'
+                    value='4'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Medicine</label>
+                  <input
+                    type='checkbox'
+                    name='medicine'
+                    value='5'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Repairs</label>
+                  <input
+                    type='checkbox'
+                    name='repairs'
+                    value='6'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Pilot</label>
+                  <input
+                    type='checkbox'
+                    name='pilot'
+                    value='7'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Hacking</label>
+                  <input
+                    type='checkbox'
+                    name='hacking'
+                    value='8'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
+                <div>
+                  <label>Hand-to-Hand</label>
+                  <input
+                    type='checkbox'
+                    name='hand-to-hand'
+                    value='9'
+                    onChange={(e) => updateTags(e)}
+                  ></input>
+                </div>
               </div>
             </div>
           <div className='task-button-container'>
@@ -297,25 +301,27 @@ function TaskForm() {
         }
         {count === 4 &&
           <div className='input-container'>
-            <div className='input-headers'>
-              <h2>With great risk comes great cash.</h2>
-              <h4>How much is this task worth to you? Think hard.</h4>
-            </div>
-            <div className='input-wrapper'>
-              <input
-                type="text"
-                placeholder="Reward"
-                required
-                value={price}
-                onChange={updatePrice} />
-              <label>Danger Level</label>
-              <select onChange={updateDangerLevel}>
-                <option value="1"> 1 </option>
-                <option value="2"> 2 </option>
-                <option value="3"> 3 </option>
-                <option value="4"> 4 </option>
-                <option value="5"> 5 </option>
-              </select>
+            <div>
+              <div className='input-headers'>
+                <h2>With great risk comes great cash.</h2>
+                <h4>How much is this task worth to you? Think hard.</h4>
+              </div>
+              <div className='input-wrapper'>
+                <input
+                  type="text"
+                  placeholder="Reward"
+                  required
+                  value={price}
+                  onChange={updatePrice} />
+                <h4>How dangerous is your task?</h4>
+                <select onChange={updateDangerLevel}>
+                  <option value="1"> 1 </option>
+                  <option value="2"> 2 </option>
+                  <option value="3"> 3 </option>
+                  <option value="4"> 4 </option>
+                  <option value="5"> 5 </option>
+                </select>
+              </div>
             </div>
             <div className='task-button-container'>
               <button
@@ -358,11 +364,11 @@ function TaskForm() {
                   <p>render tags here</p>
                 </div>
                 <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
-                <h5>Price:</h5>
+                <h5>Reward:</h5>
                   <p>{price}</p>
                 </div>
                 <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
-                  <h5>Reward:</h5>
+                  <h5>Danger Level:</h5>
                   <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
                 </div>
               </div>
