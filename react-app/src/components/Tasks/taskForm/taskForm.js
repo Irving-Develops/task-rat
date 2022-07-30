@@ -129,7 +129,7 @@ function TaskForm() {
               type='button'
               onClick={() => setCount(count - 1)}
               disabled={count < 2}
-              className='task-form-buttons'
+              className='task-form-buttons disabled'
             >Back</button>
             <button
               type='button'
@@ -166,6 +166,20 @@ function TaskForm() {
                 value={country}
                 onChange={updateCountry} />
             </div>
+            <div className='task-button-container'>
+            <button
+              type='button'
+              onClick={() => setCount(count - 1)}
+              disabled={count < 2}
+              className='task-form-buttons'
+            >Back</button>
+            <button
+              type='button'
+              onClick={() => setCount(count + 1)}
+              disabled={count > 4}
+              className='task-form-buttons'
+            >Next</button>
+          </div>
           </div>
         }
         {count === 3 &&
@@ -174,69 +188,103 @@ function TaskForm() {
               <h2>There are plenty of skills I’ve learned from playing video games.</h2>
               <h4>Tell us what skills you need to get the job done.</h4>
             </div>
-            <label>Guns</label>
-            <input
-              type='checkbox'
-              name='guns'
-              value='1'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Explosives</label>
-            <input
-              type='checkbox'
-              name='explosives'
-              value='2'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Stealth</label>
-            <input
-              type='checkbox'
-              name='stealth'
-              value='3'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Survival</label>
-            <input
-              type='checkbox'
-              name='survival'
-              value='4'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Medicine</label>
-            <input
-              type='checkbox'
-              name='medicine'
-              value='5'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Repairs</label>
-            <input
-              type='checkbox'
-              name='repairs'
-              value='6'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Pilot</label>
-            <input
-              type='checkbox'
-              name='pilot'
-              value='7'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Hacking</label>
-            <input
-              type='checkbox'
-              name='hacking'
-              value='8'
-              onChange={(e) => updateTags(e)}
-            ></input>
-            <label>Hand-to-Hand</label>
-            <input
-              type='checkbox'
-              name='hand-to-hand'
-              value='9'
-              onChange={(e) => updateTags(e)}
-            ></input>
+            <div className='new-tags-container'>
+              <div>
+                <label>Guns</label>
+                <input
+                  type='checkbox'
+                  name='guns'
+                  value='1'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Explosives</label>
+                <input
+                  type='checkbox'
+                  name='explosives'
+                  value='2'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Stealth</label>
+                <input
+                  type='checkbox'
+                  name='stealth'
+                  value='3'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Survival</label>
+                <input
+                  type='checkbox'
+                  name='survival'
+                  value='4'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Medicine</label>
+                <input
+                  type='checkbox'
+                  name='medicine'
+                  value='5'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Repairs</label>
+                <input
+                  type='checkbox'
+                  name='repairs'
+                  value='6'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Pilot</label>
+                <input
+                  type='checkbox'
+                  name='pilot'
+                  value='7'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Hacking</label>
+                <input
+                  type='checkbox'
+                  name='hacking'
+                  value='8'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+              <div>
+                <label>Hand-to-Hand</label>
+                <input
+                  type='checkbox'
+                  name='hand-to-hand'
+                  value='9'
+                  onChange={(e) => updateTags(e)}
+                ></input>
+              </div>
+            </div>
+          <div className='task-button-container'>
+            <button
+              type='button'
+              onClick={() => setCount(count - 1)}
+              disabled={count < 2}
+              className='task-form-buttons'
+            >Back</button>
+            <button
+              type='button'
+              onClick={() => setCount(count + 1)}
+              disabled={count > 4}
+              className='task-form-buttons'
+            >Next</button>
+          </div>
           </div>
         }
         {count === 4 &&
@@ -260,6 +308,20 @@ function TaskForm() {
                 <option value="4"> 4 </option>
                 <option value="5"> 5 </option>
               </select>
+            </div>
+            <div className='task-button-container'>
+              <button
+                type='button'
+                onClick={() => setCount(count - 1)}
+                disabled={count < 2}
+                className='task-form-buttons'
+              >Back</button>
+              <button
+                type='button'
+                onClick={() => setCount(count + 1)}
+                disabled={count > 4}
+                className='task-form-buttons'
+              >Next</button>
             </div>
           </div>
         }
@@ -294,7 +356,15 @@ function TaskForm() {
                 <h5>Reward:</h5>
                 <p>{price} BOTTLE CAPS</p>
               </div>
-              <button type="submit" className='task-form-buttons'> Submit your task </button>
+            </div>
+            <div className='task-button-container'>
+              <button
+                type='button'
+                onClick={() => setCount(count - 1)}
+                disabled={count < 2}
+                className='task-form-buttons'
+              >Back</button>
+              <button type="submit" className='task-form-buttons'>Submit your task!</button>
             </div>
           </div>
         }
