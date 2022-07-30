@@ -89,19 +89,25 @@ function TaskForm() {
 
   return (
     <div className='form-background'>
-      <h1 className="form-header">You got a job? We got a body!</h1>
       <section className='form-section'>
+      <div className='form-header'>
+        <div className='vaultboy-bg'>
+          <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
+        </div>
+        <div class="bubble bubble-bottom-left" contenteditable>
+          {hasSubmitted && errors.length > 0 ? (
+            <ul className='errors'>
+              {errors.map(error => (
+                  <li className='error' key={error}>{error}</li>
+              ))}
+            </ul>
+          )
+            :
+            <p style={{ 'fontStyle': 'italic' }}>You got a job? We got a body!</p>
+          }
+        </div>
+      </div>
         <form onSubmit={handleSubmit} className='step-form'>
-        {hasSubmitted && errors.length > 0 && (
-          <div className='errors-container'>
-              The following errors were found:
-              <ul className='errors'>
-                  {errors.map(error => (
-                      <li className='error' key={error}>{error}</li>
-                  ))}
-              </ul>
-          </div>
-        )}
         {count === 1 &&
         <div className='input-container'>
           <div className='input-headers'>
