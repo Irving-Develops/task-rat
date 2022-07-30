@@ -30,7 +30,9 @@
     height: 100vh;
     margin-left: 10%;
     margin-right: 10%;
-    background: #0067B1;
+    background: linear-gradient(0.25turn, var(--dark-blue), var(--main-blue), var(--dark-blue));
+    border-left: 5px solid var(--dark-blue);
+    border-right: 5px solid var(--dark-blue);
 }
 
 .form-section {
@@ -53,8 +55,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 5px solid var(--dark-blue);
+    /* border-color: var(--dark-blue); */
     border-radius: 100%;
-    background-color: #fff773;
+    background: radial-gradient(#fff773, #fff773, #b8af09);
+    /* background-color: #fff773; */
     height: 200px;
     width: 200px;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
