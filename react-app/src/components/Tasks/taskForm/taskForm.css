@@ -12,7 +12,7 @@
 .input-container {
     display: flex;
     flex-direction: column;
-    height: 700px;
+    height: 650px;
     width: 1200px;
     border: 1px solid #b1b9c3;
     border-radius: 20px;
@@ -30,6 +30,7 @@
     height: 100vh;
     margin-left: 10%;
     margin-right: 10%;
+    /* background-color: var(--main-blue); */
     background: linear-gradient(0.25turn, var(--dark-blue), var(--main-blue), var(--dark-blue));
     border-left: 5px solid var(--dark-blue);
     border-right: 5px solid var(--dark-blue);
@@ -47,8 +48,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-left: 50px; */
-    margin-top: -50px;
+    margin-top: -70px;
+    font-family: monospace;
 }
 
 .vaultboy-bg {
@@ -56,12 +57,10 @@
     justify-content: center;
     align-items: center;
     border: 5px solid var(--dark-blue);
-    /* border-color: var(--dark-blue); */
     border-radius: 100%;
     background: radial-gradient(#fff773, #fff773, #b8af09);
-    /* background-color: #fff773; */
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
     margin-right: 80px;
     margin-bottom: 16px;
@@ -69,7 +68,7 @@
 }
 
 .form-header img {
-    height: 120%;
+    height: 140%;
     /* width: 200px; */
     transform: scaleX(-1);
     margin-top: 100px;
@@ -82,13 +81,13 @@
     font-size: 18px;
     width: 500px;
     background: #fff;
-    border-radius: 40px;
-    padding: 24px;
+    border-radius: 20px;
+    padding: 12px;
     text-align: center;
     color: #000;
     margin-top: -40px;
-    box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
-    /* border: 1px solid #b1b9c3; */
+    box-shadow: 2px 2px 2px 2px rgb(36 42 48 / 15%);
+    border: 1px solid #b1b9c3;
   }
 
   .bubble-bottom-left:before {
@@ -101,9 +100,6 @@
     border-top: 32px solid transparent;
     border-bottom: 20px solid #fff;
     left: -20px;
-    /* bottom: -12px; */
-    /* box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%); */
-    /* border: none; */
   }
 
 .form-header-text {
@@ -118,8 +114,13 @@
 }
 
 .form-section h2 {
-    font-size: 24px;
+    font-size: 25px;
     color: black;
+}
+
+.form-section h4 {
+    font-style: italic;
+    font-size: 16px;
 }
 
 .form-section input, textarea{
@@ -177,9 +178,13 @@
     font-style: italic;
 }
 
+.final-screen-content-wrapper {
+    margin-left: 64px
+}
+
 .final-screen-wrapper *{
     margin-left: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .task-form-buttons {

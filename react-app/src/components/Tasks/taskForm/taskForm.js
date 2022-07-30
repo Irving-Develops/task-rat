@@ -103,7 +103,7 @@ function TaskForm() {
             </ul>
           )
             :
-            <p style={{ 'fontStyle': 'italic' }}>You got a job? We got a body!</p>
+            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
           }
         </div>
       </div>
@@ -338,29 +338,31 @@ function TaskForm() {
                 <h2>Everything look correct?</h2>
                 <h4>Click on a section to edit.</h4>
               </div>
-              <div onClick={() => setCount(1)} className='new-title-content final-screen-content'>
-                <h5>Title:</h5>
-                <p>{title}</p>
-              </div>
-              <div onClick={() => setCount(1)} className='new-description-content final-screen-content'>
-                <h5>Description:</h5>
-                <p>{description}</p>
-              </div>
-              <div onClick={() => setCount(2)} className='new-location-content final-screen-content'>
-                <h5>Location:</h5>
-                <p>{city}, {state}, {country}</p>
-              </div>
-              <div onClick={() => setCount(3)} className='new-skills-content final-screen-content'>
-                <h5>Skills Required:</h5>
-                <p>render tags here</p>
-              </div>
-              <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
-              <h5>Price:</h5>
-                <p>{price}</p>
-              </div>
-              <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
-                <h5>Reward:</h5>
-                <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
+              <div className="final-screen-content-wrapper">
+                <div onClick={() => setCount(1)} className='new-title-content final-screen-content'>
+                  <h5>Title:</h5>
+                  <p>{title}</p>
+                </div>
+                <div onClick={() => setCount(1)} className='new-description-content final-screen-content'>
+                  <h5>Description:</h5>
+                  <p>{description}</p>
+                </div>
+                <div onClick={() => setCount(2)} className='new-location-content final-screen-content'>
+                  <h5>Location:</h5>
+                  <p>{city}, {state}, {country}</p>
+                </div>
+                <div onClick={() => setCount(3)} className='new-skills-content final-screen-content'>
+                  <h5>Skills Required:</h5>
+                  <p>render tags here</p>
+                </div>
+                <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
+                <h5>Price:</h5>
+                  <p>{price}</p>
+                </div>
+                <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
+                  <h5>Reward:</h5>
+                  <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
+                </div>
               </div>
             </div>
             <div className='task-button-container'>
