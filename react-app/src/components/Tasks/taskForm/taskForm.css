@@ -37,7 +37,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    color: black;
+    color: var(--dark-blue)
 }
 
 .form-header {
@@ -53,10 +53,7 @@
 
 .form-section h2 {
     font-size: 24px;
-}
-
-.form-section h4 {
-    color: var(--dark-blue)
+    color: black;
 }
 
 .form-section input, textarea{
@@ -106,12 +103,17 @@
     align-items: center;
 }
 
+.final-screen-content:hover {
+    cursor: pointer;
+}
+
 .final-screen-content h5 {
     font-style: italic;
 }
 
 .final-screen-wrapper *{
-    margin: 16px;
+    margin-left: 32px;
+    margin-bottom: 16px;
 }
 
 .task-form-buttons {
@@ -163,14 +165,8 @@
 .new-tags-container div{
     display: flex;
     width: 600px;
-    /* flex-direction: column; */
-    /* align-items: center; */
     justify-content: space-between;
     margin-bottom: 16px;
-    /* margin-left: 64px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    color: var(--dark-blue) */
 }
 
 .errors-container {

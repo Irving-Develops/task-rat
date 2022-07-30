@@ -354,7 +354,7 @@ function TaskForm() {
               </div>
               <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
                 <h5>Reward:</h5>
-                <p>{price} BOTTLE CAPS</p>
+                <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
               </div>
             </div>
             <div className='task-button-container'>
