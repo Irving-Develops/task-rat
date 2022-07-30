@@ -1,9 +1,32 @@
+:root {
+    --grayishBlue: hsl(229, 6%, 66%);
+    --5: #da0000;
+    --4: orangered;
+    --3: #ff9100;
+    --2: #ffee43 ;
+    --1: rgba(0,103,177,1);
+    --dark-blue: rgba(6,63,103,1);
+    --main-blue: rgba(0,103,177,1);
+}
+
 .input-container {
-    height: 560px;
+    height: 650px;
     width: 1000px;
     border: 1px solid #b1b9c3;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
     background-color: white;
+}
+
+.form-background {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
+    height: 100vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #0067B1;
 }
 
 .form-section {
@@ -14,9 +37,14 @@
     color: #022022;
 }
 
-.form-section h1 {
-    font-size: 32px;
-    align-self: center;
+.form-header {
+    font-family: 'Overseer', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    margin-top: -100px;
+    margin-left: 30px;
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
 .form-section h2 {
@@ -73,4 +101,34 @@
 
 .final-screen-wrapper *{
     margin: 16px;
+}
+
+.task-form-buttons {
+    display: block;
+    margin: 5px 10px;
+    transition: all .5s ease;
+    color: #063f67;;
+    border:1px solid #063f67;;
+    text-align: center;
+    line-height: 1;
+    font-size: 20px;
+    background-color : transparent;
+    padding: 4px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    outline: none;
+    border-radius: 30px;
+    width: 80px;
+}
+
+.task-form-buttons:hover {
+    color: #f9fbfb;
+    background-color: var(--main-blue);
+}
+
+.task-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 32px;
 }
