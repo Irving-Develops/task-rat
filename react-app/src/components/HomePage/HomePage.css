@@ -55,7 +55,7 @@
 }
 
 .title {
-    padding: 10px;
+    /* padding: 10px; */
     text-transform: capitalize;
     color: var(--dark-blue);
 }
@@ -78,14 +78,15 @@
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     color: var(--dark-blue);
     height: 275px;
     align-items: start;
     border-radius: 5px;
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     padding: 30px;
-    margin: 20px;  
+    margin: 20px; 
+    overflow: hidden; 
 }
 
 .card h3 {
@@ -135,14 +136,15 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 10px;
+    /* padding: 10px; */
 }
 .bullet {
     text-transform: capitalize;
 }
-/* .task-bullet {
-    color: #14f217
-} */
+.task-content {
+    border-top: 2px solid rgb(233, 233, 233);
+    padding-top: 20px;
+}
 
 .danger-1, .users {
     border-top: 3px solid var(--1);
@@ -225,6 +227,14 @@
     overflow-wrap: break-word;
     margin-bottom: 5%;
     width: 100%;
+}
+
+.user-id {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    border-bottom: 2px solid rgb(233, 233, 233);
 }
 
 .partnered-banner p{

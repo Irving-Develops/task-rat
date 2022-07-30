@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import UsersProfileModal from './Profile/UsersProfileModal';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -13,6 +14,7 @@ function UsersList() {
     availableUsers.pop()
   }
 
+  console.log(availableUsers)
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
@@ -26,16 +28,23 @@ function UsersList() {
   const userComponents = availableUsers.map((user) => {
     return (
       <div className='card users' id={user.id}> 
-        <div className='user-img'>
-          <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
+        <div className='user-id'>
+          <div className='user-img'>
+            <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
+          </div>
+          <div className='user-name'>
+            <p>{user.first_name} {user.last_name}</p>
+            <p>Located in {user.city}, {user.state}, {user.country}</p>
+          </div>
         </div>
         <div className='content-container'>
-          <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
-          <p>Located in {user.city}, {user.state}, {user.country}</p>
           {user.bio ? 
-          <p>I'm the right person for the task:</p>
+          <p>About me :</p>
           : null}
           <p className='bio'>{user.bio}</p>
+        </div>
+        <div className='home-page-buttons'>
+            <UsersProfileModal user={user} />
         </div>
       </div>
     );
