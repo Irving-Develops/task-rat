@@ -5,6 +5,13 @@ import { NavLink } from 'react-router-dom';
 function UsersList() {
   const [users, setUsers] = useState([]);
   const sessionUser = useSelector(state => state.session)
+  let availableUsers = [...users];
+  if(sessionUser.user) {
+    availableUsers = availableUsers.filter(user => user.id !== sessionUser.user.id)
+  }
+  while (availableUsers.length > 3) {
+    availableUsers.pop()
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -16,7 +23,7 @@ function UsersList() {
   }, []);
 
 
-  const userComponents = users.map((user) => {
+  const userComponents = availableUsers.map((user) => {
     return (
       <div className='card users' id={user.id}> 
         <img src={user.pic_url} alt="cool guy" className="user-card-img"/>

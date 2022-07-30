@@ -211,7 +211,7 @@
 
 .partnered-banner p{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid #063f67 ; /* The typwriter cursor */
+  border-right: .15em solid  var(--dark-blue) ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .10em; /* Adjust as needed */
@@ -301,3 +301,6 @@ color: var(--main-blue);
 }
 
 
+p {
+    margin: 12px;
+}
