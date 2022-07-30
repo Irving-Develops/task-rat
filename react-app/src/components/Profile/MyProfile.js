@@ -8,23 +8,33 @@ import Bookings from '../Bookings/Bookings';
 import EditProfileFormModal from './EditProfileModal';
 import AverageRating from './AverageRating';
 import './profile.css';
+import { getBookingsThunk } from '../../store/booking';
 
 const profileButtons = ['Account', 'My Tasks', 'Reviews', 'Current Missions', 'Reputation'];
 
 function MyProfile() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const tasks = useSelector(state => state.tasks)
+  const bookings = useSelector(state => state.bookings);
+  const tasks = useSelector(state => state.tasks);
   const reviews = useSelector((state) => state.reviews);
   const [selectedButton, setSelectedButton] = useState([0]);
 
   useEffect(() => {
+    dispatch(getTasksThunk())
     dispatch(getReviewsThunk())
+    dispatch(getBookingsThunk())
   }, [dispatch])
 
   let myTasks;
   if (sessionUser && tasks) {
     myTasks = Object.values(tasks).filter(task => task.poster_id === sessionUser.id);
+  }
+  let myAvailableTasks;
+  let notAvailableTasks;
+  if (sessionUser && myTasks && tasks) {
+    myAvailableTasks = myTasks.filter(task => task.available === true);
+    notAvailableTasks = myTasks.filter(task => task.available === false);
   }
 
   let reviewArr;
@@ -45,10 +55,19 @@ function MyProfile() {
     }
   }
 
-  useEffect(() => {
-    dispatch(getTasksThunk())
-    dispatch(getReviewsThunk())
-  }, [dispatch])
+  const completedTasks = [];
+  let bookingsArr;
+  if (myTasks && bookings) {
+    bookingsArr = Object.values(bookings)
+    for (let i = 0; i < myTasks.length; i++) {
+      for (let j = 0; j < bookingsArr.length; j++) {
+        if (myTasks[i].id === bookingsArr[j].task_id && bookingsArr[j].completed === false) {
+          completedTasks.push(myTasks[i]);
+        }
+      }
+    }
+  }
+  if (completedTasks) console.log(completedTasks, 'completed tasks;')
 
   const handleClick = (index) => {
     setSelectedButton([index]);
@@ -64,14 +83,14 @@ function MyProfile() {
           <h1 id="profile-h1">Mercenary: {sessionUser.first_name}</h1>
           <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
           <div id='p-btns-div'>
-            <p id='profile-welcome'>Welcome back adventurer!</p>
+            <p id='profile-welcome'>Welcome!</p>
           <div id="btns-div">
             {profileButtons.map((label, index) => {
               return <button className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
           </div>
           </div>
-          <div id='showProfile' >
+          <div id='showProfile'>
             <div id="profile-account" style={{ display: selectedButton.includes(0) ? 'grid' : 'none' }}>
               <div id="name-img-div">
                 <p className='profile-p' id="profile-name">{sessionUser.first_name} {sessionUser.last_name}</p>
@@ -93,15 +112,43 @@ function MyProfile() {
             </div>
             <div id="profile-tasks" style={{ visibility: selectedButton.includes(1) ? 'visible' : 'hidden' }}>
               <h2>Task's I created:</h2>
-              {myTasks.length > 0 && myTasks.map(task => {
+              {myAvailableTasks.length > 0 && myAvailableTasks.map(task => {
                 return (
-                  <Link key={task.id} to={`/tasks/${task.id}`}>
-                    <div>{task.title}</div>
-                    <div>Danger Level: {task.danger_level}</div>
-                    <div>Reward: {task.price}</div>
-                    <div>Description: {task.description}</div>
-                    <button>View Task</button>
-                  </Link>
+                  <div> Available Tasks
+                    <Link key={task.id} to={`/tasks/${task.id}`}>
+                      <div>{task.title}</div>
+                      <div>Danger Level: {task.danger_level}</div>
+                      <div>Reward: {task.price}</div>
+                      <div>Description: {task.description}</div>
+                      <button>View Task</button>
+                    </Link>
+                  </div>
+                );
+              })}
+              {notAvailableTasks.length > 0 && notAvailableTasks.map(task => {
+                return (
+                  <div> Pending Tasks
+                    <Link key={task.id} to={`/tasks/${task.id}`}>
+                      <div>{task.title}</div>
+                      <div>Danger Level: {task.danger_level}</div>
+                      <div>Reward: {task.price}</div>
+                      <div>Description: {task.description}</div>
+                      <button>View Task</button>
+                    </Link>
+                  </div>
+                );
+              })}
+              {completedTasks.length > 0 && completedTasks.map(task => {
+                return (
+                  <div> Completed Tasks
+                    <Link key={task.id} to={`/tasks/${task.id}`}>
+                      <div>{task.title}</div>
+                      <div>Danger Level: {task.danger_level}</div>
+                      <div>Reward: {task.price}</div>
+                      <div>Description: {task.description}</div>
+                      <button>View Task</button>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
@@ -109,7 +156,7 @@ function MyProfile() {
               <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
             </div>
             <div id="profile-current-missions" style={{ visibility: selectedButton.includes(3) ? 'visible' : 'hidden' }}>
-              <Bookings reviewArr={reviewArr} />
+              {bookings && (<Bookings reviewArr={reviewArr} bookings={bookings}/>)}
             </div>
             <div id="profile-reputation" style={{ visibility: selectedButton.includes(4) ? 'visible' : 'hidden' }}>
 

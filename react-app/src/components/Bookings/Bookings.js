@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBookingsThunk } from '../../store/booking';
+import { useSelector } from 'react-redux';
 import BookedTasks from './BookedTasks'
 
-function Bookings({reviewArr}) {
-    const dispatch = useDispatch();
-    const bookings = useSelector(state => state.bookings);
+function Bookings({reviewArr, bookings}) {
     const sessionUser = useSelector(state => state.session.user)
     let completedBookings;
     let currentBookings;
@@ -14,11 +10,6 @@ function Bookings({reviewArr}) {
         completedBookings = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id && booking.completed);
         currentBookings = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id && !booking.completed);
     }
-
-
-    useEffect(() => {
-        dispatch(getBookingsThunk())
-    }, [dispatch])
 
     return (
         <>
