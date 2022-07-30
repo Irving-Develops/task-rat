@@ -26,20 +26,26 @@ function UsersList() {
   const userComponents = availableUsers.map((user) => {
     return (
       <div className='card users' id={user.id}> 
-        <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
-        <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
-        <p>Located in {user.city}, {user.state}, {user.country}</p>
-        {user.bio ? 
-        <p>I'm the right person for the task:</p>
-        : null}
-      <p>{user.bio}</p>
+        <div className='user-img'>
+          <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
+        </div>
+        <div className='content-container'>
+          <p><NavLink to={`/users/${user.id}`}>{user.first_name} {user.last_name}</NavLink></p>
+          <p>Located in {user.city}, {user.state}, {user.country}</p>
+          {user.bio ? 
+          <p>I'm the right person for the task:</p>
+          : null}
+          <p className='bio'>{user.bio}</p>
+        </div>
       </div>
     );
   });
 
   return (
     <>
-      <h1>User List: </h1>
+      <div className='home-page-title'>
+        <h2>Featured users</h2>
+      </div>
       <div className="card-container">
         {userComponents}
       </div>

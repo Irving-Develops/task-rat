@@ -4,7 +4,7 @@
     --4: orangered;
     --3: #ff9100;
     --2: #ffee43 ;
-    --1: rgba(0,103,177,1);
+    --1: #0067b1;
     --dark-blue: rgba(6,63,103,1);
     --main-blue: rgba(0,103,177,1);
 }
@@ -39,6 +39,7 @@
     height: 80%;
 }
 .partnered-banner {
+    margin-bottom: 100px;
     display: flex;
     align-items: center;
     height: 50px;
@@ -87,9 +88,16 @@
     margin: 20px;  
 }
 
-.task-card-wrapper a {
-    text-decoration: none;
-    /* color: #14f217; */
+.card h3 {
+    margin: 12px;
+}
+
+.home-page-title {
+    text-transform: capitalize;
+    width: 75%;
+    margin: 0 auto;
+    padding-left: 50px;
+    color: var(--main-blue);
 }
 
 .home-page-buttons {
@@ -207,6 +215,16 @@
 .user-card-wrapper  a {
     color: white;
     text-decoration: none;
+}
+
+.bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    width: 100%;
 }
 
 .partnered-banner p{

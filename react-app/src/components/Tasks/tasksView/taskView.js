@@ -6,8 +6,15 @@ import './taskView.css'
 
 function TaskView() {
   const dispatch = useDispatch()
+  const sessionUser = useSelector(state => state.session)
   const tasks = useSelector((state) => state.tasks)
-  const availableTasks = Object.values(tasks).filter(task => task.available === true)
+  // const availableTasks = Object.values(tasks).filter(task => task.available === true)
+  let availableTasks = Object.values(tasks).filter(task => task.available === true)
+
+  if(sessionUser.user) {
+    availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
+  }
+
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -35,9 +42,9 @@ function TaskView() {
       </div>
       <div className='tasks-wrapper'>
         <p className='sub-text'>Get out there and be somebody.</p>
-        <div className='tasks-container'>
+        <div className='card-container'>
           {Object.values(availableTasks).map((task) => (
-            <div key={task.id} className='single-task-wrapper'>
+            <div key={task.id}>
                 <TaskCard task={task} />
             </div>
           ))}

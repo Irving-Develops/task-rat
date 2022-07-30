@@ -7,7 +7,6 @@ import TaskCardHomePage from "./TaskCardHomePage"
 function TaskViewHomePage() {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session)
-
   const tasks = useSelector((state) => state.tasks)
   let availableTasks = Object.values(tasks).filter(task => task.available === true)
   if(sessionUser.user) {
@@ -28,7 +27,9 @@ function TaskViewHomePage() {
   return (
     tasks ?
     <div>
-      <h2> Featured Tasks</h2>
+      <div className="home-page-title">
+        <h2> Featured Tasks</h2>
+      </div>
       <div className="card-container">
         {Object.values(availableTasks).map((task) => (
               <TaskCardHomePage task={task} />
