@@ -89,19 +89,13 @@
   border-radius: 30px;
 }
 
-
-.active {
-  background-color: #0067b1;
-  color: #ffffff;
-}
-
 .profile-btns:hover {
   background-color: #0067b1;
   color: #ffffff ;
 }
 
 
-#showProfile {
+#show-profile {
   grid-column: 2 / 5;
   grid-row: 2 / 6;
   display: grid;
@@ -206,6 +200,76 @@
 #profile-tasks {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 1fr 4fr; */
+}
+
+#show-tasks {
+  /* grid-row: 2 / 3; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#available-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#pending-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#completed-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#tasks-title {
+  /* grid-row: 1 / 2; */
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+#tasks-h2 {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: thin solid black;
+  padding-bottom: 8px;
+}
+
+#task-btns-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.task-btns {
+  /* display: block; */
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;;
+  border:1px solid #063f67;;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding: 10px 16px;
+  outline: none;
+  border-radius: 30px;
+  height: 40px;
+}
+
+.task-btns:hover {
+  background-color: #0067b1;
+  color: #ffffff ;
 }
 
 #profile-reviews {
@@ -220,4 +284,9 @@
 #profile-reputation {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+}
+
+.active {
+  background-color: #0067b1;
+  color: #ffffff;
 }

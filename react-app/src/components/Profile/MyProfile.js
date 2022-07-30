@@ -11,6 +11,7 @@ import './profile.css';
 import { getBookingsThunk } from '../../store/booking';
 
 const profileButtons = ['Account', 'My Tasks', 'Reviews', 'Current Missions', 'Reputation'];
+const taskButtons = ['Available', 'Pending', 'Completed'];
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function MyProfile() {
   const tasks = useSelector(state => state.tasks);
   const reviews = useSelector((state) => state.reviews);
   const [selectedButton, setSelectedButton] = useState([0]);
+  const [selectedTaskButton, setSelectedTaskButton] = useState([0]);
 
   useEffect(() => {
     dispatch(getTasksThunk())
@@ -71,8 +73,10 @@ function MyProfile() {
 
   const handleClick = (index) => {
     setSelectedButton([index]);
-    console.log(selectedButton, 'button style')
-    console.log(selectedButton.includes(0), 'this is zerro')
+  }
+
+  const handleTaskClick = (index) => {
+    setSelectedTaskButton([index]);
   }
 
 
@@ -90,7 +94,7 @@ function MyProfile() {
             })}
           </div>
           </div>
-          <div id='showProfile'>
+          <div id='show-profile'>
             <div id="profile-account" style={{ display: selectedButton.includes(0) ? 'grid' : 'none' }}>
               <div id="name-img-div">
                 <p className='profile-p' id="profile-name">{sessionUser.first_name} {sessionUser.last_name}</p>
@@ -110,55 +114,70 @@ function MyProfile() {
                 <EditProfileFormModal user={sessionUser} />
               </div>
             </div>
-            <div id="profile-tasks" style={{ visibility: selectedButton.includes(1) ? 'visible' : 'hidden' }}>
-              <h2>Task's I created:</h2>
-              {myAvailableTasks.length > 0 && myAvailableTasks.map(task => {
-                return (
-                  <div> Available Tasks
-                    <Link key={task.id} to={`/tasks/${task.id}`}>
-                      <div>{task.title}</div>
-                      <div>Danger Level: {task.danger_level}</div>
-                      <div>Reward: {task.price}</div>
-                      <div>Description: {task.description}</div>
-                      <button>View Task</button>
-                    </Link>
-                  </div>
-                );
-              })}
-              {notAvailableTasks.length > 0 && notAvailableTasks.map(task => {
-                return (
-                  <div> Pending Tasks
-                    <Link key={task.id} to={`/tasks/${task.id}`}>
-                      <div>{task.title}</div>
-                      <div>Danger Level: {task.danger_level}</div>
-                      <div>Reward: {task.price}</div>
-                      <div>Description: {task.description}</div>
-                      <button>View Task</button>
-                    </Link>
-                  </div>
-                );
-              })}
-              {completedTasks.length > 0 && completedTasks.map(task => {
-                return (
-                  <div> Completed Tasks
-                    <Link key={task.id} to={`/tasks/${task.id}`}>
-                      <div>{task.title}</div>
-                      <div>Danger Level: {task.danger_level}</div>
-                      <div>Reward: {task.price}</div>
-                      <div>Description: {task.description}</div>
-                      <button>View Task</button>
-                    </Link>
-                  </div>
-                );
-              })}
+            <div id="profile-tasks" style={{ display: selectedButton.includes(1) ? 'grid' : 'none' }}>
+              <div id='tasks-title'>
+                <h2 id='tasks-h2'>My Task's:</h2>
+                <div id='task-btns-div'>
+                  {taskButtons.map((label, index) => {
+                    return <button className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
+                  })}
+                </div>
+              </div>
+              <div id='show-tasks'>
+                <div id='available-task-container' style={{ display: selectedTaskButton.includes(0) ? 'grid' : 'none' }}>
+                  {myAvailableTasks.length > 0 && myAvailableTasks.map(task => {
+                    return (
+                      <div> Available Tasks
+                        <Link key={task.id} to={`/tasks/${task.id}`}>
+                          <div>{task.title}</div>
+                          <div>Danger Level: {task.danger_level}</div>
+                          <div>Reward: {task.price}</div>
+                          <div>Description: {task.description}</div>
+                          <button>Details</button>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div id='pending-task-container' style={{ display: selectedTaskButton.includes(1) ? 'grid' : 'none' }}>
+                  {notAvailableTasks.length > 0 && notAvailableTasks.map(task => {
+                    return (
+                      <div> Pending Tasks
+                        <Link key={task.id} to={`/tasks/${task.id}`}>
+                          <div>{task.title}</div>
+                          <div>Danger Level: {task.danger_level}</div>
+                          <div>Reward: {task.price}</div>
+                          <div>Description: {task.description}</div>
+                          <button>Details</button>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div id='completed-task-container' style={{ display: selectedTaskButton.includes(2) ? 'grid' : 'none' }}>
+                  {completedTasks.length > 0 && completedTasks.map(task => {
+                    return (
+                      <div> Completed Tasks
+                        <Link key={task.id} to={`/tasks/${task.id}`}>
+                          <div>{task.title}</div>
+                          <div>Danger Level: {task.danger_level}</div>
+                          <div>Reward: {task.price}</div>
+                          <div>Description: {task.description}</div>
+                          <button>Details</button>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-            <div id="profile-reviews" style={{ visibility: selectedButton.includes(2) ? 'visible' : 'hidden' }}>
+            <div id="profile-reviews" style={{ display: selectedButton.includes(2) ? 'grid' : 'none' }}>
               <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
             </div>
-            <div id="profile-current-missions" style={{ visibility: selectedButton.includes(3) ? 'visible' : 'hidden' }}>
+            <div id="profile-current-missions" style={{ display: selectedButton.includes(3) ? 'grid' : 'none' }}>
               {bookings && (<Bookings reviewArr={reviewArr} bookings={bookings}/>)}
             </div>
-            <div id="profile-reputation" style={{ visibility: selectedButton.includes(4) ? 'visible' : 'hidden' }}>
+            <div id="profile-reputation" style={{ display: selectedButton.includes(4) ? 'grid' : 'none' }}>
 
             </div>
           </div>
