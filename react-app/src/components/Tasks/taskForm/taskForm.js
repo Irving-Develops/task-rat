@@ -110,25 +110,27 @@ function TaskForm() {
         <form onSubmit={handleSubmit} className='step-form'>
         {count === 1 &&
         <div className='input-container'>
-          <div className='input-headers'>
-            <h2>So, tell us about your task.</h2>
-            <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
-          </div>
-          <div className='input-wrapper'>
-            <input
-              type="text"
-              placeholder="Enter a title for your task."
-              required
-              value={title}
-              onChange={updateTitle} />
-            <textarea
-              className="new-task-description"
-              type="text"
-              placeholder="Please provide a description of the task at hand."
-              required
-              value={description}
-              onChange={updateDescription} />
-          <p id='quality'>*quality not guaranteed.</p>
+          <div>
+            <div className='input-headers'>
+              <h2>So, tell us about your task.</h2>
+              <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
+            </div>
+            <div className='input-wrapper'>
+              <input
+                type="text"
+                placeholder="Enter a title for your task."
+                required
+                value={title}
+                onChange={updateTitle} />
+              <textarea
+                className="new-task-description"
+                type="text"
+                placeholder="Please provide a description of the task at hand."
+                required
+                value={description}
+                onChange={updateDescription} />
+            <p id='quality'>*quality not guaranteed.</p>
+            </div>
           </div>
           <div className='task-button-container'>
             <button
