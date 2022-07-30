@@ -23,7 +23,7 @@ function TaskView() {
     <div>
       <div className="header-wrapper">
         <div className='header-img'>
-          {/* <img src='images/tastask-view-page.jpg' /> */}
+          {/* <img src='images/task-view-page.jpg' /> */}
         </div>
         <div className="header-info-card">
           <div className="header-text-container">

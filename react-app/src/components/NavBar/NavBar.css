@@ -7,6 +7,7 @@
     background-color: #ffee43;
     z-index: 10000;
 }
+
 .navbar-container a, .navbar-container button {
     margin: 5px;
     transition: all .5s ease;
@@ -47,8 +48,9 @@
     margin: 0 20px 0;
     padding: 0;
 }
+
 /* .logo img {
-    width: 200px;
+    width: 40px;
     margin: 20px;
 } */
 
@@ -60,6 +62,11 @@
 .logged-in-links ul, .logged-out-links ul {
     margin: 0px;
     padding: 0px;
+}
+
+.logo img {
+  width: 40px;
+  margin: 20px;
 }
 
 

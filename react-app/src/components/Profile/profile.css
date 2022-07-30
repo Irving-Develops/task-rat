@@ -1,4 +1,4 @@
-#profile-age {
+#profile-page {
   width: 100%;
   height: 100%;
 }
@@ -12,6 +12,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   background: #0067B1;
+  background: linear-gradient(200deg, var(--main-blue) 0%, var(--dark-blue) 100%);
 }
 
 #profile-h1 {
@@ -45,16 +46,17 @@
 }
 
 #profile-welcome {
+  margin: auto;
   margin-bottom: 20px;
   width: 100%;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
+  text-align: center;
 }
 
 #btns-div {
-  /* grid-column: 1 / 2;
-  grid-row: 2 / 5; */
+
   box-sizing: border-box;
   width: 200px;
   height: 450px;
@@ -67,6 +69,7 @@
   padding-top: 40px;
   padding-bottom: 40px;
   margin: auto;
+  box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
 }
 
 .profile-btns {
@@ -89,18 +92,21 @@
 
 .active {
   background-color: #0067b1;
-  color: #ffee43;
+  color: #ffffff;
 }
 
 .profile-btns:hover {
   background-color: #0067b1;
-  color: #ffee43 ;
+  color: #ffffff ;
 }
 
 
 #showProfile {
   grid-column: 2 / 5;
   grid-row: 2 / 6;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 1fr;
   width: 90%;
   height: 95%;
   background: #ffffff;
@@ -108,15 +114,18 @@
   border-radius: 20px;
   margin: auto;
   margin-bottom: 5%;
+  box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
 }
 
 #profile-account {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   width: 90%;
   height: 90%;
   margin: 5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-rows: auto;
 }
 
 #name-img-div {
@@ -125,6 +134,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#profile-pic {
+  width: 150px;
+  border-radius: 50%;
 }
 
 #profile-name {
@@ -180,7 +194,7 @@
 
 #profile-edit-btn:hover {
   background-color: rgb(0,103,177);
-  color: #ffee43 ;
+  color: #ffffff ;
 }
 
 .profile-p {
@@ -190,16 +204,20 @@
 }
 
 #profile-tasks {
-
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 #profile-reviews {
-
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 #profile-current-missions {
-
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 #profile-reputation {
-
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
