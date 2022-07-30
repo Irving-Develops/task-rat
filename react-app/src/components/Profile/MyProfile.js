@@ -94,7 +94,7 @@ function MyProfile() {
             <div id="profile-account" style={{ display: selectedButton.includes(0) ? 'grid' : 'none' }}>
               <div id="name-img-div">
                 <p className='profile-p' id="profile-name">{sessionUser.first_name} {sessionUser.last_name}</p>
-                <img src={sessionUser.pic_url} alt="User's Icon"/>
+                <img id="profile-pic" src={sessionUser.pic_url} alt="User's Icon"/>
               </div>
               <div id="email-user-div">
                 <p className='profile-p'>{sessionUser.username}</p>

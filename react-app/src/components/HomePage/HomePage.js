@@ -16,7 +16,7 @@ function HomePage() {
                 </div>
                 <p></p>
                 <div className="banner-img">
-                    <img src='images/vaultboy.webp' alt="vaultboy"/>
+                    <img src='/images/vaultboy.png' alt="vaultboy"/>
                 </div>
             </div>
             <div className="partnered-banner">
@@ -48,7 +48,7 @@ function HomePage() {
                     </NavLink>
                 </div>
             </div>
-            
+
             <div>
                 <UsersList />
             </div>
