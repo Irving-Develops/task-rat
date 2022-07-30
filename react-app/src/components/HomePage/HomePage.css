@@ -15,7 +15,7 @@
     justify-content: center;
     padding: 20px;
     gap: 100px;
-    background: rgb(0,103,177);
+    background: var(--main-blue);
     background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
     color: white;
 }
@@ -331,4 +331,15 @@ color: var(--main-blue);
 
 p {
     margin: 12px;
+}
+
+/* Footer Styles */
+
+
+.footer {
+    background: var(--main-blue);
+    background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
+    margin-top: 200px;
+    height: 400px;
+    width: 100%;
 }
