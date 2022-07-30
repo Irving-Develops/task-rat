@@ -78,6 +78,11 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+
+            <div className="footer">
+                {/* <h3>Meet The Team</h3> */}
+
+            </div>
         </>
     )
 }
