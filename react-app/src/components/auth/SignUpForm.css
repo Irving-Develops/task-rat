@@ -50,6 +50,13 @@
     height: 200px;
     width: 200px;
     overflow: hidden;
+    box-shadow: 0px 2px 20px 2px rgba(87, 87, 87, 0.6);
+    background-color: black;
+}
+
+.user-photo img {
+    height: 250px;
+    margin-top: 20px;
 }
 
 .top{
@@ -58,29 +65,24 @@
     justify-content: space-between;
 }
 
-.bottom {
+.right {
     width: 100%;
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    /* align-items: baseline; */
     justify-content: space-between;
 }
 
 .user-info div {
     display: flex;
     align-items: center;
+    width: 50%;
 }
 
 
 .sign-up {
     display: flex;
     flex-direction: column;
-}
-
-.user-location {
-    display: flex;
-    /* align-items: center; */
-    justify-content: flex-start;
-    width: 50%;
 }
 
 .user-bio{
@@ -94,7 +96,7 @@
     overflow-wrap: break-word;
 }
 
-.user-bio p {
+.final-screen-info p {
     text-indent: 32px;
 }
 
@@ -102,4 +104,78 @@
     margin-left: 16px;
     margin-top: 16px;
     margin-bottom: -16px;
+}
+
+.avatar-inputs {
+    display: flex;
+    justify-content: space-between;
+    height: 255px;
+    /* border: 1px solid black; */
+}
+
+.avatar-inputs div {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-inputs input[type=radio]:checked + .avatar-image {
+    /* outline: 1px solid black; */
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 2px 20px 2px rgba(87, 87, 87, 0.6);
+    transition: all 0.1s ease-in-out;
+}
+
+.avatar-inputs input[type=radio]:checked + .avatar-image img {
+    height: 200px;
+    margin-left: 75px;
+    margin-top: 90px;
+    transition: all 0.1s ease-in-out;
+}
+
+.avatar-inputs {
+    display: flex;
+}
+
+.avatar-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.avatar-inputs img{
+    height: 150px;
+    margin-top: 90px;
+    margin-left: 50px;
+    transform: translate(-50%, -20%);
+}
+
+.final-screen-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-user-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-user-info div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 600px;
+}
+
+.left-user-info div:hover, .right-user-bio div:hover {
+    cursor: pointer;
 }
