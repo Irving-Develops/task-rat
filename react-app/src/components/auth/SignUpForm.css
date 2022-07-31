@@ -1,0 +1,77 @@
+/* .input-container {
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    width: 1200px;
+    border: 1px solid #b1b9c3;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
+    background-color: white;
+    justify-content: space-between;
+} */
+
+.sign-up-input-container {
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+    height: 650px;
+    width: 1200px;
+    border: 1px solid #b1b9c3;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
+    background-color: white;
+    justify-content: space-between;
+}
+
+.sign-up-inputs {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: -64px; */
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 32px 32px 32px 64px;
+}
+
+.sign-up-inputs div:not(.exclude-textarea, .task-button-container) {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: -16px; */
+}
+
+.exclude-textarea {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.exclude-textarea textarea{
+    margin-top: 16px;
+    margin-left: 153px;
+    width: 850px;
+}
+
+.user-avatar-choice div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: 1px solid black;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+}
+
+.user-avatar-choice img {
+    height: 100px;
+}
+
+.task-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 32px;
+    padding-bottom: 32px;
+    justify-self: flex-end;
+}

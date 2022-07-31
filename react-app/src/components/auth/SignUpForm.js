@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -21,11 +22,10 @@ const SignUpForm = () => {
   const [bio, setBio] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [count, setCount] = useState(1)
-  const [hasSubmitted, setHasSubmitted] = useState(false)
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    setHasSubmitted(true)
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, last_name, username, email, password, pic_url, city, state, country, bio));
       if (data) {
@@ -74,61 +74,70 @@ const SignUpForm = () => {
               </ul>
             )
               :
-              <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
-            }
+              password !== repeatPassword ?
+                <p style={{ 'fontStyle': 'italic', 'fontSize': '20px', 'color': 'red' }} >Passwords must match!</p>
+                :
+                count === 5 ?
+                  <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>Just a quick double-check.</p>
+                  :
+                  <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>Step {count} of 4! </p>
+                }
           </div>
         </div>
         <form onSubmit={onSignUp} className='step-form'>
         {count === 1 &&
-        <div className='input-container'>
+        <div className='sign-up-input-container'>
           <div>
             <div className='input-headers'>
-                <h2>Let's get started!</h2>
+                <h2>First things first, we're gonna need some info.</h2>
                 <h4>All the usual, yada yada.</h4>
               </div>
-              <div className='input-wrapper'>
-                <div>
-                  <h4>User Name</h4>
-                  <input
-                    type='text'
-                    name='username'
-                    placeholder='Username'
-                    onChange={updateUsername}
-                    value={username}
-                  ></input>
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <input
-                    type='text'
-                    name='email'
-                    placeholder='Email'
-                    onChange={updateEmail}
-                    value={email}
-                  ></input>
-                </div>
-                <div>
-                  <h4>Password</h4>
-                  <input
-                    type='password'
-                    name='password'
-                    placeholder='Password'
-                    onChange={updatePassword}
-                    value={password}
-                  ></input>
-                </div>
-                <div>
-                  <h4>Repeat Password</h4>
-                  <input
-                    type='password'
-                    name='repeat_password'
-                    placeholder='Confirm Password'
-                    onChange={updateRepeatPassword}
-                    value={repeatPassword}
-                    required={true}
-                  ></input>
-                </div>
+              <div className='sign-up-inputs'>
+                {/* <div className='sign-up-inputs'> */}
+                  <div>
+                    <h4>User Name:</h4>
+                    <input
+                      type='text'
+                      name='username'
+                      placeholder='Username'
+                      onChange={updateUsername}
+                      value={username}
+                    ></input>
+                  </div>
+                  <div>
+                    <h4>Email:</h4>
+                    <input
+                      type='text'
+                      name='email'
+                      placeholder='Email'
+                      onChange={updateEmail}
+                      value={email}
+                    ></input>
+                  </div>
+                  <div>
+                    <h4>Password:</h4>
+                    <input
+                      type='password'
+                      name='password'
+                      placeholder='Password'
+                      onChange={updatePassword}
+                      value={password}
+                    ></input>
+                  </div>
+                  <div>
+                    <h4>Repeat Password:</h4>
+                    <input
+                      type='password'
+                      name='repeat_password'
+                      placeholder='Confirm Password'
+                      onChange={updateRepeatPassword}
+                      value={repeatPassword}
+                      required={true}
+                    ></input>
+                  </div>
+                {/* </div> */}
               </div>
+            </div>
               <div className='task-button-container'>
                 <button
                   type='button'
@@ -143,19 +152,18 @@ const SignUpForm = () => {
                   className='task-form-buttons'
                   >Next</button>
               </div>
-            </div>
           </div>
         }
         {count === 2 &&
-        <div className='input-container'>
+        <div className='sign-up-input-container'>
           <div>
             <div className='input-headers'>
               <h2>Now, why don't you tell us a little about yourself?</h2>
               <h4>This information will be displayed on your user profile page. Don't worry, you can edit it later.</h4>
             </div>
-            <div className='input-wrapper'>
+            <div className='sign-up-inputs'>
               <div>
-                <h4>First Name</h4>
+                <h4>First Name:</h4>
                 <input
                   type='text'
                   name='first_name'
@@ -165,7 +173,7 @@ const SignUpForm = () => {
                 ></input>
               </div>
               <div>
-                <h4>Last Name</h4>
+                <h4>Last Name:</h4>
                 <input
                   type='text'
                   name='last_name'
@@ -174,16 +182,19 @@ const SignUpForm = () => {
                   value={last_name}
                 ></input>
               </div>
-              <div>
-                <h4>Bio</h4>
+              <div className='exclude-textarea'>
+                <h4>Bio:</h4>
                 <textarea
                   type='text'
                   name='bio'
+                  className='new-task-description'
                   placeholder='Share your skills, likes, dislikes, what three items you would take into the wasteland... get creative!'
                   onChange={updateBio}
                   value={bio}
                 ></textarea>
               </div>
+            </div>
+          </div>
               <div className='task-button-container'>
                 <button
                   type='button'
@@ -197,21 +208,19 @@ const SignUpForm = () => {
                   disabled={count > 4}
                   className='task-form-buttons'
                 >Next</button>
-              </div>
             </div>
-          </div>
         </div>
         }
         {count === 3 &&
-          <div className='input-container'>
+          <div className='sign-up-input-container'>
             <div>
               <div className='input-headers'>
                 <h2>Almost there! So, where can find you?</h2>
                 <h4>This helps us determine if Task Rat is available in your area.</h4>
               </div>
-              <div className='input-wrapper'>
+              <div className='sign-up-inputs'>
                 <div>
-                  <h4>City</h4>
+                  <h4>City:</h4>
                   <input
                     type='text'
                     name='city'
@@ -221,7 +230,7 @@ const SignUpForm = () => {
                   ></input>
                 </div>
                 <div>
-                  <h4>State</h4>
+                  <h4>State:</h4>
                   <input
                     type='text'
                     name='state'
@@ -231,7 +240,7 @@ const SignUpForm = () => {
                   ></input>
                 </div>
                 <div>
-                  <h4>Country</h4>
+                  <h4>Country:</h4>
                   <input
                     type='text'
                     name='country'
@@ -241,6 +250,7 @@ const SignUpForm = () => {
                   ></input>
                 </div>
               </div>
+            </div>
               <div className='task-button-container'>
                 <button
                   type='button'
@@ -255,19 +265,18 @@ const SignUpForm = () => {
                   className='task-form-buttons'
                 >Next</button>
               </div>
-            </div>
           </div>
         }
 
         {count === 4 &&
-          <div className='input-container'>
+          <div className='sign-up-input-container'>
             <div>
               <div className='input-headers'>
                 <h2>Finally, choose an avatar.</h2>
-                <h4>Choose the one that speaks to your soul.</h4>
+                <h4>Which one reminds you of yourself?</h4>
               </div>
               <div className='input-wrapper'>
-                  <h4>Pic Url</h4>
+                  <h4>Avatar:</h4>
                   <input
                     type='radio'
                     name='pic_url'
@@ -299,6 +308,7 @@ const SignUpForm = () => {
                     value='https://static.wikia.nocookie.net/fallout/images/1/14/Bittercup.jpg/revision/latest?cb=20101221185412'
                   ></input>
                 </div>
+            </div>
               <div className='task-button-container'>
                 <button
                   type='button'
@@ -313,11 +323,10 @@ const SignUpForm = () => {
                   className='task-form-buttons'
                 >Next</button>
               </div>
-            </div>
           </div>
         }
         {count === 5 &&
-          <div className='input-container final-screen'>
+          <div className='sign-up-input-container final-screen'>
           <div className='final-screen-wrapper'>
             <div className="input-headers">
               <h2>Everything look correct?</h2>
@@ -344,9 +353,11 @@ const SignUpForm = () => {
               <h5>Location: </h5>
                 <p>{city}, {state}, {country}</p>
               </div>
-              <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
+              <div onClick={() => setCount(4)} className='user-avatar-choice final-screen-content'>
                 <h5>Avatar: </h5>
-                <img src={pic_url} alt='user-pic' />
+                <div>
+                  <img src={pic_url} alt='user-pic' />
+                </div>
               </div>
             </div>
           </div>
