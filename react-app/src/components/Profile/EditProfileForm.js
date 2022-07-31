@@ -66,54 +66,68 @@ const EditProfileForm = ({ user, toggleShow }) => {
         )}
         <label>First Name</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="First Name"
           required
           value={first_name}
           onChange={updateFirstName} />
+        <p></p>
         <label>Last Name</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="Last Name"
           required
           value={last_name}
           onChange={updateLastName} />
+        <p></p>
         <label>Email</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="Email"
           required
           value={email}
           onChange={updateEmail} />
+        <p></p>
         <label>City</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="City"
           required
           value={city}
           onChange={updateCity} />
+        <p></p>
         <label>State</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="State"
           required
           value={state}
           onChange={updateState} />
+        <p></p>
         <label>Country</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="Country"
           required
           value={country}
           onChange={updateCountry} />
+        <p></p>
         <label>Bio</label>
         <input
+          className="edit-form-inputs"
           type="text"
           placeholder="Bio"
           required
           value={bio}
           onChange={updateBio} />
-        <button type="submit"> Confirm Changes </button>
+        <p></p>
+        <button id="confirm-changes-button" type="submit"> Confirm Changes </button>
       </form>
     </section>
   )
