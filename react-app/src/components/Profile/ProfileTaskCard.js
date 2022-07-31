@@ -7,7 +7,7 @@ import ReviewFormModal from '../Reviews/ReviewFormModal';
 import EditReviewFormModal from '../Reviews/EditFormModal';
 import { useSelector } from 'react-redux';
 
-function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftReview, taskId}) {
+function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftReview, taskId }) {
   const [users, setUsers] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
   let user;
@@ -87,40 +87,40 @@ function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftRevi
   return (
     <>
       {user && task ?
-          <div className={`danger-${task.danger_level} card`}>
-            <div className='title-danger-level-wrapper'>
-              <div className='title'>
-                  <h3 id='profile-card-h3'> {task.title} </h3>
+        <div className={`danger-${task.danger_level} card`}>
+          <div className='title-danger-level-wrapper'>
+            <div className='title'>
+              <h3 id='profile-card-h3'> {task.title} </h3>
+            </div>
+          </div>
+          <div className='content-container'>
+            <div className='task-content'>
+              <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
+              <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color': `${dangerIconColor}` }}>
+                {dangerIcons}
+              </div>
+              <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
+              <span className='date profile-card'>Posted : {task.created_at} </span>
+            </div>
+            <div className='task-misc'>
+              <div className='home-page-buttons'>
+                <BookingForm task={task} />
+                <div id='task-deets'>
+                  <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
+                </div>
+                {sessionUser && sessionUser.id !== user.id && <div>
+                  {booking && !booking.completed ? (
+                    <div>
+                      <button onClick={submitHandler}>Complete</button>
+                      <button onClick={deleteHandler}>Drop task</button>
+                    </div>)
+                    : (leftReview && leftReview.length === 1) ?
+                      <EditReviewFormModal taskId={taskId} review={leftReview[0]} /> :
+                      <ReviewFormModal taskId={taskId} />}
+                </div>}
               </div>
             </div>
-            <div className='content-container'>
-                <div className='task-content'>
-                    <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
-                    <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-                      {dangerIcons}
-                    </div>
-                    <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                    <span className='date profile-card'>Posted : {task.created_at} </span>
-                </div>
-                <div className='task-misc'>
-                  <div className='home-page-buttons'>
-                      <BookingForm task={task}/>
-                      <div id='task-deets'>
-                        <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
-                      </div>
-                        {sessionUser && sessionUser.id !== user.id && <div>
-                        {booking && !booking.completed ? (
-                          <div>
-                              <button onClick={submitHandler}>Complete</button>
-                              <button onClick={deleteHandler}>Drop task</button>
-                          </div>)
-                        : (leftReview && leftReview.length === 1) ?
-                          <EditReviewFormModal taskId={taskId} review={leftReview[0]}/> :
-                        <ReviewFormModal taskId={taskId}/>}
-                        </div>}
-                  </div>
-                </div>
-            </div>
+          </div>
         </div>
         :
         null
