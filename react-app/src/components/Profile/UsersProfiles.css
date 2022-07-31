@@ -39,3 +39,8 @@
   margin-left: 10px;
   border-radius: 15px;
 }
+
+#profile-task-modal button {
+  background-color: #14f217;
+  color: #1c381b;
+}
