@@ -57,10 +57,10 @@ function TagView() {
                 src = 'https://images5.alphacoders.com/665/thumb-1920-665815.jpg'
                 break
             case 3:
-                src = 'https://c.wallhere.com/photos/ce/70/video_games_Fallout_Fallout_New_Vegas-249137.jpg!d'
+                src = 'https://i.imgur.com/1yT2jWI.jpg'
                 break
             case 4:
-                src = 'https://c.wallhere.com/photos/5f/e7/1920x1080_px_Fallout_Fallout_New_Vegas_Ulysses_Fallout-834045.jpg!d'
+                src = 'https://c4.wallpaperflare.com/wallpaper/663/716/12/fallout-new-vegas-screenshot-wallpaper-preview.jpg'
                 break
             case 5:
                 src = 'https://i.pinimg.com/564x/45/9c/a0/459ca0969dbac996bbfc142f62fd4a6e.jpg'
@@ -75,7 +75,7 @@ function TagView() {
                 src = 'https://cdna.artstation.com/p/assets/images/images/038/600/848/large/matthew-marquis-fallout4-wrwe7ryown.jpg'
                 break
                 case 9:
-                src = 'https://c.wallhere.com/photos/3f/17/mojave_fallout_enb_newvegas_sweetfx-859195.jpg!d'
+                src = 'https://c4.wallpaperflare.com/wallpaper/265/227/683/fallout-new-vegas-video-games-artwork-wallpaper-preview.jpg'
                 break
         }
     }
