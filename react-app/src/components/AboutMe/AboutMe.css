@@ -1,0 +1,23 @@
+.about-me-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+}
+
+
+.about-me {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-me-title {
+    text-transform: capitalize;
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 50px;
+    color: var(--main-blue);
+}
+.about-the-website {
+    text-transform: none;
+    color: var(--dark-blue);
+}

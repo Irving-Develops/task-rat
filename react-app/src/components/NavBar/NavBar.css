@@ -26,8 +26,8 @@
     border-radius: 15px;
 }
 
-.navbar-container a:hover,
-.navbar-container button:hover {
+.navlinks  a:hover,
+.navlinks button:hover {
     border-radius: 15px;
     padding: 4px;
     background-color: rgb(0, 103, 177);
@@ -36,8 +36,8 @@
 
 .navlinks {
     display: flex;
-    width: 500px;
-    gap: 14px;
+    align-items: center;
+    width: 600px;
 }
 
 
@@ -63,16 +63,16 @@ button {
     margin: 20px;
 } */
 
-.logged-in-links,
-.logged-out-links,
-.permanent-links {
+.logged-in-links  ul {
     display: flex;
-    align-items: center;
-    width: 250px;
 }
 
-.nav-bar-buttons {
+.navbar-buttons {
+    display: flex;
+    justify-content: end;
     width: 250px;
+    padding: 0;
+    margin: 0;
 }
 
 .logged-in-links ul,
