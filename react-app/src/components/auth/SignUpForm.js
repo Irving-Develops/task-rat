@@ -332,32 +332,27 @@ const SignUpForm = () => {
               <h2>Everything look correct?</h2>
               <h4>Click on a section to edit.</h4>
             </div>
-            <div className="final-screen-content-wrapper">
-              <div onClick={() => setCount(1)} className='new-title-content final-screen-content'>
-                <h5>Username: </h5>
+            <div className='top sign-up-final-screen'>
+              <div className='sign-up user-info'>
+                <h4 onClick={() => setCount(2)}>Name: </h4>
+                <p>{first_name} {last_name}</p>
+                <h4 onClick={() => setCount(1)}>Username: </h4>
                 <p>{username}</p>
-              </div>
-              <div onClick={() => setCount(1)} className='new-description-content final-screen-content'>
-                <h5>Email: </h5>
+                <h4 onClick={() => setCount(1)}>Email: </h4>
                 <p>{email}</p>
               </div>
-              <div onClick={() => setCount(2)} className='new-location-content final-screen-content'>
-                <h5>Name: </h5>
-                <p>{first_name} {last_name}</p>
+              <div className='sign-up user-photo' onClick={() => setCount(4)}>
+                <img src={pic_url} alt='user-avatar' />
               </div>
-              <div onClick={() => setCount(2)} className='new-description-content final-screen-content'>
-                <h5>Bio: </h5>
-                <p>{bio}</p>
-              </div>
-              <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
-              <h5>Location: </h5>
+            </div>
+            <div className='bottom sign-up-final-screen'>
+              <div className='sign-up user-location' onClick={() => setCount(3)}>
+                <h4>Location: </h4>
                 <p>{city}, {state}, {country}</p>
               </div>
-              <div onClick={() => setCount(4)} className='user-avatar-choice final-screen-content'>
-                <h5>Avatar: </h5>
-                <div>
-                  <img src={pic_url} alt='user-pic' />
-                </div>
+              <div className='sign-up user-bio' onClick={() => setCount(2)}>
+                <h4>Bio:</h4>
+                <p>{bio}</p>
               </div>
             </div>
           </div>
