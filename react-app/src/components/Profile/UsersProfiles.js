@@ -47,7 +47,9 @@ const UsersProfiles = ({ user, setShowModal }) => {
         <div>
           <h1 id="user-name">Mercenary: {user.first_name}</h1>
           <AverageRating reviewsAboutMeArr={reviewsAboutMeArr} />
-          <img src={user.pic_url} alt="User's Icon" />
+          <div className='user-profile-pic'>
+            <img src={user.pic_url} alt="User's Icon" />
+          </div>
           <div>
             <h2 id="their-tasks-header">Their Tasks:</h2>
             {myTasks.length > 0 && myTasks.map(task => {
