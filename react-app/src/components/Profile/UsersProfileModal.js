@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import UsersProfiles from './UsersProfiles';
 
-function UsersProfileModal({user}) {
+function UsersProfileModal({ user }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +10,9 @@ function UsersProfileModal({user}) {
       <button onClick={() => setShowModal(true)}> View {user.first_name}'s Profile</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <UsersProfiles user={user} setShowModal={setShowModal}/>
+          <div id="user-profile-modal">
+            <UsersProfiles user={user} setShowModal={setShowModal} />
+          </div>
         </Modal>
       )}
     </>

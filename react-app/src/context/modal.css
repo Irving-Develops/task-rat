@@ -31,7 +31,11 @@
   border: 2px solid #14f217;
   border-radius: 15px;
   margin: 15px 0;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   overflow: auto;
+}
+
+#modal-content::-webkit-scrollbar {
+  display: none;
 }

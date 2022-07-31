@@ -1,3 +1,8 @@
+#user-name {
+  background-color: #1c381b;
+  color: #14f217;
+}
+
 .user-profile-tasks {
   display: flex;
   flex-direction: column;
@@ -14,6 +19,7 @@
   background-color: #1c381b;
   color: #14f217;
   border-radius: 15px;
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -25,4 +31,11 @@
 #details-button button:hover {
   background-color: #14f217;
   color: #1c381b;
+}
+
+#user-task-button button {
+  background-color: #14f217;
+  color: #1c381b;
+  margin-left: 10px;
+  border-radius: 15px;
 }

@@ -3,6 +3,7 @@ import EditReviewForm from './EditReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteReviewThunk } from '../../store/review'
 import EditReviewFormModal from './EditFormModal';
+import "./SingleReview.css"
 
 function SingleReview({ review }) {
   const dispatch = useDispatch();
@@ -23,17 +24,19 @@ function SingleReview({ review }) {
         (<div>
           {!showEditForm && (
             <div>
-              <div>Rating: {review.rating}</div>
-              <div>Comment: {review.comment}</div>
-              <EditReviewFormModal taskId={sessionUser.id} review={review} />
-              <button onClick={deleteHandler}>Delete</button>
+              <div className="rating-text">Rating: {review.rating}</div>
+              <div className="rating-text">Comment: {review.comment}</div>
+              <div id="edit-review-button">
+                <EditReviewFormModal taskId={sessionUser.id} review={review} />
+              </div>
+              <button id="handle-delete-review" onClick={deleteHandler}>Delete</button>
             </div>
           )}
           {showEditForm && <EditReviewForm toggleShow={setShowEditForm} reviewProp={review} />}
         </div>) :
         (<div>
-          <div>Rating: {review.rating}</div>
-          <div>Comment: {review.comment}</div>
+          <div className="rating-text" >Rating: {review.rating}</div>
+          <div className="rating-text" >Comment: {review.comment}</div>
         </div>)
       }
     </div>
