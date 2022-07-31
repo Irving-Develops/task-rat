@@ -16,7 +16,7 @@ function HomePage() {
                 </div>
                 <p></p>
                 <div className="banner-img">
-                    <img src='/images/vaultboy.png' alt="vaultboy"/>
+                    <img src='https://static.wikia.nocookie.net/fallout/images/1/18/Icon_Fo4_side_quest.png/revision/latest?cb=20170507123423' alt="vaultboy"/>
                 </div>
             </div>
             <div className="partnered-banner">
