@@ -13,11 +13,15 @@
 .about-me-title {
     text-transform: capitalize;
     width: 90%;
-    margin: 0 auto;
+    margin: 70px auto;
     padding-left: 50px;
     color: var(--main-blue);
+
 }
 .about-the-website {
+    margin-top: 50px;
     text-transform: none;
     color: var(--dark-blue);
+    line-height: 160%;
+    font-size: 20px;
 }
