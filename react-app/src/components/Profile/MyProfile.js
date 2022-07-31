@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getTasksThunk } from '../../store/tasks';
 import { getReviewsThunk } from '../../store/review';
-import Bookings from '../Bookings/Bookings';
-import EditProfileFormModal from './EditProfileModal';
-import AverageRating from './AverageRating';
-import './profile.css';
 import { getBookingsThunk } from '../../store/booking';
+import Bookings from '../Bookings/Bookings';
+import AverageRating from './AverageRating';
+import EditProfileFormModal from './EditProfileModal';
 import ProfileTaskCard from './ProfileTaskCard';
 import ProfileReviews from './ProfileReviews';
+import './profile.css';
 
 const profileButtons = ['Account', 'My Tasks', 'Reviews', 'My Jobs', 'Reputation'];
 const taskButtons = ['Available', 'Pending', 'Completed'];
@@ -21,6 +21,7 @@ function MyProfile() {
   const bookings = useSelector(state => state.bookings);
   const tasks = useSelector(state => state.tasks);
   const reviews = useSelector((state) => state.reviews);
+
   const [selectedButton, setSelectedButton] = useState([0]);
   const [selectedTaskButton, setSelectedTaskButton] = useState([0]);
   const [selectedJobButton, setSelectedJobButton] = useState([0]);
@@ -76,14 +77,13 @@ function MyProfile() {
     }
   }
 
-  console.log(completedTasks, 'complted')
-
   const handleClick = (index) => {
     setSelectedButton([index]);
   }
 
   const handleTaskClick = (index) => {
     setSelectedTaskButton([index]);
+    console.log('inside handle click task')
   }
 
   const handleJobClick = (index) => {
@@ -100,7 +100,7 @@ function MyProfile() {
             <p id='profile-welcome'>Welcome!</p>
           <div id="btns-div">
             {profileButtons.map((label, index) => {
-              return <button key={index} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
+              return <button key={label} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
           </div>
           </div>
@@ -130,7 +130,7 @@ function MyProfile() {
                 <div id='task-btns-div'>
                   <Link to='/tasks/new'><p id='profile-add-task'>+</p></Link>
                   {taskButtons.map((label, index) => {
-                    return <button key={index} className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
+                    return <button key={label} className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
@@ -164,23 +164,18 @@ function MyProfile() {
                 </div>
               </div>
             </div>
-            <div id="profile-reviews">
-              <ProfileReviews reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr} selectedButton={selectedButton}/>
-            </div>
+            <ProfileReviews reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr} selectedButton={selectedButton}/>
             <div id="profile-jobs" style={{ display: selectedButton.includes(3) ? 'grid' : 'none' }}>
               <div className='title'>
                 <h2 className='show-h2'>My Jobs</h2>
                 <div id='jobs-btns-div'>
                   <Link to='/tasks'><p id='profile-add-task'>+</p></Link>
                   {jobButtons.map((label, index) => {
-                    return <button key={index} className={selectedJobButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleJobClick(index)}>{label}</button>
+                    return <button key={label} className={selectedJobButton.includes(index) ? 'job-btns active' : 'job-btns'} onClick={() => handleJobClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
               {bookings && (<Bookings reviewArr={reviewArr} bookings={bookings} selectedJobButton={selectedJobButton}/>)}
-            </div>
-            <div id="profile-reputation" style={{ display: selectedButton.includes(4) ? 'grid' : 'none' }}>
-
             </div>
           </div>
         </div>

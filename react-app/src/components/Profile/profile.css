@@ -175,7 +175,6 @@
   font-size: 17px;
   background-color : transparent;
   padding: 10px;
-  outline: none;
   border-radius: 30px;
   height: 40px;
   margin-top: 15%;
@@ -286,10 +285,26 @@
   color: #ffffff ;
 }
 
-#profile-reviews {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.job-btns {
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;;
+  border:1px solid #063f67;;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px 16px;
+  outline: none;
+  border-radius: 30px;
+  height: 40px;
 }
+
+.job-btns:hover {
+  background-color: #0067b1;
+  color: #ffffff ;
+}
+
 #profile-jobs {
   grid-column: 1 / 2;
   grid-row: 1 / 2;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
 import LoginFormModal from '../auth/LoginFormModal';
@@ -9,7 +8,7 @@ import "./BookingForm.css"
 function BookingForm({ task }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  
+
   let tags;
   if (task) {
     tags = Object.values(task.tags).map(tag => tag.id.toString())

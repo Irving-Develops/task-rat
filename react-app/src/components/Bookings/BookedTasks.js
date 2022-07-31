@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {editTaskThunk, getTasksThunk} from '../../store/tasks'
 import {editBookingThunk, deleteBookingThunk} from '../../store/booking'
-import ReviewFormModal from '../Reviews/ReviewFormModal';
-import EditReviewFormModal from '../Reviews/EditFormModal'
 import '../Profile/ProfileTaskCard.css';
 import ProfileTaskCard from '../Profile/ProfileTaskCard';
 
