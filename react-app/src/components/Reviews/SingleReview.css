@@ -1,0 +1,18 @@
+.rating-text {
+  background-color: #1c381b;
+  color: #14f217;
+}
+
+#handle-delete-review {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+#edit-review-button button {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  margin: 5px;
+}

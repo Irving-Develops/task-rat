@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import BookingForm from '../Bookings/BookingForm'
-import UsersProfileModal from '../Profile/UsersProfileModal'
 
 function TaskCardHomePage({ task }) {
   const [users, setUsers] = useState([])
@@ -32,7 +31,7 @@ function TaskCardHomePage({ task }) {
                         <div className='task-content'>
                             <p><span className='bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
                             <p className='bullet'> Danger Level :<span className={`dan-${task.danger_level}`}>{task.danger_level}</span></p>
-                            <p><span className='bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
+                            <p><span className='bullet'>Reward : </span> {task.price} Bottle Caps</p>
                         </div>
                         <div className='task-misc'>
                           <div className='home-page-buttons'>

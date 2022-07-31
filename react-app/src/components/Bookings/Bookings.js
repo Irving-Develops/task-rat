@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBookingsThunk } from '../../store/booking';
+import { useSelector } from 'react-redux';
 import BookedTasks from './BookedTasks'
 
-function Bookings({reviewArr}) {
-    const dispatch = useDispatch();
-    const bookings = useSelector(state => state.bookings);
+function Bookings({reviewArr, bookings, selectedJobButton}) {
     const sessionUser = useSelector(state => state.session.user)
     let completedBookings;
     let currentBookings;
@@ -15,30 +11,27 @@ function Bookings({reviewArr}) {
         currentBookings = Object.values(bookings).filter(booking => booking.tasker_id === sessionUser.id && !booking.completed);
     }
 
-
-    useEffect(() => {
-        dispatch(getBookingsThunk())
-    }, [dispatch])
-
     return (
-        <>
-        <h1>Completed Missions</h1>
-        {completedBookings && completedBookings.length > 0 && completedBookings.map(booking => {
-          return (
-            <div key={booking.id}>
-              <BookedTasks taskId={booking.task_id} booking={booking} reviewArr={reviewArr}/>
-            </div>
-          );
-        })}
-        <h1>Current Missions</h1>
-        {currentBookings && currentBookings.length > 0 && currentBookings.map(booking => {
-          return (
-            <div key={booking.id}>
-              <BookedTasks taskId={booking.task_id} booking={booking}/>
-            </div>
-          );
-        })}
-        </>
+        <div id='show-jobs'>
+          <div id='current-job-container' style={{ display: selectedJobButton.includes(0) ? 'grid' : 'none' }}>
+            {currentBookings && currentBookings.length > 0 ? currentBookings.map(booking => {
+              return (
+                <div key={booking.id} className='task-scroll-divs'>
+                  <BookedTasks taskId={booking.task_id} booking={booking}/>
+                </div>
+              );
+            }) : <p>You currently don't have any jobs in this section.</p>}
+          </div>
+          <div id='completed-job-container' style={{ display: selectedJobButton.includes(1) ? 'grid' : 'none' }}>
+            {completedBookings && completedBookings.length > 0 ? completedBookings.map(booking => {
+              return (
+                <div key={booking.id} className='task-scroll-divs'>
+                  <BookedTasks taskId={booking.task_id} booking={booking} reviewArr={reviewArr}/>
+                </div>
+              );
+            }) : <p>You currently don't have any jobs in this section.</p>}
+          </div>
+        </div>
     )
 }
 

@@ -16,7 +16,7 @@ function HomePage() {
                 </div>
                 <p></p>
                 <div className="banner-img">
-                    <img src='images/vaultboy.webp' alt="vaultboy"/>
+                    <img src='/images/vaultboy.png' alt="vaultboy"/>
                 </div>
             </div>
             <div className="partnered-banner">
@@ -48,7 +48,7 @@ function HomePage() {
                     </NavLink>
                 </div>
             </div>
-            
+
             <div>
                 <UsersList />
             </div>
@@ -77,6 +77,11 @@ function HomePage() {
                         <img src='https://i.pinimg.com/736x/79/09/91/790991524d44472ff596132c4b1d7df7--fallout-vault-boy-fallout-art.jpg' alt="bottle cap" />
                     </div>
                 </div>
+            </div>
+
+            <div className="footer">
+                {/* <h3>Meet The Team</h3> */}
+
             </div>
         </>
     )

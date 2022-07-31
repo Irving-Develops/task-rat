@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addBookingThunk } from '../../store/booking';
 import { editTaskThunk } from '../../store/tasks';
 import LoginFormModal from '../auth/LoginFormModal';
@@ -9,7 +8,7 @@ import "./BookingForm.css"
 function BookingForm({ task }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  // console.log(task.tags)
+
   let tags;
   if (task) {
     tags = Object.values(task.tags).map(tag => tag.id.toString())
@@ -32,10 +31,8 @@ function BookingForm({ task }) {
         available: false,
         tags
       }
-      console.log(payload, 'this is the payload')
       const newBooking = await dispatch(addBookingThunk(booking));
       const editedTask = await dispatch(editTaskThunk(payload))
-      // task update goes here
 
       if (newBooking && editedTask) {
         window.alert('You have picked up this task. To view it visit your profile.')
@@ -48,7 +45,7 @@ function BookingForm({ task }) {
   return (
     <>
       {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
-        <button id="booking-form-button" onClick={handleBooking}>Claim Task</button>
+        <button id="booking-form-button" className="profile-btns" onClick={handleBooking}>Claim Task</button>
       )}
       {task && task.available === true && !sessionUser && (
         <LoginFormModal task={task} />

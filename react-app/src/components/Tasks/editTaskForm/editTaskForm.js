@@ -20,7 +20,6 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
 
   const tagIds = Object.values(task.tags).map(tag => tag.id.toString())
   const [tags, setTags] = useState([...tagIds])
-  // console.log(tags.length)
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)

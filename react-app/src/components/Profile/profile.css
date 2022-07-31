@@ -1,4 +1,4 @@
-#profile-age {
+#profile-page {
   width: 100%;
   height: 100%;
 }
@@ -12,6 +12,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   background: #0067B1;
+  background: linear-gradient(200deg, var(--main-blue) 0%, var(--dark-blue) 100%);
 }
 
 #profile-h1 {
@@ -33,7 +34,7 @@
   text-align: right;
   margin: auto;
   margin-right: 30px;
-  color: #ffffff;
+  color: yellow;
   letter-spacing: 2px;
 }
 
@@ -45,16 +46,17 @@
 }
 
 #profile-welcome {
+  margin: auto;
   margin-bottom: 20px;
   width: 100%;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
+  text-align: center;
 }
 
 #btns-div {
-  /* grid-column: 1 / 2;
-  grid-row: 2 / 5; */
+
   box-sizing: border-box;
   width: 200px;
   height: 450px;
@@ -67,18 +69,21 @@
   padding-top: 40px;
   padding-bottom: 40px;
   margin: auto;
+  box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
 }
 
 .profile-btns {
   display: block;
   margin: 5px 10px;
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 20px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 4px;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -86,21 +91,18 @@
   border-radius: 30px;
 }
 
-
-.active {
-  background-color: #0067b1;
-  color: #ffee43;
-}
-
 .profile-btns:hover {
   background-color: #0067b1;
-  color: #ffee43 ;
+  color: #ffffff;
 }
 
 
-#showProfile {
+#show-profile {
   grid-column: 2 / 5;
   grid-row: 2 / 6;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 1fr;
   width: 90%;
   height: 95%;
   background: #ffffff;
@@ -108,15 +110,18 @@
   border-radius: 20px;
   margin: auto;
   margin-bottom: 5%;
+  box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
 }
 
 #profile-account {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   width: 90%;
   height: 90%;
   margin: 5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr 2fr 1fr;
+  grid-template-rows: auto;
 }
 
 #name-img-div {
@@ -125,12 +130,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 150px;
+}
+
+#profile-pic {
+  width: 150px;
+  border-radius: 50%;
 }
 
 #profile-name {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
-  border-bottom: thin solid black;
 }
 
 #email-user-div {
@@ -153,10 +163,6 @@
   justify-content: space-between;
 }
 
-#profile-location {
-
-}
-
 #profile-located {
   font-size: 30px;
   font-weight: bold;
@@ -164,14 +170,15 @@
 
 #profile-edit-btn {
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 17px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 10px;
-  outline: none;
   border-radius: 30px;
   height: 40px;
   margin-top: 15%;
@@ -179,8 +186,8 @@
 }
 
 #profile-edit-btn:hover {
-  background-color: rgb(0,103,177);
-  color: #ffee43 ;
+  background-color: rgb(0, 103, 177);
+  color: #ffffff;
 }
 
 .profile-p {
@@ -190,16 +197,166 @@
 }
 
 #profile-tasks {
-
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-#profile-reviews {
-
+#show-tasks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
 }
-#profile-current-missions {
 
+#profile-add-task {
+  transition: all .5s ease;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  border-radius: 30px;
+  height: 20px;
+  width: 20px;
+}
+
+#profile-add-task:hover {
+  background-color: #0067b1;
+  color: #ffffff;
+}
+
+#available-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+#pending-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+/* profile-current-missions { */
+#completed-task-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+.title {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.show-h2 {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: thin solid black;
+  padding-bottom: 8px;
+  color: #063f67;
+}
+
+#task-btns-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.task-btns {
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color: transparent;
+  padding: 10px 16px;
+  outline: none;
+  border-radius: 30px;
+  height: 40px;
+}
+
+.task-btns:hover {
+  background-color: #0067b1;
+  color: #ffffff;
+}
+
+.job-btns {
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color: transparent;
+  padding: 10px 16px;
+  outline: none;
+  border-radius: 30px;
+  height: 40px;
+}
+
+.job-btns:hover {
+  background-color: #0067b1;
+  color: #ffffff;
+}
+
+#profile-jobs {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#show-jobs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+#jobs-btns-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+#current-job-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+#completed-job-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 450px;
+  overflow-y: scroll;
 }
 
 #profile-reputation {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
 
+.task-scroll-divs {
+  margin: auto 40px;
+}
+
+.active {
+  background-color: #0067b1;
+  color: #ffffff;
 }

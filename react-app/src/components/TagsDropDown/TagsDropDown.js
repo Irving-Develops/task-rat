@@ -8,7 +8,7 @@ function TagsDropDown() {
         <div
             onMouseEnter={() => setShowDropDown(true)}
             onMouseLeave={() => setShowDropDown(false)}
-            style={{ 'maxWidth': '50px' }}
+        // style={{ 'maxWidth': '50px' }}
         >
             <NavLink to='/tasks'>Tasks</NavLink>
             {showDropDown &&

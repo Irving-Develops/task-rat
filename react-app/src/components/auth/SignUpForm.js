@@ -370,8 +370,6 @@ const SignUpForm = () => {
         </form>
       </section>
     </div>
-
-
   );
 };
 

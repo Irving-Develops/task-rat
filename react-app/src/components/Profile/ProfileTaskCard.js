@@ -1,27 +1,30 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import BookingForm from '../../Bookings/BookingForm'
-import UsersProfileModal from '../../Profile/UsersProfileModal'
-import './taskCard.css'
+import BookingForm from '../Bookings/BookingForm'
+// import UsersProfileModal from '../../Profile/UsersProfileModal'
+import './ProfileTaskCard.css'
+import ReviewFormModal from '../Reviews/ReviewFormModal';
+import EditReviewFormModal from '../Reviews/EditFormModal';
+import { useSelector } from 'react-redux';
 
-function TaskCard({ task }) {
-  const [users, setUsers] = useState([])
-
-  let user
+function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftReview, taskId}) {
+  const [users, setUsers] = useState([]);
+  const sessionUser = useSelector(state => state.session.user);
+  let user;
   if (users) {
-    user = users.filter(user => user.id === task.poster_id)[0]
+    user = users.filter(user => user.id === task.poster_id)[0];
   }
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch('/api/users/')
-      const resData = await res.json()
-      setUsers(resData.users)
+      const res = await fetch('/api/users/');
+      const resData = await res.json();
+      setUsers(resData.users);
     }
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  let dangerIcons, dangerIconColor, extremelyDangerous
+  let dangerIcons, dangerIconColor, extremelyDangerous;
 
   function dangerLevelParser() {
     if (task) {
@@ -87,38 +90,34 @@ function TaskCard({ task }) {
           <div className={`danger-${task.danger_level} card`}>
             <div className='title-danger-level-wrapper'>
               <div className='title'>
-                  <h3> {task.title} </h3>
+                  <h3 id='profile-card-h3'> {task.title} </h3>
               </div>
             </div>
             <div className='content-container'>
                 <div className='task-content'>
-                {/* <NavLink to={`/tasks/${task.id}`} task={task} id="test"> */}
                     <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
-
                     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
                       {dangerIcons}
                     </div>
                     <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                    <span className='date'>Posted : {task.created_at} </span>
-                    {/* <p>
-                      <span className="task-bullet">Location : </span>{task.city}, {task.state}, {task.country}<br/>
-                      <span className="task-bullet">Danger Level : </span> <span className={`danger-${task.danger_level}`}>{task.danger_level}</span><br/>
-                      <span className='task-bullet'>Reward : </span> {task.price} bottle caps <br />
-                      <span className='task-bullet'>Posted : {task.created_at}</span>
-                    </p> */}
-                {/* </NavLink> */}
+                    <span className='date profile-card'>Posted : {task.created_at} </span>
                 </div>
                 <div className='task-misc'>
                   <div className='home-page-buttons'>
                       <BookingForm task={task}/>
-                      <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
-                  </div>
-                  <div className='tags-container'>
-                          {task.tags.map(tag => (
-                              <div key={tag.type} className="tags">
-                              {tag.type}
-                          </div>
-                          ))}
+                      <div id='task-deets'>
+                        <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
+                      </div>
+                        {sessionUser && sessionUser.id !== user.id && <div>
+                        {booking && !booking.completed ? (
+                          <div>
+                              <button onClick={submitHandler}>Complete</button>
+                              <button onClick={deleteHandler}>Drop task</button>
+                          </div>)
+                        : (leftReview && leftReview.length === 1) ?
+                          <EditReviewFormModal taskId={taskId} review={leftReview[0]}/> :
+                        <ReviewFormModal taskId={taskId}/>}
+                        </div>}
                   </div>
                 </div>
             </div>
@@ -130,4 +129,4 @@ function TaskCard({ task }) {
   )
 }
 
-export default TaskCard
+export default ProfileTaskCard;

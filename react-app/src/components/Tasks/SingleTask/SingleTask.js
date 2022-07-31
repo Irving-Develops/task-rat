@@ -6,6 +6,7 @@ import EditTaskForm from '../editTaskForm/editTaskForm'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
 import EditTaskFormModal from '../editTaskModal/editTaskModal'
+import "./SingleTask.css"
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -42,27 +43,33 @@ function SingleTask() {
 
     return (
         task && user ?
-            <div>
-                <h1>{task.title}</h1>
-                <p><UsersProfileModal user={user} /></p>
-                <p>Posted: {task.created_at} </p>
-                <p>Location: {task.city}, {task.state}, {task.country}</p>
-                <p>Description: {task.description}</p>
-                <p>Reward: {task.price}</p>
-                <p>Danger Level: {task.danger_level}</p>
-                {task.tags.map(tag => (
-                    <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
-                        {tag.type}
+            <div id="single-task-page">
+                <div id="single-task-container">
+                    <div id="single-task-card">
+                        <h1>{task.title}</h1>
+                        <p><UsersProfileModal user={user} /></p>
+                        <p>Posted: {task.created_at} </p>
+                        <p>Location: {task.city}, {task.state}, {task.country}</p>
+                        <p>Description: {task.description}</p>
+                        <p>Reward: {task.price}</p>
+                        <p>Danger Level: {task.danger_level}</p>
+                        {task.tags.map(tag => (
+                            <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
+                                {tag.type}
+                            </div>
+                        ))}
+                        {sessionUser && sessionUser.id === task.poster_id &&
+                            <div>
+                                <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                                <button onClick={handleDelete}>Delete</button>
+                            </div>
+                        }
+                        {showEditForm && <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />}
+                        <div id="claim-task-single-task-btn">
+                            <BookingForm task={task} />
+                        </div>
                     </div>
-                ))}
-                {sessionUser && sessionUser.id === task.poster_id &&
-                    <div>
-                        <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
-                        <button onClick={handleDelete}>Delete</button>
-                    </div>
-                }
-                {showEditForm && <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />}
-                <BookingForm task={task} />
+                </div>
             </div>
             :
             <p>...loading</p>
