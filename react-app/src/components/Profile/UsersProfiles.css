@@ -46,3 +46,11 @@
   background-color: #14f217;
   color: #1c381b;
 }
+
+#users-image {
+  width: 150px;
+}
+
+#users-p-tag {
+  width: 80%;
+}
