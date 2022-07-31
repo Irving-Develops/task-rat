@@ -14,7 +14,7 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const [state, setState] = useState(user.state)
   const [country, setCountry] = useState(user.country)
   const [bio, setBio] = useState(user.bio)
-  const [error, setErrors] = useState([])
+  const [errors, setErrors] = useState([])
 
   const updateFirstName = (e) => setFirstName(e.target.value)
   const updateLastName = (e) => setLastName(e.target.value)
