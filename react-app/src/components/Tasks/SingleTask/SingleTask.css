@@ -35,4 +35,36 @@
 
 #claim-task-single-task-btn button {
   width: 300px;
+  display: block;
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  border: 1px solid #063f67;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  outline: none;
+  border-radius: 30px;
+}
+
+.single-task-edit-btns {
+  display: block;
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  border: 1px solid #063f67;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  outline: none;
+  border-radius: 30px;
+  width: 200px;
 }

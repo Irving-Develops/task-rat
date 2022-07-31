@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { editProfile } from "../../store/session";
+import "./EditProfileForm.css"
 
 const EditProfileForm = ({ user, toggleShow }) => {
   const dispatch = useDispatch()
