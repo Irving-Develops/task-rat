@@ -48,7 +48,7 @@ function BookingForm({ task }) {
   return (
     <>
       {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
-        <button id="booking-form-button" onClick={handleBooking}>Claim Task</button>
+        <button id="booking-form-button" className="profile-btns" onClick={handleBooking}>Claim Task</button>
       )}
       {task && task.available === true && !sessionUser && (
         <LoginFormModal task={task} />

@@ -3,7 +3,7 @@ import EditReviewForm from './EditReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteReviewThunk } from '../../store/review'
 import EditReviewFormModal from './EditFormModal';
-import "./SingleReview.css"
+//import "./SingleReview.css"
 
 function SingleReview({ review }) {
   const dispatch = useDispatch();
