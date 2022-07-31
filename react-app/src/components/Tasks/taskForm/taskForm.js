@@ -44,7 +44,6 @@ function TaskForm() {
         setTags([...tags])
     }
   }
-  console.log(tags, 'this is the tags')
   //validations
   useEffect(() => {
     let errors = []
@@ -70,8 +69,6 @@ function TaskForm() {
       setAllTags(fetchTags)
     })();
   }, [dispatch])
-
-  console.log(allTags)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
