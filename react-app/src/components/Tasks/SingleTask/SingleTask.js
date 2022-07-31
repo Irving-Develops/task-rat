@@ -41,22 +41,85 @@ function SingleTask() {
         history.push('/tasks')
     }
 
+    let dangerIcons, dangerIconColor, extremelyDangerous;
+
+    function dangerLevelParser() {
+        if (task) {
+            switch (task.danger_level) {
+                case 1:
+                    dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
+                    dangerIconColor = '#0067b1'
+                    break
+                case 2:
+                    dangerIcons = (
+                        <>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                        </>
+                    )
+                    dangerIconColor = '#ffee43 '
+                    break
+                case 3:
+                    dangerIcons = (
+                        <>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                        </>
+                    )
+                    dangerIconColor = '#ff9100'
+                    break
+                case 4:
+                    dangerIcons = (
+                        <>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                        </>
+                    )
+                    dangerIconColor = 'orangered'
+                    break
+                case 5:
+                    dangerIcons = (
+                        <>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                            <i className="fa-solid fa-circle-radiation"></i>
+                        </>
+                    )
+                    dangerIconColor = 'red'
+                    extremelyDangerous = 'extremely-dangerous-task'
+                    break
+                default:
+                    break
+            }
+        }
+    }
+
+    dangerLevelParser(task)
+
     return (
         task && user ?
             <div id="single-task-page">
                 <div id="single-task-container">
                     <div id="single-task-card">
-                        <h1>{task.title}</h1>
+                        <h1 style={{ 'color': '#063F67' }}>{task.title}</h1>
                         <p><UsersProfileModal user={user} /></p>
                         <p>Posted: {task.created_at} </p>
                         <p>Location: {task.city}, {task.state}, {task.country}</p>
                         <p>Description: {task.description}</p>
                         <p>Reward: {task.price}</p>
-                        <p>Danger Level: {task.danger_level}</p>
+                        <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color': `${dangerIconColor}` }}>
+                            {dangerIcons}
+                        </div>
+                        <p>Skills required: </p>
                         {task.tags.map(tag => (
-                            <div key={tag.type} style={{ 'border': '1px solid red', 'maxWidth': '100px' }}>
+                            <li key={tag.type} style={{ 'maxWidth': '100px' }}>
                                 {tag.type}
-                            </div>
+                            </li>
                         ))}
                         {sessionUser && sessionUser.id === task.poster_id &&
                             <div>
