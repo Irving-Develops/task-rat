@@ -77,8 +77,10 @@ const EditTaskForm = ({ task, setShowModal}) => {
     }
 
     try {
-      await dispatch(editTaskThunk(payload))
-      setShowModal(false);
+      const task = await dispatch(editTaskThunk(payload))
+      if (task) {
+        setShowModal(false);
+      }
     } catch {
       return dispatch(editTaskThunk(payload)).catch(async (res) => {
         const data = await res.json();
@@ -254,7 +256,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
           checked={tags.includes("9")}
           ></input>
           <div id="edit-task-form-buttons">
-            <button className="edit-review-form-btn" type="submit" id="taskFormSubmitButton"> Submit your task </button>
+            <button className="edit-review-form-btn" type="submit" id="taskFormSubmitButton"> Submit</button>
             <button className="edit-review-form-btn" onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </form>
