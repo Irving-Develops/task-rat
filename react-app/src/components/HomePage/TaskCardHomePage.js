@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import BookingForm from '../Bookings/BookingForm'
-import UsersProfileModal from '../Profile/UsersProfileModal'
 
 function TaskCardHomePage({ task }) {
   const [users, setUsers] = useState([])

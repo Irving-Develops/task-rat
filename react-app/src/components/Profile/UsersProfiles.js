@@ -35,7 +35,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
       }
     }
   }
-  console.log(reviewsAboutMeArr, 'this is reviews about me')
+
   useEffect(() => {
     dispatch(getTasksThunk())
     dispatch(getReviewsThunk())
@@ -57,6 +57,9 @@ const UsersProfiles = ({ user, setShowModal }) => {
                     <div>{task.title}</div>
                     <div>Danger Level: {task.danger_level}</div>
                     <div>Reward: {task.price}</div>
+                  </div>
+                  <div id="profile-task-modal">
+                    <BookingForm task={task} />
                   </div>
                   <Link to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button id="details-button">Details</button>
                   </Link>

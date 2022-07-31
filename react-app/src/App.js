@@ -15,6 +15,7 @@ import MyProfile from './components/Profile/MyProfile';
 import HomePage from './components/HomePage/HomePage';
 import TagView from './components/TagView/TagView';
 import AboutMe from './components/AboutMe/AboutMe';
+import PageNotFound from './components/404Page/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,13 +53,13 @@ function App() {
         <Route path="/tasks" exact={true}>
           <TaskView />
         </Route>
-        <Route path="/tasks/new">
+        <Route path="/tasks/new" exact={true}>
           <TaskForm />
         </Route>
-        <Route path='/tasks/:id'>
+        <Route path='/tasks/:id' exact={true}>
           <SingleTask />
         </Route>
-        <Route path='/tags/:id'>
+        <Route path='/tags/:id' exact={true}>
           <TagView />
         </Route>
         <ProtectedRoute path='/profile' exact={true}>
@@ -66,6 +67,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/about' exact={true} >
           <AboutMe/>
+        </Route>
+        <Route path='*'>
+          <PageNotFound/>
         </Route>
 
       </Switch>

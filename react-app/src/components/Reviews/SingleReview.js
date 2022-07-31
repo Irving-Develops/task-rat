@@ -10,10 +10,6 @@ function SingleReview({ review }) {
   const sessionUser = useSelector((state) => state.session.user)
   const [showEditForm, setShowEditForm] = useState(false);
 
-  const editHandler = () => {
-    showEditForm ? setShowEditForm(false) : setShowEditForm(true)
-  }
-
   const deleteHandler = async () => {
     await dispatch(deleteReviewThunk(review))
   }
@@ -23,20 +19,20 @@ function SingleReview({ review }) {
       {sessionUser && review.tasker_id === sessionUser.id ?
         (<div>
           {!showEditForm && (
-            <div>
-              <div className="rating-text">Rating: {review.rating}</div>
-              <div className="rating-text">Comment: {review.comment}</div>
-              <div id="edit-review-button">
+            <div className='profile-review'>
+              <div className='review-rating'>Rating: {review.rating}</div>
+              <div className='review-comment'>Comment: {review.comment}</div>
+              <div>
                 <EditReviewFormModal taskId={sessionUser.id} review={review} />
+                <button className='review-profile-btns' onClick={deleteHandler}>Delete</button>
               </div>
-              <button id="handle-delete-review" onClick={deleteHandler}>Delete</button>
             </div>
           )}
           {showEditForm && <EditReviewForm toggleShow={setShowEditForm} reviewProp={review} />}
         </div>) :
-        (<div>
-          <div className="rating-text" >Rating: {review.rating}</div>
-          <div className="rating-text" >Comment: {review.comment}</div>
+        (<div className='profile-review'>
+          <div className='review-rating'>Rating: {review.rating}</div>
+          <div className='review-comment'>Comment: {review.comment}</div>
         </div>)
       }
     </div>
