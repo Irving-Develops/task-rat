@@ -27,13 +27,13 @@
 
 .tags {
   display: block;
-  margin-left: 2px;
+  margin-right: 2px;
   color: rgb(255, 18, 18);
 }
 
 /* Tags */
 .tags-container {
-  margin-top: 4px;
+  margin-left:12px;
   align-items: center;
   -webkit-line-clamp: 1;
   -webkit-box-orient: horizontal;
@@ -41,10 +41,15 @@
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   display: -webkit-box;
-  width: 300px;
+  width: 90%;
   overflow:hidden;
   -webkit-box-orient: horizontal;
   color: red;
   text-decoration: none;
   text-align: justify;
+}
+
+
+.single-task-danger-level {
+  display: flex;
 }

@@ -15,7 +15,7 @@ function ProfileReviews({ reviewArr, user, reviewsAboutMeArr, selectedButton }) 
   return (
     <>
       <div style={{ display: selectedButton.includes(2) ? 'grid' : 'none' }}>
-        <div className='title'>
+        <div className='title-profile'>
           {sessionUser && !user && <h2 className='profile-reviews-h2'>Here are your reviews</h2>}
         </div>
         <div className='review-scroll'>
@@ -29,7 +29,7 @@ function ProfileReviews({ reviewArr, user, reviewsAboutMeArr, selectedButton }) 
         </div>
       </div>
       <div style={{ display: selectedButton.includes(4) ? 'grid' : 'none' }}>
-        <div className='title'>
+        <div className='title-profile'>
           <h2 className='profile-reviews-h2'>Reputation</h2>
         </div>
         <div className='review-scroll'>
