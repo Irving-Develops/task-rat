@@ -330,16 +330,22 @@ const SignUpForm = () => {
           <div className='final-screen-wrapper'>
             <div className="input-headers">
               <h2>Everything look correct?</h2>
-              <h4>Click on a section to edit.</h4>
+              <h4 id='final-screen-h4'>Click on a section to edit.</h4>
             </div>
             <div className='top sign-up-final-screen'>
               <div className='sign-up user-info'>
-                <h4 onClick={() => setCount(2)}>Name: </h4>
-                <p>{first_name} {last_name}</p>
-                <h4 onClick={() => setCount(1)}>Username: </h4>
-                <p>{username}</p>
-                <h4 onClick={() => setCount(1)}>Email: </h4>
-                <p>{email}</p>
+                <div>
+                  <h4 onClick={() => setCount(2)}>Name: </h4>
+                  <p>{first_name} {last_name}</p>
+                </div>
+                <div>
+                  <h4 onClick={() => setCount(1)}>Username: </h4>
+                  <p>{username}</p>
+                </div>
+                <div>
+                  <h4 onClick={() => setCount(1)}>Email: </h4>
+                  <p>{email}</p>
+                </div>
               </div>
               <div className='sign-up user-photo' onClick={() => setCount(4)}>
                 <img src={pic_url} alt='user-avatar' />
@@ -347,8 +353,10 @@ const SignUpForm = () => {
             </div>
             <div className='bottom sign-up-final-screen'>
               <div className='sign-up user-location' onClick={() => setCount(3)}>
-                <h4>Location: </h4>
-                <p>{city}, {state}, {country}</p>
+                <div>
+                  <h4>Location: </h4>
+                  <p>{city}, {state}, {country}</p>
+                </div>
               </div>
               <div className='sign-up user-bio' onClick={() => setCount(2)}>
                 <h4>Bio:</h4>

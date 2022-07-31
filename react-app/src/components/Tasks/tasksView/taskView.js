@@ -30,7 +30,7 @@ function TaskView() {
     <div>
       <div className="header-wrapper">
         <div className='header-img'>
-          {/* <img src='images/task-view-page.jpg' /> */}
+          <img src='https://images2.alphacoders.com/952/952022.jpg' />
         </div>
         <div className="header-info-card">
           <div className="header-text-container">
