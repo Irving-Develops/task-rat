@@ -36,8 +36,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log(user, "This is the user")
-
     const payload = {
       id: sessionUser.id,
       first_name,

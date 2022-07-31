@@ -1,0 +1,39 @@
+.task-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid black;
+  height: 400px;
+  width: 380px;
+}
+
+.fa-circle-radiation {
+  font-size: 35px;
+}
+
+
+.extremely-dangerous-task {
+  text-shadow:
+      0 0 7px #fff,
+      0 0 15px red,
+      0 0 151px red;
+}
+
+.title-danger-level-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px
+}
+
+#profile-card-h3 {
+  margin-top: 40px;
+}
+
+.profile-card {
+  margin-left: 10px;
+}
+
+#task-deets {
+  margin-right: 50%;
+}

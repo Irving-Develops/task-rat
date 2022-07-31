@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Reviews from '../Reviews/Reviews';
 import { getTasksThunk } from '../../store/tasks';
 import { getReviewsThunk } from '../../store/review';
 import Bookings from '../Bookings/Bookings';
@@ -9,9 +8,12 @@ import EditProfileFormModal from './EditProfileModal';
 import AverageRating from './AverageRating';
 import './profile.css';
 import { getBookingsThunk } from '../../store/booking';
+import ProfileTaskCard from './ProfileTaskCard';
+import ProfileReviews from './ProfileReviews';
 
-const profileButtons = ['Account', 'My Tasks', 'Reviews', 'Current Missions', 'Reputation'];
+const profileButtons = ['Account', 'My Tasks', 'Reviews', 'My Jobs', 'Reputation'];
 const taskButtons = ['Available', 'Pending', 'Completed'];
+const jobButtons = ['Current Jobs', 'Completed Jobs'];
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ function MyProfile() {
   const reviews = useSelector((state) => state.reviews);
   const [selectedButton, setSelectedButton] = useState([0]);
   const [selectedTaskButton, setSelectedTaskButton] = useState([0]);
+  const [selectedJobButton, setSelectedJobButton] = useState([0]);
 
   useEffect(() => {
     dispatch(getTasksThunk())
@@ -31,12 +34,11 @@ function MyProfile() {
   let myTasks;
   if (sessionUser && tasks) {
     myTasks = Object.values(tasks).filter(task => task.poster_id === sessionUser.id);
+    console.log(myTasks)
   }
   let myAvailableTasks;
-  let notAvailableTasks;
   if (sessionUser && myTasks && tasks) {
     myAvailableTasks = myTasks.filter(task => task.available === true);
-    notAvailableTasks = myTasks.filter(task => task.available === false);
   }
 
   let reviewArr;
@@ -58,18 +60,23 @@ function MyProfile() {
   }
 
   const completedTasks = [];
+  const pendingTasks = [];
   let bookingsArr;
   if (myTasks && bookings) {
     bookingsArr = Object.values(bookings)
     for (let i = 0; i < myTasks.length; i++) {
       for (let j = 0; j < bookingsArr.length; j++) {
-        if (myTasks[i].id === bookingsArr[j].task_id && bookingsArr[j].completed === false) {
+        if (myTasks[i].id === bookingsArr[j].task_id && bookingsArr[j].completed === true) {
           completedTasks.push(myTasks[i]);
+        }
+        else if (myTasks[i].id === bookingsArr[j].task_id && bookingsArr[j].completed === false) {
+          pendingTasks.push(myTasks[i]);
         }
       }
     }
   }
-  if (completedTasks) console.log(completedTasks, 'completed tasks;')
+
+  console.log(completedTasks, 'complted')
 
   const handleClick = (index) => {
     setSelectedButton([index]);
@@ -79,6 +86,9 @@ function MyProfile() {
     setSelectedTaskButton([index]);
   }
 
+  const handleJobClick = (index) => {
+    setSelectedJobButton([index]);
+  }
 
   return (
     <div id="profile-page">
@@ -90,7 +100,7 @@ function MyProfile() {
             <p id='profile-welcome'>Welcome!</p>
           <div id="btns-div">
             {profileButtons.map((label, index) => {
-              return <button className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
+              return <button key={index} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
           </div>
           </div>
@@ -115,67 +125,59 @@ function MyProfile() {
               </div>
             </div>
             <div id="profile-tasks" style={{ display: selectedButton.includes(1) ? 'grid' : 'none' }}>
-              <div id='tasks-title'>
-                <h2 id='tasks-h2'>My Task's:</h2>
+              <div className='title'>
+                <h2 className='show-h2'>My Tasks</h2>
                 <div id='task-btns-div'>
+                  <Link to='/tasks/new'><p id='profile-add-task'>+</p></Link>
                   {taskButtons.map((label, index) => {
-                    return <button className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
+                    return <button key={index} className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
               <div id='show-tasks'>
                 <div id='available-task-container' style={{ display: selectedTaskButton.includes(0) ? 'grid' : 'none' }}>
-                  {myAvailableTasks.length > 0 && myAvailableTasks.map(task => {
+                  {myAvailableTasks.length > 0 ? myAvailableTasks.map(task => {
                     return (
-                      <div> Available Tasks
-                        <Link key={task.id} to={`/tasks/${task.id}`}>
-                          <div>{task.title}</div>
-                          <div>Danger Level: {task.danger_level}</div>
-                          <div>Reward: {task.price}</div>
-                          <div>Description: {task.description}</div>
-                          <button>Details</button>
-                        </Link>
+                      <div className='task-scroll-divs' key={task.id}>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
-                  })}
+                  }) : <p>You currently don't have any tasks in this section.</p>}
                 </div>
                 <div id='pending-task-container' style={{ display: selectedTaskButton.includes(1) ? 'grid' : 'none' }}>
-                  {notAvailableTasks.length > 0 && notAvailableTasks.map(task => {
+                  {pendingTasks.length > 0 ? pendingTasks.map(task => {
                     return (
-                      <div> Pending Tasks
-                        <Link key={task.id} to={`/tasks/${task.id}`}>
-                          <div>{task.title}</div>
-                          <div>Danger Level: {task.danger_level}</div>
-                          <div>Reward: {task.price}</div>
-                          <div>Description: {task.description}</div>
-                          <button>Details</button>
-                        </Link>
+                      <div className='task-scroll-divs' key={task.id}>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
-                  })}
+                  }) : <p>You currently don't have any tasks in this section.</p>}
                 </div>
                 <div id='completed-task-container' style={{ display: selectedTaskButton.includes(2) ? 'grid' : 'none' }}>
-                  {completedTasks.length > 0 && completedTasks.map(task => {
+                  {completedTasks.length > 0 ? completedTasks.map(task => {
                     return (
-                      <div> Completed Tasks
-                        <Link key={task.id} to={`/tasks/${task.id}`}>
-                          <div>{task.title}</div>
-                          <div>Danger Level: {task.danger_level}</div>
-                          <div>Reward: {task.price}</div>
-                          <div>Description: {task.description}</div>
-                          <button>Details</button>
-                        </Link>
+                      <div className='task-scroll-divs' key={task.id}>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
-                  })}
+                  }) : <p>You currently don't have any tasks in this section.</p>}
                 </div>
               </div>
             </div>
-            <div id="profile-reviews" style={{ display: selectedButton.includes(2) ? 'grid' : 'none' }}>
-              <Reviews myTasks={myTasks} reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr}/>
+            <div id="profile-reviews">
+              <ProfileReviews reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr} selectedButton={selectedButton}/>
             </div>
-            <div id="profile-current-missions" style={{ display: selectedButton.includes(3) ? 'grid' : 'none' }}>
-              {bookings && (<Bookings reviewArr={reviewArr} bookings={bookings}/>)}
+            <div id="profile-jobs" style={{ display: selectedButton.includes(3) ? 'grid' : 'none' }}>
+              <div className='title'>
+                <h2 className='show-h2'>My Jobs</h2>
+                <div id='jobs-btns-div'>
+                  <Link to='/tasks'><p id='profile-add-task'>+</p></Link>
+                  {jobButtons.map((label, index) => {
+                    return <button key={index} className={selectedJobButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleJobClick(index)}>{label}</button>
+                  })}
+                </div>
+              </div>
+              {bookings && (<Bookings reviewArr={reviewArr} bookings={bookings} selectedJobButton={selectedJobButton}/>)}
             </div>
             <div id="profile-reputation" style={{ display: selectedButton.includes(4) ? 'grid' : 'none' }}>
 
