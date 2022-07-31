@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editProfile } from "../../store/session";
+import "./EditProfileForm.css"
 
 const EditProfileForm = ({ user, toggleShow }) => {
   const dispatch = useDispatch()
@@ -26,8 +27,8 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const updateEmail = (e) => setEmail(e.target.value)
   const updatePassword = (e) => setPassword(e.target.value)
   const updatePicUrl = (e) => setPicUrl(e.target.value)
-  const updateCity = (e) => setCity(e.value.target)
-  const updateState = (e) => setState(e.value.target)
+  const updateCity = (e) => setCity(e.target.value)
+  const updateState = (e) => setState(e.target.value)
   const updateCountry = (e) => setCountry(e.target.value)
   const updateBio = (e) => setBio(e.target.value)
 
@@ -74,69 +75,95 @@ const EditProfileForm = ({ user, toggleShow }) => {
   }
 
   return (
-    <section>
-      <form onSubmit={handleSubmit} method="put">
-        {/* <ul>
+    <section id="edit-form-div">
+      <div>
+        <form id="edit-form-container" onSubmit={handleSubmit} method="put">
+          {/* <ul>
           {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
         </ul> */}
-        <label>First Name</label>
-        <input
-          type="text"
-          placeholder="First Name"
-          required
-          value={first_name}
-          onChange={updateFirstName} />
-        <label>Last Name</label>
-        <input
-          type="text"
-          placeholder="Last Name"
-          required
-          value={last_name}
-          onChange={updateLastName} />
-        <label>Email</label>
-        <input
-          type="text"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={updateEmail} />
-        <label>Profile Pic</label>
-        <input
-          type="text"
-          placeholder="Profile Pic"
-          required
-          value={pic_url}
-          onChange={updatePicUrl} />
-        <label>City</label>
-        <input
-          type="text"
-          placeholder="City"
-          required
-          value={city}
-          onChange={updateCity} />
-        <label>State</label>
-        <input
-          type="text"
-          placeholder="State"
-          required
-          value={state}
-          onChange={updateState} />
-        <label>Country</label>
-        <input
-          type="text"
-          placeholder="Country"
-          required
-          value={country}
-          onChange={updateCountry} />
-        <label>Bio</label>
-        <input
-          type="text"
-          placeholder="Bio"
-          required
-          value={bio}
-          onChange={updateBio} />
-        <button type="submit"> Confirm Changes </button>
-      </form>
+          <p>
+            <label>First Name: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="First Name"
+              required
+              value={first_name}
+              onChange={updateFirstName} />
+          </p>
+          <p>
+            <label>Last Name: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="Last Name"
+              required
+              value={last_name}
+              onChange={updateLastName} />
+          </p>
+          <p>
+            <label>Email: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={updateEmail} />
+          </p>
+          <p>
+            <label>Profile Pic: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="Profile Pic"
+              required
+              value={pic_url}
+              onChange={updatePicUrl} />
+          </p>
+          <p>
+            <label>City: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="City"
+              required
+              value={city}
+              onChange={updateCity} />
+          </p>
+          <p>
+            <label>State: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="State"
+              required
+              value={state}
+              onChange={updateState} />
+          </p>
+          <p>
+            <label>Country: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="Country"
+              required
+              value={country}
+              onChange={updateCountry} />
+          </p>
+          <p>
+            <label>Bio: </label>
+            <input
+              className="edit-form-inputs"
+              type="text"
+              placeholder="Bio"
+              required
+              value={bio}
+              onChange={updateBio} />
+          </p>
+          <button id="edit-review-button" type="submit"> Confirm Changes </button>
+        </form>
+      </div>
     </section>
   )
 }

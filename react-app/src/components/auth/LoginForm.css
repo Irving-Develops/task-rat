@@ -1,0 +1,26 @@
+#login-form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%
+}
+
+#login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.login-buttons button {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  border: #14f217 1px solid;
+}
+
+#login-form-btn {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  border: #14f217 1px solid;
+}
