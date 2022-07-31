@@ -273,41 +273,70 @@ const SignUpForm = () => {
             <div>
               <div className='input-headers'>
                 <h2>Finally, choose an avatar.</h2>
-                <h4>Which one reminds you of yourself?</h4>
+                <h4>Choose wisely.</h4>
               </div>
               <div className='input-wrapper'>
-                <div>
-                  <h4>Avatar:</h4>
-                  <input
-                    type='radio'
-                    name='pic_url'
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'
-                  ></input>
-                  <input
-                    type='radio'
-                    name='pic_url'
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/Fallout-4-Female-characters.jpg'
-                  ></input>
-                  <input
-                    type='radio'
-                    name='pic_url'
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg'
-                  ></input>
-                  <input
-                    type='radio'
-                    name='pic_url'
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/50122/50122-1613405722-448172998.jpeg'
-                  ></input>
-                  <input
-                    type='radio'
-                    name='pic_url'
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://upload.wikimedia.org/wikipedia/en/4/4f/Dogmeat_in_Fallout_4.png'
-                  ></input>
+                <div className='avatar-inputs'>
+                  <div>
+                    <input
+                      type='radio'
+                      name='pic_url'
+                      onChange={(e) => setPicUrl(e.target.value)}
+                      checked={pic_url === 'https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'}
+                      value='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'
+                    />
+                    <div className='avatar-image'>
+                      <img src='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg' alt='choice-1' />
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      type='radio'
+                      name='pic_url'
+                      onChange={(e) => setPicUrl(e.target.value)}
+                      checked={pic_url === 'http://cdn.pastemagazine.com/www/articles/fallout_Rose%20of%20Sharon%20Cassidy.jpg'}
+                      value='http://cdn.pastemagazine.com/www/articles/fallout_Rose%20of%20Sharon%20Cassidy.jpg'
+                    />
+                    <div className='avatar-image'>
+                      <img src='http://cdn.pastemagazine.com/www/articles/fallout_Rose%20of%20Sharon%20Cassidy.jpg' alt='choice-2' />
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      type='radio'
+                      name='pic_url'
+                      onChange={(e) => setPicUrl(e.target.value)}
+                      checked={pic_url === 'https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg'}
+                      value='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg'
+                    />
+                    <div className='avatar-image'>
+                      <img src='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg' alt='choice-3' />
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      type='radio'
+                      name='pic_url'
+                      onChange={(e) => setPicUrl(e.target.value)}
+                      checked={pic_url === 'https://lparchive.org/Fallout-3-(by-Lizard-Wizard)/Update%2009/5-Fallout3_2012-02-21_00-13-10-84.jpg'}
+                      value='https://lparchive.org/Fallout-3-(by-Lizard-Wizard)/Update%2009/5-Fallout3_2012-02-21_00-13-10-84.jpg'
+                    />
+                    <div className='avatar-image'>
+                      <img src='https://lparchive.org/Fallout-3-(by-Lizard-Wizard)/Update%2009/5-Fallout3_2012-02-21_00-13-10-84.jpg' alt='choice-4' />
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      type='radio'
+                      name='pic_url'
+                      onChange={(e) => setPicUrl(e.target.value)}
+                      checked={pic_url === 'https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg'}
+                      value='https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg'
+                    />
+                    <div className='avatar-image'>
+                      <img src='https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg' alt='choice-5' />
+                    </div>
+                  </div>
                 </div>
                 </div>
             </div>
@@ -334,8 +363,8 @@ const SignUpForm = () => {
               <h2>Everything look correct?</h2>
               <h4 id='final-screen-h4'>Click on a section to edit.</h4>
             </div>
-            <div className='top sign-up-final-screen'>
-              <div className='sign-up user-info'>
+            <div className='final-screen-info'>
+              <div className='left-user-info'>
                 <div>
                   <h4 onClick={() => setCount(2)}>Name: </h4>
                   <p>{first_name} {last_name}</p>
@@ -348,21 +377,19 @@ const SignUpForm = () => {
                   <h4 onClick={() => setCount(1)}>Email: </h4>
                   <p>{email}</p>
                 </div>
-              </div>
-              <div className='sign-up user-photo' onClick={() => setCount(4)}>
-                <img src={pic_url} alt='user-avatar' />
-              </div>
-            </div>
-            <div className='bottom sign-up-final-screen'>
-              <div className='sign-up user-location' onClick={() => setCount(3)}>
-                <div>
+                <div onClick={() => setCount(3)}>
                   <h4>Location: </h4>
                   <p>{city}, {state}, {country}</p>
                 </div>
               </div>
-              <div className='sign-up user-bio' onClick={() => setCount(2)}>
-                <h4>Bio:</h4>
-                <p>{bio}</p>
+              <div className='right-user-bio'>
+                <div className='sign-up user-photo' onClick={() => setCount(4)}>
+                  <img src={pic_url} alt='user-avatar' />
+                </div>
+                <div className='sign-up user-bio' onClick={() => setCount(2)}>
+                  <h4>Bio:</h4>
+                  <p>{bio}</p>
+                </div>
               </div>
             </div>
           </div>

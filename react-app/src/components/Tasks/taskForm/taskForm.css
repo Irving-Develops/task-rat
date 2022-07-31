@@ -192,7 +192,7 @@
     /* margin-top: -24px; */
 }
 
-.final-screen-wrapper *:not(#final-screen-h4){
+.final-screen-wrapper *:not(#final-screen-h4, img){
     margin-left: 16px;
     margin-top: 16px;
     margin-bottom: 16px;
