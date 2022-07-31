@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Link, Redirect } from 'react-router-dom';
 import { login, demoLogin } from '../../store/session';
 import DemoUser from './DemoUser';
 import "./LoginForm.css"
 
-const LoginForm = () => {
+const LoginForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,6 +35,11 @@ const LoginForm = () => {
   const handleDemoLogin = async (e) => {
     e.preventDefault()
     return dispatch(demoLogin())
+  }
+
+  const handleSignUp = () => {
+    setShowModal(false)
+    //return <Redirect to="/sign-up" />
   }
 
   return (
@@ -76,6 +81,11 @@ const LoginForm = () => {
               <DemoUser />
             </div>
           </div>
+          <Link to="/sign-up">
+            <div id="handle-signup-btn" onClick={handleSignUp}>
+              <button>Don't have an account? Sign up here!</button>
+            </div>
+          </Link>
         </div>
       </form>
     </div>

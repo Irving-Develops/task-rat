@@ -123,8 +123,8 @@ function SingleTask() {
                         ))}
                         {sessionUser && sessionUser.id === task.poster_id &&
                             <div>
-                                <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
-                                <button onClick={handleDelete}>Delete</button>
+                                <button className="single-task-edit-btns" onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
+                                <button className="single-task-edit-btns" onClick={handleDelete}>Delete</button>
                             </div>
                         }
                         {showEditForm && <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />}
