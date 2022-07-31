@@ -47,10 +47,25 @@
   color: #1c381b;
 }
 
+.user-profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 1px solid #14f217;
+  overflow: hidden;
+}
+
+.user-profile-pic img {
+  height: 150px;
+  margin-top: 10px;
+  margin-left: 55px;
+  transform: translate(-50%, -20%);
+
 #users-image {
   width: 150px;
 }
 
 #users-p-tag {
   width: 80%;
+
 }

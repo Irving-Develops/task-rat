@@ -162,7 +162,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             type='checkbox'
             name='guns'
             value='1'
-            // checked={tags.includes("1")}
+            checked={tags.includes("1")}
             onChange={(e) => updateTags(e)}
           ></input>
           <label>Explosives</label>
@@ -170,7 +170,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             type='checkbox'
             name='explosives'
             value='2'
-            // checked={tags.includes("2")}
+            checked={tags.includes("2")}
             onChange={(e) => updateTags(e)}
           ></input>
           <label>Stealth</label>
@@ -179,7 +179,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='stealth'
             value='3'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("3")}
+          checked={tags.includes("3")}
           ></input>
           <label>Survival</label>
           <input
@@ -187,7 +187,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='survival'
             value='4'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("4")}
+          checked={tags.includes("4")}
           ></input>
           <label>Medicine</label>
           <input
@@ -195,7 +195,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='medicine'
             value='5'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("5")}
+          checked={tags.includes("5")}
           ></input>
           <label>Repairs</label>
           <input
@@ -203,7 +203,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='repairs'
             value='6'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("6")}
+          checked={tags.includes("6")}
           ></input>
           <label>Pilot</label>
           <input
@@ -211,7 +211,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='pilot'
             value='7'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("7")}
+          checked={tags.includes("7")}
           ></input>
           <label>Hacking</label>
           <input
@@ -219,7 +219,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='hacking'
             value='8'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("8")}
+          checked={tags.includes("8")}
           ></input>
           <label>Hand-to-Hand</label>
           <input
@@ -227,7 +227,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
             name='hand-to-hand'
             value='9'
             onChange={(e) => updateTags(e)}
-          // checked={tags.includes("9")}
+          checked={tags.includes("9")}
           ></input>
           <button type="submit" id="taskFormSubmitButton"> Submit your task </button>
           <button onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
