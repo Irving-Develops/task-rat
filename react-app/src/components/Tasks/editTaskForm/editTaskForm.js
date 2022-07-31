@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
-import { editTaskThunk, getTasksThunk } from "../../../store/tasks"
+import { editTaskThunk } from "../../../store/tasks"
 import './editTaskForm.css'
 
 const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {

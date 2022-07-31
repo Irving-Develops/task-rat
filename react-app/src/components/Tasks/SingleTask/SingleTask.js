@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
-import { deleteTaskThunk, getTasksThunk, editTaskThunk } from '../../../store/tasks'
-import EditTaskForm from '../editTaskForm/editTaskForm'
+import { deleteTaskThunk, getTasksThunk } from '../../../store/tasks'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
 import EditTaskFormModal from '../editTaskModal/editTaskModal'
 import "./SingleTask.css"
+import PageNotFound from '../../404Page/PageNotFound'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -135,7 +135,7 @@ function SingleTask() {
                 </div>
             </div>
             :
-            <p>...loading</p>
+            <p>...Loading</p>
     )
 }
 

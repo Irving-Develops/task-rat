@@ -72,7 +72,7 @@
     border-radius: 5px;
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     padding: 30px;
-    margin: 20px;  
+    margin: 20px;
 }
 
 .card {
@@ -81,12 +81,12 @@
     justify-content: space-between;
     color: var(--dark-blue);
     height: 275px;
-    align-items: start;
+    align-items: flex-start;
     border-radius: 5px;
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     padding: 30px;
-    margin: 20px; 
-    overflow: hidden; 
+    margin: 20px;
+    overflow: hidden;
 }
 
 .card h3 {
@@ -106,7 +106,7 @@
     flex-direction: row;
 }
 
-.home-page-buttons button, 
+.home-page-buttons button,
 .home-page-buttons a{
     margin: 20px 5px 5px;
     transition: all .5s ease;
@@ -143,7 +143,7 @@
 }
 .task-content {
     border-top: 2px solid rgb(233, 233, 233);
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 .danger-1, .users {
@@ -183,14 +183,18 @@
     color: var(--5)
 }
 
-
 /* Tags */
 .tags-container {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  /* display: flex;
+  flex-direction: row;
+  overflow: hidden; */
+  display: -webkit-box;
+  align-items: center;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: horizontal;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
-
 
 /* USER CSS */
 .user-card-container {
@@ -211,7 +215,6 @@
 
 .user-card-img {
     width: 100px;
-    height: 80px;
     border-radius: 5px;
 }
 .user-card-wrapper  a {
@@ -244,7 +247,7 @@
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .10em; /* Adjust as needed */
   color: #063f67;
-  animation: 
+  animation:
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
 }
@@ -268,7 +271,7 @@
     text-align: left;
     margin-left: 15%;
     justify-content: center;
-    align-items: start;
+    align-items:flex-start;
 }
 .body-banner img {
     height: 300px;
