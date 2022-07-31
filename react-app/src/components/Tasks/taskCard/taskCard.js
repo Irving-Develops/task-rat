@@ -28,7 +28,7 @@ function TaskCard({ task }) {
       switch (task.danger_level) {
         case 1:
           dangerIcons = <i className="fa-solid fa-circle-radiation"></i>
-          dangerIconColor = '#14f217'
+          dangerIconColor = '#0067b1'
           break
         case 2:
           dangerIcons = (
@@ -37,7 +37,7 @@ function TaskCard({ task }) {
               <i className="fa-solid fa-circle-radiation"></i>
             </>
           )
-          dangerIconColor = 'yellow'
+          dangerIconColor = '#ffee43 '
           break
         case 3:
           dangerIcons = (
@@ -47,7 +47,7 @@ function TaskCard({ task }) {
               <i className="fa-solid fa-circle-radiation"></i>
             </>
           )
-          dangerIconColor = 'orange'
+          dangerIconColor = '#ff9100'
           break
         case 4:
           dangerIcons = (
@@ -58,7 +58,7 @@ function TaskCard({ task }) {
               <i className="fa-solid fa-circle-radiation"></i>
             </>
           )
-          dangerIconColor = 'red'
+          dangerIconColor = 'orangered'
           break
         case 5:
           dangerIcons = (
@@ -84,20 +84,20 @@ function TaskCard({ task }) {
   return (
     <>
       {user && task ?
-          <div className='task-card'>
+          <div className={`danger-${task.danger_level} card`}>
             <div className='title-danger-level-wrapper'>
-              <div className='task-title'>
+              <div className='title'>
                   <h3> {task.title} </h3>
-              </div>
-              <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-                {dangerIcons}
               </div>
             </div>
             <div className='content-container'>
                 <div className='task-content'>
-                <NavLink to={`/tasks/${task.id}`} task={task} id="test">
+                {/* <NavLink to={`/tasks/${task.id}`} task={task} id="test"> */}
                     <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
 
+                    <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
+                      {dangerIcons}
+                    </div>
                     <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
                     <span className='date'>Posted : {task.created_at} </span>
                     {/* <p>
@@ -106,11 +106,12 @@ function TaskCard({ task }) {
                       <span className='task-bullet'>Reward : </span> {task.price} bottle caps <br />
                       <span className='task-bullet'>Posted : {task.created_at}</span>
                     </p> */}
-                </NavLink>
+                {/* </NavLink> */}
                 </div>
                 <div className='task-misc'>
-                  <div className='task-buttons'>
+                  <div className='home-page-buttons'>
                       <BookingForm task={task}/>
+                      <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
                   </div>
                   <div className='tags-container'>
                           {task.tags.map(tag => (

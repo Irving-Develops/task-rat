@@ -13,10 +13,9 @@ const NavBar = () => {
   return (
     <nav className='navbar-container'>
           <div className='logo'>
-            {/* <NavLink to='/'>TaskRat</NavLink> */}
             <span>TaskRat</span>
-            <NavLink to='/' exact={true} activeClassName='logo'>
-              <img src=''/>
+            <NavLink style={{borderStyle: 'none'}} to='/' exact={true}>
+              <img src='/images/rat-512-316960.png'/>
             </NavLink>
           </div>
       <div className='navlinks'>
