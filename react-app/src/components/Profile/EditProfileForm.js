@@ -9,7 +9,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const [first_name, setFirstName] = useState(user.first_name)
   const [last_name, setLastName] = useState(user.last_name)
   const [email, setEmail] = useState(user.email)
-  const [pic_url, setPicUrl] = useState(user.pic_url)
   const [city, setCity] = useState(user.city)
   const [state, setState] = useState(user.state)
   const [country, setCountry] = useState(user.country)
@@ -19,13 +18,10 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const updateFirstName = (e) => setFirstName(e.target.value)
   const updateLastName = (e) => setLastName(e.target.value)
   const updateEmail = (e) => setEmail(e.target.value)
-  const updatePicUrl = (e) => setPicUrl(e.target.value)
-  const updateCity = (e) => setCity(e.value.target)
-  const updateState = (e) => setState(e.value.target)
+  const updateCity = (e) => setCity(e.target.value)
+  const updateState = (e) => setState(e.target.value)
   const updateCountry = (e) => setCountry(e.target.value)
   const updateBio = (e) => setBio(e.target.value)
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -35,7 +31,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
       first_name,
       last_name,
       email,
-      pic_url,
       city,
       state,
       country,
@@ -50,27 +45,24 @@ const EditProfileForm = ({ user, toggleShow }) => {
         setCity(response.city)
         setCountry(response.country)
         setEmail(response.email)
-        setPicUrl(response.pic_url)
         setState(response.state)
         setErrors([])
         toggleShow()
       }
     } catch (error) {
-      setErrors(error)
-      // return dispatch(editProfile(payload)).catch(async (res) => {
-      //   const data = await res.json();
-      //   if (data && data.errors) setErrors(data.errors)
-      // })
-
+      console.log(error)
+      setErrors(error.errors)
     }
   }
 
   return (
     <section>
       <form onSubmit={handleSubmit} method="put">
-        {/* <ul>
-          {error.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
-        </ul> */}
+        {errors && errors.length > 0 && (
+          <ul>
+            {errors.map((error, idx) => <li key={idx} className="errorList"> {error}</li>)}
+          </ul>
+        )}
         <label>First Name</label>
         <input
           type="text"
@@ -92,13 +84,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
           required
           value={email}
           onChange={updateEmail} />
-        <label>Profile Pic</label>
-        <input
-          type="text"
-          placeholder="Profile Pic"
-          required
-          value={pic_url}
-          onChange={updatePicUrl} />
         <label>City</label>
         <input
           type="text"

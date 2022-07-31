@@ -96,16 +96,13 @@ def edit_profile(id):
         first_name=form.data['first_name'],
         last_name=form.data['last_name'],
         email=form.data['email'],
-        pic_url=form.data['pic_url'],
         city=form.data['city'],
         state=form.data['state'],
         country=form.data['country'],
         bio=form.data['bio']
-
         profile.first_name = first_name
         profile.last_name = last_name
         profile.email = email
-        profile.pic_url = pic_url
         profile.city = city
         profile.state = state
         profile.country = country

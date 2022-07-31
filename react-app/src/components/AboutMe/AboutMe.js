@@ -5,7 +5,7 @@ function AboutMe() {
     <>
     <div className='about-me-title'>
       <h2>About the website</h2>
-      <p className='about-the-website'>TaskRat is a website based off of the game series Fallout. Fallout takes place in a post apocolyptic word where players scavege the wasteland for weapons, armor, and so much more to complete quests. The player levels up throughout the game increasing their skills in lockpicking, medicine, guns and hacking to name a few. This website takes those ideas and combines them with the functionality of the website TaskRabbit. The website allows users to earn bottlecaps (Fallout currency) by completing tasks they might encounter in the wasteland. Users can view other user's profiles to see wheather they can be trusted according to their reviews. Go ahead and checkout all that TaskRat has to offer!</p>
+      <p className='about-the-website'>TaskRat is a website based off of the game series Fallout. Fallout takes place in a post apocolyptic world where players scavenge the wasteland for weapons, armor, and so much more to complete quests. The player levels up throughout the game increasing their skills in lockpicking, medicine, guns and hacking to name a few. This website takes those ideas and combines them with the functionality of the website TaskRabbit. The website allows users to earn bottlecaps (Fallout currency) by completing tasks they might encounter in the wasteland. Users can view other user's profiles to see wheather they can be trusted according to their reviews. Go ahead and checkout all that TaskRat has to offer!</p>
     </div>
     <div className='about-me-title'>
       <h2>Presenting the Pack Rats</h2>

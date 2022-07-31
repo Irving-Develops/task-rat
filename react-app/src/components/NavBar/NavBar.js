@@ -15,7 +15,6 @@ const NavBar = () => {
       <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
       <div className='logo'>
         <span>TaskRat</span>
-          <img src='/images/rat-512-316960.png' alt="logo" />
       </div>
       </NavLink>
       <div className='navlinks'>

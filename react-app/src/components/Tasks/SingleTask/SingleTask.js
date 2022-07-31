@@ -135,7 +135,7 @@ function SingleTask() {
                 </div>
             </div>
             :
-            <PageNotFound/>
+            <p>...Loading</p>
     )
 }
 

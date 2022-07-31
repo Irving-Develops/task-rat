@@ -26,6 +26,7 @@ function TaskForm() {
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [count, setCount] = useState(1)
+  const [allTags, setAllTags] = useState([]);
 
   const updateTitle = (e) => setTitle(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
@@ -43,7 +44,7 @@ function TaskForm() {
         setTags([...tags])
     }
   }
-
+  console.log(tags, 'this is the tags')
   //validations
   useEffect(() => {
     let errors = []
@@ -62,6 +63,16 @@ function TaskForm() {
 
   }, [title, description, city, state, country, price, tags] )
 
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`/api/tasks/tags`);
+      const fetchTags = await response.json();
+      setAllTags(fetchTags)
+    })();
+  }, [dispatch])
+
+  console.log(allTags)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -78,7 +89,7 @@ function TaskForm() {
       poster_id: userId,
       danger_level,
       available: true,
-      tags
+      tags: tags
     }
 
     try {
@@ -89,6 +100,19 @@ function TaskForm() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       })
+    }
+  }
+
+  const persistTags = [];
+  const tagHandler = () => {
+    if (allTags && tags) {
+      for (let i = 0; i < tags.length; i++) {
+        for (let j = 0; j < allTags.length; j++) {
+          if (tags[i].id === allTags[j].id) {
+            persistTags.push(tags[i]);
+          }
+        }
+      }
     }
   }
 
@@ -205,87 +229,20 @@ function TaskForm() {
                 <h4>Tell us what skills you need to get the job done.</h4>
               </div>
               <div className='new-tags-container'>
-                <div>
-                  <label>Guns</label>
-                  <input
-                    type='checkbox'
-                    name='guns'
-                    value='1'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Explosives</label>
-                  <input
-                    type='checkbox'
-                    name='explosives'
-                    value='2'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Stealth</label>
-                  <input
-                    type='checkbox'
-                    name='stealth'
-                    value='3'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Survival</label>
-                  <input
-                    type='checkbox'
-                    name='survival'
-                    value='4'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Medicine</label>
-                  <input
-                    type='checkbox'
-                    name='medicine'
-                    value='5'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Repairs</label>
-                  <input
-                    type='checkbox'
-                    name='repairs'
-                    value='6'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Pilot</label>
-                  <input
-                    type='checkbox'
-                    name='pilot'
-                    value='7'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Hacking</label>
-                  <input
-                    type='checkbox'
-                    name='hacking'
-                    value='8'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
-                <div>
-                  <label>Hand-to-Hand</label>
-                  <input
-                    type='checkbox'
-                    name='hand-to-hand'
-                    value='9'
-                    onChange={(e) => updateTags(e)}
-                  ></input>
-                </div>
+                {allTags.tags.length > 0 && allTags.tags.map(tag => {
+                  return (
+                    <div key={tag.id}>
+                      <label>{tag.type}</label>
+                      <input
+                        type='checkbox'
+                        name={tag.type}
+                        value={tag.id}
+                        onChange={(e) => updateTags(e)}
+                        checked={tags.includes(String(tag.id))}
+                      ></input>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           <div className='task-button-container'>
@@ -366,7 +323,10 @@ function TaskForm() {
                 </div>
                 <div onClick={() => setCount(3)} className='new-skills-content final-screen-content'>
                   <h5>Skills Required:</h5>
-                  <p>render tags here</p>
+                  {tags.length > 0 && tags.map(tag => {
+                    return (<div key={tag.id}>{allTags.tags.find(el => el.id == tag).type}</div>);
+                  })}
+
                 </div>
                 <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
                 <h5>Reward:</h5>
