@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import BookingForm from '../../Bookings/BookingForm';
-import UsersProfileModal from '../../Profile/UsersProfileModal';
-import { Link } from 'react-router-dom';
-import './taskCard.css';
+import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import BookingForm from '../../Bookings/BookingForm'
+import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])

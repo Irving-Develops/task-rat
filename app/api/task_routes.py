@@ -27,7 +27,6 @@ def create_task():
   form = TaskForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    print(form.data, "This is the form")
     task = Task(
       title = form.data["title"],
       description = form.data["description"],

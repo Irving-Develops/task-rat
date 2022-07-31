@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { editProfile } from "../../store/session";
 
 const EditProfileForm = ({ user, toggleShow }) => {
   const dispatch = useDispatch()
-  const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
 
   const [first_name, setFirstName] = useState(user.first_name)
@@ -15,7 +13,7 @@ const EditProfileForm = ({ user, toggleShow }) => {
   const [state, setState] = useState(user.state)
   const [country, setCountry] = useState(user.country)
   const [bio, setBio] = useState(user.bio)
-  const [errors, setErrors] = useState([])
+  const [error, setErrors] = useState([])
 
   const updateFirstName = (e) => setFirstName(e.target.value)
   const updateLastName = (e) => setLastName(e.target.value)
@@ -38,9 +36,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
       country,
       bio
     }
-
-    setErrors([])
-
     try {
       const response = await dispatch(editProfile(payload))
       if (response) {
@@ -51,6 +46,7 @@ const EditProfileForm = ({ user, toggleShow }) => {
         setCountry(response.country)
         setEmail(response.email)
         setState(response.state)
+        setErrors([])
         toggleShow()
       }
     } catch (error) {

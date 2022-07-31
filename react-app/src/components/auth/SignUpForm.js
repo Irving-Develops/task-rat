@@ -65,7 +65,7 @@ const SignUpForm = () => {
           <div className='vaultboy-bg'>
             <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
           </div>
-          <div className="bubble bubble-bottom-left" contenteditable>
+          <div className="bubble bubble-bottom-left">
             {errors.length > 0 ? (
               <ul className='errors'>
                 {errors.map(error => (
@@ -276,37 +276,39 @@ const SignUpForm = () => {
                 <h4>Which one reminds you of yourself?</h4>
               </div>
               <div className='input-wrapper'>
+                <div>
                   <h4>Avatar:</h4>
                   <input
                     type='radio'
                     name='pic_url'
                     onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg'
+                    value='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'
                   ></input>
                   <input
                     type='radio'
                     name='pic_url'
                     onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://static.wikia.nocookie.net/fallout/images/e/ed/FO01_NPC_Aradesh_B.png/revision/latest?cb=20110406051919'
+                    value='https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/Fallout-4-Female-characters.jpg'
                   ></input>
                   <input
                     type='radio'
                     name='pic_url'
                     onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://i.ytimg.com/vi/kjLUzm4tbSc/maxresdefault.jpg'
+                    value='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg'
                   ></input>
                   <input
                     type='radio'
                     name='pic_url'
                     onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://static.wikia.nocookie.net/fallout/images/a/ae/FO01_NPC_Tandi_N.png/revision/latest?cb=20110105032751'
+                    value='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/50122/50122-1613405722-448172998.jpeg'
                   ></input>
                   <input
                     type='radio'
                     name='pic_url'
                     onChange={(e) => setPicUrl(e.target.value)}
-                    value='https://static.wikia.nocookie.net/fallout/images/1/14/Bittercup.jpg/revision/latest?cb=20101221185412'
+                    value='https://upload.wikimedia.org/wikipedia/en/4/4f/Dogmeat_in_Fallout_4.png'
                   ></input>
+                </div>
                 </div>
             </div>
               <div className='task-button-container'>

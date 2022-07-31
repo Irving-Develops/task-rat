@@ -26,7 +26,6 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        print(current_user)
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
 
@@ -91,10 +90,8 @@ def sign_up():
 @auth_routes.route('/<int:id>/edit', methods=['PUT'])
 def edit_profile(id):
     profile = User.query.get(id)
-    print(profile.bio)
     form = UserForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         first_name=form.data['first_name'],
         last_name=form.data['last_name'],
@@ -112,9 +109,7 @@ def edit_profile(id):
         profile.bio = bio
 
         db.session.commit()
-        print("IT WAS A SUCCESS!")
         return profile.to_dict()
-    print("IT DIDN'T WORK!")
     return { 'errors' : validation_errors_to_error_messages(form.errors) }, 400
 
 
