@@ -80,7 +80,7 @@ function HomePage() {
             </div>
 
             <div className="footer">
-                {/* <h3>Meet The Team</h3> */}
+                <h3>Meet The Team</h3>
 
             </div>
         </>
