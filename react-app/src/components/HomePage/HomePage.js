@@ -16,7 +16,7 @@ function HomePage() {
                 </div>
                 <p></p>
                 <div className="banner-img">
-                    <img src='/images/vaultboy.png' alt="vaultboy"/>
+                    <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
                 </div>
             </div>
             <div className="partnered-banner">

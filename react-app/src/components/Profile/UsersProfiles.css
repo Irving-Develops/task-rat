@@ -60,4 +60,12 @@
   margin-top: 10px;
   margin-left: 55px;
   transform: translate(-50%, -20%);
+
+#users-image {
+  width: 150px;
+}
+
+#users-p-tag {
+  width: 80%;
+
 }

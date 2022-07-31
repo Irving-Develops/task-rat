@@ -273,3 +273,7 @@
 .new-description-content p{
     margin-left: 40px;
 }
+
+.input-container select{
+    width: 50px;
+}
