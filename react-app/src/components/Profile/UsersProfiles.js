@@ -35,7 +35,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
       }
     }
   }
-  
+
   useEffect(() => {
     dispatch(getTasksThunk())
     dispatch(getReviewsThunk())
@@ -45,11 +45,11 @@ const UsersProfiles = ({ user, setShowModal }) => {
     <>
       {user && (
         <div>
-          <h1>Mercenary: {user.first_name}</h1>
+          <h1 id="user-name">Mercenary: {user.first_name}</h1>
           <AverageRating reviewsAboutMeArr={reviewsAboutMeArr} />
           <img src={user.pic_url} alt="User's Icon" />
           <div>
-            <h2>Their Tasks:</h2>
+            <h2 id="their-tasks-header">Their Tasks:</h2>
             {myTasks.length > 0 && myTasks.map(task => {
               return (
                 <div key={task.id} className="user-profile-tasks">
@@ -58,11 +58,11 @@ const UsersProfiles = ({ user, setShowModal }) => {
                     <div>Danger Level: {task.danger_level}</div>
                     <div>Reward: {task.price}</div>
                   </div>
-                  <div id="profile-task-modal">
-                    <BookingForm task={task} />
-                  </div>
                   <Link to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button id="details-button">Details</button>
                   </Link>
+                  <div id="user-task-button">
+                    <BookingForm task={task} />
+                  </div>
                 </div>
               );
             })}

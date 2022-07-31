@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviewsThunk } from '../../store/review';
 import SingleReview from './SingleReview'
+import "./Reviews.css"
 
 function Reviews({ reviewArr, user, reviewsAboutMeArr }) {
   const dispatch = useDispatch();

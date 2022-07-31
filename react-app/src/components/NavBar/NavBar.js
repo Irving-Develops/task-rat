@@ -12,43 +12,41 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <nav className='navbar-container'>
-          <div className='logo'>
-            <span>TaskRat</span>
-            <NavLink style={{borderStyle: 'none'}} to='/' exact={true}>
-              <img src='/images/rat-512-316960.png'/>
-            </NavLink>
-          </div>
+      <div className='logo'>
+        <span>TaskRat</span>
+        <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
+          <img src='/images/rat-512-316960.png' />
+        </NavLink>
+      </div>
       <div className='navlinks'>
         <div className='permanent-links'>
-          <ul>
+          <ul className="nav-bar-buttons">
             <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
-            <li><TagsDropDown/></li>
-            <li>
-              <NavLink to='/about' exact={true} activeClassName='active'>
-                About
-              </NavLink>
-            </li>
-            </ul>
+            <li><TagsDropDown /></li>
+            <li><NavLink to='/about' exact={true} activeClassName='active'>
+              About
+            </NavLink></li>
+          </ul>
         </div>
-          {!sessionUser ?
-            <div className='logged-out-links'>
-              <ul>
-                <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
-                <li><DemoUser/></li>
-                <li><LoginFormModal/></li>
-              </ul>
-            </div>
+        {!sessionUser ?
+          <div className='logged-out-links'>
+            <ul className="nav-bar-buttons">
+              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
+              <li><DemoUser /></li>
+              <li><LoginFormModal /></li>
+            </ul>
+          </div>
 
-            :
-            <div className='logged-in-links'>
-              <ul>
-                <li><NavLink to='/tasks/new' exact={true} activeClassName='active'>Create a Task</NavLink></li>
-                <li><NavLink to={`/profile`} exact={true} activeClassName='active'>Profile</NavLink></li>
-                <li><LogoutButton /></li>
-              </ul>
-            </div>
+          :
+          <div className='logged-in-links'>
+            <ul>
+              <li><NavLink to='/tasks/new' exact={true} activeClassName='active'>Create a Task</NavLink></li>
+              <li><NavLink to={`/profile`} exact={true} activeClassName='active'>Profile</NavLink></li>
+              <li><LogoutButton /></li>
+            </ul>
+          </div>
 
-          }
+        }
 
       </div>
     </nav>

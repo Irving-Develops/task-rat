@@ -117,7 +117,7 @@ const SignUpForm = () => {
       </div>
       <div>
         <label>Pic Url</label>
-        <label><img style={{borderRadius: '50%', width: '200px', height: '200px'}} src='/images/dogmeat.jpeg'/></label>
+        <label><img style={{ borderRadius: '50%', width: '200px', height: '200px' }} alt="dog-meat" src='/images/dogmeat.jpeg' /></label>
         <input
           type='radio'
           name='pic_url'
@@ -125,7 +125,7 @@ const SignUpForm = () => {
           // value='https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg'
           value='/images/dogmeat.jpeg'
         ></input>
-        <label><img style={{borderRadius: '50%', width: '200px', height: '200px'}} src='/images/cool_guy.jpeg'/></label>
+        <label><img style={{ borderRadius: '50%', width: '200px', height: '200px' }} alt="cool-guy" src='/images/cool_guy.jpeg' /></label>
         <input
           type='radio'
           name='pic_url'
@@ -133,7 +133,7 @@ const SignUpForm = () => {
           // value='https://static.wikia.nocookie.net/fallout/images/e/ed/FO01_NPC_Aradesh_B.png/revision/latest?cb=20110406051919'
           value='/images/cool_guy.jpeg'
         ></input>
-        <label><img style={{borderRadius: '50%', width: '200px', height: '200px'}} src='/images/ugly_guy.jpg'/></label>
+        <label><img style={{ borderRadius: '50%', width: '200px', height: '200px' }} alt="ugly-guy" src='/images/ugly_guy.jpg' /></label>
         <input
           type='radio'
           name='pic_url'
@@ -141,7 +141,7 @@ const SignUpForm = () => {
           // value='https://i.ytimg.com/vi/kjLUzm4tbSc/maxresdefault.jpg'
           value='/images/ugly_guy.jpg'
         ></input>
-        <label><img style={{borderRadius: '50%', width: '200px', height: '200px'}} src='/images/not_guy.jpg'/></label>
+        <label><img style={{ borderRadius: '50%', width: '200px', height: '200px' }} src='/images/not_guy.jpg' /></label>
         <input
           type='radio'
           name='pic_url'
@@ -149,7 +149,7 @@ const SignUpForm = () => {
           // value='https://static.wikia.nocookie.net/fallout/images/a/ae/FO01_NPC_Tandi_N.png/revision/latest?cb=20110105032751'
           value='/images/not_guy.jpg'
         ></input>
-        <label><img style={{borderRadius: '50%', width: '200px', height: '200px'}} src='/images/young_guy.jpg'/></label>
+        <label><img style={{ borderRadius: '50%', width: '200px', height: '200px' }} alt="young-guy" src='/images/young_guy.jpg' /></label>
         <input
           type='radio'
           name='pic_url'

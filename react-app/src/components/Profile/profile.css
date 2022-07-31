@@ -34,7 +34,7 @@
   text-align: right;
   margin: auto;
   margin-right: 30px;
-  color: #ffffff;
+  color: yellow;
   letter-spacing: 2px;
 }
 
@@ -76,12 +76,14 @@
   display: block;
   margin: 5px 10px;
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 20px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 4px;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -91,7 +93,7 @@
 
 .profile-btns:hover {
   background-color: #0067b1;
-  color: #ffffff ;
+  color: #ffffff;
 }
 
 
@@ -168,12 +170,14 @@
 
 #profile-edit-btn {
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 17px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 10px;
   border-radius: 30px;
   height: 40px;
@@ -182,8 +186,8 @@
 }
 
 #profile-edit-btn:hover {
-  background-color: rgb(0,103,177);
-  color: #ffffff ;
+  background-color: rgb(0, 103, 177);
+  color: #ffffff;
 }
 
 .profile-p {
@@ -206,12 +210,13 @@
 
 #profile-add-task {
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
   text-align: center;
   line-height: 1;
   font-size: 20px;
-  background-color : transparent;
+  background-color: transparent;
   border-radius: 30px;
   height: 20px;
   width: 20px;
@@ -219,7 +224,7 @@
 
 #profile-add-task:hover {
   background-color: #0067b1;
-  color: #ffffff ;
+  color: #ffffff;
 }
 
 #available-task-container {
@@ -236,6 +241,7 @@
   overflow-y: scroll;
 }
 
+/* profile-current-missions { */
 #completed-task-container {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -268,12 +274,14 @@
 .task-btns {
   margin: 5px 10px;
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 17px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 10px 16px;
   outline: none;
   border-radius: 30px;
@@ -282,18 +290,20 @@
 
 .task-btns:hover {
   background-color: #0067b1;
-  color: #ffffff ;
+  color: #ffffff;
 }
 
 .job-btns {
   margin: 5px 10px;
   transition: all .5s ease;
-  color: #063f67;;
-  border:1px solid #063f67;;
+  color: #063f67;
+  ;
+  border: 1px solid #063f67;
+  ;
   text-align: center;
   line-height: 1;
   font-size: 17px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 10px 16px;
   outline: none;
   border-radius: 30px;
@@ -302,7 +312,7 @@
 
 .job-btns:hover {
   background-color: #0067b1;
-  color: #ffffff ;
+  color: #ffffff;
 }
 
 #profile-jobs {
