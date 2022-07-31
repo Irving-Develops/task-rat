@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {editTaskThunk, getTasksThunk} from '../../store/tasks'
 import {editBookingThunk, deleteBookingThunk} from '../../store/booking'
-import ReviewFormModal from '../Reviews/ReviewFormModal';
-import EditReviewFormModal from '../Reviews/EditFormModal'
+import '../Profile/ProfileTaskCard.css';
+import ProfileTaskCard from '../Profile/ProfileTaskCard';
 
 function BookedTasks({ taskId, booking, reviewArr }) {
   const task = useSelector(state => state.tasks[taskId])
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
   const dispatch = useDispatch()
-  
+
   let tags
   if (task) {
     tags = Object.values(task.tags).map(tag => tag.id.toString())
   }
-
 
 
   let leftReview;
@@ -67,34 +65,17 @@ function BookedTasks({ taskId, booking, reviewArr }) {
   }
 
   return (
-    <>
+    <div>
       {validationErrors && validationErrors.length > 0 && validationErrors.map(error => {
         return <div>{error}</div>
       })}
-      {task &&(
+      {task && booking && (
       <div>
-          <NavLink to={`/tasks/${task.id}`} task={task}>
-            <h3> {task.title} </h3>
-            <p>Location: {task.city}, {task.state}, {task.country}</p>
-            <p>Danger Level: {task.danger_level}</p>
-            <p>Reward: {task.price} BOTTLE CAPS</p>
-            {task.tags.map(tag => (
-                    <div key={tag.type} style={{'border': '1px solid red', 'maxWidth': '100px'}}>
-                        {tag.type}
-                    </div>
-                ))}
-          </NavLink>
-          {!booking.completed ? (
-            <div>
-                <button onClick={submitHandler}>Complete</button>
-                <button onClick={deleteHandler}>Drop task</button>
-            </div>)
-          : (leftReview && leftReview.length === 1) ?
-            <EditReviewFormModal taskId={taskId} review={leftReview[0]}/> :
-          <ReviewFormModal taskId={taskId}/>}
+        <ProfileTaskCard task={task} booking={booking} submitHandler={submitHandler} deleteHandler={deleteHandler} leftReview={leftReview} taskId={taskId}/>
       </div>
       )}
-    </>);
+    </div>
+  );
 }
 
 export default BookedTasks
