@@ -56,8 +56,12 @@
 
 .title {
     /* padding: 10px; */
+    margin-bottom: 10px;
     text-transform: capitalize;
     color: var(--dark-blue);
+    width: 90%;
+    border-bottom: 2px solid rgb(233, 233, 233);
+
 }
 .card-container {
     display: grid;
@@ -77,6 +81,7 @@
 
 .card {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
     color: var(--dark-blue);
@@ -108,7 +113,7 @@
 
 .home-page-buttons button,
 .home-page-buttons a{
-    margin: 20px 5px 5px;
+    margin: 20px 5px 20px;
     transition: all .5s ease;
     color: var(--main-blue);
     border:1px solid var(--main-blue);
@@ -130,6 +135,8 @@
 
 .date {
     font-size: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
 }
 
 .content-container {
@@ -142,7 +149,6 @@
     text-transform: capitalize;
 }
 .task-content {
-    border-top: 2px solid rgb(233, 233, 233);
     padding-top: 5px;
 }
 
@@ -185,9 +191,9 @@
 
 /* Tags */
 .tags-container {
-  /* display: flex;
-  flex-direction: row;
-  overflow: hidden; */
+   display: flex;
+  /* flex-direction: row; */
+  overflow: hidden; 
   display: -webkit-box;
   align-items: center;
   -webkit-line-clamp: 3;
@@ -340,9 +346,37 @@ p {
 
 
 .footer {
+    display: flex;
     background: var(--main-blue);
     background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
+    color: #f9fbfb;
     margin-top: 200px;
-    height: 400px;
+    height: 350px;
     width: 100%;
+}
+
+.footer a {
+    color: #f9fbfb;
+}
+
+.footer a:visited {
+    color: #f9fbfb;
+}
+#footer-content img {
+    width: 30px;
+}
+#footer-content {
+    padding-top: 10px;
+}
+
+#team, #footer-tags-container {
+    display: flex;
+}
+
+#entire-team {
+    display: flex;
+    flex-direction: column;
+}
+#entire-team{
+    margin: 50px 0 0 20px;
 }

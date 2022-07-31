@@ -30,7 +30,7 @@ function AboutMe() {
             <img className="user-card-img" src='https://avatars.githubusercontent.com/u/98054974?v=4' alt="wesley"/>
           </div>
           <div className="user-name">
-            <h3>Wesley BlackBurn</h3>
+            <h3>Wesley Blackburn</h3>
           </div>
         </div>
         <div className="content-container about-me">

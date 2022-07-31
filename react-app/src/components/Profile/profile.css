@@ -249,7 +249,7 @@
   overflow-y: scroll;
 }
 
-.title {
+.title-profile {
   height: 100px;
   display: flex;
   flex-direction: row;

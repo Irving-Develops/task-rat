@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import BookingForm from '../../Bookings/BookingForm'
 import './taskCard.css'
 
@@ -80,9 +80,8 @@ function TaskCard({ task }) {
 
   dangerLevelParser(task)
 
+  if(!user || !task) return null;
   return (
-    <>
-      {user && task ?
           <div className={`danger-${task.danger_level} card`}>
             <div className='title-danger-level-wrapper'>
               <div className='title'>
@@ -93,10 +92,12 @@ function TaskCard({ task }) {
                 <div className='task-content'>
                     <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
                     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-                      {dangerIcons}
+                      <p>Danger: </p>
+                      <div id="icons">
+                          {dangerIcons}
+                      </div>
                     </div>
                     <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                    <span className='date'>Posted : {task.created_at} </span>
                 </div>
                 <div className='task-misc'>
                   <div className='home-page-buttons'>
@@ -114,11 +115,10 @@ function TaskCard({ task }) {
                   </div>
                 </div>
             </div>
+            <div className='date'>
+              <span className='date'>Posted : {task.created_at} </span>
+            </div>
         </div>
-        :
-        null
-      }
-    </>
   )
 }
 

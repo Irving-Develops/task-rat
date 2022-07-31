@@ -123,7 +123,7 @@ function MyProfile() {
               </div>
             </div>
             <div id="profile-tasks" style={{ display: selectedButton.includes(1) ? 'grid' : 'none' }}>
-              <div className='title'>
+              <div className='title-profile'>
                 <h2 className='show-h2'>My Tasks</h2>
                 <div id='task-btns-div'>
                   <Link to='/tasks/new'><p id='profile-add-task'>+</p></Link>
@@ -164,7 +164,7 @@ function MyProfile() {
             </div>
             <ProfileReviews reviewArr={reviewArr} reviewsAboutMeArr={reviewsAboutMeArr} selectedButton={selectedButton}/>
             <div id="profile-jobs" style={{ display: selectedButton.includes(3) ? 'grid' : 'none' }}>
-              <div className='title'>
+              <div className='title-profile'>
                 <h2 className='show-h2'>My Jobs</h2>
                 <div id='jobs-btns-div'>
                   <Link to='/tasks'><p id='profile-add-task'>+</p></Link>
