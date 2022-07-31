@@ -7,7 +7,7 @@ function UsersProfileModal({user}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Mercenary: {user.first_name} {user.last_name}</button>
+      <button onClick={() => setShowModal(true)}> View {user.first_name}'s Profile</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <UsersProfiles user={user} setShowModal={setShowModal}/>
