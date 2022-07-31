@@ -94,30 +94,18 @@ def edit_profile(id):
     print(profile.bio)
     form = UserForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data)
-    print(form.first_name)
-    print(form.last_name)
-    print(form.email)
-    print(form.pic_url)
-    print(form.city)
-    print(form.state)
-    print(form.country)
-    print(form.data['first_name'])
+
     if form.validate_on_submit():
-        print("HELLLO PLZ WORK")
         first_name=form.data['first_name'],
         last_name=form.data['last_name'],
         email=form.data['email'],
-        pic_url=form.data['pic_url'],
         city=form.data['city'],
         state=form.data['state'],
         country=form.data['country'],
         bio=form.data['bio']
-
         profile.first_name = first_name
         profile.last_name = last_name
         profile.email = email
-        profile.pic_url = pic_url
         profile.city = city
         profile.state = state
         profile.country = country
