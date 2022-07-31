@@ -282,7 +282,7 @@ const SignUpForm = () => {
                       type='radio'
                       name='pic_url'
                       onChange={(e) => setPicUrl(e.target.value)}
-                      checked={pic_url === 'https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'}
+                      checked={pic_url === 'https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg' || !pic_url}
                       value='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg'
                     />
                     <div className='avatar-image'>
