@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { deleteTaskThunk, getTasksThunk } from '../../../store/tasks'
 import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
 import EditTaskFormModal from '../editTaskModal/editTaskModal'
 import "./SingleTask.css"
-import PageNotFound from '../../404Page/PageNotFound'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -116,18 +115,21 @@ function SingleTask() {
                             {dangerIcons}
                         </div>
                         <p>Skills required: </p>
+                        <div id='single-task-tags'>
                         {task.tags.map(tag => (
-                            <li key={tag.type} style={{ 'maxWidth': '100px' }}>
-                                {tag.type}
-                            </li>
-                        ))}
+                            <Link to={`/tags/${tag.id}`}>
+                              <div key={tag.type} className="tags">
+                                {tag.type} |
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                         {sessionUser && sessionUser.id === task.poster_id &&
                             <div>
-                                <button className="single-task-edit-btns" onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
                                 <button className="single-task-edit-btns" onClick={handleDelete}>Delete</button>
+                                <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />
                             </div>
                         }
-                        {showEditForm && <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />}
                         <div id="claim-task-single-task-btn">
                             <BookingForm task={task} />
                         </div>

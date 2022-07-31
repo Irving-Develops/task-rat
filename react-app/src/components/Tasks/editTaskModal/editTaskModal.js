@@ -7,7 +7,7 @@ function EditTaskFormModal({task, setShowEditForm, showEditForm}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit your task</button>
+      <button className="single-task-edit-btns" onClick={() => setShowModal(true)}>Edit your task</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} setShowModal={setShowModal} />

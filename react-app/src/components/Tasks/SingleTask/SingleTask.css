@@ -68,3 +68,10 @@
   border-radius: 30px;
   width: 200px;
 }
+
+#single-task-tags {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}

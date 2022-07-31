@@ -48,7 +48,6 @@ function TagView() {
 
     let src
     if (pageTag) {
-        console.log(pageTag.id)
         switch (pageTag.id) {
             case 1:
                 src = 'https://staticdelivery.nexusmods.com/images/130/190461-1561218598.png'
