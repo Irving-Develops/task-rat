@@ -257,7 +257,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
           ></input>
           <div id="edit-task-form-buttons">
             <button className="edit-review-form-btn" type="submit" id="taskFormSubmitButton"> Submit</button>
-            <button className="edit-review-form-btn" onClick={() => setShowModal(false)}>Cancel</button>
+            <button className="edit-review-form-btn" type='button' onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </form>
       </div>
