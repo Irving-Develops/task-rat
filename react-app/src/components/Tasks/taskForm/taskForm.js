@@ -8,7 +8,12 @@ import './taskForm.css'
 function TaskForm() {
   const dispatch = useDispatch()
   const history = useHistory()
-  const userId = useSelector((state) => state.session.user.id)
+
+  const userId = useSelector((state) => {
+    if (state.session.user) {
+      return state.session.user.id
+    }
+  })
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
