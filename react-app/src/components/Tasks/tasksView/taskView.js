@@ -8,7 +8,6 @@ function TaskView() {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session)
   const tasks = useSelector((state) => state.tasks)
-  // const availableTasks = Object.values(tasks).filter(task => task.available === true)
   let availableTasks = Object.values(tasks).filter(task => task.available === true)
 
   if(sessionUser.user) {
@@ -30,7 +29,7 @@ function TaskView() {
     <div>
       <div className="header-wrapper">
         <div className='header-img'>
-          <img src='https://images2.alphacoders.com/952/952022.jpg' />
+          <img src='https://images2.alphacoders.com/952/952022.jpg' alt="banner-img"/>
         </div>
         <div className="header-info-card">
           <div className="header-text-container">

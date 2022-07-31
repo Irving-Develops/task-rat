@@ -14,7 +14,7 @@ function BookingForm({ task }) {
     tags = Object.values(task.tags).map(tag => tag.id.toString())
   }
 
-  const [validationErrors, setValidationErrors] = useState([]);
+  const [setValidationErrors] = useState([]);
 
 
   const handleBooking = async (e) => {

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import TagsDropDown from '../TagsDropDown/TagsDropDown';
@@ -15,7 +15,7 @@ const NavBar = () => {
       <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
       <div className='logo'>
         <span>TaskRat</span>
-          <img src='/images/rat-512-316960.png' />
+          <img src='/images/rat-512-316960.png' alt="logo" />
       </div>
       </NavLink>
       <div className='navlinks'>
