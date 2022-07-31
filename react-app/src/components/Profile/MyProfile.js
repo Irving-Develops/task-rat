@@ -35,7 +35,6 @@ function MyProfile() {
   let myTasks;
   if (sessionUser && tasks) {
     myTasks = Object.values(tasks).filter(task => task.poster_id === sessionUser.id);
-    console.log(myTasks)
   }
   let myAvailableTasks;
   if (sessionUser && myTasks && tasks) {
@@ -83,7 +82,6 @@ function MyProfile() {
 
   const handleTaskClick = (index) => {
     setSelectedTaskButton([index]);
-    console.log('inside handle click task')
   }
 
   const handleJobClick = (index) => {

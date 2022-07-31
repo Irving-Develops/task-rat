@@ -65,7 +65,7 @@ const SignUpForm = () => {
           <div className='vaultboy-bg'>
             <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
           </div>
-          <div className="bubble bubble-bottom-left" contenteditable>
+          <div className="bubble bubble-bottom-left">
             {errors.length > 0 ? (
               <ul className='errors'>
                 {errors.map(error => (

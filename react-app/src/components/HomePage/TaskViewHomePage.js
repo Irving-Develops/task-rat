@@ -32,7 +32,7 @@ function TaskViewHomePage() {
       </div>
       <div className="card-container">
         {Object.values(availableTasks).map((task) => (
-              <TaskCardHomePage task={task} />
+              <TaskCardHomePage task={task} id={task.id} />
         ))}
       </div>
     </div>

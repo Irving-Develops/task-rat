@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import TagsDropDown from '../TagsDropDown/TagsDropDown';
@@ -12,15 +12,15 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <nav className='navbar-container'>
+      <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
       <div className='logo'>
         <span>TaskRat</span>
-        <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
-          <img src='/images/rat-512-316960.png' />
-        </NavLink>
+          <img src='/images/rat-512-316960.png' alt="logo" />
       </div>
+      </NavLink>
       <div className='navlinks'>
         <div className='permanent-links'>
-          <ul className="nav-bar-buttons">
+          <ul className="navbar-buttons">
             <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
             <li><TagsDropDown /></li>
             <li><NavLink to='/about' exact={true} activeClassName='active'>
@@ -30,7 +30,7 @@ const NavBar = () => {
         </div>
         {!sessionUser ?
           <div className='logged-out-links'>
-            <ul className="nav-bar-buttons">
+            <ul className="navbar-buttons">
               <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><DemoUser /></li>
               <li><LoginFormModal /></li>

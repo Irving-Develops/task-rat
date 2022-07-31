@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { editProfile } from "../../store/session";
 
 const EditProfileForm = ({ user, toggleShow }) => {
   const dispatch = useDispatch()
-  const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
 
   const [first_name, setFirstName] = useState(user.first_name)
   const [last_name, setLastName] = useState(user.last_name)
-  const [username, setUsername] = useState(user.username)
   const [email, setEmail] = useState(user.email)
-  const [password, setPassword] = useState(user.password)
   const [pic_url, setPicUrl] = useState(user.pic_url)
   const [city, setCity] = useState(user.city)
   const [state, setState] = useState(user.state)
   const [country, setCountry] = useState(user.country)
   const [bio, setBio] = useState(user.bio)
-  const [errors, setErrors] = useState([])
+  const [error, setErrors] = useState([])
 
   const updateFirstName = (e) => setFirstName(e.target.value)
   const updateLastName = (e) => setLastName(e.target.value)
-  const updateUsername = (e) => setUsername(e.target.value)
   const updateEmail = (e) => setEmail(e.target.value)
-  const updatePassword = (e) => setPassword(e.target.value)
   const updatePicUrl = (e) => setPicUrl(e.target.value)
   const updateCity = (e) => setCity(e.value.target)
   const updateState = (e) => setState(e.value.target)
@@ -47,9 +41,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
       country,
       bio
     }
-
-    setErrors([])
-
     try {
       const response = await dispatch(editProfile(payload))
       if (response) {
@@ -61,6 +52,7 @@ const EditProfileForm = ({ user, toggleShow }) => {
         setEmail(response.email)
         setPicUrl(response.pic_url)
         setState(response.state)
+        setErrors([])
         toggleShow()
       }
     } catch (error) {
@@ -77,7 +69,7 @@ const EditProfileForm = ({ user, toggleShow }) => {
     <section>
       <form onSubmit={handleSubmit} method="put">
         {/* <ul>
-          {errors.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
+          {error.map((error, idx) => <li key={idx} className="errorList"> • {error}</li>)}
         </ul> */}
         <label>First Name</label>
         <input
