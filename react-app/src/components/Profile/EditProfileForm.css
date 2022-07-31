@@ -31,3 +31,12 @@
   border: #14f217 1px solid;
   padding: 4px;
 }
+
+#confirm-changes-button {
+  background-color: #1c381b;
+  color: #14f217;
+  border-radius: 15px;
+  border: #14f217 1px solid;
+  width: 150px;
+  height: 50px;
+}
