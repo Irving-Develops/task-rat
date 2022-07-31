@@ -7,6 +7,7 @@ import BookingForm from '../../Bookings/BookingForm'
 import UsersProfileModal from '../../Profile/UsersProfileModal'
 import EditTaskFormModal from '../editTaskModal/editTaskModal'
 import "./SingleTask.css"
+import PageNotFound from '../../404Page/PageNotFound'
 
 function SingleTask() {
     const dispatch = useDispatch()
@@ -135,7 +136,7 @@ function SingleTask() {
                 </div>
             </div>
             :
-            <p>...loading</p>
+            <PageNotFound/>
     )
 }
 

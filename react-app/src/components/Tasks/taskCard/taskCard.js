@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import BookingForm from '../../Bookings/BookingForm'
-import UsersProfileModal from '../../Profile/UsersProfileModal'
-import './taskCard.css'
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import BookingForm from '../../Bookings/BookingForm';
+import UsersProfileModal from '../../Profile/UsersProfileModal';
+import { Link } from 'react-router-dom';
+import './taskCard.css';
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
@@ -92,21 +93,12 @@ function TaskCard({ task }) {
             </div>
             <div className='content-container'>
                 <div className='task-content'>
-                {/* <NavLink to={`/tasks/${task.id}`} task={task} id="test"> */}
                     <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
-
                     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
                       {dangerIcons}
                     </div>
                     <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
                     <span className='date'>Posted : {task.created_at} </span>
-                    {/* <p>
-                      <span className="task-bullet">Location : </span>{task.city}, {task.state}, {task.country}<br/>
-                      <span className="task-bullet">Danger Level : </span> <span className={`danger-${task.danger_level}`}>{task.danger_level}</span><br/>
-                      <span className='task-bullet'>Reward : </span> {task.price} bottle caps <br />
-                      <span className='task-bullet'>Posted : {task.created_at}</span>
-                    </p> */}
-                {/* </NavLink> */}
                 </div>
                 <div className='task-misc'>
                   <div className='home-page-buttons'>
@@ -115,9 +107,11 @@ function TaskCard({ task }) {
                   </div>
                   <div className='tags-container'>
                           {task.tags.map(tag => (
+                            <Link to={`/tags/${tag.id}`}>
                               <div key={tag.type} className="tags">
-                              {tag.type}
-                          </div>
+                                {tag.type} |
+                              </div>
+                            </Link>
                           ))}
                   </div>
                 </div>
