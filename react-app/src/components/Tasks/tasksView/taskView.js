@@ -14,7 +14,6 @@ function TaskView() {
     availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
   }
 
-  console.log(tasks)
   useEffect(() => {
     const fetchTasks = async () => {
       await dispatch(getTasksThunk())

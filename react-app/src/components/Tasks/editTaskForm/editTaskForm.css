@@ -20,3 +20,32 @@
     width: 100%;
     backdrop-filter: blur(5px);
 } */
+
+/* #taskFormSubmitButton {
+    margin-bottom: 10px;
+} */
+
+#edit-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+#edit-form-container::-webkit-scrollbar {
+    display: none;
+}
+
+.edit-task-form-input {
+    background-color: #1c381b;
+    color: #14f217;
+    border-radius: 15px;
+}
+
+#edit-task-form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

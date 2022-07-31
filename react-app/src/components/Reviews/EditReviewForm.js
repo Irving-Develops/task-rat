@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { editReviewThunk } from '../../store/review';
+import "./EditReviewForm.css"
 
-function EditReviewForm({toggleShow, reviewProp}) {
+function EditReviewForm({ toggleShow, reviewProp }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const task = useSelector(state => state.tasks[reviewProp.task_id])
@@ -50,7 +51,7 @@ function EditReviewForm({toggleShow, reviewProp}) {
         return <div key={index}>{error}</div>
       })}
       <form onSubmit={handleSubmit}>
-        <label>Rating</label>
+        <label>Rating: </label>
         <select value={rating} onChange={(e) => setRating(e.target.value)}>
           <option value={1}>1</option>
           <option value={2}>2</option>
@@ -59,8 +60,9 @@ function EditReviewForm({toggleShow, reviewProp}) {
           <option value={5}>5</option>
         </select>
         <div>
-          <label>Comment</label>
+          <label>Comment: </label>
           <input
+            id="edit-review-form-input"
             value={comment}
             type='text'
             required
@@ -68,8 +70,8 @@ function EditReviewForm({toggleShow, reviewProp}) {
           />
         </div>
         <div>
-          <button type='submit'>Submit</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <button className="edit-review-form-btn" type='submit'>Submit</button>
+          <button className="edit-review-form-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </>

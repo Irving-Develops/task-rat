@@ -114,14 +114,14 @@ function SingleTask() {
                             {dangerIcons}
                         </div>
                         <p>Skills required: </p>
-                        <div className='single-task-tags'>
+                        <div id='single-task-tags'>
                         {task.tags.map(tag => (
-                          <Link to={`/tags/${tag.id}`}>
-                            <div key={tag.type} className="tags">
-                              {tag.type} |
-                            </div>
-                          </Link>
-                        ))}
+                            <Link to={`/tags/${tag.id}`}>
+                              <div key={tag.type} className="tags">
+                                {tag.type} |
+                              </div>
+                            </Link>
+                          ))}
                         </div>
                         {sessionUser && sessionUser.id === task.poster_id &&
                             <div>

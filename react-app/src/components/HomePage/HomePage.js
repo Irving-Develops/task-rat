@@ -81,13 +81,7 @@ function HomePage() {
 
             <div className="footer">
                 <div id="team">
-                    <NavLink to="/about">
-                        <div id="footer-title">
-                                <h3>Meet The Team:</h3>
-                        </div>
-                    </NavLink>
                     <div id="entire-team">
-
                         <div id="footer-content" className="about-me">
                             <div id="person">
                                 <div id="name">
@@ -130,40 +124,6 @@ function HomePage() {
                                     <a href="https://github.com/angMaidt"><img className="user-card-img" src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="footer-tags-container">
-                    <div id="footer-title">
-                        <h3>Tags:</h3>
-                    </div>
-                    <div id="tag-links footer-content">
-                        <div>
-                            <NavLink to='/tags/1'>Guns</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/2'>Explosives</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/3'>Stealth</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/4'>Survival</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/5'>Medicine</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/6'>Repairs</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/7'>Pilot</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/8'>Hacking</NavLink>
-                        </div>
-                        <div>
-                            <NavLink to='/tags/9'>Hand-to-Hand</NavLink>
                         </div>
                     </div>
                 </div>
