@@ -34,7 +34,6 @@ function SingleTask() {
         user = users.filter(user => user.id === task.poster_id)[0]
     }
 
-
     const handleDelete = async () => {
         await dispatch(deleteTaskThunk(task))
         history.push('/tasks')
