@@ -1,29 +1,71 @@
+import './AboutMe.css'
+
 function AboutMe() {
   return (
     <>
-    <h1>Presenting the Pack Rats</h1>
-    <h2>This is maybe some short sentence about our project/us?</h2>
-    <div>
-      <h3>Irving Arreola</h3>
-      <a href="https://github.com/Irving-Develops"><img className='about-me-git-img' src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
-      <a href="https://www.linkedin.com/in/irving-arreola-palacios-5bb10414a/"><img src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
+    <div className='about-me-title'>
+      <h2>About the website</h2>
+      <p className='about-the-website'>TaskRat is a website based off of the game series Fallout. Fallout takes place in a post apocolyptic word where players scavege the wasteland for weapons, armor, and so much more to complete quests. The player levels up throughout the game increasing their skills in lockpicking, medicine, guns and hacking to name a few. This website takes those ideas and combines them with the functionality of the website TaskRabbit. The website allows users to earn bottlecaps (Fallout currency) by completing tasks they might encounter in the wasteland. Users can view other user's profiles to see wheather they can be trusted according to their reviews. Go ahead and checkout all that TaskRat has to offer!</p>
     </div>
-    <div>
-      <h3>Wesley BlackBurn</h3>
-      <img src='https://avatars.githubusercontent.com/u/98054974?v=4' alt="wesley"/>
-      <a href="https://github.com/wesleyblackburn90"><img className='about-me-git-img' src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
-      <a href="https://www.linkedin.com/in/jay-hutts-300ab9180/"><img src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
+    <div className='about-me-title'>
+      <h2>Presenting the Pack Rats</h2>
     </div>
-    <div>
-      <h3>Jay Hutts</h3>
-      <img src='https://avatars.githubusercontent.com/u/46910262?v=4' alt="jay"/>
-      <a href="https://github.com/jay-bean"><img className='about-me-git-img' src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
-      <a href="https://www.linkedin.com/in/jay-hutts-300ab9180/"><img src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
-    </div>
-    <div>
-      <h3>Angie Maidt</h3>
-      <img src='https://avatars.githubusercontent.com/u/100968885?v=4' alt="angie"/>
-      <a href="https://github.com/angMaidt"><img className='about-me-git-img' src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+    <div className="card-container about-me-container">
+      <div className="card users">
+        <div className="user-id">
+          <div className="user-name">
+            <h3>Irving Arreola</h3>
+          </div>
+        </div>
+        <div>
+        </div>
+        <div className="content-container about-me">
+          <a href="https://github.com/Irving-Develops"><img className='user-card-img' src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+          <a href="https://www.linkedin.com/in/irving-arreola-palacios-5bb10414a/"><img className="user-card-img" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
+        </div>
+      </div>
+      <div className="card users">
+        <div className="user-id">
+          <div className="user-img">
+            <img className="user-card-img" src='https://avatars.githubusercontent.com/u/98054974?v=4' alt="wesley"/>
+          </div>
+          <div className="user-name">
+            <h3>Wesley BlackBurn</h3>
+          </div>
+        </div>
+        <div className="content-container about-me">
+          <a href="https://github.com/wesleyblackburn90"><img className="user-card-img" src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+          <a href="https://www.linkedin.com/in/jay-hutts-300ab9180/"><img className="user-card-img" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
+        </div>
+      </div>
+      <div className="card users">
+        <div className="user-id">
+          <div className="user-img">
+            <img className="user-card-img" src='https://avatars.githubusercontent.com/u/46910262?v=4' alt="jay"/>
+          </div>
+          <div className="user-name">
+            <h3>Jay Hutts</h3>
+          </div>
+        </div>
+        <div className="content-container about-me">
+            <a href="https://github.com/jay-bean"><img className="user-card-img" src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+            <a href="https://www.linkedin.com/in/jay-hutts-300ab9180/"><img className="user-card-img" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
+        </div>
+      </div>
+      <div className="card users">
+        <div className="user-id">
+          <div className="user-img">
+            <img className="user-card-img" src='https://avatars.githubusercontent.com/u/100968885?v=4' alt="angie"/>
+          </div>
+          <div className="user-name">
+            <h3>Angie Maidt</h3>
+          </div>
+        </div>
+        <div className="content-container about-me">
+          <a href="https://github.com/angMaidt"><img className="user-card-img" src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+        </div>
+      </div>
+
     </div>
     </>
   );
