@@ -25,7 +25,7 @@ function UsersList() {
 
   const userComponents = availableUsers.map((user) => {
     return (
-      <div className='card users' id={user.id}>
+      <div key={user.id} className='card users' id={user.id}>
         <div className='user-id'>
           <div className='user-img'>
             <img src={user.pic_url} alt="cool guy" className="user-card-img"/>

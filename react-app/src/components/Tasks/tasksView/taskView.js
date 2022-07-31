@@ -43,7 +43,7 @@ function TaskView() {
         <p className='sub-text'>Get out there and be somebody.</p>
         <div className='card-container'>
           {Object.values(availableTasks).map((task) => (
-              <TaskCard task={task} id={task.id}/>
+              <TaskCard key={task.id} task={task} id={task.id}/>
           ))}
         </div>
       </div>
