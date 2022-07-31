@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import { editTaskThunk } from "../../../store/tasks"
 import './editTaskForm.css'
 
-const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
+const EditTaskForm = ({ task, setShowModal}) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const userId = useSelector((state) => state.session.user.id)
@@ -76,11 +76,9 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
       tags
     }
 
-    setShowEditForm(!showEditForm)
-
     try {
       await dispatch(editTaskThunk(payload))
-      history.push(`/tasks/${task.id}`)
+      setShowModal(false);
     } catch {
       return dispatch(editTaskThunk(payload)).catch(async (res) => {
         const data = await res.json();
@@ -91,9 +89,6 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
 
   return (
     <>
-      <div className='background-blocker'
-        onClick={() => setShowEditForm(!showEditForm)}
-      ></div>
       <div id="edit-form-container">
         <form onSubmit={handleSubmit}>
           {errors.length > 0 && (
@@ -260,7 +255,7 @@ const EditTaskForm = ({ task, setShowEditForm, showEditForm }) => {
           ></input>
           <div id="edit-task-form-buttons">
             <button className="edit-review-form-btn" type="submit" id="taskFormSubmitButton"> Submit your task </button>
-            <button className="edit-review-form-btn" onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
+            <button className="edit-review-form-btn" onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </form>
       </div>
