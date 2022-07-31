@@ -346,11 +346,12 @@ p {
 
 .footer {
     display: flex;
+    justify-content: center;
     background: var(--main-blue);
     background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
     color: #f9fbfb;
     margin-top: 200px;
-    height: 350px;
+    height: 100px;
     width: 100%;
 }
 
@@ -368,14 +369,32 @@ p {
     padding-top: 10px;
 }
 
-#team, #footer-tags-container {
+#team{
     display: flex;
 }
 
-#entire-team {
-    display: flex;
-    flex-direction: column;
-}
 #entire-team{
-    margin: 50px 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#footer-title {
+    margin: 0 20px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+}
+.footer-title h3 {
+    border-right: 2px solid rgb(233, 233, 233);
+}
+
+#name {
+    margin-bottom: 20px;
+}
+#links {
+    display: flex;
+    justify-content: center;
 }
