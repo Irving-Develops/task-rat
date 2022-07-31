@@ -14,7 +14,6 @@ function UsersList() {
     availableUsers.pop()
   }
 
-  console.log(availableUsers)
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
@@ -27,7 +26,7 @@ function UsersList() {
 
   const userComponents = availableUsers.map((user) => {
     return (
-      <div className='card users' id={user.id}> 
+      <div className='card users' id={user.id}>
         <div className='user-id'>
           <div className='user-img'>
             <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
@@ -38,7 +37,7 @@ function UsersList() {
           </div>
         </div>
         <div className='content-container'>
-          {user.bio ? 
+          {user.bio ?
           <p>About me :</p>
           : null}
           <p className='bio'>{user.bio}</p>

@@ -35,7 +35,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
       }
     }
   }
-  console.log(reviewsAboutMeArr, 'this is reviews about me')
+  
   useEffect(() => {
     dispatch(getTasksThunk())
     dispatch(getReviewsThunk())
