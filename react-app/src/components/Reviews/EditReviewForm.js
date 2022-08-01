@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { editReviewThunk } from '../../store/review';
-import "./EditReviewForm.css"
+import "./EditReviewForm.css";
 
 function EditReviewForm({ toggleShow, reviewProp }) {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function EditReviewForm({ toggleShow, reviewProp }) {
       })}
       <form onSubmit={handleSubmit}>
         <label>Rating: </label>
-        <select value={rating} onChange={(e) => setRating(e.target.value)}>
+        <select className='new-review-form-input' value={rating} onChange={(e) => setRating(e.target.value)}>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
