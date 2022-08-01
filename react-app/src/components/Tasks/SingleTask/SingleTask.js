@@ -109,7 +109,7 @@ function SingleTask() {
                         <p>Posted: {task.created_at} </p>
                         <p>Location: {task.city}, {task.state}, {task.country}</p>
                         <p>Description: {task.description}</p>
-                        <p>Reward: {task.price}</p>
+                        <p>Reward: {task.price} bottle caps</p>
                         <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color': `${dangerIconColor}` }}>
                             {dangerIcons}
                         </div>

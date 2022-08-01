@@ -46,8 +46,8 @@ function ReviewForm({setShowModal, taskId}) {
         return <div key={index}>{error}</div>
       })}
       <form onSubmit={handleSubmit}>
-        <label>Rating</label>
-        <select value={rating} onChange={(e) => setRating(e.target.value)}>
+        <label>Rating: </label>
+        <select className='new-review-form-input' value={rating} onChange={(e) => setRating(e.target.value)}>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -55,8 +55,9 @@ function ReviewForm({setShowModal, taskId}) {
           <option value={5}>5</option>
         </select>
         <div>
-          <label>Comment</label>
+          <label>Comment: </label>
           <input
+            className='new-review-form-input'
             value={comment}
             required
             type='text'
@@ -64,8 +65,8 @@ function ReviewForm({setShowModal, taskId}) {
           />
         </div>
         <div>
-          <button type='submit'>Submit</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <button className='new-review-form-btn' type='submit'>Submit</button>
+          <button className='new-review-form-btn' onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </>

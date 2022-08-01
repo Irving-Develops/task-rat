@@ -165,7 +165,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
           </p>
           <p>
             <label>Danger Level</label>
-            <select onChange={updateDangerLevel}>
+            <select className="new-review-form-input" onChange={updateDangerLevel}>
               <option value="1"> 1 </option>
               <option value="2"> 2 </option>
               <option value="3"> 3 </option>

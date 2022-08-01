@@ -327,11 +327,11 @@ function TaskForm() {
                 </div>
                 <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
                 <h5>Reward:</h5>
-                  <p>{price}</p>
+                  <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
                 </div>
                 <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
                   <h5>Danger Level:</h5>
-                  <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
+                    <p>{danger_level}</p>
                 </div>
               </div>
             </div>

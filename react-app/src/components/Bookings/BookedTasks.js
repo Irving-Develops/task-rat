@@ -38,8 +38,6 @@ function BookedTasks({ taskId, booking, reviewArr }) {
             task_id: task.id
         }
         const editedBooking = await dispatch(editBookingThunk(editBooking))
-
-        if(editedBooking) window.alert("Working")
     } catch(err) {
         setValidationErrors(err.errors)
     }
