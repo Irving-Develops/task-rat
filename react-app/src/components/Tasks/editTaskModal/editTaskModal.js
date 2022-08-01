@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import EditTaskForm from '../editTaskForm/editTaskForm';
 
-function EditTaskFormModal({task, setShowEditForm, showEditForm}) {
+function EditTaskFormModal({task}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +10,7 @@ function EditTaskFormModal({task, setShowEditForm, showEditForm}) {
       <button className='single-task-edit-btns' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditTaskForm task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} setShowModal={setShowModal} />
+          <EditTaskForm task={task} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

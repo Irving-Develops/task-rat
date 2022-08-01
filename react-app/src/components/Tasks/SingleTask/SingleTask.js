@@ -126,7 +126,7 @@ function SingleTask() {
                         {sessionUser && sessionUser.id === task.poster_id &&
                             <div>
                                 <button className="single-task-edit-btns" onClick={handleDelete}>Delete</button>
-                                <EditTaskFormModal task={task} setShowEditForm={setShowEditForm} showEditForm={showEditForm} />
+                                <EditTaskFormModal task={task}/>
                             </div>
                         }
                         <div id="claim-task-single-task-btn">

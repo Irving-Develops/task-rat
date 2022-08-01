@@ -256,6 +256,14 @@
   justify-content: space-between;
 }
 
+.title-profile-headers {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+}
+
 .show-h2 {
   font-size: 30px;
   font-weight: bold;

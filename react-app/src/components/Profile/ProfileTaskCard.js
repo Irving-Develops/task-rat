@@ -89,7 +89,7 @@ function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftRevi
       {user && task ?
         <div className={`danger-${task.danger_level} card`}>
           <div className='title-danger-level-wrapper'>
-            <div className='title-profile'>
+            <div className='title-profile-headers'>
               <h3 id='profile-card-h3'> {task.title} </h3>
             </div>
           </div>
