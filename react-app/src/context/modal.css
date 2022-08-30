@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #1c381b;
+  /* background-color: #1c381b; */
   border: 2px solid #14f217;
   border-radius: 15px;
   margin: 15px 0;
@@ -39,7 +39,11 @@
   width: 40%;
   height: 50%;
   overflow: auto;
+  background: linear-gradient(180deg, #27b82b, rgba(255,0,0,0) 40%),
+            /* linear-gradient(220deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), */
+            linear-gradient(360deg, #1c381b, rgba(0,0,255,0) 70.71%);
 }
+
 
 #modal-content::-webkit-scrollbar {
   display: none;
@@ -68,4 +72,5 @@
   height: 65%;
   width: 55%;
   background-color: rgba(0, 0, 0, 0.9);
+  transform: translate(0%, 2%);
 }
