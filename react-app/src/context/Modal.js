@@ -28,10 +28,12 @@ export function Modal({ onClose, children, className }) {
 
   return ReactDOM.createPortal(
     <div id="modal">
-      <div id="modal-background" onClick={onClose} />
+      <div id="modal-background" />
+      <div id='modal-pipboy' onClick={onClose}></div>
       <div className={className} id="modal-content">
         {children}
       </div>
+        {/* <img src='../images/pipboy-transparency-v_1.1.png' alt='pipboy'/> */}
     </div>,
     modalNode
   );
