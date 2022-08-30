@@ -35,9 +35,9 @@
   border-radius: 15px;
   margin: 15px 0;
   /* left: 100%; */
-  transform: translate(12%, 0);
-  width: 45%;
-  height: 65%;
+  transform: translate(12%, 2%);
+  width: 40%;
+  height: 50%;
   overflow: auto;
 }
 
@@ -56,4 +56,16 @@
   height: 100%;
   background-image: url('../images/pipboy-transparency-v_1.1.png');
   background-size: 100% 100%;
+}
+
+
+#modal-background-2 {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  left: 30%;
+  bottom: 0;
+  height: 65%;
+  width: 55%;
+  background-color: rgba(0, 0, 0, 0.9);
 }
