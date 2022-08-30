@@ -1,9 +1,14 @@
 .about-me-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-flow: row;
     width: 90%;
+    justify-content: center;
 }
 
+.about-me-container .users {
+  min-width: 200px;
+  max-width: 200px;
+}
 
 .about-me {
     display: flex;
@@ -14,7 +19,6 @@
     text-transform: capitalize;
     width: 90%;
     margin: 70px auto;
-    padding-left: 50px;
     color: var(--main-blue);
 
 }
@@ -24,4 +28,23 @@
     color: var(--dark-blue);
     line-height: 160%;
     font-size: 20px;
+}
+
+@media screen and (min-width: 689px) and (max-width: 1250px) {
+  .about-me-container {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  .about-me-container {
+    flex-wrap: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-the-website {
+    font-size: 18px;
+  }
 }
