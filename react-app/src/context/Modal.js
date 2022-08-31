@@ -31,7 +31,7 @@ export function Modal({ onClose, children, className }) {
       <div id="modal-background" />
       <div id="modal-background-2" />
       <div id='modal-pipboy' onClick={onClose}></div>
-      <div className={className} id="modal-content">
+      <div className={`${className} screen`} id="modal-content">
         {children}
       </div>
         {/* <img src='../images/pipboy-transparency-v_1.1.png' alt='pipboy'/> */}
