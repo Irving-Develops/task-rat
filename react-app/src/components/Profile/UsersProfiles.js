@@ -55,7 +55,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
             <AverageRating reviewsAboutMeArr={reviewsAboutMeArr} />
           </div>
           <div>
-            <h2 id="their-tasks-header">Their Tasks:</h2>
+            <h3 id="their-tasks-header">Their Tasks:</h3>
             {myTasks.length > 0 && myTasks.map(task => {
               return (
                 <div key={task.id} className="user-profile-tasks">
