@@ -4,21 +4,23 @@
 #login-form-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 45%
+  width: 100%
 }
 
 #login-form-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   margin-top: 100px;
 }
 
 #login-buttons-div {
   display: flex;
-
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .login-buttons button {
@@ -27,7 +29,7 @@
   border-radius: 15px;
   border: #14f217 1px solid;
   font-family: 'Roboto', sans-serif;
-  width: 150px;
+  width: 200px;
   height: 50px;
   margin-right: 10px;
 }
@@ -38,15 +40,35 @@
   border-radius: 15px;
   border: #14f217 1px solid;
   font-family: 'Roboto', sans-serif;
-  width: 150px;
+  width: 200px;
   height: 50px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .login-form-inputs {
-  background-color: #1c381b;
-  color: #14f217;
-  border-radius: 15px;
+  /* background-color: #1c381b; */
+  /* color: #14f217;
+  border-radius: 15px; */
+  background-color: transparent;
+  border: none;
+  caret-color: #14f217;
+  color:#14f217;
+  font-size: 25px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  /* margin-top: 10px; */
+}
+
+.login-form-inputs:focus {
+  outline: none;
+}
+
+#handle-signup-btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
 }
 
 #handle-signup-btn button {
@@ -61,5 +83,36 @@
 }
 
 #password-text {
-  margin-left: 15px;
+  /* margin-left: 15px; */
+}
+
+.login-form-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-input-container {
+  padding-left: 10%;
+  padding-right: 10%;
+  /* margin-top: 25px; */
+}
+
+.login-form-input-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.login-form-input-container div > label {
+  margin-right: 10px;
+}
+
+.login-form-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 }
