@@ -51,7 +51,7 @@ const LoginForm = ({ setShowModal }) => {
               <div key={ind}>{error}</div>
             ))}
           </div>
-            <h2>Welcome back, Partner.</h2>
+          <h2>Welcome back, Partner.</h2>
           <div className='login-form-input-container'>
             <div>
               <label htmlFor='email'>Email: </label>
@@ -62,6 +62,7 @@ const LoginForm = ({ setShowModal }) => {
                 // placeholder='>Email'
                 value={email}
                 onChange={updateEmail}
+                autoFocus
               />
             </div>
             <div>
