@@ -2,12 +2,18 @@ import React from 'react';
 import { demoLogin } from '../../store/session';
 import { useDispatch } from 'react-redux';
 
-const DemoUser = () => {
+const DemoUser = ({ modalCheck }) => {
   const dispatch = useDispatch();
 
   const handleDemoLogin = async (e) => {
     e.preventDefault()
     return dispatch(demoLogin())
+  }
+
+  // console.log(modalCheck)
+
+  if (modalCheck) {
+    return <button onClick={handleDemoLogin}> [Demo User] </button>
   }
 
   return (

@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'px sans nouveaux', sans-serif;
+  /* font-family: monospace; */
   color: #14f217;
   width: 100vw;
   height: 100vh;
@@ -26,6 +27,7 @@
 
 #modal-content {
   position: absolute;
+  /* color:#14f217; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -73,7 +75,7 @@
 }
 
 .screen {
-  animation:colorPulse 5s infinite ease-in-out;
+  /* animation:colorPulse 5s infinite ease-in-out; */
   box-shadow:0 0 5vmin 1vmin #000 inset;
   box-sizing:border-box;
   /* font-family:'Fira Mono', monospace; */

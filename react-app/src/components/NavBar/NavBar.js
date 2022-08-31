@@ -27,8 +27,8 @@ const NavBar = () => {
         {!sessionUser ?
           <div className='logged-out-links'>
             <ul className="navbar-buttons">
-              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><DemoUser /></li>
+              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><LoginFormModal /></li>
             </ul>
           </div>

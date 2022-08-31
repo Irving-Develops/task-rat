@@ -5,7 +5,7 @@ import { editTaskThunk } from '../../store/tasks';
 import LoginFormModal from '../auth/LoginFormModal';
 import "./BookingForm.css"
 
-function BookingForm({ task }) {
+function BookingForm({ task, modalCheck }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
@@ -45,10 +45,16 @@ function BookingForm({ task }) {
   return (
     <>
       {task && task.available === true && sessionUser && sessionUser.id !== task.poster_id && (
-        <button id="booking-form-button" className="profile-btns" onClick={handleBooking}>Claim Task</button>
+        modalCheck ?
+        <button id="booking-form-button" onClick={handleBooking}>[Claim Task]</button>
+        :
+        <button
+          id="booking-form-button"
+          className='profile-btns'
+          onClick={handleBooking}>Claim Task</button>
       )}
       {task && task.available === true && !sessionUser && (
-        <LoginFormModal task={task} />
+        <LoginFormModal task={task} modalCheck={modalCheck}/>
       )}
 
     </>

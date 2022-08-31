@@ -12,6 +12,8 @@ const LoginForm = ({ setShowModal }) => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const modalCheck = true
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -80,14 +82,19 @@ const LoginForm = ({ setShowModal }) => {
         </div>
         <div className='login-form-bottom'>
           <div id="login-buttons-div">
-            <button id="login-form-btn" type='submit'>Login</button>
+            <button id="login-form-btn" type='submit'>[Login]</button>
             <div className="login-buttons">
-              <DemoUser />
+              <DemoUser modalCheck={modalCheck} />
             </div>
           </div>
           <Link to="/sign-up">
             <div id="handle-signup-btn" onClick={handleSignUp}>
-              <button>Don't have an account? Sign up here!</button>
+              <div>
+                <h3>Don't have an account?</h3>
+              </div>
+              <button>
+                [Sign Up!]
+              </button>
             </div>
           </Link>
         </div>

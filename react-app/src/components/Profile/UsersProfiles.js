@@ -12,6 +12,8 @@ const UsersProfiles = ({ user, setShowModal }) => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.tasks)
   const reviews = useSelector((state) => state.reviews);
+  //pass down to bookingform, checks if modal
+  const modalCheck = true;
 
   let myTasks;
   if (tasks && user) {
@@ -46,24 +48,29 @@ const UsersProfiles = ({ user, setShowModal }) => {
       {user && (
         <div>
           <h1 id="user-name">Mercenary: {user.first_name}</h1>
-          <AverageRating reviewsAboutMeArr={reviewsAboutMeArr} />
-          <div className='user-profile-pic'>
-            <img src={user.pic_url} alt="User's Icon" />
+          <div className='user-profile-modal-info'>
+            <div className='user-profile-pic'>
+              <img src={user.pic_url} alt="User's Icon" />
+            </div>
+            <AverageRating reviewsAboutMeArr={reviewsAboutMeArr} />
           </div>
           <div>
             <h2 id="their-tasks-header">Their Tasks:</h2>
             {myTasks.length > 0 && myTasks.map(task => {
               return (
                 <div key={task.id} className="user-profile-tasks">
-                  <div>
+                  <div className='task-modal-info-holder'>
                     <div>{task.title}</div>
                     <div>Danger Level: {task.danger_level}</div>
-                    <div>Reward: {task.price}</div>
+                    <div>Reward: {task.price} caps</div>
                   </div>
-                  <Link to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}><button id="details-button">Details</button>
-                  </Link>
-                  <div id="user-task-button">
-                    <BookingForm task={task} />
+                  <div className='user-modal-task-button-holder'>
+                    <Link id='details-link' to={`/tasks/${task.id}`} onClick={() => setShowModal(false)}>
+                      <button id="details-button">[Details]</button>
+                    </Link>
+                    <div id="user-task-button">
+                      <BookingForm task={task} modalCheck={modalCheck}/>
+                    </div>
                   </div>
                 </div>
               );

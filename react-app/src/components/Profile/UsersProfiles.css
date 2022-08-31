@@ -1,50 +1,84 @@
 #user-name {
-  background-color: #1c381b;
+  /* background-color: #1c381b; */
   color: #14f217;
+  margin-top: 75px;
 }
+
 
 .user-profile-tasks {
   display: flex;
   flex-direction: column;
-  background-color: #1c381b;
+  align-items: flex-start;
+  text-transform: uppercase;
+  /* background-color: #1c381b; */
   color: #14f217;
   border: 2px solid #14f217;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   margin: 15px 0;
   width: 90%;
   height: 90%;
   padding: 10px;
 }
 
+/* #details-link {
+  padding: 0;
+  margin: 0;
+} */
+
+#details-button, #user-task-button button {
+  padding: 5px;
+  font-size: 15px;
+  /* height: 80%; */
+}
+
 #details-button {
-  background-color: #1c381b;
+  /* background-color: #1c381b; */
+  background-color: transparent;
   color: #14f217;
-  border-radius: 15px;
-  margin-left: 10px;
+  border: none;
+  height: 100%;
+  /* margin-top: -5px; */
+  /* border-radius: 15px; */
+  /* margin-left: 10px; */
   cursor: pointer;
 }
 
-#details-button button {
+#details-button:hover {
   background-color: #14f217;
   color: #1c381b;
 }
 
-#details-button button:hover {
-  background-color: #14f217;
-  color: #1c381b;
+#user-task-button {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
 }
 
 #user-task-button button {
+  /* background-color: #1c381b;
+  color: #14f217; */
+  background-color: transparent;
+  color: #14f217;
+  border: none;
+  margin-top: 4px;
+  /* margin-left: 10px; */
+  padding: 5px;
+  /* border-radius: 15px; */
+}
+
+#user-task-button button:hover {
   background-color: #14f217;
   color: #1c381b;
-  margin-left: 10px;
-  padding: 5px;
-  border-radius: 15px;
 }
 
 #profile-task-modal button {
   background-color: #14f217;
   color: #1c381b;
+}
+
+#claim-task-modal {
+  width: 170px;
+  margin-top: 3px;
 }
 
 .user-profile-pic {
@@ -69,4 +103,22 @@
 #users-p-tag {
   width: 80%;
 
+}
+
+.user-profile-modal-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-modal-task-button-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.task-modal-info-holder {
+  width: 100%;
+  padding: 5px;
 }
