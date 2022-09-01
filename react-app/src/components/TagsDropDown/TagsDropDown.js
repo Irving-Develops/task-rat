@@ -6,18 +6,26 @@ function TagsDropDown() {
 
     return (
         <div
+            id='nav-tasks'
             onMouseEnter={() => setShowDropDown(true)}
             onMouseLeave={() => setShowDropDown(false)}
         // style={{ 'maxWidth': '50px' }}
         >
             <NavLink to='/tasks'>Tasks</NavLink>
             {showDropDown &&
-                <div style={{ 'position': 'absolute', 'backgroundColor': 'white', 'border': '1px solid black' }}>
+                <div
+                    id='tag-drop-down-container'
+                    style={{
+                        'position': 'absolute',
+                        // 'top': '55px',
+                        // 'left': '-1px',
+                        'backgroundColor': 'var(--dark-blue)',
+                        'border': '1px solid black' }}>
                     <div>
-                        <NavLink to='/tasks'>All Tasks</NavLink>
+                        <NavLink className='tags-link' to='/tasks'>All Tasks</NavLink>
                     </div>
                     <div>
-                        <NavLink to='/tags/1'>Guns</NavLink>
+                        <NavLink className='tags-link' to='/tags/1'>Guns</NavLink>
                     </div>
                     <div>
                         <NavLink to='/tags/2'>Explosives</NavLink>
