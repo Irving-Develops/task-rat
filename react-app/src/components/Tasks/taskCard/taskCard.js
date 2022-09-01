@@ -5,7 +5,7 @@ import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
-  console.log(task)
+  // console.log(task)
 
   let user
   if (users) {
@@ -111,21 +111,25 @@ function TaskCard({ task }) {
                       <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
                   </div> */}
                   <div className='tags-container'>
-                          {task.tags.map(tag => (
+                          {task.tags.map((tag, idx) => (
                             <Link to={`/tags/${tag.id}`}>
                               <div key={tag.type} className="tags">
-                                {tag.type} |
+                                {tag.type}
+                                {idx !== task.tags.length - 1 && (
+                                  <span style={{ 'color': 'gray' }}> | </span>
+                                )}
                               </div>
                             </Link>
                           ))}
                   </div>
-                  <div>
-                    <p>Posted by {task.created_at}</p>
-                  </div>
+                  {/* <div id='task-card-tag-underline' className={`danger-${task.danger_level}`}></div> */}
                 {/* </div> */}
-            </div>
-            <div className='date'>
-              <span className='date'>Posted : {task.created_at} </span>
+              <div className='posted-by'>
+                <p>{task.user.first_name} needs your help!</p>
+              </div>
+              <div className='date'>
+                <span className='date'>Posted {task.created_at} </span>
+              </div>
             </div>
         </div>
   )
