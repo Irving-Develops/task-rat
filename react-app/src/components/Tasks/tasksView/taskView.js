@@ -40,7 +40,7 @@ function TaskView() {
       </div>
       <div className='tasks-wrapper'>
         <div className='text-bar'>
-          <p className='sub-text'>Get out there and be somebody.</p>
+          <p className='sub-text'>Click on a task to see more details!</p>
         </div>
         <div className='card-container'>
           {Object.values(availableTasks).map((task) => (

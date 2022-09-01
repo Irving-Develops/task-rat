@@ -98,13 +98,13 @@ function TagView() {
             </div>
             <div className='tasks-wrapper'>
                 <div className='text-bar'>
-                    <p className='sub-text'>Get out there and be somebody.</p>
+                    <p className='sub-text'>Click on a task to see more details!</p>
                 </div>
                 <div className='card-container'>
                     {availableTasks.map(task => (
-                        <div key={task.id}>
-                                <TaskCard task={task} />
-                        </div>
+                        // <div key={task.id}>
+                                <TaskCard task={task} key={task.id}/>
+                        // </div>
                     ))}
                 </div>
 

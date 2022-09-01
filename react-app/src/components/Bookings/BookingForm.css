@@ -1,6 +1,24 @@
-#booking-form-button button {
-  background-color: #1c381b;
-  color: #14f217;
-  border-radius: 15px;
+#booking-form-button {
+  transition: all .25s ease;
+  color: #063f67;
+  border: 1px solid #063f67;
+  /* text-transform: uppercase; */
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  font-family: monospace;
+  font-weight: 400;
+  padding: 10px;
+  outline: none;
+  /* border-radius: 15px; */
+  /* border-radius: 15px; */
   cursor: pointer;
+}
+
+#booking-form-button:hover {
+  /* background-color: #063f67;
+  color: var(--2); */
+  background-color: var(--2);
+  color: #063f67;
 }

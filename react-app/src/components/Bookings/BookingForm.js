@@ -50,7 +50,7 @@ function BookingForm({ task, modalCheck }) {
         :
         <button
           id="booking-form-button"
-          className='profile-btns'
+          // className='profile-btns'
           onClick={handleBooking}>Claim Task</button>
       )}
       {task && task.available === true && !sessionUser && (
