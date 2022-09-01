@@ -39,7 +39,9 @@ function TaskView() {
         </div>
       </div>
       <div className='tasks-wrapper'>
-        <p className='sub-text'>Get out there and be somebody.</p>
+        <div className='text-bar'>
+          <p className='sub-text'>Get out there and be somebody.</p>
+        </div>
         <div className='card-container'>
           {Object.values(availableTasks).map((task) => (
               <TaskCard key={task.id} task={task} id={task.id}/>
@@ -48,7 +50,8 @@ function TaskView() {
       </div>
     </div>
     :
-    <p>...loading</p>
+    // <p>...loading</p>
+    null
   )
 }
 
