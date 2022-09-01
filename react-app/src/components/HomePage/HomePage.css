@@ -8,10 +8,11 @@
     --5: #da0000;
     --4: orangered;
     --3: #e0d01f;
-    --2: blue ;
+    --2: rgba(0,103,177,1);
     --1: #00b100;
     --dark-blue: rgba(6,63,103,1);
     --main-blue: rgba(0,103,177,1);
+    --yellow: #ffee43;
 }
 
 .home-banner {
@@ -21,7 +22,8 @@
     padding: 20px;
     gap: 100px;
     background: var(--main-blue);
-    background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
+    /* background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%); */
+    background: linear-gradient(var(--main-blue) 0%, var(--dark-blue) 100%);
     color: white;
 }
 .text {
@@ -37,7 +39,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    background-color: #fff773;
+    border: 1px solid black;
+    background: radial-gradient(#fff773, #fff773, #b8af09);
+    /* background-color: #fff773; */
 }
 .banner-img img {
     width: 50%;
@@ -132,6 +136,8 @@
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     /* padding: 30px; */
     margin: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     overflow: hidden;
 }
 
@@ -182,6 +188,8 @@
     padding-left: 5px;
     margin-bottom: 30px;
     text-transform: uppercase;
+    /* border-bottom: 1px solid; */
+    width: fit-content;
 }
 
 .date {
@@ -208,24 +216,33 @@
 }
 
 .danger-1, .users {
-    /* border-top: 3px solid var(--1); */
-    background-color: var(--1);
+    border-top: 3px solid rgb(7, 82, 20);
+    background: linear-gradient(var(--1) 0%, rgb(7, 82, 20) 130%);
+    /* background-color: var(--1); */
 }
 .danger-2 {
     /* border-top: 3px solid var(--2); */
-    background-color: var(--2);
+    border-top: 3px solid var(--dark-blue);
+    background: linear-gradient(var(--2) 0%, var(--dark-blue) 130%);
+    /* background-color: var(--2); */
 }
 .danger-3 {
+    border-top: 3px solid #9b9308;
+    background: linear-gradient(var(--3) 0%, #9b9308 130%);
     /* border-top: 3px solid var(--3); */
-    background-color: var(--3);
+    /* background-color: var(--3); */
 }
 .danger-4 {
+    border-top: 3px solid #993609;
+    background: linear-gradient(var(--4) 0%, #993609 130%);
     /* border-top: 3px solid var(--4); */
-    background-color: var(--4);
+    /* background-color: var(--4); */
 }
 .danger-5 {
+    border-top: 3px solid #830909;
+    background: linear-gradient(var(--5) 0%, #830909 130%);
     /* border-top: 3px solid var(--5); */
-    background-color: var(--5);
+    /* background-color: var(--5); */
 }
 
 .dan-1{

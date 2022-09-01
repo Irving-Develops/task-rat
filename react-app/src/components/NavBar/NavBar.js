@@ -14,6 +14,7 @@ const NavBar = () => {
     <nav className='navbar-container'>
       <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
       <div className='logo'>
+        {/* <img src='../../../images/rat-logo.png' alt='rat-logo'/> */}
         <span>TaskRat</span>
       </div>
       </NavLink>

@@ -4,7 +4,8 @@
     justify-content: space-between;
     position: sticky;
     top: 0;
-    background-color: #ffee43;
+    /* background-color: #ffee43; */
+    background-color: var(--dark-blue);
     z-index: 10000;
     height: 75px;
 }
@@ -13,7 +14,8 @@
 .navbar-container button {
     margin: 5px;
     transition: all .25s ease;
-    color: #063f67;
+    /* color: var(--dark-blue); */
+    color: var(--yellow);
     border: 1px solid #063f67;
     /* text-transform: uppercase; */
     text-align: center;
@@ -59,17 +61,18 @@ button {
     display: flex;
     align-items: center;
     font-size: 48px;
-    color: rgba(6, 63, 103, 1);
+    /* color: rgba(6, 63, 103, 1); */
+    color: var(--yellow);
     margin: 0 20px 0;
     padding: 0;
     font-family: 'Overseer', sans-serif;
 }
 
 
-/* .logo img {
-    width: 40px;
+.logo img {
+    height: 100px;
     margin: 20px;
-} */
+}
 
 .logged-in-links  ul {
     display: flex;
