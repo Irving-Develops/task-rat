@@ -22,16 +22,13 @@ const NavBar = () => {
           <ul className="navbar-buttons">
             <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
             <li><TagsDropDown /></li>
-            <li><NavLink to='/about' exact={true} activeClassName='active'>
-              About
-            </NavLink></li>
           </ul>
         </div>
         {!sessionUser ?
           <div className='logged-out-links'>
             <ul className="navbar-buttons">
-              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><DemoUser /></li>
+              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><LoginFormModal /></li>
             </ul>
           </div>
@@ -46,7 +43,11 @@ const NavBar = () => {
           </div>
 
         }
-
+            <li>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                About
+              </NavLink>
+            </li>
       </div>
     </nav>
   );

@@ -12,6 +12,8 @@ const LoginForm = ({ setShowModal }) => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const modalCheck = true
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -45,45 +47,54 @@ const LoginForm = ({ setShowModal }) => {
   return (
     <div id="login-form-div">
       <form id="login-form-container" onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+        <div className='login-form-top'>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <h2>Welcome back, Partner.</h2>
+          <div className='login-form-input-container'>
+            <div>
+              <label htmlFor='email'>Email: </label>
+              <input
+                className="login-form-inputs"
+                name='email'
+                type='text'
+                // placeholder='>Email'
+                value={email}
+                onChange={updateEmail}
+                autoFocus
+              />
+            </div>
+            <div>
+              <label id="password-text" htmlFor='password'>Password: </label>
+              <input
+                className="login-form-inputs"
+                name='password'
+                type='password'
+                // placeholder='>Password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <p>
-            <label htmlFor='email'>Email: </label>
-            <input
-              className="login-form-inputs"
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </p>
-        </div>
-        <div>
-          <p>
-            <label id="password-text" htmlFor='password'>Password: </label>
-            <input
-              className="login-form-inputs"
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-          </p>
+        <div className='login-form-bottom'>
           <div id="login-buttons-div">
-            <button id="login-form-btn" type='submit'>Login</button>
+            <button id="login-form-btn" type='submit'>[Login]</button>
             <div className="login-buttons">
-              <DemoUser />
+              <DemoUser modalCheck={modalCheck} />
             </div>
           </div>
           <Link to="/sign-up">
             <div id="handle-signup-btn" onClick={handleSignUp}>
-              <button>Don't have an account? Sign up here!</button>
+              <div>
+                <h3>Don't have an account?</h3>
+              </div>
+              <button>
+                [Sign Up!]
+              </button>
             </div>
           </Link>
         </div>

@@ -10,7 +10,10 @@
   justify-content: center;
   align-items: center;
   font-family: 'px sans nouveaux', sans-serif;
+  /* font-family: monospace; */
   color: #14f217;
+  width: 100vw;
+  height: 100vh;
 }
 
 #modal-background {
@@ -24,19 +27,115 @@
 
 #modal-content {
   position: absolute;
+  /* color:#14f217; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #1c381b;
-  border: 2px solid #14f217;
   border-radius: 15px;
   margin: 15px 0;
-  width: 35%;
+  padding: 0;
+  transform: translate(12%, 2%);
+  width: 40%;
   height: 50%;
   overflow: auto;
+  background: linear-gradient(180deg, #27b82b, rgba(255,0,0,0) 40%),
+            linear-gradient(360deg, #1c381b, rgba(0,0,255,0) 70.71%);
 }
+
 
 #modal-content::-webkit-scrollbar {
   display: none;
+}
+
+#modal-pipboy {
+  margin-top: 160px;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/pipboy-transparency-v_1.1.png');
+  background-size: 100% 100%;
+}
+
+
+#modal-background-2 {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  left: 30%;
+  bottom: 0;
+  height: 65%;
+  width: 55%;
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translate(0%, 2%);
+}
+
+.screen {
+  /* animation:colorPulse 5s infinite ease-in-out; */
+  box-shadow:0 0 5vmin 1vmin #000 inset;
+  box-sizing:border-box;
+  /* font-family:'Fira Mono', monospace; */
+  font-size:16px;
+  height:100vh;
+  overflow:hidden;
+  padding:10vmin;
+  width:100vw;
+}
+
+.screen:before {
+  animation:wave 10s infinite ease-in-out;
+  content:"";
+  height:20vh;
+  left:0;
+  opacity:.5;
+  position:absolute;
+  right:0;
+  z-index:1;
+}
+
+.screen:after {
+  background-image:linear-gradient(transparent, transparent 3px, #222);
+  background-size:4px 4px;
+  bottom:0;
+  content:"";
+  left:0;
+  pointer-events:none;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:2;
+  height: 250vh;
+}
+
+@keyframes colorPulse {
+  0%, 100% {
+    color:#0c0;
+  }
+  48%, 52% {
+    color:#090;
+  }
+  50% {
+    color:#060;
+  }
+}
+
+@keyframes wave {
+  0% {
+    box-shadow:0 -10vh 20vh #0c0;
+    top:-100vh;
+  }
+  48%, 52% {
+    box-shadow:0 -10vh 20vh #090;
+  }
+  50% {
+    box-shadow:0 -10vh 20vh #060;
+  }
+  100% {
+    box-shadow:0 -10vh 20vh #0c0;
+    top:200vh;
+  }
 }
