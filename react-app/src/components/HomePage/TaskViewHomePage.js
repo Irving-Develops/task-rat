@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import Link from 'react-router'
 import { getTasksThunk } from "../../store/tasks"
+import TaskCard from '../Tasks/taskCard/taskCard'
 import TaskCardHomePage from "./TaskCardHomePage"
 
 function TaskViewHomePage() {
@@ -32,7 +33,7 @@ function TaskViewHomePage() {
       </div>
       <div className="card-container">
         {Object.values(availableTasks).map((task) => (
-              <TaskCardHomePage key={task.id} task={task} id={task.id} />
+              <TaskCard key={task.id} task={task} id={task.id} />
         ))}
       </div>
     </div>
