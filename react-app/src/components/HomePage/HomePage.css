@@ -55,11 +55,11 @@
 
 .title {
     /* padding: 10px; */
-    margin-bottom: 10px;
+    /* margin-bottom: 10px;
     text-transform: capitalize;
     color: var(--dark-blue);
     width: 90%;
-    border-bottom: 2px solid rgb(233, 233, 233);
+    border-bottom: 2px solid rgb(233, 233, 233); */
 
 }
 .card-container {
@@ -76,25 +76,6 @@
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     padding: 30px;
     margin: 20px;
-}
-
-.card {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--dark-blue);
-    height: 275px;
-    align-items: flex-start;
-    border-radius: 5px;
-    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
-    padding: 30px;
-    margin: 20px;
-    overflow: hidden;
-}
-
-.card h3 {
-    margin: 12px;
 }
 
 .home-page-title {
@@ -132,6 +113,29 @@
     background-color: var(--main-blue);
 }
 
+/* TaskCards */
+.card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* color: var(--dark-blue); */
+    color: white;
+    height: 275px;
+    align-items: flex-start;
+    /* border-radius: 5px; */
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    /* padding: 30px; */
+    margin: 20px;
+    overflow: hidden;
+}
+
+.card h3 {
+    font-size: 30px;
+    margin: 10px;
+    text-transform: uppercase;
+}
+
 .date {
     font-size: 10px;
     margin-left: 5px;
@@ -141,7 +145,9 @@
 .content-container {
     display: flex;
     width: 100%;
+    height: 100%;
     flex-direction: column;
+    padding-top: 10px;
     /* padding: 10px; */
 }
 .bullet {
@@ -152,19 +158,24 @@
 }
 
 .danger-1, .users {
-    border-top: 3px solid var(--1);
+    /* border-top: 3px solid var(--1); */
+    background-color: var(--1);
 }
 .danger-2 {
-    border-top: 3px solid var(--2);
+    /* border-top: 3px solid var(--2); */
+    background-color: var(--2);
 }
 .danger-3 {
-    border-top: 3px solid var(--3);
+    /* border-top: 3px solid var(--3); */
+    background-color: var(--3);
 }
 .danger-4 {
-    border-top: 3px solid var(--4);
+    /* border-top: 3px solid var(--4); */
+    background-color: var(--4);
 }
 .danger-5 {
-    border-top: 3px solid var(--5);
+    /* border-top: 3px solid var(--5); */
+    background-color: var(--5);
 }
 
 .dan-1{
@@ -192,7 +203,7 @@
 .tags-container {
    display: flex;
   /* flex-direction: row; */
-  overflow: hidden; 
+  overflow: hidden;
   display: -webkit-box;
   align-items: center;
   -webkit-line-clamp: 3;

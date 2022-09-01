@@ -5,6 +5,7 @@ import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
+  console.log(task)
 
   let user
   if (users) {
@@ -82,14 +83,19 @@ function TaskCard({ task }) {
 
   if(!user || !task) return null;
   return (
-          <div className={`danger-${task.danger_level} card`}>
-            <div className='title-danger-level-wrapper'>
-              <div className='title'>
+    <div className='card'>
+    {/* <div className={`danger-${task.danger_level} card`}> */}
+    {/* <div className='title-danger-level-wrapper'> */}
+              <div className={`danger-${task.danger_level} card-top`}>
                   <h3> {task.title} </h3>
+                  <div id="icons">
+                    <p>Danger Level:</p>
+                    <div>{dangerIcons}</div>
+                  </div>
               </div>
-            </div>
+            {/* </div> */}
             <div className='content-container'>
-                <div className='task-content'>
+                {/* <div className='task-content'>
                     <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
                     <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
                       <p>Danger: </p>
@@ -98,12 +104,12 @@ function TaskCard({ task }) {
                       </div>
                     </div>
                     <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                </div>
-                <div className='task-misc'>
-                  <div className='home-page-buttons'>
+                </div> */}
+                {/* <div className='task-misc'> */}
+                  {/* <div className='home-page-buttons'>
                       <BookingForm task={task}/>
                       <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
-                  </div>
+                  </div> */}
                   <div className='tags-container'>
                           {task.tags.map(tag => (
                             <Link to={`/tags/${tag.id}`}>
@@ -113,7 +119,10 @@ function TaskCard({ task }) {
                             </Link>
                           ))}
                   </div>
-                </div>
+                  <div>
+                    <p>Posted by {task.created_at}</p>
+                  </div>
+                {/* </div> */}
             </div>
             <div className='date'>
               <span className='date'>Posted : {task.created_at} </span>
