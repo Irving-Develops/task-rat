@@ -78,6 +78,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 50px;
     /* background-color: white; */
 }
 
@@ -91,14 +92,17 @@ body {
 }
 
 .text-bar {
+    /* width: fit-content; */
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    /* height: 50px; */
-    background-color: #f9fafb;
+    height: 100%;
+    background-color:  #eeeeee;
     letter-spacing: .10em;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    /* border: 2px solid var(--dark-blue) */
     /* padding-top: 20px; */
     /* font-family: 'Roboto', sans-serif; */
     /* background-color: white; */

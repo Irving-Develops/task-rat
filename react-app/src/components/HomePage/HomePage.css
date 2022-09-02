@@ -228,6 +228,9 @@
     border-top: 3px solid rgb(7, 82, 20);
     /* background: linear-gradient(var(--1) 0%, rgb(7, 82, 20) 130%); */
     background-color: var(--1);
+    /* color: var(--1); */
+    /* border-bottom: 2px solid black; */
+    /* border-bottom: 3px solid var(--1); */
 }
 .danger-2 {
     /* border-top: 3px solid var(--2); */
