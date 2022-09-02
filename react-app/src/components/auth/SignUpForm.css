@@ -110,7 +110,8 @@
 
 .avatar-inputs {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 20px;
     /* overflow: wrap; */
     /* height: 255px; */
     /* border: 1px solid black; */
