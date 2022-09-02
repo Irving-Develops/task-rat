@@ -95,6 +95,12 @@
     color: var(--main-blue);
 }
 
+.home-page-title h2 {
+    width: fit-content;
+    color: var(--dark-blue);
+    border-bottom: 2px solid;
+}
+
 .home-page-buttons {
     display: flex;
     flex-direction: row;
