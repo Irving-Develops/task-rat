@@ -470,3 +470,13 @@ p {
 #git {
     height: 65px;
 }
+
+#thanks {
+    font-size: 40px;
+    color: var(--dark-blue);
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 100px;
+
+}

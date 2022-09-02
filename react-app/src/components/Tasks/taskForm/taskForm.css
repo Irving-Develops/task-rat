@@ -149,16 +149,22 @@
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 30px;
+    /* margin-top: 10px; */
     /* color: black; */
 }
 
-.input-wrapper *{
+.input-wrapper input {
+    width: 40%;
+    margin-bottom: 10px;
+}
+.input-wrapper textarea {
     /* margin: 16px; */
+    width: 95%;
 }
 
 .new-task-description {
-    height: 200px;
+    height: 250px;
 }
 
 .input-headers {
@@ -170,6 +176,8 @@
 #quality {
     font-style: italic;
     text-align: right;
+    width: 95%;
+    margin-top: 15px;
 }
 
 .final-screen-content {
@@ -247,14 +255,14 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 64px;
-    margin-top: 16px;
+    margin-top: 30px;
     margin-bottom: 16px;
     color: black;
 }
 
 .new-tags-container div{
     display: flex;
-    width: 600px;
+    width: 50%;
     justify-content: space-between;
     margin-bottom: 16px;
 }
@@ -280,4 +288,5 @@
 
 .input-container select{
     width: 50px;
+    margin-top: 15px;
 }

@@ -46,15 +46,16 @@
 }
 
 .user-img {
-    width: 100px;
+    width: 140px;
     height: 100px;
     overflow: hidden;
     border-radius: 5px;
 }
 
 .user-card-img {
-    height: 100px;
-    transform: translate(-10%, 0);
+    height: 110px;
+    /* width: 130% */
+    transform: translate(-5%, 0);
 }
 
 .user-card-wrapper  a {
