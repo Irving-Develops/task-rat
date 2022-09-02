@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     height: 650px;
-    min-width: 90%;
+    width: 90%;
     border: 1px solid #b1b9c3;
     border-radius: 20px;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
@@ -32,12 +32,14 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .exclude-textarea textarea{
     margin-top: 16px;
     margin-left: 153px;
-    width: 850px;
+    width: 100%;
+    /* width: 850px; */
 }
 
 .user-photo {
@@ -109,7 +111,8 @@
 .avatar-inputs {
     display: flex;
     justify-content: space-between;
-    height: 255px;
+    /* overflow: wrap; */
+    /* height: 255px; */
     /* border: 1px solid black; */
 }
 
@@ -173,7 +176,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 600px;
+    width: 100%;
 }
 
 .left-user-info div:hover, .right-user-bio div:hover {
