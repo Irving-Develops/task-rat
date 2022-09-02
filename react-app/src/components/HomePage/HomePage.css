@@ -388,25 +388,26 @@ p {
 }
 
 /* Footer Styles */
-
-
 .footer {
     display: flex;
     justify-content: center;
-    background: var(--main-blue);
-    background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%);
+    background-color: #eeeeee;
+    /* background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%); */
     color: #f9fbfb;
-    margin-top: 200px;
-    height: 100px;
+    /* margin-top: 50px; */
+    height: 100%;
     width: 100%;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .footer a {
-    color: #f9fbfb;
+    color: var(--dark-blue);
 }
 
 .footer a:visited {
-    color: #f9fbfb;
+    color: var(--dark-blue);
+    /* color: #f9fbfb; */
 }
 #footer-content img {
     width: 30px;
@@ -434,13 +435,35 @@ p {
     align-items: center;
 }
 .footer-title h3 {
-    border-right: 2px solid rgb(233, 233, 233);
+    /* text-decoration: underline 1px solid; */
+    /* border-right: 2px solid rgb(233, 233, 233); */
 }
 
 #name {
+    color: var(--dark-blue);
+    font-weight: 800;
     margin-bottom: 20px;
+    padding-right: 15px;
+    text-align: center;
 }
 #links {
     display: flex;
     justify-content: center;
+}
+
+#links img {
+    width: 100%;
+}
+/* #entire-team h4 {
+    color: var(--dark-blue);
+} */
+
+#person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#git {
+    height: 65px;
 }

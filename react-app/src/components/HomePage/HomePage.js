@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import TaskViewHomePage from "./TaskViewHomePage";
 import UsersList from "../UsersList";
 import './HomePage.css'
+// import Footer from "../Footer";
 function HomePage() {
 
     return (
@@ -79,7 +80,9 @@ function HomePage() {
                 </div>
             </div>
 
-            <div className="footer">
+            {/* <Footer/> */}
+
+            {/* <div className="footer">
                 <div id="team">
                     <div id="entire-team">
                         <div id="footer-content" className="about-me">
@@ -127,7 +130,7 @@ function HomePage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

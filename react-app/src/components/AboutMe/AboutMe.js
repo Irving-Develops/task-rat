@@ -63,6 +63,7 @@ function AboutMe() {
         </div>
         <div className="content-container about-me">
           <a href="https://github.com/angMaidt"><img className="user-card-img" src="https://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo-450x450.png" alt="github logo"/></a>
+            <a href="https://www.linkedin.com/in/angie-maidt/"><img className="user-card-img" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="linked-in logo"/></a>
         </div>
       </div>
 

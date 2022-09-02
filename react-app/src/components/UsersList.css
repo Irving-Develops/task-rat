@@ -12,6 +12,7 @@
     padding: 15px;
     /* padding-right: 15%; */
     width: 100%;
+    height: 100px;
 }
 
 .user-name {
@@ -53,7 +54,7 @@
 
 .user-card-img {
     height: 100px;
-    transform: translate(-25%, 0);
+    transform: translate(-10%, 0);
 }
 
 .user-card-wrapper  a {
