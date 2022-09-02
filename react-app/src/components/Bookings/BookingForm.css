@@ -11,6 +11,7 @@
   font-weight: 400;
   padding: 10px;
   outline: none;
+  width: 110px;
   /* border-radius: 15px; */
   /* border-radius: 15px; */
   cursor: pointer;
@@ -21,4 +22,11 @@
   color: var(--2); */
   background-color: var(--2);
   color: #063f67;
+}
+
+
+.content-container h4 {
+  margin: 0;
+  margin-top: 10px;
+  
 }

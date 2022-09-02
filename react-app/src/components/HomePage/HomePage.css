@@ -104,6 +104,9 @@
 .home-page-buttons {
     display: flex;
     flex-direction: row;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-right: 20px;
 }
 
 .home-page-buttons button,
@@ -177,7 +180,7 @@
     margin-bottom: 5px;
 }
 
-.card:hover {
+.card:not(.card.users):hover {
     position: relative;
     top: -10px;
 }
@@ -221,7 +224,7 @@
     padding-top: 5px;
 }
 
-.danger-1, .users {
+.danger-1 {
     border-top: 3px solid rgb(7, 82, 20);
     /* background: linear-gradient(var(--1) 0%, rgb(7, 82, 20) 130%); */
     background-color: var(--1);
@@ -286,48 +289,6 @@
 }
 
 /* USER CSS */
-.user-card-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: var(--main-blue);
-    height: 30%;
-    color: white;
-}
-
-.user-card-wrapper {
-    background-color: rgb(224, 224, 224);
-    margin: 20px;
-    width: 250px;
-    height: 300px;
-}
-
-.user-card-img {
-    width: 100px;
-    border-radius: 5px;
-}
-.user-card-wrapper  a {
-    color: white;
-    text-decoration: none;
-}
-
-.bio {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    margin-bottom: 5%;
-    width: 100%;
-}
-
-.user-id {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-    border-bottom: 2px solid rgb(233, 233, 233);
-}
 
 .partnered-banner p{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
