@@ -9,6 +9,16 @@
     --main-blue: rgba(0,103,177,1);
 }
 
+#taskform-blocker {
+    position: absolute;
+    height: 675px;
+    width: 80%;
+    top: 30%;
+    /* background-color: red; */
+    /* background: rgba(255,255,255,0.5); */
+    backdrop-filter: blur(5px);
+}
+
 .input-container {
     display: flex;
     flex-direction: column;

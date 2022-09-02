@@ -9,6 +9,8 @@ function TaskForm() {
   const dispatch = useDispatch()
   const history = useHistory()
 
+  const sessionUser = useSelector(state => state.session.user)
+
   const userId = useSelector((state) => {
     if (state.session.user) {
       return state.session.user.id
@@ -121,18 +123,26 @@ function TaskForm() {
           <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
         </div>
         <div className="bubble bubble-bottom-left">
-          {hasSubmitted && errors.length > 0 ? (
-            <ul className='errors'>
-              {errors.map(error => (
-                  <li className='error' key={error}>{error}</li>
-              ))}
-            </ul>
-          )
+          {!sessionUser ?
+            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px', 'color': 'red' }}>Login to post a new task!</p>
+          :
+            hasSubmitted && errors.length > 0 ? (
+              <ul className='errors'>
+                {errors.map(error => (
+                    <li className='error' key={error}>{error}</li>
+                ))}
+              </ul>
+              )
             :
-            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
-          }
+              <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
+            }
         </div>
       </div>
+      {!sessionUser ?
+        <div id='taskform-blocker'></div>
+      :
+        null
+      }
         <form onSubmit={handleSubmit} className='step-form'>
         {count === 1 &&
         <div className='input-container'>
