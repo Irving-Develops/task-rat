@@ -9,11 +9,21 @@
     --main-blue: rgba(0,103,177,1);
 }
 
+#taskform-blocker {
+    position: absolute;
+    height: 675px;
+    width: 80%;
+    top: 30%;
+    /* background-color: red; */
+    /* background: rgba(255,255,255,0.5); */
+    backdrop-filter: blur(5px);
+}
+
 .input-container {
     display: flex;
     flex-direction: column;
     height: 650px;
-    width: 1200px;
+    width: 90%;
     border: 1px solid #b1b9c3;
     border-radius: 20px;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
@@ -27,13 +37,14 @@
     align-self: center;
     justify-content: center;
     width: 80%;
-    height: 100vh;
+    height: 100%;
     margin-left: 10%;
     margin-right: 10%;
+    padding-bottom: 50px;
     /* background-color: var(--main-blue); */
-    background: linear-gradient(0.25turn, var(--dark-blue), var(--main-blue), var(--dark-blue));
-    border-left: 5px solid var(--dark-blue);
-    border-right: 5px solid var(--dark-blue);
+    background: linear-gradient(200deg, var(--main-blue) 0%, var(--dark-blue) 100%);
+    /* border-left: 5px solid var(--dark-blue);
+    border-right: 5px solid var(--dark-blue); */
 }
 
 .form-section {
@@ -48,7 +59,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -70px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    /* margin-top: -70px; */
     font-family: monospace;
 }
 
@@ -65,7 +78,7 @@
     margin-right: 80px;
     margin-bottom: 16px;
     overflow: hidden;
-    z-index: 10001;
+    /* z-index: 10001; */
 }
 
 .form-header img {
@@ -79,17 +92,17 @@
 .bubble {
     position: relative;
     font-size: 18px;
-    width: 500px;
+    width: 50%;
     background: #fff;
     border-radius: 20px;
     padding: 12px;
     text-align: center;
     color: #000;
     /* margin-top: 70px; */
-    margin-bottom: -20px;
+    /* margin-bottom: -20px; */
     box-shadow: 2px 2px 2px 2px rgb(36 42 48 / 15%);
     border: 1px solid #b1b9c3;
-    z-index: 10001;
+    /* z-index: 10001; */
   }
 
   .bubble-bottom-left:before {
@@ -124,6 +137,7 @@
 .form-section h4 {
     font-style: italic;
     font-size: 16px;
+
 }
 
 .form-section input, textarea{
@@ -145,16 +159,22 @@
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 30px;
+    /* margin-top: 10px; */
     /* color: black; */
 }
 
-.input-wrapper *{
-    margin: 16px;
+.input-wrapper input {
+    width: 40%;
+    margin-bottom: 10px;
+}
+.input-wrapper textarea {
+    /* margin: 16px; */
+    width: 95%;
 }
 
 .new-task-description {
-    height: 200px;
+    height: 250px;
 }
 
 .input-headers {
@@ -166,6 +186,8 @@
 #quality {
     font-style: italic;
     text-align: right;
+    width: 95%;
+    margin-top: 15px;
 }
 
 .final-screen-content {
@@ -243,14 +265,14 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 64px;
-    margin-top: 16px;
+    margin-top: 30px;
     margin-bottom: 16px;
     color: black;
 }
 
 .new-tags-container div{
     display: flex;
-    width: 600px;
+    width: 50%;
     justify-content: space-between;
     margin-bottom: 16px;
 }
@@ -276,4 +298,5 @@
 
 .input-container select{
     width: 50px;
+    margin-top: 15px;
 }

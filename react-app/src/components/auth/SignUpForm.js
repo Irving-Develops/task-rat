@@ -15,7 +15,7 @@ const SignUpForm = () => {
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [pic_url, setPicUrl] = useState('');
+  const [pic_url, setPicUrl] = useState('https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
@@ -187,7 +187,7 @@ const SignUpForm = () => {
                 <textarea
                   type='text'
                   name='bio'
-                  className='new-task-description'
+                  className='bio-description'
                   placeholder='Share your skills, likes, dislikes, what three items you would take into the wasteland... get creative!'
                   onChange={updateBio}
                   value={bio}
@@ -277,7 +277,7 @@ const SignUpForm = () => {
               </div>
               <div className='input-wrapper'>
                 <div className='avatar-inputs'>
-                  <div>
+                  <label>
                     <input
                       type='radio'
                       name='pic_url'
@@ -288,8 +288,8 @@ const SignUpForm = () => {
                     <div className='avatar-image'>
                       <img src='https://www.giantbomb.com/a/uploads/square_small/10/103881/1778599-chet.jpg' alt='choice-1' />
                     </div>
-                  </div>
-                  <div>
+                  </label>
+                  <label>
                     <input
                       type='radio'
                       name='pic_url'
@@ -300,8 +300,8 @@ const SignUpForm = () => {
                     <div className='avatar-image'>
                       <img src='http://cdn.pastemagazine.com/www/articles/fallout_Rose%20of%20Sharon%20Cassidy.jpg' alt='choice-2' />
                     </div>
-                  </div>
-                  <div>
+                  </label>
+                  <label>
                     <input
                       type='radio'
                       name='pic_url'
@@ -312,8 +312,8 @@ const SignUpForm = () => {
                     <div className='avatar-image'>
                       <img src='https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57694/57694-1647265530-1228827550.jpeg' alt='choice-3' />
                     </div>
-                  </div>
-                  <div>
+                  </label>
+                  <label>
                     <input
                       type='radio'
                       name='pic_url'
@@ -324,8 +324,8 @@ const SignUpForm = () => {
                     <div className='avatar-image'>
                       <img src='https://lparchive.org/Fallout-3-(by-Lizard-Wizard)/Update%2009/5-Fallout3_2012-02-21_00-13-10-84.jpg' alt='choice-4' />
                     </div>
-                  </div>
-                  <div>
+                  </label>
+                  <label>
                     <input
                       type='radio'
                       name='pic_url'
@@ -336,7 +336,7 @@ const SignUpForm = () => {
                     <div className='avatar-image'>
                       <img src='https://cdn.pastemagazine.com/www/articles/2021/06/28/dogmeat_passing_main.jpg' alt='choice-5' />
                     </div>
-                  </div>
+                  </label>
                 </div>
                 </div>
             </div>

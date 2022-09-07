@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     height: 650px;
-    min-width: 90%;
+    width: 90%;
     border: 1px solid #b1b9c3;
     border-radius: 20px;
     box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%);
@@ -32,12 +32,14 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .exclude-textarea textarea{
     margin-top: 16px;
     margin-left: 153px;
-    width: 850px;
+    width: 100%;
+    /* width: 850px; */
 }
 
 .user-photo {
@@ -45,7 +47,8 @@
     justify-content: center;
     align-items: center;
     margin-right: 256px;
-    border-radius: 100%;
+    /* border-radius: 100%; */
+    border-radius: 5px;
     border: 1px solid black;
     height: 200px;
     width: 200px;
@@ -108,8 +111,10 @@
 
 .avatar-inputs {
     display: flex;
-    justify-content: space-between;
-    height: 255px;
+    justify-content: space-around;
+    padding: 20px;
+    /* overflow: wrap; */
+    /* height: 255px; */
     /* border: 1px solid black; */
 }
 
@@ -118,29 +123,36 @@
     align-items: center;
 }
 
-.avatar-inputs input[type=radio]:checked + .avatar-image {
-    /* outline: 1px solid black; */
-    width: 150px;
-    height: 150px;
-    box-shadow: 0px 2px 20px 2px rgba(87, 87, 87, 0.6);
-    transition: all 0.1s ease-in-out;
+input[type='radio'] {
+    opacity: 0;
 }
 
-.avatar-inputs input[type=radio]:checked + .avatar-image img {
-    height: 200px;
-    margin-left: 75px;
-    margin-top: 90px;
+[type='radio'] + .avatar-image {
+    cursor: pointer;
+}
+
+[type='radio']:checked + .avatar-image {
+    transform: scale(1.5);
     transition: all 0.1s ease-in-out;
+    box-shadow: 0px 2px 20px 2px rgba(87, 87, 87, 0.6);
+}
+
+.avatar-image:hover {
+    box-shadow: 0px 2px 20px 2px rgba(87, 87, 87, 0.6);
+    transform: scale(1.5);
 }
 
 .avatar-inputs {
     display: flex;
+    border: 2px solid var(--dark-blue);
+    height: 175px;
+    background-color: #EEEEEE;
 }
 
 .avatar-image {
     width: 100px;
     height: 100px;
-    border-radius: 100%;
+    border-radius: 5px;
     border: 1px solid black;
     overflow: hidden;
 }
@@ -173,9 +185,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 600px;
+    width: 100%;
 }
 
 .left-user-info div:hover, .right-user-bio div:hover {
     cursor: pointer;
+}
+
+.bio-description {
+    height: 200px
 }

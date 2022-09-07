@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import UsersProfileModal from './Profile/UsersProfileModal';
+import './UsersList.css'
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -28,6 +29,7 @@ function UsersList() {
       <div key={user.id} className='card users' id={user.id}>
         <div className='user-id'>
           <div className='user-img'>
+            {/* {console.log(user)} */}
             <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
           </div>
           <div className='user-name'>
@@ -36,10 +38,9 @@ function UsersList() {
           </div>
         </div>
         <div className='content-container'>
-          {user.bio ?
-          <p>About me :</p>
-          : null}
+          <h4>About me:</h4>
           <p className='bio'>{user.bio}</p>
+          {/* <p className='bio'>I know my way around a toolbox. Can fix just about anything with a little duct tape and glue.</p> */}
         </div>
         <div className='home-page-buttons'>
             <UsersProfileModal user={user} />

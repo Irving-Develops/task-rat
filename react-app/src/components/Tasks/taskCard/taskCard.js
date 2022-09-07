@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import BookingForm from '../../Bookings/BookingForm'
+import { Link } from 'react-router-dom'
+// import BookingForm from '../../Bookings/BookingForm'
 import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
+  console.log(task)
 
   let user
   if (users) {
@@ -82,43 +83,64 @@ function TaskCard({ task }) {
 
   if(!user || !task) return null;
   return (
-          <div className={`danger-${task.danger_level} card`}>
-            <div className='title-danger-level-wrapper'>
-              <div className='title'>
-                  <h3> {task.title} </h3>
+    <Link to={`/tasks/${task.id}`}>
+    <div className='card'>
+    {/* <div className={`danger-${task.danger_level} card`}> */}
+    {/* <div className='title-danger-level-wrapper'> */}
+      <div className={`danger-${task.danger_level} card-top`}>
+          <h3> {task.title} </h3>
+          <div id="icons">
+            <p>Danger Level:</p>
+            <div>{dangerIcons}</div>
+          </div>
+      </div>
+            {/* </div> */}
+      <div className='content-container'>
+          {/* <div className='task-content'>
+              <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
+              <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
+                <p>Danger: </p>
+                <div id="icons">
+                    {dangerIcons}
+                </div>
               </div>
+              <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
+          </div> */}
+          {/* <div className='task-misc'> */}
+            {/* <div className='home-page-buttons'>
+                <BookingForm task={task}/>
+                <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
+            </div> */}
+            <div className='tags-container'>
+                    {task.tags.map((tag, idx) => (
+                      <Link to={`/tags/${tag.id}`}>
+                        <div key={tag.type} className="tags">
+                          {tag.type}
+                          {idx !== task.tags.length - 1 && (
+                            <span style={{ 'color': 'gray' }}> | </span>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
             </div>
-            <div className='content-container'>
-                <div className='task-content'>
-                    <p><span className='task-bullet'>Location :</span> {task.city}, {task.state}, {task.country}</p>
-                    <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color' : `${dangerIconColor}` }}>
-                      <p>Danger: </p>
-                      <div id="icons">
-                          {dangerIcons}
-                      </div>
-                    </div>
-                    <p><span className='task-bullet'>Reward : </span> {task.price} BOTTLE CAPS</p>
-                </div>
-                <div className='task-misc'>
-                  <div className='home-page-buttons'>
-                      <BookingForm task={task}/>
-                      <NavLink to={`/tasks/${task.id}`} task={task}>View Task Details</NavLink>
-                  </div>
-                  <div className='tags-container'>
-                          {task.tags.map(tag => (
-                            <Link to={`/tags/${tag.id}`}>
-                              <div key={tag.type} className="tags">
-                                {tag.type} |
-                              </div>
-                            </Link>
-                          ))}
-                  </div>
-                </div>
-            </div>
-            <div className='date'>
-              <span className='date'>Posted : {task.created_at} </span>
-            </div>
+            {/* <div id='task-card-tag-underline' className={`danger-${task.danger_level}`}></div> */}
+          {/* </div> */}
+        <div className='posted-by'>
+          <p>Mercenary {task.user.first_name} needs your help!</p>
         </div>
+        <div className='card-desc-hidden'>
+          <div><span>Location:</span> {task.city}, {task.state}</div>
+          <div><span>Reward:</span> {task.price} caps</div>
+        </div>
+        <div className='date'>
+          <span className='date'>Posted {task.created_at} </span>
+        </div>
+        {/* <div className='claim-task-container'>
+          <BookingForm task={task}/>
+        </div> */}
+      </div>
+    </div>
+    </Link>
   )
 }
 

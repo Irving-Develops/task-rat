@@ -108,7 +108,8 @@
   right:0;
   top:0;
   z-index:2;
-  height: 250vh;
+  height: 800vh;
+  /* height: 200%; */
 }
 
 @keyframes colorPulse {

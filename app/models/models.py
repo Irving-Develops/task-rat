@@ -90,7 +90,8 @@ class Task(db.Model):
       'danger_level': self.danger_level,
       'available': self.available,
       'created_at': self.created_at,
-      'tags': [tag.to_dict() for tag in self.tags]
+      'tags': [tag.to_dict() for tag in self.tags],
+      'user': self.users.to_dict()
     }
 
   def to_dict_no_tags(self):
