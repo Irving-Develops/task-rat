@@ -38,7 +38,7 @@ function ProfileReviews({ reviewArr, user, reviewsAboutMeArr, selectedButton }) 
               return (
                 <SingleReview key={review.id} review={review} />
               )
-            }) : <p>Currently no one has written a review on you.</p>}
+            }) : <p>Currently no one has written a review about you.</p>}
           </div>
         </div>
       </div>
