@@ -4,6 +4,7 @@ import {editTaskThunk, getTasksThunk} from '../../store/tasks'
 import {editBookingThunk, deleteBookingThunk} from '../../store/booking'
 import '../Profile/ProfileTaskCard.css';
 import ProfileTaskCard from '../Profile/ProfileTaskCard';
+import TaskCard from '../Tasks/taskCard/taskCard';
 
 function BookedTasks({ taskId, booking, reviewArr }) {
   const task = useSelector(state => state.tasks[taskId])

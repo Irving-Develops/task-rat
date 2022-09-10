@@ -7,7 +7,7 @@ function ReviewFormModal({taskId}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Leave a Review</button>
+      <button className='review-profile-btns' onClick={() => setShowModal(true)}>Leave a Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm setShowModal={setShowModal} taskId={taskId}/>

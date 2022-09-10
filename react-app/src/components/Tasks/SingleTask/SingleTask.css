@@ -51,6 +51,12 @@
   border-radius: 30px;
 }
 
+.single-task-btn-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
 .single-task-edit-btns {
   display: block;
   margin: 5px 10px;
