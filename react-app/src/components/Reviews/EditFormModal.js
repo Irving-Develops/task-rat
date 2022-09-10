@@ -8,7 +8,9 @@ function EditReviewFormModal({taskId, review}) {
 
   return (
     <>
-      <button className='review-profile-btns' onClick={() => setShowModal(true)}>Edit Review</button>
+      <div className='review-edit-btn-div'>
+        <button className='review-profile-btns' onClick={() => setShowModal(true)}>Edit Review</button>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditReviewForm toggleShow={setShowModal} reviewProp={review}/>

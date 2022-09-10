@@ -87,56 +87,57 @@ function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftRevi
 
   if(!user || !task) return null;
   return (
-    <div className='trying'>
-
-<Link to={`/tasks/${task.id}`}>
-<div className='card'>
-  <div className={`danger-${task.danger_level} card-top`}>
-      <h3> {task.title} </h3>
-      <div id="icons">
-        <p>Danger Level:</p>
-        <div>{dangerIcons}</div>
-      </div>
-  </div>
-  <div className='content-container'>
-        <div className='tags-container'>
-                {task.tags.map((tag, idx) => (
-                  <Link to={`/tags/${tag.id}`}>
-                    <div key={tag.type} className="tags">
-                      {tag.type}
-                      {idx !== task.tags.length - 1 && (
-                        <span style={{ 'color': 'gray' }}> | </span>
-                      )}
-                    </div>
-                  </Link>
-                ))}
+    <div className='profile-task-card-container'>
+      <Link className='profile-task-card-link' to={`/tasks/${task.id}`}>
+        <div className='card prof-card'>
+          <div className={`danger-${task.danger_level} card-top`}>
+              <h3> {task.title} </h3>
+              <div id="icons">
+                <p>Danger Level:</p>
+                <div>{dangerIcons}</div>
+              </div>
+          </div>
+          <div className='content-container'>
+                <div className='tags-container'>
+                        {task.tags.map((tag, idx) => (
+                          <Link to={`/tags/${tag.id}`}>
+                            <div key={tag.type} className="tags">
+                              {tag.type}
+                              {idx !== task.tags.length - 1 && (
+                                <span style={{ 'color': 'gray' }}> | </span>
+                              )}
+                            </div>
+                          </Link>
+                        ))}
+                </div>
+            <div className='posted-by'>
+              <p>Mercenary {task.user.first_name} needs your help!</p>
+            </div>
+            <div className='card-desc-hidden'>
+              <div><span>Location:</span> {task.city}, {task.state}</div>
+              <div><span>Reward:</span> {task.price} caps</div>
+            </div>
+            <div className='date'>
+              <span className='date'>Posted {task.created_at} </span>
+            </div>
+            {/* <div className='claim-task-container'>
+              <BookingForm task={task}/>
+            </div> */}
+          </div>
         </div>
-    <div className='posted-by'>
-      <p>Mercenary {task.user.first_name} needs your help!</p>
-    </div>
-    <div className='card-desc-hidden'>
-      <div><span>Location:</span> {task.city}, {task.state}</div>
-      <div><span>Reward:</span> {task.price} caps</div>
-    </div>
-    <div className='date'>
-      <span className='date'>Posted {task.created_at} </span>
-    </div>
-    {/* <div className='claim-task-container'>
-      <BookingForm task={task}/>
-    </div> */}
-  </div>
-</div>
-</Link>
-    {sessionUser && sessionUser.id !== user.id && <div>
-      {booking && !booking.completed ? (
+      </Link>
+      {sessionUser && sessionUser.id !== user.id &&
         <div>
-          <button className='review-profile-btns' onClick={submitHandler}>Complete</button>
-          <button className='review-profile-btns' onClick={deleteHandler}>Drop task</button>
-        </div>)
-                : (leftReview && leftReview.length === 1) ?
-                  <EditReviewFormModal taskId={taskId} review={leftReview[0]} /> :
-                  <ReviewFormModal taskId={taskId} />}
-            </div>}
+          {booking && !booking.completed ? (
+            <div className='review-profile-btn-div'>
+              <button className='review-profile-btns' onClick={submitHandler}>Complete</button>
+              <button className='review-profile-btns' onClick={deleteHandler}>Drop task</button>
+            </div>)
+              : (leftReview && leftReview.length === 1) ?
+                <EditReviewFormModal taskId={taskId} review={leftReview[0]} /> :
+                <ReviewFormModal taskId={taskId} />}
+        </div>
+      }
     </div>
   )
 }

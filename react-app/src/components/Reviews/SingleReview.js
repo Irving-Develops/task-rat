@@ -10,8 +10,9 @@ function SingleReview({ review }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [showEditForm, setShowEditForm] = useState(false);
+
   const deleteHandler = async () => {
-    await dispatch(deleteReviewThunk(review))
+    if (window.confirm('Are you sure you want to delete this review?')) await dispatch(deleteReviewThunk(review));
   }
 
   return (
@@ -23,7 +24,7 @@ function SingleReview({ review }) {
               <div className='review-rating'>Rating: {review.rating}</div>
               <div className='review-comment'>Comment: {review.comment}</div>
               <Link className='view-task' to={`/tasks/${review.task_id}`}>View Task</Link>
-              <div>
+              <div className='review-profile-btn-div'>
                 <EditReviewFormModal review={review} />
                 <button className='review-profile-btns' onClick={deleteHandler}>Delete</button>
               </div>

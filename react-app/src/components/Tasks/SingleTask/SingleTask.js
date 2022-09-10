@@ -35,8 +35,10 @@ function SingleTask() {
     }
 
     const handleDelete = async () => {
-        await dispatch(deleteTaskThunk(task))
-        history.push('/tasks')
+        if (window.confirm('Are you sure you would like to delete this task?')) {
+          await dispatch(deleteTaskThunk(task))
+          history.push('/tasks')
+        }
     }
 
     let dangerIcons, dangerIconColor, extremelyDangerous;

@@ -68,8 +68,8 @@ function ReviewForm({setShowModal, taskId}) {
           />
         </div>
         <div>
-          <button className='new-review-form-btn' type='submit'>Submit</button>
-          <button className='new-review-form-btn' onClick={handleCancel}>Cancel</button>
+          <button className='review-form-btn' type='submit'>Submit</button>
+          <button className='review-form-btn' onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </>

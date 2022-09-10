@@ -47,24 +47,24 @@ function BookedTasks({ taskId, booking, reviewArr }) {
 
   const deleteHandler = async(e) => {
     try {
-        e.preventDefault();
+        if (window.confirm('Are you sure you want to drop this task?')) {
+          e.preventDefault();
 
-        const payload = {
-        ...task,
-        available: true,
-        tags
+          const payload = {
+          ...task,
+          available: true,
+          tags
+          }
+          await dispatch(editTaskThunk(payload))
+          await dispatch(deleteBookingThunk(booking))
         }
-        const editedTask = await dispatch(editTaskThunk(payload))
-        await dispatch(deleteBookingThunk(booking))
-
-        if(editedTask) window.alert("nice");
     }catch(err) {
         setValidationErrors(err.errors)
     }
   }
 
   return (
-    <div>
+    <div className='prof-taskcard-div'>
       {validationErrors && validationErrors.length > 0 && validationErrors.map(error => {
         return <div>{error}</div>
       })}

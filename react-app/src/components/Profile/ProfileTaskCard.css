@@ -39,3 +39,28 @@
 #task-deets {
   margin-right: 50%;
 }
+
+.profile-task-card-container {
+  width: 100%;
+}
+.prof-taskcard-div {
+  width: 100%;
+}
+.profile-task-card-link {
+  width: 100%;
+}
+
+.prof-card {
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.profile-task-card-link .card {
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+

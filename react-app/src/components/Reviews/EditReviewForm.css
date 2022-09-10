@@ -1,4 +1,4 @@
-.edit-review-form-btn {
+/* .edit-review-form-btn {
   background-color: #1c381b;
   color: #14f217;
   border-radius: 15px;
@@ -7,7 +7,7 @@
   width: 100px;
   height: 30px;
   margin: 10px;
-}
+} */
 
 #edit-review-form-input {
   background-color: #1c381b;
@@ -28,7 +28,7 @@
   margin-bottom: 10px;
 }
 
-.new-review-form-btn {
+.review-form-btn {
   background-color: #1c381b;
   color: #14f217;
   border-radius: 15px;

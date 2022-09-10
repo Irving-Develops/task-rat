@@ -10,9 +10,9 @@ function TaskView() {
   const tasks = useSelector((state) => state.tasks)
   let availableTasks = Object.values(tasks).filter(task => task.available === true)
 
-  if(sessionUser.user) {
-    availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
-  }
+  // if(sessionUser.user) {
+  //   availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
+  // }
 
   useEffect(() => {
     const fetchTasks = async () => {

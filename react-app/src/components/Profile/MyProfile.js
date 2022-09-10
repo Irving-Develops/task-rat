@@ -105,7 +105,7 @@ function MyProfile() {
           <div className='information-div'>
             <p className='information-p' style={{ display: selectedButton.includes(0) ? 'flex' : 'none' }}>This section will show all of your account information. If you need to change anything like your name or email you'll do it here.</p>
             <p className='information-p' style={{ display: selectedButton.includes(1) ? 'flex' : 'none' }}>This section shows all of the tasks that you have created. Once someone picks up one of your tasks it will move to the pending section. When they complete the task it will be moved into the completed section.</p>
-            <p className='information-p' style={{ display: selectedButton.includes(2) ? 'flex' : 'none' }}>This section is all of the reviews you have written. You can edit or delete them here. If you would like to make a review on job 1 for example, you'll need to go to the job section and leave a review there.</p>
+            <p className='information-p' style={{ display: selectedButton.includes(2) ? 'flex' : 'none' }}>This section is all of the reviews you have written. You can edit or delete them here. If you would like to make a review on a job you have completed, you'll need to go to the job section and leave a review there.</p>
             <p className='information-p' style={{ display: selectedButton.includes(3) ? 'flex' : 'none' }}>This section contains all of the jobs that you have picked up. Once you have completed the job it will move to the completed section and from there you can leave a review.</p>
             <p className='information-p' style={{ display: selectedButton.includes(4) ? 'flex' : 'none' }}>This section showcases all of the reviews people have left on you. Your overall rating is then calculated and posted at the top adjacent to your name.</p>
           </div>
@@ -145,7 +145,7 @@ function MyProfile() {
                   {myAvailableTasks.length > 0 ? myAvailableTasks.map(task => {
                     return (
                       <div className='task-scroll-divs' key={task.id}>
-                        <TaskCard task={task}/>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
                   }) : <p>You currently don't have any tasks in this section.</p>}
@@ -154,7 +154,7 @@ function MyProfile() {
                   {pendingTasks.length > 0 ? pendingTasks.map(task => {
                     return (
                       <div className='task-scroll-divs' key={task.id}>
-                        <TaskCard task={task}/>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
                   }) : <p>You currently don't have any tasks in this section.</p>}
@@ -163,7 +163,7 @@ function MyProfile() {
                   {completedTasks.length > 0 ? completedTasks.map(task => {
                     return (
                       <div className='task-scroll-divs' key={task.id}>
-                        <TaskCard task={task}/>
+                        <ProfileTaskCard task={task}/>
                       </div>
                     );
                   }) : <p>You currently don't have any tasks in this section.</p>}
