@@ -111,6 +111,13 @@
   /* padding: 5px; */
 }
 
+#single-task-danger-level-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .single-task-danger-level {
   display: flex;
 }

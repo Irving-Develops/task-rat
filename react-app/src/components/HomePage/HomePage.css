@@ -106,7 +106,17 @@
     flex-direction: row;
     align-self: flex-end;
     justify-self: flex-end;
-    margin-right: 20px;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.home-page-buttons .profile-btns {
+  margin: 0;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .home-page-buttons button,

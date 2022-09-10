@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-#btns-div {
+.btns-div {
 
   box-sizing: border-box;
   width: 200px;
@@ -70,6 +70,24 @@
   padding-bottom: 40px;
   margin: auto;
   box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
+}
+
+.view-profile-btn {
+  width: 300px;
+  display: block;
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  border: 1px solid #063f67;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  outline: none;
+  border-radius: 30px;
 }
 
 .profile-btns {
@@ -366,4 +384,8 @@
 .active {
   background-color: #0067b1;
   color: #ffffff;
+}
+
+.active:hover {
+  background-color: #1776bad8;
 }

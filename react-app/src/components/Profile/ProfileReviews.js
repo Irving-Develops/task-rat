@@ -20,11 +20,11 @@ function ProfileReviews({ reviewArr, user, reviewsAboutMeArr, selectedButton }) 
         </div>
         <div className='review-scroll'>
           <div className='review-container'>
-            {sessionUser && !user && reviewArr.length > 0 && reviewArr.map(review => {
+            {sessionUser && !user && reviewArr.length > 0 ? reviewArr.map(review => {
               return (
                 <SingleReview key={review.id} review={review} />
               )
-            })}
+            }) : <p>You haven't left any reviews yet.</p>}
           </div>
         </div>
       </div>
@@ -34,11 +34,11 @@ function ProfileReviews({ reviewArr, user, reviewsAboutMeArr, selectedButton }) 
         </div>
         <div className='review-scroll'>
           <div className='review-container'>
-            {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 && reviewsAboutMeArr.map(review => {
+            {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 ? reviewsAboutMeArr.map(review => {
               return (
                 <SingleReview key={review.id} review={review} />
               )
-            })}
+            }) : <p>Currently no one has written a review on you.</p>}
           </div>
         </div>
       </div>

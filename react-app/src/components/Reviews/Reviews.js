@@ -23,11 +23,11 @@ function Reviews({ reviewArr, user, reviewsAboutMeArr }) {
       })}
 
       <h2>Reputation</h2>
-      {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 && reviewsAboutMeArr.map(review => {
+      {reviewsAboutMeArr && reviewsAboutMeArr.length > 0 ? reviewsAboutMeArr.map(review => {
         return (
           <SingleReview key={review.id} review={review} />
         )
-      })}
+      }) : <p>{user.first_name} currently doesn't have any reviews</p>}
     </>
   );
 }

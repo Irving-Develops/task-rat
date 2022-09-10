@@ -1,10 +1,10 @@
 .about-me-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    /* grid-template-columns: repeat(4, 1fr); */
     width: 90%;
     margin-bottom: 50px;
+    margin: auto;
 }
-
 
 .about-me {
     display: flex;

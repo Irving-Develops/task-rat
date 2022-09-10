@@ -96,7 +96,7 @@ function MyProfile() {
           <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
           <div id='p-btns-div'>
             <p id='profile-welcome'>Welcome!</p>
-          <div id="btns-div">
+          <div className="btns-div">
             {profileButtons.map((label, index) => {
               return <button key={label} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
