@@ -69,7 +69,7 @@ function BookedTasks({ taskId, booking, reviewArr }) {
         return <div>{error}</div>
       })}
       {task && booking && (
-      <div>
+      <div className='prof-taskcard-div'>
         <ProfileTaskCard task={task} booking={booking} submitHandler={submitHandler} deleteHandler={deleteHandler} leftReview={leftReview} taskId={taskId}/>
       </div>
       )}

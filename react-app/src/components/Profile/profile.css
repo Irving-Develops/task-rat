@@ -371,6 +371,7 @@
   grid-row: 1 / 2;
   height: 450px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 #profile-reputation {

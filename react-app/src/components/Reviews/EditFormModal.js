@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditReviewForm from './EditReviewForm';
+import '../Profile/profilereviews.css';
 
 function EditReviewFormModal({taskId, review}) {
   const [showModal, setShowModal] = useState(false);

@@ -59,6 +59,7 @@
   outline: none;
   border-radius: 30px;
   height: 40px;
+  margin-left: 40px;
 }
 
 .review-profile-btns:hover {
