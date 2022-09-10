@@ -10,7 +10,6 @@ import '../Tasks/taskCard/taskCard.css'
 function ProfileTaskCard({ task, booking, submitHandler, deleteHandler, leftReview, taskId }) {
   const sessionUser = useSelector(state => state.session.user);
   const [users, setUsers] = useState([])
-  console.log(task)
 
   let user
   if (users) {

@@ -5,7 +5,6 @@ import './taskCard.css'
 
 function TaskCard({ task }) {
   const [users, setUsers] = useState([])
-  console.log(task)
 
   let user
   if (users) {

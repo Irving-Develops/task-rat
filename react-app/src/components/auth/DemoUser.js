@@ -10,8 +10,6 @@ const DemoUser = ({ modalCheck }) => {
     return dispatch(demoLogin())
   }
 
-  // console.log(modalCheck)
-
   if (modalCheck) {
     return <button onClick={handleDemoLogin}> [Demo User] </button>
   }

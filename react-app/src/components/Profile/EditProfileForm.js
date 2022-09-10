@@ -51,7 +51,6 @@ const EditProfileForm = ({ user, toggleShow }) => {
         toggleShow()
       }
     } catch (error) {
-      console.log(error)
       setErrors(error.errors)
     }
   }
