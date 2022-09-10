@@ -387,12 +387,12 @@
   justify-content: center;
 }
 
-.active {
+.prof-active {
   background-color: #0067b1;
   color: #ffffff;
 }
 
-.active:hover {
+.prof-active:hover {
   background-color: #1776bad8;
 }
 

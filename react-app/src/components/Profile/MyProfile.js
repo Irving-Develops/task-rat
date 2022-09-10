@@ -99,7 +99,7 @@ function MyProfile() {
             <p id='profile-welcome'>Welcome!</p>
           <div className="btns-div">
             {profileButtons.map((label, index) => {
-              return <button key={label} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
+              return <button key={label} className={selectedButton.includes(index) ? 'profile-btns prof-active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
           </div>
           <div className='information-div'>
@@ -136,7 +136,7 @@ function MyProfile() {
                 <div id='task-btns-div'>
                   <Link to='/tasks/new'><p id='profile-add-task'>+</p></Link>
                   {taskButtons.map((label, index) => {
-                    return <button key={label} className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
+                    return <button key={label} className={selectedTaskButton.includes(index) ? 'task-btns prof-active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
@@ -177,7 +177,7 @@ function MyProfile() {
                 <div id='jobs-btns-div'>
                   <Link to='/tasks'><p id='profile-add-task'>+</p></Link>
                   {jobButtons.map((label, index) => {
-                    return <button key={label} className={selectedJobButton.includes(index) ? 'job-btns active' : 'job-btns'} onClick={() => handleJobClick(index)}>{label}</button>
+                    return <button key={label} className={selectedJobButton.includes(index) ? 'job-btns prof-active' : 'job-btns'} onClick={() => handleJobClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
