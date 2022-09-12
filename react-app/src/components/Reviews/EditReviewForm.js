@@ -50,16 +50,18 @@ function EditReviewForm({ toggleShow, reviewProp }) {
       {validationErrors && validationErrors.length > 0 && validationErrors.map((error, index) => {
         return <div key={index}>{error}</div>
       })}
-      <form onSubmit={handleSubmit}>
-        <label>Rating: </label>
-        <select className='new-review-form-input' value={rating} onChange={(e) => setRating(e.target.value)}>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-        </select>
-        <div>
+      <form className='review-form' onSubmit={handleSubmit}>
+        <div className='review-divs'>
+          <label>Rating: </label>
+          <select className='new-review-form-input' value={rating} onChange={(e) => setRating(e.target.value)}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+        </div>
+        <div className='review-divs'>
           <label>Comment: </label>
           <input
             id="edit-review-form-input"
@@ -70,8 +72,8 @@ function EditReviewForm({ toggleShow, reviewProp }) {
           />
         </div>
         <div>
-          <button className="edit-review-form-btn" type='submit'>Submit</button>
-          <button className="edit-review-form-btn" onClick={handleCancel}>Cancel</button>
+          <button className="review-form-btn" type='submit'>Submit</button>
+          <button className="review-form-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </>

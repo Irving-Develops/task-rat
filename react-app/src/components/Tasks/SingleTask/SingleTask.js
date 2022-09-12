@@ -35,8 +35,10 @@ function SingleTask() {
     }
 
     const handleDelete = async () => {
-        await dispatch(deleteTaskThunk(task))
-        history.push('/tasks')
+        if (window.confirm('Are you sure you would like to delete this task?')) {
+          await dispatch(deleteTaskThunk(task))
+          history.push('/tasks')
+        }
     }
 
     let dangerIcons, dangerIconColor, extremelyDangerous;
@@ -105,13 +107,17 @@ function SingleTask() {
                 <div id="single-task-container">
                     <div id="single-task-card">
                         <h1 style={{ 'color': '#063F67' }}>{task.title}</h1>
-                        <p><UsersProfileModal user={user} /></p>
+                        <div><UsersProfileModal user={user} /></div>
                         <p>Posted: {task.created_at} </p>
                         <p>Location: {task.city}, {task.state}, {task.country}</p>
                         <p>Description: {task.description}</p>
                         <p>Reward: {task.price} bottle caps</p>
-                        <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color': `${dangerIconColor}` }}>
-                            {dangerIcons}
+                        <div id='single-task-danger-level-container'>
+                          <p>Danger Level:</p>
+                          <div className={`single-task-danger-level ${extremelyDangerous}`} style={{ 'color': `${dangerIconColor}` }}>
+
+                              {dangerIcons}
+                          </div>
                         </div>
                         <p>Skills required: </p>
                         <div id='single-task-tags'>
@@ -124,9 +130,9 @@ function SingleTask() {
                           ))}
                         </div>
                         {sessionUser && sessionUser.id === task.poster_id &&
-                            <div>
-                                <button className="single-task-edit-btns" onClick={handleDelete}>Delete</button>
+                            <div className='single-task-btn-div'>
                                 <EditTaskFormModal task={task}/>
+                                <button className="single-task-edit-btns" onClick={handleDelete}>Delete</button>
                             </div>
                         }
                         <div id="claim-task-single-task-btn">

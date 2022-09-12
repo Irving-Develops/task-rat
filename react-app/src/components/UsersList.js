@@ -29,7 +29,6 @@ function UsersList() {
       <div key={user.id} className='card users' id={user.id}>
         <div className='user-id'>
           <div className='user-img'>
-            {/* {console.log(user)} */}
             <img src={user.pic_url} alt="cool guy" className="user-card-img"/>
           </div>
           <div className='user-name'>

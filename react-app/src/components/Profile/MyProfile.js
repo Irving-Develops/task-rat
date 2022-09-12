@@ -8,6 +8,7 @@ import Bookings from '../Bookings/Bookings';
 import AverageRating from './AverageRating';
 import EditProfileFormModal from './EditProfileModal';
 import ProfileTaskCard from './ProfileTaskCard';
+import TaskCard from '../Tasks/taskCard/taskCard';
 import ProfileReviews from './ProfileReviews';
 import './profile.css';
 
@@ -96,10 +97,17 @@ function MyProfile() {
           <AverageRating reviewsAboutMeArr={reviewsAboutMeArr}/>
           <div id='p-btns-div'>
             <p id='profile-welcome'>Welcome!</p>
-          <div id="btns-div">
+          <div className="btns-div">
             {profileButtons.map((label, index) => {
-              return <button key={label} className={selectedButton.includes(index) ? 'profile-btns active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
+              return <button key={label} className={selectedButton.includes(index) ? 'profile-btns prof-active' : 'profile-btns'} onClick={() => handleClick(index)}>{label}</button>
             })}
+          </div>
+          <div className='information-div'>
+            <p className='information-p' style={{ display: selectedButton.includes(0) ? 'flex' : 'none' }}>This section will show all of your account information. If you need to change anything like your name or email you'll do it here.</p>
+            <p className='information-p' style={{ display: selectedButton.includes(1) ? 'flex' : 'none' }}>This section shows all of the tasks that you have created. Once someone picks up one of your tasks it will move to the pending section. When they complete the task it will be moved into the completed section.</p>
+            <p className='information-p' style={{ display: selectedButton.includes(2) ? 'flex' : 'none' }}>This section is all of the reviews you have written. You can edit or delete them here. If you would like to make a review on a job you have completed, you'll need to go to the job section and leave a review there.</p>
+            <p className='information-p' style={{ display: selectedButton.includes(3) ? 'flex' : 'none' }}>This section contains all of the jobs that you have picked up. Once you have completed the job it will move to the completed section and from there you can leave a review.</p>
+            <p className='information-p' style={{ display: selectedButton.includes(4) ? 'flex' : 'none' }}>This section showcases all of the reviews people have left on you. Your overall rating is then calculated and posted at the top adjacent to your name.</p>
           </div>
           </div>
           <div id='show-profile'>
@@ -128,7 +136,7 @@ function MyProfile() {
                 <div id='task-btns-div'>
                   <Link to='/tasks/new'><p id='profile-add-task'>+</p></Link>
                   {taskButtons.map((label, index) => {
-                    return <button key={label} className={selectedTaskButton.includes(index) ? 'task-btns active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
+                    return <button key={label} className={selectedTaskButton.includes(index) ? 'task-btns prof-active' : 'task-btns'} onClick={() => handleTaskClick(index)}>{label}</button>
                   })}
                 </div>
               </div>
@@ -169,7 +177,7 @@ function MyProfile() {
                 <div id='jobs-btns-div'>
                   <Link to='/tasks'><p id='profile-add-task'>+</p></Link>
                   {jobButtons.map((label, index) => {
-                    return <button key={label} className={selectedJobButton.includes(index) ? 'job-btns active' : 'job-btns'} onClick={() => handleJobClick(index)}>{label}</button>
+                    return <button key={label} className={selectedJobButton.includes(index) ? 'job-btns prof-active' : 'job-btns'} onClick={() => handleJobClick(index)}>{label}</button>
                   })}
                 </div>
               </div>

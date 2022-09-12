@@ -56,7 +56,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
           </div>
           <div>
             <h3 id="their-tasks-header">Their Tasks:</h3>
-            {myTasks.length > 0 && myTasks.map(task => {
+            {myTasks.length > 0 ? myTasks.map(task => {
               return (
                 <div key={task.id} className="user-profile-tasks">
                   <div className='task-modal-info-holder'>
@@ -74,7 +74,7 @@ const UsersProfiles = ({ user, setShowModal }) => {
                   </div>
                 </div>
               );
-            })}
+            }) : <p>{user.first_name} currently doesn't have any tasks for you to pick up.</p>}
           </div>
         </div>
       )}

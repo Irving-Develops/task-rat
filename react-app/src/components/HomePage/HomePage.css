@@ -106,7 +106,18 @@
     flex-direction: row;
     align-self: flex-end;
     justify-self: flex-end;
-    margin-right: 20px;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.home-page-buttons .view-profile-btn {
+  margin: 0;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding: 8px 12px;
 }
 
 .home-page-buttons button,
@@ -360,6 +371,8 @@
     padding: 4px;
     outline: none;
     border-radius: 15px;
+    padding: 6px 16px;
+
 }
 .body-banner-button p {
     padding:0;
