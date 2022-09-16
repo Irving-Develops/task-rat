@@ -9,14 +9,8 @@
     --main-blue: rgba(0,103,177,1);
 }
 
-#taskform-blocker {
-    position: absolute;
-    height: 675px;
-    width: 80%;
-    top: 30%;
-    /* background-color: red; */
-    /* background: rgba(255,255,255,0.5); */
-    backdrop-filter: blur(5px);
+#disabled-task-button {
+    background-color: #eeeeee;
 }
 
 .input-container {
@@ -236,7 +230,7 @@
     height: 50px
 }
 
-.task-form-buttons:hover:not(.disabled) {
+.task-form-buttons:hover:not(.disabled, #disabled-task-button) {
     color: #f9fbfb;
     background-color: var(--dark-blue);
 }

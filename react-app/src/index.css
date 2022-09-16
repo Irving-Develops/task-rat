@@ -6,6 +6,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-button:hover {
+button:not(#disabled-task-button):hover {
     cursor: pointer;
 }
