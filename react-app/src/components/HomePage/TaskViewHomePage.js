@@ -1,21 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Link from 'react-router'
 import { getTasksThunk } from "../../store/tasks"
 import TaskCard from '../Tasks/taskCard/taskCard'
-import TaskCardHomePage from "./TaskCardHomePage"
 
 function TaskViewHomePage() {
   const dispatch = useDispatch()
-  const sessionUser = useSelector(state => state.session)
   const tasks = useSelector((state) => state.tasks)
-  let availableTasks = Object.values(tasks).filter(task => task.available === true)
-  if(sessionUser.user) {
-    availableTasks = Object.values(tasks).filter(task => task.available === true && sessionUser.user.id !== task.poster_id)
-  }
-  while (availableTasks.length > 3) {
-    availableTasks.pop()
-  }
+  const filteredAvailableTasks = Object.values(tasks).filter(task => task.available === true);
+  const availableTasks = filteredAvailableTasks.slice(0, 3);
 
   useEffect(() => {
     const fetchTasks = async () => {
