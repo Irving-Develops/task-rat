@@ -19,7 +19,7 @@ function TaskViewHomePage() {
 
   return (
     tasks ?
-    <div>
+    <div classname='home-page-tasks'>
       <div className="home-page-title">
         <h2> Featured Tasks</h2>
       </div>
