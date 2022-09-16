@@ -124,7 +124,7 @@ function TaskForm() {
         </div>
         <div className="bubble bubble-bottom-left">
           {!sessionUser ?
-            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px', 'color': 'red' }}>Login to post a new task!</p>
+            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px', 'color': 'red' }}>Please login to post a new task!</p>
           :
             hasSubmitted && errors.length > 0 ? (
               <ul className='errors'>
@@ -138,12 +138,12 @@ function TaskForm() {
             }
         </div>
       </div>
-      {!sessionUser ?
+      <form onSubmit={handleSubmit} className='step-form'>
+      {/* {!sessionUser ?
         <div id='taskform-blocker'></div>
       :
         null
-      }
-        <form onSubmit={handleSubmit} className='step-form'>
+      } */}
         {count === 1 &&
         <div className='input-container'>
           <div>
@@ -152,19 +152,41 @@ function TaskForm() {
               <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
             </div>
             <div className='input-wrapper'>
-              <input
-                type="text"
-                placeholder="Enter a title for your task."
-                required
-                value={title}
-                onChange={updateTitle} />
-              <textarea
-                className="new-task-description"
-                type="text"
-                placeholder="Please provide a description of the task at hand."
-                required
-                value={description}
-                onChange={updateDescription} />
+              {!sessionUser ?
+                <>
+                  <input
+                    type="text"
+                    placeholder="Login to enter a title for your task!"
+                    required
+                    value={title}
+                    disabled
+                    onChange={updateTitle} />
+                  <textarea
+                    className="new-task-description"
+                    type="text"
+                    placeholder="Login to provide a description of the task at hand!"
+                    required
+                    value={description}
+                    disabled
+                    onChange={updateDescription} />
+                </>
+              :
+                <>
+                  <input
+                    type="text"
+                    placeholder="Enter a title for your task."
+                    required
+                    value={title}
+                    onChange={updateTitle} />
+                  <textarea
+                    className="new-task-description"
+                    type="text"
+                    placeholder="Please provide a description of the task at hand."
+                    required
+                    value={description}
+                    onChange={updateDescription} />
+                  </>
+              }
               <p id='quality'>*quality not guaranteed.</p>
             </div>
           </div>
@@ -175,12 +197,24 @@ function TaskForm() {
               disabled={count < 2}
               className='task-form-buttons disabled'
             >Back</button>
-            <button
-              type='button'
-              onClick={() => setCount(count + 1)}
-              disabled={count > 4}
-              className='task-form-buttons'
-            >Next</button>
+            {!sessionUser ?
+              // null
+              <button
+                type='button'
+                title='Login to post a new task!'
+                id='disabled-task-button'
+                onClick={() => setCount(count + 1)}
+                disabled
+                className='task-form-buttons'
+              >Next</button>
+            :
+              <button
+                type='button'
+                onClick={() => setCount(count + 1)}
+                disabled={count > 4}
+                className='task-form-buttons'
+              >Next</button>
+            }
           </div>
         </div>
         }

@@ -4,8 +4,9 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    /* height: 100vh */
 }
 
-button:hover {
+button:not(#disabled-task-button):hover {
     cursor: pointer;
 }
