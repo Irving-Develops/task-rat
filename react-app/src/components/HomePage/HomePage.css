@@ -408,13 +408,11 @@ p {
     display: flex;
     justify-content: center;
     background-color: #eeeeee;
-    /* background: linear-gradient(270deg, var(--main-blue) 0%, var(--dark-blue) 100%); */
     color: #f9fbfb;
-    /* margin-top: 50px; */
     height: 100%;
     width: 100%;
     padding-top: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 .footer a {
@@ -481,7 +479,7 @@ p {
 }
 
 #git {
-    height: 65px;
+    height: 55px;
 }
 
 #thanks {

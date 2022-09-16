@@ -11,19 +11,17 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-around;
-    margin-top: 110px;
+    margin-top: 20%;
 
 }
 
 .about-me img {
     height: 60px;
-    transition: all .25s ease-in
+    transition: all .2s ease-in
 }
 
 .about-me img:not(#links img):hover {
-    /* position: absolute; */
-    height: 90px;
-    /* box-shadow: 0px 2px 2px 0px rgb(36 42 48 / 15%); */
+    scale: 1.2;
 }
 
 .about-me-title {
