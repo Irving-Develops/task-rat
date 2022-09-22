@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addReviewThunk } from '../../store/review';
 
-function ReviewForm({setShowModal, taskId}) {
+function ReviewForm({ setShowModal, taskId }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [validationErrors, setValidationErrors] = useState([]);
