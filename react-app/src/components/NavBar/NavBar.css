@@ -21,7 +21,7 @@
     /* color: var(--yellow); */
     /* border: 1px solid #063f67; */
     /* text-transform: uppercase; */
-    text-align: center;
+    /* text-align: center; */
     line-height: 1;
     font-size: 22px;
     background-color: transparent;
@@ -34,6 +34,7 @@
     /* width: 100%; */
     margin-left: 10px;
     margin-right: 10px;
+
 }
 
 .navlinks a:hover,
@@ -45,7 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
+    width: 50%;
     padding-right: 30px;
 }
 
@@ -76,7 +77,7 @@ button {
     margin: 20px;
 } */
 
-.logged-in-links  ul {
+.logged-in-links ul {
     display: flex;
     width: 100%;
     align-items: center;
@@ -127,7 +128,8 @@ button {
     /* padding: 5px 10px; */
 }
 
-#nav-tasks:hover, #nav-task-link a:hover {
+#nav-tasks:hover,
+#nav-task-link a:hover {
     /* color: var(--yellow); */
 }
 
