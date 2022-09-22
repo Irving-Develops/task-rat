@@ -9,6 +9,8 @@ function TaskForm() {
   const dispatch = useDispatch()
   const history = useHistory()
 
+  const sessionUser = useSelector(state => state.session.user)
+
   const userId = useSelector((state) => {
     if (state.session.user) {
       return state.session.user.id
@@ -121,19 +123,27 @@ function TaskForm() {
           <img src='https://www.pngkey.com/png/full/152-1529343_fallout-3-vault-boy-png-picture-download-fallout.png' alt="vaultboy"/>
         </div>
         <div className="bubble bubble-bottom-left">
-          {hasSubmitted && errors.length > 0 ? (
-            <ul className='errors'>
-              {errors.map(error => (
-                  <li className='error' key={error}>{error}</li>
-              ))}
-            </ul>
-          )
+          {!sessionUser ?
+            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px', 'color': 'red' }}>Please login to post a new task!</p>
+          :
+            hasSubmitted && errors.length > 0 ? (
+              <ul className='errors'>
+                {errors.map(error => (
+                    <li className='error' key={error}>{error}</li>
+                ))}
+              </ul>
+              )
             :
-            <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
-          }
+              <p style={{ 'fontStyle': 'italic', 'fontSize': '20px' }}>You got a job? We got a body!</p>
+            }
         </div>
       </div>
-        <form onSubmit={handleSubmit} className='step-form'>
+      <form onSubmit={handleSubmit} className='step-form'>
+      {/* {!sessionUser ?
+        <div id='taskform-blocker'></div>
+      :
+        null
+      } */}
         {count === 1 &&
         <div className='input-container'>
           <div>
@@ -142,19 +152,41 @@ function TaskForm() {
               <h4> This helps us show you only qualified* and available Mercs for the job. Don't worry, you can edit this later.</h4>
             </div>
             <div className='input-wrapper'>
-              <input
-                type="text"
-                placeholder="Enter a title for your task."
-                required
-                value={title}
-                onChange={updateTitle} />
-              <textarea
-                className="new-task-description"
-                type="text"
-                placeholder="Please provide a description of the task at hand."
-                required
-                value={description}
-                onChange={updateDescription} />
+              {!sessionUser ?
+                <>
+                  <input
+                    type="text"
+                    placeholder="Login to enter a title for your task!"
+                    required
+                    value={title}
+                    disabled
+                    onChange={updateTitle} />
+                  <textarea
+                    className="new-task-description"
+                    type="text"
+                    placeholder="Login to provide a description of the task at hand!"
+                    required
+                    value={description}
+                    disabled
+                    onChange={updateDescription} />
+                </>
+              :
+                <>
+                  <input
+                    type="text"
+                    placeholder="Enter a title for your task."
+                    required
+                    value={title}
+                    onChange={updateTitle} />
+                  <textarea
+                    className="new-task-description"
+                    type="text"
+                    placeholder="Please provide a description of the task at hand."
+                    required
+                    value={description}
+                    onChange={updateDescription} />
+                  </>
+              }
               <p id='quality'>*quality not guaranteed.</p>
             </div>
           </div>
@@ -165,12 +197,24 @@ function TaskForm() {
               disabled={count < 2}
               className='task-form-buttons disabled'
             >Back</button>
-            <button
-              type='button'
-              onClick={() => setCount(count + 1)}
-              disabled={count > 4}
-              className='task-form-buttons'
-            >Next</button>
+            {!sessionUser ?
+              // null
+              <button
+                type='button'
+                title='Login to post a new task!'
+                id='disabled-task-button'
+                onClick={() => setCount(count + 1)}
+                disabled
+                className='task-form-buttons'
+              >Next</button>
+            :
+              <button
+                type='button'
+                onClick={() => setCount(count + 1)}
+                disabled={count > 4}
+                className='task-form-buttons'
+              >Next</button>
+            }
           </div>
         </div>
         }
@@ -327,11 +371,11 @@ function TaskForm() {
                 </div>
                 <div onClick={() => setCount(4)} className='new-price-content final-screen-content'>
                 <h5>Reward:</h5>
-                  <p>{price}</p>
+                  <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
                 </div>
                 <div onClick={() => setCount(4)} className='new-danger-level-content final-screen-content'>
                   <h5>Danger Level:</h5>
-                  <p>{price} {price ? 'BOTTLE CAPS' : null}</p>
+                    <p>{danger_level}</p>
                 </div>
               </div>
             </div>

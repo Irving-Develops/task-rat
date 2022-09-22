@@ -16,6 +16,7 @@ import HomePage from './components/HomePage/HomePage';
 import TagView from './components/TagView/TagView';
 import AboutMe from './components/AboutMe/AboutMe';
 import PageNotFound from './components/404Page/PageNotFound';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -72,6 +73,7 @@ function App() {
           <PageNotFound/>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

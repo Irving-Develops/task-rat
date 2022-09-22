@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ReviewForm from './ReviewForm';
+import '../Profile/profilereviews.css';
 
 function ReviewFormModal({taskId}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Leave a Review</button>
+      <div className='review-profile-btn-div'>
+       <button className='review-profile-btns' onClick={() => setShowModal(true)}>Leave a Review</button>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm setShowModal={setShowModal} taskId={taskId}/>

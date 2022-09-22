@@ -1,5 +1,11 @@
-#their-tasks-header {
+/* #their-tasks-header {
   background-color: #1c381b;
   color: #14f217;
   border-radius: 15px;
+} */
+
+.new-review-form-input {
+    background-color: #1c381b;
+    color: #14f217;
+    border-radius: 15px;
 }

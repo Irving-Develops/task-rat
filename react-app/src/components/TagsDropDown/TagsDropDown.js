@@ -1,47 +1,55 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function TagsDropDown() {
     const [showDropDown, setShowDropDown] = useState(false)
 
     return (
         <div
+            id='nav-tasks'
             onMouseEnter={() => setShowDropDown(true)}
             onMouseLeave={() => setShowDropDown(false)}
         // style={{ 'maxWidth': '50px' }}
         >
             <NavLink to='/tasks'>Tasks</NavLink>
             {showDropDown &&
-                <div style={{ 'position': 'absolute', 'backgroundColor': 'white', 'border': '1px solid black' }}>
+                <div
+                    id='tag-drop-down-container'
+                    style={{
+                        'position': 'absolute',
+                        // 'top': '55px',
+                        // 'left': '-1px',
+                        'backgroundColor': 'var(--dark-blue)',
+                        'border': '1px solid black' }}>
                     <div>
-                        <NavLink to='/tasks'>All Tasks</NavLink>
+                        <Link className='tags-link' to='/tasks'>All Tasks</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/1'>Guns</NavLink>
+                        <Link className='tags-link' to='/tags/1'>Guns</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/2'>Explosives</NavLink>
+                        <Link to='/tags/2'>Explosives</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/3'>Stealth</NavLink>
+                        <Link to='/tags/3'>Stealth</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/4'>Survival</NavLink>
+                        <Link to='/tags/4'>Survival</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/5'>Medicine</NavLink>
+                        <Link to='/tags/5'>Medicine</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/6'>Repairs</NavLink>
+                        <Link to='/tags/6'>Repairs</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/7'>Pilot</NavLink>
+                        <Link to='/tags/7'>Pilot</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/8'>Hacking</NavLink>
+                        <Link to='/tags/8'>Hacking</Link>
                     </div>
                     <div>
-                        <NavLink to='/tags/9'>Hand-to-Hand</NavLink>
+                        <Link to='/tags/9'>Hand-to-Hand</Link>
                     </div>
                 </div>
             }

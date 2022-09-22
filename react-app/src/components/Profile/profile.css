@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-#btns-div {
+.btns-div {
 
   box-sizing: border-box;
   width: 200px;
@@ -70,6 +70,24 @@
   padding-bottom: 40px;
   margin: auto;
   box-shadow: 0px 30px 70px -0px rgb(46, 49, 66);
+}
+
+.view-profile-btn {
+  width: 300px;
+  display: block;
+  margin: 5px 10px;
+  transition: all .5s ease;
+  color: #063f67;
+  border: 1px solid #063f67;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  outline: none;
+  border-radius: 30px;
 }
 
 .profile-btns {
@@ -171,14 +189,12 @@
 #profile-edit-btn {
   transition: all .5s ease;
   color: #063f67;
-  ;
   border: 1px solid #063f67;
-  ;
   text-align: center;
   line-height: 1;
   font-size: 17px;
   background-color: transparent;
-  padding: 10px;
+  padding: 0px 26px;
   border-radius: 30px;
   height: 40px;
   margin-top: 15%;
@@ -232,6 +248,7 @@
   grid-row: 1 / 2;
   height: 450px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 #pending-task-container {
@@ -239,6 +256,7 @@
   grid-row: 1 / 2;
   height: 450px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 /* profile-current-missions { */
@@ -247,6 +265,7 @@
   grid-row: 1 / 2;
   height: 450px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .title-profile {
@@ -352,6 +371,7 @@
   grid-row: 1 / 2;
   height: 450px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 #profile-reputation {
@@ -360,10 +380,35 @@
 }
 
 .task-scroll-divs {
-  margin: auto 40px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.active {
+.prof-active {
   background-color: #0067b1;
   color: #ffffff;
+}
+
+.prof-active:hover {
+  background-color: #1776bad8;
+}
+
+.information-div {
+  background-color: white;
+  width: 200px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.information-p {
+  margin: 0;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #063f67;
 }

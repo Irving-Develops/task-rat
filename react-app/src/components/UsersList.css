@@ -1,0 +1,79 @@
+.users {
+    border-top: 2px solid var(--dark-blue);
+}
+
+.user-id {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    /* border-bottom: 2px solid rgb(233, 233, 233); */
+    background-color: var(--main-blue);
+    padding: 15px;
+    /* padding-right: 15%; */
+    width: 100%;
+    height: 100px;
+    text-shadow: 0px 0px 8px rgb(4 46 41 / 14%), 0px 0px 4px rgb(7 7 7 / 10%);
+}
+
+.user-name {
+    width: 90%;
+}
+
+.user-name * {
+    padding-right: 15px;
+}
+
+.user-name p:first-child {
+    font-size: 22px;
+    font-family: monospace;
+    width: fit-content
+}
+
+.user-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--main-blue);
+    height: 30%;
+    color: white;
+}
+
+.user-card-wrapper {
+    background-color: rgb(224, 224, 224);
+    margin: 20px;
+    width: 250px;
+    height: 300px;
+}
+
+.user-img {
+    width: 140px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.user-card-img {
+    height: 110px;
+    /* width: 130% */
+    transform: translate(-5%, 0);
+}
+
+.user-card-wrapper  a {
+    color: white;
+    text-decoration: none;
+}
+
+.bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+}

@@ -14,6 +14,7 @@ const NavBar = () => {
     <nav className='navbar-container'>
       <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
       <div className='logo'>
+        {/* <img src='../../../images/rat-logo.png' alt='rat-logo'/> */}
         <span>TaskRat</span>
       </div>
       </NavLink>
@@ -21,17 +22,14 @@ const NavBar = () => {
         <div className='permanent-links'>
           <ul className="navbar-buttons">
             <li><NavLink to='/' exact={true} activeClassName='active'>Home</NavLink></li>
-            <li><TagsDropDown /></li>
-            <li><NavLink to='/about' exact={true} activeClassName='active'>
-              About
-            </NavLink></li>
+            <li id='nav-task-link'><TagsDropDown /></li>
           </ul>
         </div>
         {!sessionUser ?
           <div className='logged-out-links'>
             <ul className="navbar-buttons">
-              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><DemoUser /></li>
+              <li><NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink></li>
               <li><LoginFormModal /></li>
             </ul>
           </div>
@@ -46,7 +44,11 @@ const NavBar = () => {
           </div>
 
         }
-
+            <li>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                About
+              </NavLink>
+            </li>
       </div>
     </nav>
   );

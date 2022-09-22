@@ -9,10 +9,13 @@
 
 .fa-circle-radiation {
     font-size: 35px;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 
-.extremely-dangerous-task {
+  .extremely-dangerous-task {
     text-shadow:
         0 0 7px #fff,
         0 0 15px red,
@@ -23,17 +26,74 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-.tags {
-  display: block;
-  margin-right: 2px;
-  color: rgb(255, 18, 18);
-}
+.card-top {
+    width: 100%;
+    /* height: 200px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 30px;
+    font-family: monospace;
+    text-shadow: 0px 0px 8px rgb(4 46 41 / 14%), 0px 0px 4px rgb(7 7 7 / 10%);
+    /* font-weight: 800; */
+  }
 
-/* Tags */
-.tags-container {
-  margin-left:12px;
+  #icons {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  #icons * {
+    padding-left: 5px;
+  }
+
+  #icons p {
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  #icons div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .posted-by p {
+    margin: 0;
+    /* color: red; */
+    /* margin-left: 5px; */
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    /* text-transform: uppercase; */
+  }
+
+  .claim-task-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  /* Tags */
+  .tags {
+    display: block;
+    margin-right: 3px;
+    /* margin-left: 2px; */
+    color: gray;
+    /* color: rgb(255, 18, 18); */
+  }
+
+  .tags:hover {
+    color: red;
+  }
+
+  .tags-container {
+  /* margin-left:12px; */
   align-items: center;
   -webkit-line-clamp: 1;
   -webkit-box-orient: horizontal;
@@ -44,12 +104,26 @@
   width: 90%;
   overflow:hidden;
   -webkit-box-orient: horizontal;
-  color: red;
+  /* color: red; */
+  color: gray;
   text-decoration: none;
   text-align: justify;
+  /* padding: 5px; */
 }
 
+#single-task-danger-level-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .single-task-danger-level {
   display: flex;
+}
+
+#task-card-tag-underline {
+  width: 100%;
+  height: 2px;
+  /* background-color: black; */
 }

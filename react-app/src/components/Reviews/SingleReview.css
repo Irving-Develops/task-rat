@@ -16,3 +16,12 @@
   border-radius: 15px;
   margin: 5px;
 }
+
+.view-task {
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+.view-task:hover {
+  text-decoration: underline;
+}

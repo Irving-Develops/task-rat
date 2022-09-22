@@ -46,6 +46,20 @@
   color: #063f67;
 }
 
+.review-profile-btn-div {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.profile-task-card-container .review-edit-btn-div {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .review-profile-btns {
   margin: 5px 10px;
   transition: all .5s ease;
@@ -59,6 +73,7 @@
   outline: none;
   border-radius: 30px;
   height: 40px;
+  width: 160px;
 }
 
 .review-profile-btns:hover {

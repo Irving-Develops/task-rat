@@ -92,7 +92,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
   return (
     <>
       <div id="edit-form-container">
-        <form onSubmit={handleSubmit}>
+        <form className="edit-task-form" onSubmit={handleSubmit}>
           {errors.length > 0 && (
             <div className='errors-container'>
               The following errors were found:
@@ -103,7 +103,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
               </ul>
             </div>
           )}
-          <p>
+          <p className="edit-task-p">
             <label>Title</label>
             <input
               className="edit-task-form-input"
@@ -113,17 +113,20 @@ const EditTaskForm = ({ task, setShowModal}) => {
               value={title}
               onChange={updateTitle} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>Description</label>
-            <input
+            <textarea
+              rows='6'
+              cols='23'
               className="edit-task-form-input"
+              id='textarea'
               type="text"
               placeholder="Description"
               required
               value={description}
               onChange={updateDescription} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>City</label>
             <input
               className="edit-task-form-input"
@@ -133,7 +136,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
               value={city}
               onChange={updateCity} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>State</label>
             <input
               className="edit-task-form-input"
@@ -143,7 +146,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
               value={state}
               onChange={updateState} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>Country</label>
             <input
               className="edit-task-form-input"
@@ -153,7 +156,7 @@ const EditTaskForm = ({ task, setShowModal}) => {
               value={country}
               onChange={updateCountry} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>Price</label>
             <input
               className="edit-task-form-input"
@@ -163,9 +166,9 @@ const EditTaskForm = ({ task, setShowModal}) => {
               value={price}
               onChange={updatePrice} />
           </p>
-          <p>
+          <p className="edit-task-p">
             <label>Danger Level</label>
-            <select onChange={updateDangerLevel}>
+            <select className="new-review-form-input" onChange={updateDangerLevel}>
               <option value="1"> 1 </option>
               <option value="2"> 2 </option>
               <option value="3"> 3 </option>
@@ -173,91 +176,102 @@ const EditTaskForm = ({ task, setShowModal}) => {
               <option value="5"> 5 </option>
             </select>
           </p>
-          <h4>Skills Needed:</h4>
-          <p></p>
-          <label>Guns: </label>
-          <input
-            type='checkbox'
-            name='guns'
-            value='1'
-            checked={tags.includes("1")}
-            onChange={(e) => updateTags(e)}
-          ></input>
-          <p></p>
-          <label>Explosives: </label>
-          <input
-            type='checkbox'
-            name='explosives'
-            value='2'
-            checked={tags.includes("2")}
-            onChange={(e) => updateTags(e)}
-          ></input>
-          <p></p>
-          <label>Stealth: </label>
-          <input
-            type='checkbox'
-            name='stealth'
-            value='3'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("3")}
-          ></input>
-          <p></p>
-          <label>Survival: </label>
-          <input
-            type='checkbox'
-            name='survival'
-            value='4'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("4")}
-          ></input>
-          <p></p>
-          <label>Medicine: </label>
-          <input
-            type='checkbox'
-            name='medicine'
-            value='5'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("5")}
-          ></input>
-          <p></p>
-          <label>Repairs: </label>
-          <input
-            type='checkbox'
-            name='repairs'
-            value='6'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("6")}
-          ></input>
-          <p></p>
-          <label>Pilot: </label>
-          <input
-            type='checkbox'
-            name='pilot'
-            value='7'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("7")}
-          ></input>
-          <p></p>
-          <label>Hacking: </label>
-          <input
-            type='checkbox'
-            name='hacking'
-            value='8'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("8")}
-          ></input>
-          <p></p>
-          <label>Hand-to-Hand: </label>
-          <input
-            type='checkbox'
-            name='hand-to-hand'
-            value='9'
-            onChange={(e) => updateTags(e)}
-          checked={tags.includes("9")}
-          ></input>
+          <h4 className="skills-needed">Skills Needed:</h4>
+          <div className="skills-div">
+            <p className="edit-task-p">
+              <label>Guns: </label>
+              <input
+                type='checkbox'
+                name='guns'
+                value='1'
+                checked={tags.includes("1")}
+                onChange={(e) => updateTags(e)}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Explosives: </label>
+              <input
+                type='checkbox'
+                name='explosives'
+                value='2'
+                checked={tags.includes("2")}
+                onChange={(e) => updateTags(e)}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Stealth: </label>
+              <input
+                type='checkbox'
+                name='stealth'
+                value='3'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("3")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Survival: </label>
+              <input
+                type='checkbox'
+                name='survival'
+                value='4'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("4")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Medicine: </label>
+              <input
+                type='checkbox'
+                name='medicine'
+                value='5'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("5")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Repairs: </label>
+              <input
+                type='checkbox'
+                name='repairs'
+                value='6'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("6")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Pilot: </label>
+              <input
+                type='checkbox'
+                name='pilot'
+                value='7'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("7")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Hacking: </label>
+              <input
+                type='checkbox'
+                name='hacking'
+                value='8'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("8")}
+              ></input>
+            </p>
+            <p className="edit-task-p">
+              <label>Hand-to-Hand: </label>
+              <input
+                type='checkbox'
+                name='hand-to-hand'
+                value='9'
+                onChange={(e) => updateTags(e)}
+                checked={tags.includes("9")}
+              ></input>
+            </p>
+          </div>
           <div id="edit-task-form-buttons">
-            <button className="edit-review-form-btn" type="submit" id="taskFormSubmitButton"> Submit</button>
-            <button className="edit-review-form-btn" type='button' onClick={() => setShowModal(false)}>Cancel</button>
+            <button className="review-form-btn" type="submit" id="taskFormSubmitButton"> Submit</button>
+            <button className="review-form-btn" type='button' onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </form>
       </div>
