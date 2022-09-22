@@ -7,17 +7,21 @@ import TagsDropDown from '../TagsDropDown/TagsDropDown';
 import LoginFormModal from '../auth/LoginFormModal';
 import DemoUser from '../auth/DemoUser';
 import './NavBar.css'
+import SearchBar from '../SearchBar/SearchBar';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const tasks = useSelector(state => state.tasks)
+  console.log(tasks)
   return (
     <nav className='navbar-container'>
       <NavLink style={{ borderStyle: 'none' }} to='/' exact={true}>
-      <div className='logo'>
-        {/* <img src='../../../images/rat-logo.png' alt='rat-logo'/> */}
-        <span>TaskRat</span>
-      </div>
+        <div className='logo'>
+          {/* <img src='../../../images/rat-logo.png' alt='rat-logo'/> */}
+          <span>TaskRat</span>
+        </div>
       </NavLink>
+      <SearchBar placeholder="Find a task" data={tasks} />
       <div className='navlinks'>
         <div className='permanent-links'>
           <ul className="navbar-buttons">
@@ -44,11 +48,11 @@ const NavBar = () => {
           </div>
 
         }
-            <li>
-              <NavLink to='/about' exact={true} activeClassName='active'>
-                About
-              </NavLink>
-            </li>
+        <li>
+          <NavLink to='/about' exact={true} activeClassName='active'>
+            About
+          </NavLink>
+        </li>
       </div>
     </nav>
   );

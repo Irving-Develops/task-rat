@@ -1,0 +1,87 @@
+.searchInputs {
+  display: flex;
+}
+
+.searchInputs>button {
+  height: 52px;
+  width: 52px;
+  margin: 0px;
+}
+
+.search input {
+  background-color: white;
+  border: lightgray 1px solid;
+  border-radius: 2px;
+  font-size: 20pt;
+  padding: 15px;
+  height: 20px;
+  width: 300px;
+}
+
+/* .searchInputField {
+  background-color: transparent;
+  padding: 15px;
+  border: lightgray solid 1px;
+  width: fit-content;
+} */
+
+.searchResult {
+  position: absolute;
+  /* margin-top: 50px; */
+  width: 40%;
+  height: auto;
+  background-color: var(--dark-blue);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 3;
+}
+
+.searchResult::-webkit-scrollbar {
+  display: none;
+}
+
+
+.searchResult .searchItem {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  color: var(--yellow)
+}
+
+.searchItem {
+  text-decoration: none;
+  /* padding: 5px; */
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow-y: hidden;
+}
+
+.searchItem>span {
+  padding: 0px;
+}
+
+.searchItem:hover {
+  background-color: var(--main-blue)
+}
+
+.searchIcon {
+  /* border: lightgray solid 1px; */
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+#search-clear-button {
+  background-color: white;
+  border: lightgray 1px solid;
+  cursor: pointer;
+}
+
+.searchInputs,
+#search-clear-button {
+  padding: 10px;
+}
