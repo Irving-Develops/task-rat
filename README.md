@@ -3,7 +3,7 @@
 
 #### *Inspired by the [Fallout](https://en.wikipedia.org/wiki/Fallout_(series)) series, Taskrat allows users to live out their wasteland fantasy. Pick up tasks and complete them to earn bottlecaps, or, if those mutant hounds are too much for you to handle on your own, post your own task! Once you complete a task, be sure to leave a review. Check out other users' profiles to see their reviews and decide if you want to work with them.*
 
-### Check out the live site [here](https://taskrat.herokuapp.com/about)!
+### Check out the live site [here](https://task-rat.herokuapp.com/)!
 
 ## Technologies used
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
