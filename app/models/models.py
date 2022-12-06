@@ -1,4 +1,4 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -6,12 +6,14 @@ from flask_login import UserMixin
 task_tags = db.Table(
   "task_tags",
   db.Model.metadata,
-  db.Column("tag_id", db.Integer, db.ForeignKey("tags.id"), primary_key=True),
-  db.Column("task_id", db.Integer, db.ForeignKey("tasks.id"), primary_key=True),
+  db.Column("tag_id", db.Integer, db.ForeignKey(add_prefix_for_prod("tags.id")), primary_key=True),
+  db.Column("task_id", db.Integer, db.ForeignKey(add_prefix_for_prod("tasks.id")), primary_key=True),
 )
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
@@ -58,6 +60,8 @@ class User(db.Model, UserMixin):
 
 class Task(db.Model):
   __tablename__ = "tasks"
+  if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(50), nullable=False)
@@ -66,7 +70,7 @@ class Task(db.Model):
   state = db.Column(db.String(50), nullable=False)
   country = db.Column(db.String(50), nullable=False)
   price = db.Column(db.Integer, nullable=False)
-  poster_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+  poster_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
   danger_level = db.Column(db.Integer, nullable=False)
   available = db.Column(db.Boolean, nullable=False, default=True)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
@@ -110,12 +114,14 @@ class Task(db.Model):
 
 class Review(db.Model):
   __tablename__ = "reviews"
+  if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
   rating = db.Column(db.Integer, nullable=False)
   comment = db.Column(db.String(500), nullable=False)
-  tasker_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-  task_id = db.Column(db.Integer, db.ForeignKey("tasks.id"), nullable=False)
+  tasker_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+  task_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tasks.id")), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
   #relationships
@@ -135,6 +141,8 @@ class Review(db.Model):
 
 class Tag(db.Model):
   __tablename__ = "tags"
+  if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
   type = db.Column(db.String(50), nullable=False)
@@ -153,11 +161,13 @@ class Tag(db.Model):
 
 class Booking(db.Model):
   __tablename__ = 'bookings'
+  if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
   completed = db.Column(db.Boolean, nullable=False, default=False)
-  tasker_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  task_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
+  tasker_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+  task_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('tasks.id')), nullable=False)
 
   #relationships
   tasker = db.relationship('User', back_populates='bookings')
